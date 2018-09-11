@@ -15,7 +15,7 @@ const compilerOption = {
   }
 }
 
-const whiteList = /(demo|vant-css|test|\.md)$/
+const whiteList = /(\.md)$/
 
 // clear dir
 fs.emptyDirSync(esDir)
