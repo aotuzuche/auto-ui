@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.x-panel {
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  &__header {
+    margin: -30px -30px 0 -30px;
+    border-bottom: 1px solid #e6e6e6; /*no*/
+    padding: 30px;
+  }
+
+  &__body {
+    margin: 0 -30px;
+    padding: 0 30px;
+  }
+
+  &__footer {
+    margin: 0 -30px -30px -30px;
+    border-top: 1px solid #e6e6e6; /*no*/
+    padding: 30px;
+  }
+}

@@ -1,0 +1,17 @@
+.x-panel {
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 10px; }
+  .x-panel__header {
+    margin: -30px -30px 0 -30px;
+    border-bottom: 1px solid #e6e6e6;
+    /*no*/
+    padding: 30px; }
+  .x-panel__body {
+    margin: 0 -30px;
+    padding: 0 30px; }
+  .x-panel__footer {
+    margin: 0 -30px -30px -30px;
+    border-top: 1px solid #e6e6e6;
+    /*no*/
+    padding: 30px; }

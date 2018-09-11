@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+.x-select {
+  position: relative;
+  -webkit-box-flex: 1;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  &__placeholder {
+    color: #b4b4b4;
+    font-size: 30px;
+  }
+  &__value {
+    color: #333;
+    font-size: 30px;
+  }
+  select {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+  }
+}

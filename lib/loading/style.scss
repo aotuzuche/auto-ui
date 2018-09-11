@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+.x-loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 99995;
+  background: rgba(255, 255, 255, 0.5);
+
+  .x-loading__spin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    &_path {
+      stroke-width: 2px; /*no*/
+    }
+  }
+
+  .x-loading__inner {
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    padding-top: 100px;
+    p {
+      font-size: 24px;
+      color: #00bb44;
+    }
+  }
+
+  &--show {
+    .x-loading__inner {
+      opacity: 1;
+    }
+  }
+}

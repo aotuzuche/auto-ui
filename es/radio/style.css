@@ -1,0 +1,33 @@
+.x-radio {
+  display: flex;
+  align-items: center; }
+  .x-radio__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eee;
+    overflow: hidden;
+    transition: all 0.1s ease-out; }
+  .x-radio__tick {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url("./icon-checked.png") center no-repeat;
+    background-size: 50%;
+    transform: translate(0, -100%);
+    transition: all 0.2s ease-out; }
+  .x-radio__text {
+    display: block;
+    font-size: 26px;
+    color: #888;
+    margin-left: 10px; }
+  .x-radio__checked .x-radio__icon {
+    background: #00bb44; }
+  .x-radio__checked .x-radio__tick {
+    transform: translate(0, 0); }
+  .x-radio__checked .x-radio__text {
+    color: #333; }
+  .x-radio__disabled .x-radio__text {
+    color: #bbb; }
