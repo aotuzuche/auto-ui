@@ -1,30 +1,16 @@
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-require("./style");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
-
-var _a = _interopRequireDefault(require("../a"));
+import _extends from "@babel/runtime/helpers/esm/extends";
+import './style';
+import React, { cloneElement } from 'react';
+import cn from 'classnames';
+import ignore from '../__libs/ignoreProps';
+import A from '../a';
 
 var TabsItem = function TabsItem(props) {
-  var css = (0, _classnames.default)('x-tabs__item', {
+  var css = cn('x-tabs__item', {
     'x-tabs--active': props.active
   }, props.className);
-  var domprops = (0, _ignoreProps.default)(props, ['active', 'value', 'onClick']);
-  return _react.default.createElement(_a.default, (0, _extends2.default)({}, domprops, {
+  var domprops = ignore(props, ['active', 'value', 'onClick']);
+  return React.createElement(A, _extends({}, domprops, {
     href: "javascript:;",
     className: css,
     onClick: function onClick() {
@@ -34,7 +20,7 @@ var TabsItem = function TabsItem(props) {
 };
 
 var Tabs = function Tabs(props) {
-  var css = (0, _classnames.default)('x-tabs', props.className);
+  var css = cn('x-tabs', props.className);
   var activeOffset = -2;
   var children = props.children;
 
@@ -53,7 +39,7 @@ var Tabs = function Tabs(props) {
       activeOffset = index;
     }
 
-    return (0, _react.cloneElement)(res, {
+    return cloneElement(res, {
       active: act,
       key: index,
       value: res.props.value,
@@ -61,10 +47,10 @@ var Tabs = function Tabs(props) {
     });
   });
   var len = children.length;
-  var domprops = (0, _ignoreProps.default)(props, ['active', 'onClick']);
-  return _react.default.createElement("div", (0, _extends2.default)({}, domprops, {
+  var domprops = ignore(props, ['active', 'onClick']);
+  return React.createElement("div", _extends({}, domprops, {
     className: css
-  }), _react.default.createElement("sub", {
+  }), React.createElement("sub", {
     className: "x-tabs__line",
     style: {
       width: 100 / len + '%',
@@ -74,5 +60,4 @@ var Tabs = function Tabs(props) {
 };
 
 Tabs.Item = TabsItem;
-var _default = Tabs;
-exports.default = _default;
+export default Tabs;

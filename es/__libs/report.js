@@ -1,8 +1,3 @@
-"use strict";
-
-exports.__esModule = true;
-exports.default = void 0;
-
 function report(data, url) {
   if (!data) {
     return;
@@ -29,5 +24,4 @@ function report(data, url) {
   image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
 }
 
-var _default = report;
-exports.default = _default;
+export default report;

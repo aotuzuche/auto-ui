@@ -1,32 +1,16 @@
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
-require("./style");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _reactDom = require("react-dom");
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
-
-var _modal = _interopRequireDefault(require("../modal"));
+import _extends from "@babel/runtime/helpers/esm/extends";
+import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
+import './style';
+import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
+import cn from 'classnames';
+import ignore from '../__libs/ignoreProps';
+import Modal from '../modal';
 
 var Dialog =
 /*#__PURE__*/
 function (_PureComponent) {
-  (0, _inheritsLoose2.default)(Dialog, _PureComponent);
+  _inheritsLoose(Dialog, _PureComponent);
 
   function Dialog() {
     return _PureComponent.apply(this, arguments) || this;
@@ -48,39 +32,38 @@ function (_PureComponent) {
   };
 
   _proto._content = function _content() {
-    var css = (0, _classnames.default)('x-dialog', this.props.className);
-    var domprops = (0, _ignoreProps.default)(this.props, ['onBgClick', 'visible', 'height']);
-    return _react.default.createElement(_modal.default, (0, _extends2.default)({}, domprops, {
+    var css = cn('x-dialog', this.props.className);
+    var domprops = ignore(this.props, ['onBgClick', 'visible', 'height']);
+    return React.createElement(Modal, _extends({}, domprops, {
       visible: this.props.visible,
       height: this.props.height,
       onBgClick: this.props.onBgClick,
       className: css
-    }), _react.default.createElement("div", {
+    }), React.createElement("div", {
       className: "x-dialog__inner"
     }, this.props.children));
   };
 
   _proto.render = function render() {
     if (this._container) {
-      return (0, _reactDom.createPortal)(this._content(), this._container);
+      return createPortal(this._content(), this._container);
     }
 
     return null;
   };
 
   return Dialog;
-}(_react.PureComponent);
+}(PureComponent);
 
 var Scroller = function Scroller(props) {
-  var css = (0, _classnames.default)('x-dialog__scroller', props.className);
-  var domprops = (0, _ignoreProps.default)(props, []);
-  return _react.default.createElement("div", (0, _extends2.default)({}, domprops, {
+  var css = cn('x-dialog__scroller', props.className);
+  var domprops = ignore(props, []);
+  return React.createElement("div", _extends({}, domprops, {
     className: css
-  }), _react.default.createElement("div", {
+  }), React.createElement("div", {
     className: "x-dialog__inscroller"
   }, props.children));
 };
 
 Dialog.Scroller = Scroller;
-var _default = Dialog;
-exports.default = _default;
+export default Dialog;

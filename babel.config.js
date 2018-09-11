@@ -10,7 +10,7 @@ module.exports = function(api) {
         '@babel/preset-env',
         {
           loose: true,
-          modules: 'commonjs'
+          modules: useESModules ? false : 'commonjs'
         }
       ]
     ],
@@ -20,7 +20,8 @@ module.exports = function(api) {
         {
           corejs: false,
           helpers: true,
-          regenerator: false
+          regenerator: false,
+          useESModules
         }
       ],
       '@babel/plugin-syntax-dynamic-import',

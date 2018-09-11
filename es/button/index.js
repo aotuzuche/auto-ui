@@ -1,27 +1,14 @@
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-require("./style");
-
-var _react = _interopRequireDefault(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _spin = _interopRequireDefault(require("../spin"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
-
-var _a = _interopRequireDefault(require("../a"));
+import _extends from "@babel/runtime/helpers/esm/extends";
+import './style';
+import React from 'react';
+import cn from 'classnames';
+import Spin from '../spin';
+import ignore from '../__libs/ignoreProps';
+import A from '../a';
 
 var Button = function Button(props) {
   var type = props.type ? props.type : 'primary';
-  var css = (0, _classnames.default)('x-button', {
+  var css = cn('x-button', {
     'x-button--disabled': props.disabled || props.loading,
     'x-button--mini': props.mini
   }, 'x-button--' + type, props.className);
@@ -45,15 +32,15 @@ var Button = function Button(props) {
       fChildren.push(i);
     }
   });
-  var domprops = (0, _ignoreProps.default)(props, ['type', 'disabled', 'mini', 'loading', 'onClick']);
-  return _react.default.createElement(_a.default, (0, _extends2.default)({}, domprops, {
+  var domprops = ignore(props, ['type', 'disabled', 'mini', 'loading', 'onClick']);
+  return React.createElement(A, _extends({}, domprops, {
     className: css,
     onClick: props.onClick
-  }), props.loading ? _react.default.createElement(_spin.default, {
+  }), props.loading ? React.createElement(Spin, {
     className: "x-button__loading"
   }) : null, fChildren.map(function (res, i) {
     if (typeof res !== 'object') {
-      return _react.default.createElement("p", {
+      return React.createElement("p", {
         className: "x-button__text",
         key: i
       }, res);
@@ -63,5 +50,4 @@ var Button = function Button(props) {
   }));
 };
 
-var _default = Button;
-exports.default = _default;
+export default Button;

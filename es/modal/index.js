@@ -1,38 +1,23 @@
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-require("./style");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
+import _extends from "@babel/runtime/helpers/esm/extends";
+import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
+import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitialized";
+import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import './style';
+import React, { Component } from 'react';
+import cn from 'classnames';
+import ignore from '../__libs/ignoreProps';
 
 var Modal =
 /*#__PURE__*/
 function (_Component) {
-  (0, _inheritsLoose2.default)(Modal, _Component);
+  _inheritsLoose(Modal, _Component);
 
   function Modal(props) {
     var _this;
 
     _this = _Component.call(this, props) || this;
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "_onAnimationEnd", function (e) {
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_onAnimationEnd", function (e) {
       if (_this.state.ani !== 'leave') {
         return;
       }
@@ -42,6 +27,7 @@ function (_Component) {
         visible: false
       });
     });
+
     _this.state = {
       visible: false,
       ani: 'init'
@@ -90,23 +76,23 @@ function (_Component) {
   };
 
   _proto.render = function render() {
-    var css = (0, _classnames.default)('x-modal', "x-modal--" + this.state.ani, this.props.className);
-    var domprops = (0, _ignoreProps.default)(this.props, ['onBgClick', 'height', 'visible']);
+    var css = cn('x-modal', "x-modal--" + this.state.ani, this.props.className);
+    var domprops = ignore(this.props, ['onBgClick', 'height', 'visible']);
     var height = this.props.height ? this.props.height : '';
 
     if (height && !isNaN(height - 0)) {
       height = height + '%';
     }
 
-    return _react.default.createElement("div", (0, _extends2.default)({}, domprops, {
+    return React.createElement("div", _extends({}, domprops, {
       className: css,
       style: {
         display: this.state.visible ? '' : 'none'
       }
-    }), _react.default.createElement("div", {
+    }), React.createElement("div", {
       className: "x-modal__bg",
       onClick: this.props.onBgClick
-    }), _react.default.createElement("div", {
+    }), React.createElement("div", {
       className: "x-modal__inner",
       style: {
         height: height
@@ -116,7 +102,6 @@ function (_Component) {
   };
 
   return Modal;
-}(_react.Component);
+}(Component);
 
-var _default = Modal;
-exports.default = _default;
+export default Modal;

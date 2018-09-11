@@ -1,13 +1,5 @@
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-require("./style");
+import _extends from "@babel/runtime/helpers/esm/extends";
+import './style';
 
 var Alert =
 /*#__PURE__*/
@@ -156,10 +148,9 @@ var AwaitAlert = function AwaitAlert(props) {
       };
     }
 
-    Alert.show((0, _extends2.default)({}, props, fns));
+    Alert.show(_extends({}, props, fns));
   });
 };
 
 Alert.await = AwaitAlert;
-var _default = Alert;
-exports.default = _default;
+export default Alert;

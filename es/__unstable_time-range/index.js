@@ -1,36 +1,22 @@
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-require("./style");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _timePicker = _interopRequireDefault(require("../time-picker"));
+import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
+import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitialized";
+import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import './style';
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import TimePicker from '../time-picker';
 
 var TimeRange =
 /*#__PURE__*/
 function (_Component) {
-  (0, _inheritsLoose2.default)(TimeRange, _Component);
+  _inheritsLoose(TimeRange, _Component);
 
   function TimeRange(props) {
     var _this;
 
     _this = _Component.call(this, props) || this;
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "onChange", function (t) {
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (t) {
       var range;
 
       if (_this.state.current === 0) {
@@ -41,6 +27,7 @@ function (_Component) {
 
       _this.props.onChange && _this.props.onChange(range);
     });
+
     _this.state = {
       current: 1
     };
@@ -160,13 +147,13 @@ function (_Component) {
   _proto.render = function render() {
     var _this4 = this;
 
-    return _react.default.createElement("div", {
-      className: (0, _classnames.default)('x-time-range', this.props.className)
-    }, _react.default.createElement("div", {
-      className: (0, _classnames.default)('x-time-range__1', {
+    return React.createElement("div", {
+      className: classNames('x-time-range', this.props.className)
+    }, React.createElement("div", {
+      className: classNames('x-time-range__1', {
         visible: this.state.current === 1
       })
-    }, _react.default.createElement(_timePicker.default, {
+    }, React.createElement(TimePicker, {
       data: this.state.dataA,
       format: this.props.format,
       interval: this.props.interval,
@@ -175,11 +162,11 @@ function (_Component) {
         _this4.tpA = e;
       },
       onChange: this.onChange
-    })), _react.default.createElement("div", {
-      className: (0, _classnames.default)('x-time-range__2', {
+    })), React.createElement("div", {
+      className: classNames('x-time-range__2', {
         visible: this.state.current === 2
       })
-    }, _react.default.createElement(_timePicker.default, {
+    }, React.createElement(TimePicker, {
       data: this.state.dataB,
       format: this.props.format,
       interval: this.props.interval,
@@ -192,7 +179,6 @@ function (_Component) {
   };
 
   return TimeRange;
-}(_react.Component);
+}(Component);
 
-var _default = TimeRange;
-exports.default = _default;
+export default TimeRange;

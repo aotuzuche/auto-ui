@@ -1,8 +1,3 @@
-"use strict";
-
-exports.__esModule = true;
-exports.default = void 0;
-
 function isType(target, type) {
   var targetType = {}.toString.call(target).toLowerCase();
   type = ("[object " + type + "]").toLowerCase();
@@ -36,5 +31,4 @@ function ignore(target, rule) {
   return resObject;
 }
 
-var _default = ignore;
-exports.default = _default;
+export default ignore;

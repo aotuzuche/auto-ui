@@ -1,25 +1,14 @@
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _report = _interopRequireDefault(require("../__libs/report"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
+import _extends from "@babel/runtime/helpers/esm/extends";
+import _asyncToGenerator from "@babel/runtime/helpers/esm/asyncToGenerator";
+import React from 'react';
+import report from '../__libs/report';
+import ignore from '../__libs/ignoreProps';
 
 var A = function A(props) {
   var onClick =
   /*#__PURE__*/
   function () {
-    var _ref = (0, _asyncToGenerator2.default)(
+    var _ref = _asyncToGenerator(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee(e) {
       return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -41,7 +30,7 @@ var A = function A(props) {
 
             case 4:
               if (props.report) {
-                (0, _report.default)(props.report);
+                report(props.report);
               }
 
               _context.next = 9;
@@ -49,7 +38,7 @@ var A = function A(props) {
 
             case 7:
               if (props.report) {
-                (0, _report.default)(props.report);
+                report(props.report);
               }
 
               if (props.onClick) {
@@ -69,14 +58,13 @@ var A = function A(props) {
     };
   }();
 
-  var domprops = (0, _ignoreProps.default)(props, ['defer', 'onClick', 'report']);
+  var domprops = ignore(props, ['defer', 'onClick', 'report']);
   domprops.className = props.className;
-  return _react.default.createElement("a", (0, _extends2.default)({
+  return React.createElement("a", _extends({
     href: "javascript:;"
   }, domprops, {
     onClick: onClick
   }), props.children);
 };
 
-var _default = A;
-exports.default = _default;
+export default A;

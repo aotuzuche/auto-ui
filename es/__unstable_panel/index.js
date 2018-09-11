@@ -1,26 +1,17 @@
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-require("./style");
-
-var _react = _interopRequireDefault(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
+import './style';
+import React from 'react';
+import cn from 'classnames';
 
 var Panel = function Panel(props) {
-  var css = (0, _classnames.default)('x-panel', props.className);
-  return _react.default.createElement("div", {
+  var css = cn('x-panel', props.className);
+  return React.createElement("div", {
     className: css
   }, props.children);
 };
 
 Panel.Header = function (props) {
-  var css = (0, _classnames.default)('x-panel__header', props.className);
-  return _react.default.createElement("div", {
+  var css = cn('x-panel__header', props.className);
+  return React.createElement("div", {
     className: css
   }, props.children);
 };
@@ -28,8 +19,8 @@ Panel.Header = function (props) {
 Panel.Header.displayName = 'Panel.Header';
 
 Panel.Body = function (props) {
-  var css = (0, _classnames.default)('x-panel__body', props.className);
-  return _react.default.createElement("div", {
+  var css = cn('x-panel__body', props.className);
+  return React.createElement("div", {
     className: css
   }, props.children);
 };
@@ -37,12 +28,11 @@ Panel.Body = function (props) {
 Panel.Body.displayName = 'Panel.Body';
 
 Panel.Footer = function (props) {
-  var css = (0, _classnames.default)('x-panel__footer', props.className);
-  return _react.default.createElement("div", {
+  var css = cn('x-panel__footer', props.className);
+  return React.createElement("div", {
     className: css
   }, props.children);
 };
 
 Panel.Footer.displayName = 'Panel.Footer';
-var _default = Panel;
-exports.default = _default;
+export default Panel;
