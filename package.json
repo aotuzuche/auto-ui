@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production PACKAGE=production node build/build.js"
+    "build": "cross-env NODE_ENV=production PACKAGE=production node build/build.js",
+    "release": "sh build/release.sh"
   },
   "repository": "git@github.com:shaodahong/auto-ui.git",
   "author": "shaodahong <337097324@qq.com>",
