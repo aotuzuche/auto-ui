@@ -44,13 +44,13 @@ function compile(dir, jsOnly = false) {
         absolutePath,
         compilerOption.babel
       )
-      const outputJsPath = absolutePath.replace('.jsx', '.js');
+      const outputJsPath = absolutePath.replace('.jsx', '.js')
       fs.outputFileSync(outputJsPath, code)
     } else if (/\.scss$/.test(file)) {
       const result = sass.renderSync({
         file: absolutePath
       })
-      const outputCssPath = absolutePath.replace('.scss', '.css');
+      const outputCssPath = absolutePath.replace('.scss', '.css')
       fs.outputFileSync(outputCssPath, result.css)
     }
   })

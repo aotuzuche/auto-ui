@@ -4,7 +4,71 @@ body {
   font-family: Helvetica;
 }
 
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -14,7 +78,14 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
   background: transparent;
 }
 
-article, aside, figure, footer, header, hgroup, nav, section {
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
   display: block;
 }
 
@@ -25,7 +96,8 @@ body {
 
 /* we use a lot of ULs that aren't bulleted.
 	don't forget to restore the bullets within content. */
-ul, menu {
+ul,
+menu {
   list-style: none;
 }
 
@@ -58,8 +130,9 @@ td {
 }
 
 /* let's clear some floats */
-.clearfix:before, .clearfix:after {
-  content: "\0020";
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
   display: block;
   height: 0;
   overflow: hidden;
@@ -75,7 +148,7 @@ td {
 
 /* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
 body {
-  font-size: 0.3rem;
+  font-size: 16px;
   color: #333;
   line-height: 1.5;
 }
@@ -104,7 +177,9 @@ a:active {
 }
 
 /* 切换盒模型 */
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }

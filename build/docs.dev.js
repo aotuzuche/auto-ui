@@ -14,11 +14,11 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    app: resolve('example/index.js')
+    app: resolve('docs/src/index.jsx')
   },
 
   output: {
-    path: resolve('dist'),
+    path: resolve('docs/dist'),
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].js',
     publicPath: '/'
@@ -28,9 +28,23 @@ module.exports = {
     rules: [
       {
         test: /\.js[x]?$/,
+        use: ['babel-loader', 'eslint-loader'],
+        exclude: ['/node_modules/']
+      },
+      {
+        test: /\.md$/,
         use: [
-          'babel-loader?cacheDirectory',
-          'eslint-loader'
+          'babel-loader',
+          {
+            loader: 'markdown-it-react-loader',
+            options: {
+              markdownItReact: function() {
+                return {
+                  className: 'doc' // 默认也是doc
+                }
+              }
+            }
+          }
         ],
         exclude: ['/node_modules/']
       },
@@ -62,15 +76,10 @@ module.exports = {
 
     // 提取html模板
     new HtmlWebpackPlugin({
-      template: 'example/index.html',
+      template: 'docs/src/index.html',
       filename: 'index.html',
-      inject: 'body', // 所有javascript资源将被注入至body底部
-      minify: {
-        removeComments: true, // 删除注释
-        collapseWhitespace: true, // 压缩成一行
-        removeAttributeQuotes: false // 删除引号
-      },
-      chunksSortMode: 'dependency' // 按照不同文件的依赖关系来排序
+      inject: 'body',
+      chunksSortMode: 'dependency'
     }),
 
     new FriendlyErrorsWebpackPlugin({
@@ -87,6 +96,14 @@ module.exports = {
       }
     })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.md', '.scss', '.css'],
+    alias: {
+      'auto-ui': resolve('packages'),
+      'src': resolve('docs/src'),
+      '@': resolve('')
+    }
+  },
   devServer: {
     contentBase: __dirname,
     historyApiFallback: true,

@@ -1,6 +1,6 @@
-// import React from 'react'
-// import report from '../__libs/report'
-// import ignore from '../__libs/ignoreProps'
+import React from 'react'
+import report from '../__libs/report'
+import ignore from '../__libs/ignoreProps'
 
 
 const A = props => {
@@ -10,12 +10,12 @@ const A = props => {
         await props.onClick(e)
       }
       if (props.report) {
-        // report(props.report)
+        report(props.report)
       }
     }
     else {
       if (props.report) {
-        // report(props.report)
+        report(props.report)
       }
       if (props.onClick) {
         props.onClick(e)
@@ -23,15 +23,15 @@ const A = props => {
     }
   }
 
-  // const domprops = ignore(props, [
-  //   'defer',
-  //   'onClick',
-  //   'report',
-  // ])
-  // domprops.className = props.className
+  const domprops = ignore(props, [
+    'defer',
+    'onClick',
+    'report',
+  ])
+  domprops.className = props.className
 
   return (
-    <a href="javascript:;" onClick={onClick}>{props.children}</a>
+    <a href="javascript:;" {...domprops} onClick={onClick}>{props.children}</a>
   )
 }
 

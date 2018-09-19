@@ -1,6 +1,10 @@
 module.exports = function(api) {
   const { BABEL_MODULE, NODE_ENV } = process.env
-  const useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'test'
+  const isDev = NODE_ENV === 'development'
+
+  let useESModules = false
+
+  useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'development'
 
   api && api.cache(false)
   return {
@@ -20,7 +24,7 @@ module.exports = function(api) {
         {
           corejs: false,
           helpers: true,
-          regenerator: false,
+          regenerator: isDev,
           useESModules
         }
       ],
