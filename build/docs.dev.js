@@ -36,7 +36,7 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: 'markdown-it-react-loader',
+            loader: './build/lib/markdown-loader.js',
             options: {
               markdownItReact: function() {
                 return {

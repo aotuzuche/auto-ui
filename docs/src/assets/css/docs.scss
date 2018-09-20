@@ -1,0 +1,145 @@
+$codeBgColor: #282c34;
+$mainC: #0b4;
+$mainFontColor: #777;
+
+.doc {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  a {
+    font-weight: 500;
+    color: $mainC;
+    text-decoration: none;
+  }
+  p {
+    color: $mainFontColor;
+  }
+
+  blockquote {
+    font-size: 16px;
+    color: #999;
+    border-left: 4px solid #dfe2e5;
+    margin-left: 0;
+    padding-left: 10px;
+  }
+  p,
+  ul,
+  ol {
+    line-height: 1.7;
+  }
+  ul,
+  ol {
+    padding-left: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    display: block;
+    overflow-x: auto;
+  }
+
+  tr {
+    border-top: 1px solid #dfe2e5;
+    &:nth-child(2n) {
+      background-color: #f6f8fa;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid #dfe2e5;
+    padding: 8px 15px;
+  }
+  code {
+    padding: 0 5px;
+    margin: 2px;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  div[class*='language-'] {
+    position: relative;
+    margin: 20px 0;
+    &::before {
+      position: absolute;
+      z-index: 3;
+      top: 10px;
+      right: 15px;
+      font-size: 14px;
+      color: hsla(0, 0%, 100%, 0.4);
+    }
+  }
+
+  pre {
+    line-height: 1.4;
+    padding: 30px;
+    background-color: $codeBgColor;
+    border-radius: 6px;
+    overflow: auto;
+    position: relative;
+    font-size: 14px;
+    code {
+      color: #fff;
+      padding: 0;
+      background-color: $codeBgColor;
+      border-radius: 0;
+    }
+  }
+  div[class~='language-jsx'] {
+    &:before {
+      content: 'jsx';
+    }
+  }
+  div[class~='language-js'] {
+    &:before {
+      content: 'js';
+    }
+  }
+  div[class~='language-typescript'] {
+    &:before {
+      content: 'ts';
+    }
+  }
+  div[class~='language-markup'] {
+    &:before {
+      content: 'html';
+    }
+  }
+  div[class~='language-markdown'] {
+    &:before {
+      content: 'md';
+    }
+  }
+
+  div[class~='language-json'] {
+    &:before {
+      content: 'json';
+    }
+  }
+
+  div[class~='language-ruby'] {
+    &:before {
+      content: 'rb';
+    }
+  }
+
+  div[class~='language-python'] {
+    &:before {
+      content: 'py';
+    }
+  }
+
+  div[class~='language-bash'] {
+    &:before {
+      content: 'sh';
+    }
+  }
+}

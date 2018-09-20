@@ -2,12 +2,16 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './style'
 import Config from '../config'
-import AsyncComponent from '../hoc/asyncComponent'
+import cn from 'classnames'
+// import AsyncComponent from '../hoc/asyncComponent'
 
 // import Routers from './routers'
 
 class MDIndex extends React.Component {
   render() {
+    const pathname = this.props.location.pathname
+
+    console.log(this)
     return (
       <div className="MDIndex">
         <div className="nav-box">
@@ -18,13 +22,23 @@ class MDIndex extends React.Component {
             </ul>
           </nav>
         </div>
-        <main>
+        <main className="main">
           <div className="box">
             <div className="sidebar">
               <ul>
                 {Config.map((v, i) => {
+                  if (v.isTitle) {
+                    return (
+                      <li key={i} className="link title">
+                        <a>{v.name}</a>
+                      </li>
+                    )
+                  }
+                  const linkClass = cn('link', {
+                    active: pathname === v.path
+                  })
                   return (
-                    <li key={i}>
+                    <li key={i} className={linkClass}>
                       <Link to={v.path}>{v.name}</Link>
                     </li>
                   )
@@ -32,18 +46,16 @@ class MDIndex extends React.Component {
               </ul>
             </div>
 
-            <Switch>
-              {Config.map((v, i) => {
-                console.log(v)
-                return (
-                  <Route
-                    key={i}
-                    path={v.path}
-                    component={AsyncComponent(e => import('src/md/quick-start.md'))}
-                  />
-                )
-              })}
-            </Switch>
+            <div className="content">
+              <Switch>
+                {Config.map((v, i) => {
+                  if (v.isTitle) {
+                    return false
+                  }
+                  return <Route key={i} path={v.path} component={v.component} />
+                })}
+              </Switch>
+            </div>
           </div>
         </main>
       </div>
