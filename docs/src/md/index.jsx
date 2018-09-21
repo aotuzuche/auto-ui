@@ -55,6 +55,10 @@ class MDIndex extends React.Component {
                   return <Route key={i} path={v.path} component={v.component} />
                 })}
               </Switch>
+              <div className="simulator">
+                <div className="simulator-header"></div>
+                <iframe src="http://m.aotuzuche.com/m/community/index"></iframe>
+              </div>
             </div>
           </div>
         </main>
