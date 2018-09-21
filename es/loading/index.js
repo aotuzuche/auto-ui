@@ -1,5 +1,13 @@
-import './style';
-import Spin from '../spin';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+require("./style");
+
+var _spin = _interopRequireDefault(require("../spin"));
 
 var Loading =
 /*#__PURE__*/
@@ -17,9 +25,9 @@ function () {
     loading.id = 'j-x-loading';
 
     if (tips) {
-      loading.innerHTML = "<div class=\"x-loading__inner\">" + Spin.toString() + "<p>" + tips.toString() + "</p></div>";
+      loading.innerHTML = "<div class=\"x-loading__inner\">" + _spin.default.toString() + "<p>" + tips.toString() + "</p></div>";
     } else {
-      loading.innerHTML = "<div class=\"x-loading__inner\">" + Spin.toString() + "</div>";
+      loading.innerHTML = "<div class=\"x-loading__inner\">" + _spin.default.toString() + "</div>";
     }
 
     document.body.appendChild(loading);
@@ -54,4 +62,5 @@ function () {
   return Loading;
 }();
 
-export default Loading;
+var _default = Loading;
+exports.default = _default;

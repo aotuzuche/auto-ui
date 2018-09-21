@@ -1,5 +1,13 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import './style';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+require("./style");
 
 var Alert =
 /*#__PURE__*/
@@ -148,9 +156,10 @@ var AwaitAlert = function AwaitAlert(props) {
       };
     }
 
-    Alert.show(_extends({}, props, fns));
+    Alert.show((0, _extends2.default)({}, props, fns));
   });
 };
 
 Alert.await = AwaitAlert;
-export default Alert;
+var _default = Alert;
+exports.default = _default;

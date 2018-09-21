@@ -4,7 +4,7 @@ module.exports = function(api) {
 
   let useESModules = false
 
-  useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'development'
+  useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'development' && NODE_ENV !== 'production'
 
   api && api.cache(false)
   return {
