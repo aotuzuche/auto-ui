@@ -57,7 +57,7 @@ class MDIndex extends React.Component {
               </Switch>
               <div className="simulator">
                 <div className="simulator-header"></div>
-                <iframe src="http://m.aotuzuche.com/m/community/index"></iframe>
+                <iframe src="//m.aotuzuche.com/m/community/index"></iframe>
               </div>
             </div>
           </div>
