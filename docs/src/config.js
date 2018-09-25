@@ -7,7 +7,7 @@ const docsConfig = [
   {
     name: '介绍',
     path: '/docs/introduce',
-    component: AsyncComponent(e => import('src/md/introduce.md'))
+    component: AsyncComponent(e => import('@/README'))
   },
   {
     name: '快速开始',
