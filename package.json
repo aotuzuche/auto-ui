@@ -6,8 +6,8 @@
   "module": "es/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production PACKAGE=production node build/build.js",
-    "docs": "cross-env NODE_ENV=docs PACKAGE=development webpack-dev-server --host localhost --progress --config build/docs.dev.js",
-    "docs:build": "rimraf docs/dist && cross-env NODE_ENV=docs PACKAGE=production webpack --config build/docs.build.js && gh-pages -d docs/dist",
+    "docs": "cross-env NODE_ENV=development PACKAGE=development webpack-dev-server --host localhost --progress --config build/docs.dev.js",
+    "docs:build": "rimraf docs/dist && cross-env NODE_ENV=production PACKAGE=production webpack --config build/docs.build.js && gh-pages -d docs/dist",
     "release": "sh build/release.sh",
     "lint": "eslint packages --fix --ext .js,.jsx"
   },

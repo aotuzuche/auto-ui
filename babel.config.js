@@ -1,12 +1,12 @@
 module.exports = function(api) {
   const { BABEL_MODULE, NODE_ENV } = process.env
-  const isDev = NODE_ENV === 'development'
 
   let useESModules = false
 
-  useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'docs'
-
-  const isDocs = NODE_ENV === 'docs'
+  useESModules =
+    BABEL_MODULE !== 'commonjs' &&
+    NODE_ENV !== 'development' &&
+    NODE_ENV !== 'production'
 
   api && api.cache(false)
   return {
@@ -15,7 +15,6 @@ module.exports = function(api) {
       [
         '@babel/preset-env',
         {
-          useBuiltIns: isDocs,
           loose: true,
           modules: useESModules ? false : 'commonjs'
         }
@@ -27,7 +26,7 @@ module.exports = function(api) {
         {
           corejs: false,
           helpers: true,
-          regenerator: isDev,
+          regenerator: !useESModules,
           useESModules
         }
       ],

@@ -74,6 +74,11 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/modal/index.zh-CN'))
   },
   {
+    name: 'NavBar 导航栏',
+    path: '/docs/navbar',
+    component: AsyncComponent(e => import('auto-ui/navbar/index.zh-CN'))
+  },
+  {
     name: 'Popup 组件',
     path: '/docs/popup',
     component: AsyncComponent(e => import('auto-ui/popup/index.zh-CN'))
