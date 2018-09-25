@@ -5,6 +5,8 @@ import Config from '../config'
 import MobileConfig from '../mobile/config'
 import cn from 'classnames'
 
+const baseUrl = process.env.PACKAGE === 'production' ? '/auto-ui' : ''
+
 class MDIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -87,7 +89,7 @@ class MDIndex extends React.Component {
               </Switch>
               <div className="simulator">
                 <div className="simulator-header" />
-                <iframe src={'/#' + this.state.iframeUrl} />
+                <iframe src={baseUrl + '/#' + this.state.iframeUrl} />
               </div>
             </div>
           </div>
