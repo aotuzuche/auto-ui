@@ -11,7 +11,7 @@ const Routes = e => {
       <Switch>
         <Route path="/docs" component={md} />
         <Route path="/mobile" component={mobile} />
-        <Redirect to="/docs/quickstart" />
+        <Redirect to="/docs/introduce" />
       </Switch>
     </HashRouter>
   )

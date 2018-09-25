@@ -1,8 +1,13 @@
 import AsyncComponent from './hoc/asyncComponent'
 const docsConfig = [
   {
-    name: '介绍',
+    name: '指南',
     isTitle: true
+  },
+  {
+    name: '介绍',
+    path: '/docs/introduce',
+    component: AsyncComponent(e => import('@/README'))
   },
   {
     name: '快速开始',
@@ -19,7 +24,7 @@ const docsConfig = [
     isTitle: true
   },
   {
-    name: 'A 组件',
+    name: 'A 标签',
     path: '/docs/a',
     component: AsyncComponent(e => import('auto-ui/a/index.zh-CN'))
   },
@@ -67,6 +72,11 @@ const docsConfig = [
     name: 'Modal 组件',
     path: '/docs/modal',
     component: AsyncComponent(e => import('auto-ui/modal/index.zh-CN'))
+  },
+  {
+    name: 'NavBar 导航栏',
+    path: '/docs/navbar',
+    component: AsyncComponent(e => import('auto-ui/navbar/index.zh-CN'))
   },
   {
     name: 'Popup 组件',

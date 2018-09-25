@@ -8,6 +8,7 @@ import Input from './input'
 import Layout from './layout'
 import Loading from './loading'
 import Modal from './modal'
+import NavBar from './navbar'
 import Popup from './popup'
 import Radio from './radio'
 import Spin from './spin'
@@ -27,6 +28,7 @@ export {
   Layout,
   Loading,
   Modal,
+  NavBar,
   Popup,
   Radio,
   Spin,

@@ -1,17 +1,30 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _asyncToGenerator from "@babel/runtime/helpers/esm/asyncToGenerator";
-import React from 'react';
-import report from '../__libs/report';
-import ignore from '../__libs/ignoreProps';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _report = _interopRequireDefault(require("../__libs/report"));
+
+var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
 
 var A = function A(props) {
   var onClick =
   /*#__PURE__*/
   function () {
-    var _ref = _asyncToGenerator(
+    var _ref = (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee(e) {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
+    _regenerator.default.mark(function _callee(e) {
+      return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -30,7 +43,7 @@ var A = function A(props) {
 
             case 4:
               if (props.report) {
-                report(props.report);
+                (0, _report.default)(props.report);
               }
 
               _context.next = 9;
@@ -38,7 +51,7 @@ var A = function A(props) {
 
             case 7:
               if (props.report) {
-                report(props.report);
+                (0, _report.default)(props.report);
               }
 
               if (props.onClick) {
@@ -58,13 +71,14 @@ var A = function A(props) {
     };
   }();
 
-  var domprops = ignore(props, ['defer', 'onClick', 'report']);
+  var domprops = (0, _ignoreProps.default)(props, ['defer', 'onClick', 'report']);
   domprops.className = props.className;
-  return React.createElement("a", _extends({
+  return _react.default.createElement("a", (0, _extends2.default)({
     href: "javascript:;"
   }, domprops, {
     onClick: onClick
   }), props.children);
 };
 
-export default A;
+var _default = A;
+exports.default = _default;

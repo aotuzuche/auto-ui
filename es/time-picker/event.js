@@ -1,4 +1,11 @@
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var Event =
 /*#__PURE__*/
@@ -6,7 +13,7 @@ function () {
   function Event() {
     var _this = this;
 
-    _defineProperty(this, "getTimeList", function (day) {
+    (0, _defineProperty2.default)(this, "getTimeList", function (day) {
       var times = [];
 
       if (!day) {
@@ -210,4 +217,6 @@ function () {
   return Event;
 }();
 
-export default new Event();
+var _default = new Event();
+
+exports.default = _default;

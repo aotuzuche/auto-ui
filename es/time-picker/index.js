@@ -1,31 +1,48 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
-import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitialized";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
-import './style';
-import React from 'react';
-import '../__libs/dateFormat';
-import ignore from '../__libs/ignoreProps';
-import classnames from 'classnames';
-import IScroll from 'iscroll/build/iscroll-lite';
-import event from './event';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+require("./style");
+
+var _react = _interopRequireDefault(require("react"));
+
+require("../__libs/dateFormat");
+
+var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _iscrollLite = _interopRequireDefault(require("iscroll/build/iscroll-lite"));
+
+var _event = _interopRequireDefault(require("./event"));
+
 var ID = 0; // component.
 
 var TimePicker =
 /*#__PURE__*/
 function (_React$PureComponent) {
-  _inheritsLoose(TimePicker, _React$PureComponent);
+  (0, _inheritsLoose2.default)(TimePicker, _React$PureComponent);
 
   function TimePicker(props) {
     var _this;
 
     _this = _React$PureComponent.call(this, props) || this;
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "initScrolls", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "initScrolls", function () {
       // 初始化日期的滚动，并在添加滚动开始和滚动结束事件
       if (!_this.iScrollDay && _this.dayId) {
         var Key = 'Day';
-        _this.iScrollDay = new IScroll('#' + _this.dayId, {
+        _this.iScrollDay = new _iscrollLite.default('#' + _this.dayId, {
           disablePointer: true,
           disableTouch: false,
           disableMouse: false
@@ -53,7 +70,7 @@ function (_React$PureComponent) {
 
       if (!_this.iScrollHH && _this.HHId) {
         var _Key = 'HH';
-        _this.iScrollHH = new IScroll('#' + _this.HHId, {
+        _this.iScrollHH = new _iscrollLite.default('#' + _this.HHId, {
           disablePointer: true,
           disableTouch: false,
           disableMouse: false
@@ -81,7 +98,7 @@ function (_React$PureComponent) {
 
       if (!_this.iScrollMM && _this.MMId) {
         var _Key2 = 'MM';
-        _this.iScrollMM = new IScroll('#' + _this.MMId, {
+        _this.iScrollMM = new _iscrollLite.default('#' + _this.MMId, {
           disablePointer: true,
           disableTouch: false,
           disableMouse: false
@@ -106,8 +123,7 @@ function (_React$PureComponent) {
         });
       }
     });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "refreshScrolls", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "refreshScrolls", function () {
       if (_this.iScrollDay) {
         _this.iScrollDay.refresh();
 
@@ -126,8 +142,7 @@ function (_React$PureComponent) {
         _this.iScrollMM.scrollTo(0, -_this.realScrollRowHeight * _this.state.MMIndex, 300);
       }
     });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "scrollEndCalc", function (scroll, type) {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "scrollEndCalc", function (scroll, type) {
       if (_this['needCalc' + type]) {
         var row = Math.floor(-scroll.y / _this.realScrollRowHeight + 0.5);
         var scrollTop = row * _this.realScrollRowHeight;
@@ -135,7 +150,8 @@ function (_React$PureComponent) {
         _this['needCalc' + type] = false; // 如果是日期滚动，更新小时和分钟数据
 
         if (type === 'Day') {
-          var times = event.transTimeList(event.getTimeList(_this.props.data[row]));
+          var times = _event.default.transTimeList(_event.default.getTimeList(_this.props.data[row]));
+
           var hIndex = times.HH.indexOf(_this.state.HHValue);
           var hChange = hIndex === -1;
           hIndex = hIndex > -1 ? hIndex : 0;
@@ -211,21 +227,18 @@ function (_React$PureComponent) {
             }
       }
     });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "onChange", function () {
       var date = _this.getTime();
 
       if (_this.props.onChange) {
         _this.props.onChange(date);
       }
     });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "destroyScrolls", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "destroyScrolls", function () {
       _this.iScrollDay && _this.iScrollDay.destroy && _this.iScrollDay.destroy();
       _this.iScrollHH && _this.iScrollHH.destroy && _this.iScrollHH.destroy();
       _this.iScrollMM && _this.iScrollMM.destroy && _this.iScrollMM.destroy();
     });
-
     _this.state = {
       props: props,
       days: [],
@@ -260,8 +273,8 @@ function (_React$PureComponent) {
 
 
     _this.realScrollRowHeight = window.rem ? window.rem / 100 * 70 : 70;
-    event.HH = HH;
-    event.MM = MM;
+    _event.default.HH = HH;
+    _event.default.MM = MM;
     return _this;
   }
 
@@ -269,10 +282,12 @@ function (_React$PureComponent) {
 
   _proto.componentDidMount = function componentDidMount() {
     // 天列表
-    var days = event.getDayList(this.props.data, this.props.format); // 时间数据
+    var days = _event.default.getDayList(this.props.data, this.props.format); // 时间数据
 
-    var state = event.getStateByTime(this.props.defaultDay, this.props.data);
-    this.setState(_extends({
+
+    var state = _event.default.getStateByTime(this.props.defaultDay, this.props.data);
+
+    this.setState((0, _extends2.default)({
       days: days
     }, state), this.initScrolls);
   };
@@ -290,11 +305,13 @@ function (_React$PureComponent) {
   TimePicker.getDerivedStateFromProps = function getDerivedStateFromProps(props, state) {
     if (state.props.data !== props.data) {
       // 天列表
-      var days = event.getDayList(props.data, props.format); // 时间数据
+      var days = _event.default.getDayList(props.data, props.format); // 时间数据
 
-      var times = event.getStateByTime(props.defaultDay, props.data);
-      return _extends({
-        props: _extends({}, state.props, {
+
+      var times = _event.default.getStateByTime(props.defaultDay, props.data);
+
+      return (0, _extends2.default)({
+        props: (0, _extends2.default)({}, state.props, {
           data: props.data
         }),
         days: days
@@ -311,8 +328,9 @@ function (_React$PureComponent) {
 
 
   _proto.reset = function reset() {
-    var state = event.getStateByTime(this.props.defaultDay, this.props.data);
-    this.setState(_extends({}, state), this.refreshScrolls);
+    var state = _event.default.getStateByTime(this.props.defaultDay, this.props.data);
+
+    this.setState((0, _extends2.default)({}, state), this.refreshScrolls);
   }; // 获取时间
 
 
@@ -325,17 +343,18 @@ function (_React$PureComponent) {
 
 
   _proto.setTime = function setTime(t) {
-    var state = event.getStateByTime(t, this.props.data);
-    this.setState(_extends({}, state), this.refreshScrolls);
+    var state = _event.default.getStateByTime(t, this.props.data);
+
+    this.setState((0, _extends2.default)({}, state), this.refreshScrolls);
   }; // 初始化滚动插件
 
 
   _proto.renderDayList = function renderDayList() {
-    return React.createElement("div", {
+    return _react.default.createElement("div", {
       className: "x-time-picker__day-list",
       id: this.dayId
-    }, React.createElement("ul", null, this.state.days.map(function (i, index) {
-      return React.createElement("li", {
+    }, _react.default.createElement("ul", null, this.state.days.map(function (i, index) {
+      return _react.default.createElement("li", {
         key: index
       }, i);
     })));
@@ -343,17 +362,17 @@ function (_React$PureComponent) {
 
   _proto.renderHHList = function renderHHList() {
     var hFormat = this.state.format[1] || 'h点';
-    return React.createElement("div", {
+    return _react.default.createElement("div", {
       className: "x-time-picker__hh-list",
       id: this.HHId
-    }, React.createElement("ul", null, this.state.HH.map(function (i, index) {
+    }, _react.default.createElement("ul", null, this.state.HH.map(function (i, index) {
       var val = i + '点';
 
       if (/(h+)/.test(hFormat)) {
         val = hFormat.replace(RegExp.$1, i);
       }
 
-      return React.createElement("li", {
+      return _react.default.createElement("li", {
         key: index
       }, val);
     })));
@@ -365,35 +384,36 @@ function (_React$PureComponent) {
     }
 
     var mFormat = this.state.format[2] || 'm分';
-    return React.createElement("div", {
+    return _react.default.createElement("div", {
       className: "x-time-picker__mm-list",
       id: this.MMId
-    }, React.createElement("ul", null, this.state.MM.map(function (i, index) {
+    }, _react.default.createElement("ul", null, this.state.MM.map(function (i, index) {
       var val = i + '分';
 
       if (/(m+)/.test(mFormat)) {
         val = mFormat.replace(RegExp.$1, i);
       }
 
-      return React.createElement("li", {
+      return _react.default.createElement("li", {
         key: index
       }, val);
     })));
   };
 
   _proto.render = function render() {
-    var domprops = ignore(this.props, ['data', 'format', 'interval', 'defaultDay', 'onChange']);
-    var css = classnames('x-time-picker', this.props.className);
-    return React.createElement("div", _extends({}, domprops, {
+    var domprops = (0, _ignoreProps.default)(this.props, ['data', 'format', 'interval', 'defaultDay', 'onChange']);
+    var css = (0, _classnames.default)('x-time-picker', this.props.className);
+    return _react.default.createElement("div", (0, _extends2.default)({}, domprops, {
       className: css
-    }), React.createElement("sup", {
+    }), _react.default.createElement("sup", {
       className: "x-time-picker__mask-t"
-    }), React.createElement("sup", {
+    }), _react.default.createElement("sup", {
       className: "x-time-picker__mask-b"
     }), this.renderDayList(), this.renderHHList(), this.renderMMList());
   };
 
   return TimePicker;
-}(React.PureComponent);
+}(_react.default.PureComponent);
 
-export default TimePicker;
+var _default = TimePicker;
+exports.default = _default;

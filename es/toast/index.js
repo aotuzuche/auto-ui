@@ -1,4 +1,9 @@
-import './style';
+"use strict";
+
+exports.__esModule = true;
+exports.default = void 0;
+
+require("./style");
 
 var Toast =
 /*#__PURE__*/
@@ -57,4 +62,5 @@ function () {
   return Toast;
 }();
 
-export default Toast;
+var _default = Toast;
+exports.default = _default;

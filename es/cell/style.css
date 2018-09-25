@@ -26,7 +26,7 @@
   .x-cell--indent-line .x-cell__row {
     border-bottom: none; }
     .x-cell--indent-line .x-cell__row:after {
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       height: 1px;
@@ -48,6 +48,6 @@
     pointer-events: none;
     right: 25px;
     top: 50%;
-    background: url("./icon-arrow-right.png");
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMAMx4BGSyQ+0qnAAAAOElEQVQI12NAB47KcGagkAFcVBAuzCSIEFYkRhjGZA4UhDGN4KLMioIKxAkyIAQZEIIMjjBBTAAAugMFyk8j/LAAAAAASUVORK5CYII=");
     background-size: 100% 100%;
     transform: translate(0, -50%); }

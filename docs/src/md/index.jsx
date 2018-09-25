@@ -2,16 +2,48 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './style'
 import Config from '../config'
+import MobileConfig from '../mobile/config'
 import cn from 'classnames'
-// import AsyncComponent from '../hoc/asyncComponent'
 
-// import Routers from './routers'
+const baseUrl = process.env.PACKAGE === 'production' ? '/auto-ui' : ''
 
 class MDIndex extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      iframeUrl: '/mobile'
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const locationArray = nextProps.location.pathname.split('/')
+
+    const page = locationArray[locationArray.length - 1]
+
+    const pageConfig = MobileConfig.filter((v, i) => {
+      if (v.path === '/mobile/' + page) {
+        return true
+      }
+      return false
+    })
+    if (pageConfig.length && pageConfig[0].path !== prevState.iframeUrl) {
+      return {
+        iframeUrl: pageConfig[0].path
+      }
+    }
+
+    if (!pageConfig.length && prevState.iframeUrl !== '/mobile') {
+      return {
+        iframeUrl: '/mobile'
+      }
+    }
+    return null
+  }
+
   render() {
     const pathname = this.props.location.pathname
 
-    console.log(this)
     return (
       <div className="MDIndex">
         <div className="nav-box">
@@ -55,6 +87,10 @@ class MDIndex extends React.Component {
                   return <Route key={i} path={v.path} component={v.component} />
                 })}
               </Switch>
+              <div className="simulator">
+                <div className="simulator-header" />
+                <iframe src={baseUrl + '/#' + this.state.iframeUrl} />
+              </div>
             </div>
           </div>
         </main>
