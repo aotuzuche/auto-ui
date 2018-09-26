@@ -8,8 +8,6 @@ module.exports = function(api) {
     NODE_ENV !== 'development' &&
     NODE_ENV !== 'production'
 
-  console.log('useESModules', useESModules)
-
   api && api.cache(false)
   return {
     presets: [

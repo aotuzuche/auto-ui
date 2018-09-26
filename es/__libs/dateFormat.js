@@ -7,7 +7,7 @@
 if (!Date.prototype.formatWithWk) {
   Date.prototype.formatWithWk = function (fmt) {
     // author: meizz
-    let o = {
+    var o = {
       'M+': this.getMonth() + 1,
       // 月份
       'd+': this.getDate(),
@@ -22,23 +22,23 @@ if (!Date.prototype.formatWithWk) {
       // 季度
       S: this.getMilliseconds() // 毫秒
 
-    }
+    };
 
     if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length))
+      fmt = fmt.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length));
     }
 
     if (/(wk)/.test(fmt)) {
-      let wks = '日一二三四五六'.split('')
-      fmt = fmt.replace(RegExp.$1, wks[this.getDay()])
+      var wks = '日一二三四五六'.split('');
+      fmt = fmt.replace(RegExp.$1, wks[this.getDay()]);
     }
 
-    for (let k in o) {
+    for (var k in o) {
       if (new RegExp('(' + k + ')').test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(String(o[k]).length))
+        fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(String(o[k]).length));
       }
     }
 
-    return fmt
-  }
+    return fmt;
+  };
 }

@@ -1,87 +1,87 @@
-import _extends from '@babel/runtime/helpers/esm/extends'
-import _inheritsLoose from '@babel/runtime/helpers/esm/inheritsLoose'
-import './style'
-import React, { PureComponent } from 'react'
-import { createPortal } from 'react-dom'
-import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
-import Modal from '../modal'
+import _extends from "@babel/runtime/helpers/esm/extends";
+import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
+import './style';
+import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
+import cn from 'classnames';
+import ignore from '../__libs/ignoreProps';
+import Modal from '../modal';
 
-let Popup =
-/* #__PURE__ */
-(function (_PureComponent) {
-  _inheritsLoose(Popup, _PureComponent)
+var Popup =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(Popup, _PureComponent);
 
   function Popup() {
-    return _PureComponent.apply(this, arguments) || this
+    return _PureComponent.apply(this, arguments) || this;
   }
 
-  let _proto = Popup.prototype
+  var _proto = Popup.prototype;
 
   _proto.componentDidMount = function componentDidMount() {
-    this._container = document.createElement('div')
+    this._container = document.createElement('div');
 
-    this._container.classList.add('_x_popup_')
+    this._container.classList.add('_x_popup_');
 
-    document.body.appendChild(this._container)
-    this.setState({})
-  }
+    document.body.appendChild(this._container);
+    this.setState({});
+  };
 
   _proto.componentWillUnmount = function componentWillUnmount() {
-    document.body.removeChild(this._container)
-  }
+    document.body.removeChild(this._container);
+  };
 
   _proto._content = function _content() {
-    let css = cn('x-popup', {
+    var css = cn('x-popup', {
       'x-popup--top': this.props.top
-    }, this.props.className)
-    let children = this.props.children
+    }, this.props.className);
+    var children = this.props.children;
 
     if (!Array.isArray(children)) {
-      children = [children]
+      children = [children];
     }
 
-    let hasScrollChildren = false
+    var hasScrollChildren = false;
     children.forEach(function (res) {
       if (res.type === Scroller && !hasScrollChildren) {
-        hasScrollChildren = true
+        hasScrollChildren = true;
       }
-    })
-    let innercss = cn('x-popup__inner', {
+    });
+    var innercss = cn('x-popup__inner', {
       'x-popup--no-scroll': hasScrollChildren,
       'x-popup--no-padding': this.props.noPadding
-    })
-    let domprops = ignore(this.props, ['visible', 'height', 'onBgClick', 'noPadding', 'top'])
+    });
+    var domprops = ignore(this.props, ['visible', 'height', 'onBgClick', 'noPadding', 'top']);
     return React.createElement(Modal, _extends({}, domprops, {
       visible: this.props.visible,
       height: this.props.height,
       onBgClick: this.props.onBgClick,
       className: css
-    }), React.createElement('div', {
+    }), React.createElement("div", {
       className: innercss
-    }, this.props.children))
-  }
+    }, this.props.children));
+  };
 
   _proto.render = function render() {
     if (this._container) {
-      return createPortal(this._content(), this._container)
+      return createPortal(this._content(), this._container);
     }
 
-    return null
-  }
+    return null;
+  };
 
-  return Popup
-})(PureComponent)
+  return Popup;
+}(PureComponent);
 
 var Scroller = function Scroller(props) {
-  let css = cn('x-popup__scroller', props.className)
-  let domprops = ignore(props, [])
-  return React.createElement('div', _extends({}, domprops, {
+  var css = cn('x-popup__scroller', props.className);
+  var domprops = ignore(props, []);
+  return React.createElement("div", _extends({}, domprops, {
     className: css
-  }), React.createElement('div', {
-    className: 'x-popup__inscroller'
-  }, props.children))
-}
+  }), React.createElement("div", {
+    className: "x-popup__inscroller"
+  }, props.children));
+};
 
-Popup.Scroller = Scroller
-export default Popup
+Popup.Scroller = Scroller;
+export default Popup;
