@@ -1,88 +1,75 @@
-"use strict";
+import _extends from '@babel/runtime/helpers/esm/extends'
+import './style'
+import React from 'react'
+import cn from 'classnames'
+import Spin from '../spin'
+import ignore from '../__libs/ignoreProps'
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-require("./style");
-
-var _react = _interopRequireDefault(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _spin = _interopRequireDefault(require("../spin"));
-
-var _ignoreProps = _interopRequireDefault(require("../__libs/ignoreProps"));
-
-var Layout = function Layout(props) {
-  var css = (0, _classnames.default)('x-app', props.className);
-  return _react.default.createElement("div", (0, _extends2.default)({}, props, {
+let Layout = function Layout(props) {
+  let css = cn('x-app', props.className)
+  return React.createElement('div', _extends({}, props, {
     className: css
-  }), props.children);
-};
+  }), props.children)
+}
 
-var LayoutBody = function LayoutBody(props) {
-  var css = (0, _classnames.default)('x-app-body', props.className, {
+let LayoutBody = function LayoutBody(props) {
+  let css = cn('x-app-body', props.className, {
     'x-app-body--loading': props.loading,
     'x-app-body--error': props.errorInfo
-  });
-  var domprops = (0, _ignoreProps.default)(props, ['loading', 'errorInfo']);
-  return _react.default.createElement("div", (0, _extends2.default)({}, domprops, {
+  })
+  let domprops = ignore(props, ['loading', 'errorInfo'])
+  return React.createElement('div', _extends({}, domprops, {
     className: css
-  }), props.loading ? _react.default.createElement(_spin.default, {
-    className: "x-app__loading"
-  }) : props.errorInfo ? _react.default.createElement("p", {
-    className: "x-app__error-info"
-  }, _react.default.createElement("i", null, "!"), props.errorInfo) : props.children);
-};
+  }), props.loading ? React.createElement(Spin, {
+    className: 'x-app__loading'
+  }) : props.errorInfo ? React.createElement('p', {
+    className: 'x-app__error-info'
+  }, React.createElement('i', null, '!'), props.errorInfo) : props.children)
+}
 
-var LayoutFooter = function LayoutFooter(props) {
-  var css = (0, _classnames.default)('x-app-footer', props.className);
+let LayoutFooter = function LayoutFooter(props) {
+  let css = cn('x-app-footer', props.className)
 
   if (props.visible === false) {
-    return null;
+    return null
   }
 
-  var domprops = (0, _ignoreProps.default)(props, ['visible']);
-  return _react.default.createElement("footer", (0, _extends2.default)({}, domprops, {
+  let domprops = ignore(props, ['visible'])
+  return React.createElement('footer', _extends({}, domprops, {
     className: css
-  }), props.children);
-};
+  }), props.children)
+}
 
-var LayoutHeader = function LayoutHeader(props) {
-  var css = (0, _classnames.default)('x-app-header', {
+let LayoutHeader = function LayoutHeader(props) {
+  let css = cn('x-app-header', {
     'x-app-header--ghost': props.ghost
-  }, props.className);
-  var inner = (0, _classnames.default)('x-app-header__inner', props.innerClassName);
-  var domprops = (0, _ignoreProps.default)(props, ['ghost', 'innerClassName', 'addonBefore', 'onBackClick', 'onCloseClick', 'title', 'addonAfter', 'addonBottom']);
-  return _react.default.createElement("header", (0, _extends2.default)({}, domprops, {
+  }, props.className)
+  let inner = cn('x-app-header__inner', props.innerClassName)
+  let domprops = ignore(props, ['ghost', 'innerClassName', 'addonBefore', 'onBackClick', 'onCloseClick', 'title', 'addonAfter', 'addonBottom'])
+  return React.createElement('header', _extends({}, domprops, {
     className: css
-  }), _react.default.createElement("div", {
+  }), React.createElement('div', {
     className: inner
-  }, props.addonBefore || props.onBackClick || props.onCloseClick ? _react.default.createElement("div", {
-    className: "x-app-header__addon-before"
-  }, props.onBackClick ? _react.default.createElement("a", {
+  }, props.addonBefore || props.onBackClick || props.onCloseClick ? React.createElement('div', {
+    className: 'x-app-header__addon-before'
+  }, props.onBackClick ? React.createElement('a', {
     onClick: props.onBackClick,
-    href: "javascript:;",
-    className: "x-app-header__back"
-  }) : props.onCloseClick ? _react.default.createElement("a", {
+    href: 'javascript:;',
+    className: 'x-app-header__back'
+  }) : props.onCloseClick ? React.createElement('a', {
     onClick: props.onCloseClick,
-    href: "javascript:;",
-    className: "x-app-header__close"
-  }) : null, props.addonBefore) : null, props.title ? _react.default.createElement("h1", {
-    className: "x-app-header__title"
-  }, props.title) : null, props.children, props.addonAfter ? _react.default.createElement("div", {
-    className: "x-app-header__addon-after"
-  }, props.addonAfter) : null), props.addonBottom ? _react.default.createElement("div", {
-    className: "x-app-header__addon-bottom"
-  }, props.addonBottom) : null);
-};
+    href: 'javascript:;',
+    className: 'x-app-header__close'
+  }) : null, props.addonBefore) : null, props.title ? React.createElement('h1', {
+    className: 'x-app-header__title'
+  }, props.title) : null, props.children, props.addonAfter ? React.createElement('div', {
+    className: 'x-app-header__addon-after'
+  }, props.addonAfter) : null), props.addonBottom ? React.createElement('div', {
+    className: 'x-app-header__addon-bottom'
+  }, props.addonBottom) : null)
+}
 
-Layout.Header = LayoutHeader;
-Layout.Body = LayoutBody;
-Layout.Footer = LayoutFooter;
-var _default = Layout;
-exports.default = _default;
+Layout.Header = LayoutHeader
+Layout.Body = LayoutBody
+Layout.Footer = LayoutFooter
+export default Layout

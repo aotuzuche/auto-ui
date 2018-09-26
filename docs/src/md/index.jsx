@@ -88,7 +88,9 @@ class MDIndex extends React.Component {
                 })}
               </Switch>
               <div className="simulator">
-                <div className="simulator-header" />
+                <div className="simulator-header">
+                  <p>{window.location.origin + baseUrl + '/#' + this.state.iframeUrl}</p>
+                </div>
                 <iframe src={baseUrl + '/#' + this.state.iframeUrl} />
               </div>
             </div>

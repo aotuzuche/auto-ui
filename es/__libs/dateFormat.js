@@ -1,5 +1,3 @@
-"use strict";
-
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
 // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
@@ -9,7 +7,7 @@
 if (!Date.prototype.formatWithWk) {
   Date.prototype.formatWithWk = function (fmt) {
     // author: meizz
-    var o = {
+    let o = {
       'M+': this.getMonth() + 1,
       // 月份
       'd+': this.getDate(),
@@ -24,23 +22,23 @@ if (!Date.prototype.formatWithWk) {
       // 季度
       S: this.getMilliseconds() // 毫秒
 
-    };
+    }
 
     if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length));
+      fmt = fmt.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length))
     }
 
     if (/(wk)/.test(fmt)) {
-      var wks = '日一二三四五六'.split('');
-      fmt = fmt.replace(RegExp.$1, wks[this.getDay()]);
+      let wks = '日一二三四五六'.split('')
+      fmt = fmt.replace(RegExp.$1, wks[this.getDay()])
     }
 
-    for (var k in o) {
+    for (let k in o) {
       if (new RegExp('(' + k + ')').test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(String(o[k]).length));
+        fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(String(o[k]).length))
       }
     }
 
-    return fmt;
-  };
+    return fmt
+  }
 }

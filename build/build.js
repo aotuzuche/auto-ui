@@ -26,7 +26,7 @@ fs.copySync(srcDir, esDir)
 
 compile(esDir)
 
-function compile(dir, jsOnly = false) {
+async function compile(dir, jsOnly = false) {
   const files = fs.readdirSync(dir)
 
   files.forEach(file => {
@@ -44,6 +44,7 @@ function compile(dir, jsOnly = false) {
         absolutePath,
         compilerOption.babel
       )
+      fs.removeSync(absolutePath)
       const outputJsPath = absolutePath.replace('.jsx', '.js')
       fs.outputFileSync(outputJsPath, code)
     } else if (/\.scss$/.test(file)) {

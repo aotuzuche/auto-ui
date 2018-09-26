@@ -1,33 +1,27 @@
-"use strict";
-
-exports.__esModule = true;
-exports.default = void 0;
-
 function report(data, url) {
   if (!data) {
-    return;
+    return
   }
 
   if (!url) {
-    url = 'https://hm.baidu.com/hm.gif?date=' + (new Date() - 0);
+    url = 'https://hm.baidu.com/hm.gif?date=' + (new Date() - 0)
   } // @see http://jsperf.com/new-image-vs-createelement-img
 
 
-  var image = document.createElement('img');
-  var items = [];
+  let image = document.createElement('img')
+  let items = []
 
-  for (var key in data) {
+  for (let key in data) {
     if (typeof data[key] !== 'undefined') {
-      items.push(key + '=' + encodeURIComponent(data[key]));
+      items.push(key + '=' + encodeURIComponent(data[key]))
     }
   }
 
   image.onload = image.onerror = function () {
-    image = image.onload = image.onerror = null;
-  };
+    image = image.onload = image.onerror = null
+  }
 
-  image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
+  image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&')
 }
 
-var _default = report;
-exports.default = _default;
+export default report
