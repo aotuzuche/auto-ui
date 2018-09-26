@@ -1,43 +1,69 @@
-"use strict";
+import _extends from '@babel/runtime/helpers/esm/extends'
+import './style'
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-require("./style");
-
-var Alert =
-/*#__PURE__*/
-function () {
+let Alert =
+/* #__PURE__ */
+(function () {
   function Alert() {}
 
   Alert.show = function show(args) {
     if (args === void 0) {
-      args = {};
+      args = {}
     }
 
-    var _args = args,
-        _args$title = _args.title,
-        title = _args$title === void 0 ? '' : _args$title,
-        _args$desc = _args.desc,
-        desc = _args$desc === void 0 ? 'empty' : _args$desc,
-        _args$className = _args.className,
-        className = _args$className === void 0 ? 'x-alert' : _args$className,
-        btnTextN = _args.btnTextN,
-        _args$btnText = _args.btnText,
-        btnText = _args$btnText === void 0 ? '确定' : _args$btnText,
-        _args$btnTextY = _args.btnTextY,
-        btnTextY = _args$btnTextY === void 0 ? btnText : _args$btnTextY,
-        _args$callbackN = _args.callbackN,
-        callbackN = _args$callbackN === void 0 ? function () {} : _args$callbackN,
-        _args$callback = _args.callback,
-        callback = _args$callback === void 0 ? function () {} : _args$callback,
-        _args$callbackY = _args.callbackY,
-        callbackY = _args$callbackY === void 0 ? callback : _args$callbackY;
-    var o = {
+    let _args = args
+
+
+    let _args$title = _args.title
+
+
+    let title = _args$title === void 0 ? '' : _args$title
+
+
+    let _args$desc = _args.desc
+
+
+    let desc = _args$desc === void 0 ? 'empty' : _args$desc
+
+
+    let _args$className = _args.className
+
+
+    let className = _args$className === void 0 ? 'x-alert' : _args$className
+
+
+    let btnTextN = _args.btnTextN
+
+
+    let _args$btnText = _args.btnText
+
+
+    let btnText = _args$btnText === void 0 ? '确定' : _args$btnText
+
+
+    let _args$btnTextY = _args.btnTextY
+
+
+    let btnTextY = _args$btnTextY === void 0 ? btnText : _args$btnTextY
+
+
+    let _args$callbackN = _args.callbackN
+
+
+    let callbackN = _args$callbackN === void 0 ? function () {} : _args$callbackN
+
+
+    let _args$callback = _args.callback
+
+
+    let callback = _args$callback === void 0 ? function () {} : _args$callback
+
+
+    let _args$callbackY = _args.callbackY
+
+
+    let callbackY = _args$callbackY === void 0 ? callback : _args$callbackY
+    let o = {
       title: title,
       desc: desc,
       className: className,
@@ -45,121 +71,120 @@ function () {
       btnTextY: btnTextY,
       callbackN: callbackN,
       callbackY: callbackY
-    };
+    }
 
     if (typeof arguments[0] === 'string') {
-      o.desc = arguments[0];
+      o.desc = arguments[0]
     }
 
-    var alert = document.getElementById('j-x-alert');
+    let alert = document.getElementById('j-x-alert')
 
     if (alert) {
-      return;
+      return
     }
 
-    this.render(o);
-    window.addEventListener('hashchange', this.onHashChange);
-  };
+    this.render(o)
+    window.addEventListener('hashchange', this.onHashChange)
+  }
 
   Alert.hide = function hide(callback, val) {
-    var _this = this;
+    let _this = this
 
     if (callback === void 0) {
-      callback = function callback() {};
+      callback = function callback() {}
     }
 
-    var alert = document.getElementById('j-x-alert');
+    let alert = document.getElementById('j-x-alert')
 
     if (alert) {
-      alert.classList.remove('x-alert--show');
-      alert.classList.add('x-alert--hide');
+      alert.classList.remove('x-alert--show')
+      alert.classList.add('x-alert--hide')
       this.timeout = setTimeout(function () {
-        _this.destroy(alert);
+        _this.destroy(alert)
 
-        callback(val);
-      }, 200);
+        callback(val)
+      }, 200)
     }
-  };
+  }
 
   Alert.clickN = function clickN() {
-    Alert.hide(Alert.callbackN);
-  };
+    Alert.hide(Alert.callbackN)
+  }
 
   Alert.clickY = function clickY() {
-    var inputVal = document.getElementById('j-x-alert-input');
-    inputVal = inputVal ? inputVal.value : '';
-    Alert.hide(Alert.callbackY, inputVal);
-  };
+    let inputVal = document.getElementById('j-x-alert-input')
+    inputVal = inputVal ? inputVal.value : ''
+    Alert.hide(Alert.callbackY, inputVal)
+  }
 
   Alert.render = function render(o) {
-    this.callbackY = o.callbackY;
-    this.callbackN = o.callbackN;
-    var htmlBtnN = o.btnTextN ? "<a href='javascript:;' class='x-alert__btn-n' id='j-x-alert-btn-n'>" + o.btnTextN + "</a>" : '';
-    var title = o.title !== '' ? "<h1>" + o.title + "</h1>" : '';
-    var textcss = title ? '' : 'no-title';
-    var html = "\n      <div class='x-alert__inner'>\n        <div class='x-alert__body'>\n          " + title + "\n          <p class='" + textcss + "'>" + o.desc + "</p>\n        </div>\n        <div class='x-alert__btns'>\n          " + htmlBtnN + "\n          <a href='javascript:;' class='x-alert__btn-y' id='j-x-alert-btn-y'>" + o.btnTextY + "</a>\n        </div>\n      </div>\n    ";
-    var alert = document.createElement('div');
-    alert.classList.add('x-alert', o.className);
-    alert.id = 'j-x-alert';
-    alert.innerHTML = html;
-    document.body.appendChild(alert);
-    var btnN = document.getElementById('j-x-alert-btn-n');
-    var btnY = document.getElementById('j-x-alert-btn-y');
-    btnN && btnN.addEventListener('click', this.clickN);
-    btnY && btnY.addEventListener('click', this.clickY);
+    this.callbackY = o.callbackY
+    this.callbackN = o.callbackN
+    let htmlBtnN = o.btnTextN ? "<a href='javascript:;' class='x-alert__btn-n' id='j-x-alert-btn-n'>" + o.btnTextN + '</a>' : ''
+    let title = o.title !== '' ? '<h1>' + o.title + '</h1>' : ''
+    let textcss = title ? '' : 'no-title'
+    let html = "\n      <div class='x-alert__inner'>\n        <div class='x-alert__body'>\n          " + title + "\n          <p class='" + textcss + "'>" + o.desc + "</p>\n        </div>\n        <div class='x-alert__btns'>\n          " + htmlBtnN + "\n          <a href='javascript:;' class='x-alert__btn-y' id='j-x-alert-btn-y'>" + o.btnTextY + '</a>\n        </div>\n      </div>\n    '
+    let alert = document.createElement('div')
+    alert.classList.add('x-alert', o.className)
+    alert.id = 'j-x-alert'
+    alert.innerHTML = html
+    document.body.appendChild(alert)
+    let btnN = document.getElementById('j-x-alert-btn-n')
+    let btnY = document.getElementById('j-x-alert-btn-y')
+    btnN && btnN.addEventListener('click', this.clickN)
+    btnY && btnY.addEventListener('click', this.clickY)
     setTimeout(function () {
-      alert.classList.add('x-alert--show');
-    });
-    var focusdom = document.querySelector(':focus');
+      alert.classList.add('x-alert--show')
+    })
+    let focusdom = document.querySelector(':focus')
 
     if (focusdom) {
-      focusdom.blur();
+      focusdom.blur()
     }
-  };
+  }
 
   Alert.destroy = function destroy(alert) {
-    var btnN = document.getElementById('j-x-alert-btn-n');
-    var btnY = document.getElementById('j-x-alert-btn-y');
-    btnN && btnN.removeEventListener('click', this.clickN);
-    btnY && btnY.removeEventListener('click', this.clickY);
-    this.callbackY = null;
-    this.callbackN = null;
+    let btnN = document.getElementById('j-x-alert-btn-n')
+    let btnY = document.getElementById('j-x-alert-btn-y')
+    btnN && btnN.removeEventListener('click', this.clickN)
+    btnY && btnY.removeEventListener('click', this.clickY)
+    this.callbackY = null
+    this.callbackN = null
 
     try {
-      document.body.removeChild(alert);
+      document.body.removeChild(alert)
     } catch (e) {}
-  };
+  }
 
   Alert.onHashChange = function onHashChange() {
-    Alert.hide();
-    clearTimeout(this.timeout);
-    window.removeEventListener('hashchange', this.onHashChange);
-  };
+    Alert.hide()
+    clearTimeout(this.timeout)
+    window.removeEventListener('hashchange', this.onHashChange)
+  }
 
-  return Alert;
-}();
+  return Alert
+})()
 
-var AwaitAlert = function AwaitAlert(props) {
+let AwaitAlert = function AwaitAlert(props) {
   return new Promise(function (resolve) {
-    var fns = {
+    let fns = {
       callbackY: function callbackY() {
-        resolve(true);
+        resolve(true)
       },
       callback: function callback() {
-        resolve(true);
+        resolve(true)
       }
-    };
+    }
 
     if (props.callbackN) {
       fns.callbackN = function () {
-        resolve(false);
-      };
+        resolve(false)
+      }
     }
 
-    Alert.show((0, _extends2.default)({}, props, fns));
-  });
-};
+    Alert.show(_extends({}, props, fns))
+  })
+}
 
-Alert.await = AwaitAlert;
-var _default = Alert;
-exports.default = _default;
+Alert.await = AwaitAlert
+export default Alert
