@@ -4,6 +4,6 @@
 .idea
 .vscode
 node_modules
-es/*
-lib/*
+es
+lib
 docs/dist
