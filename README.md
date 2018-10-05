@@ -4,7 +4,7 @@
 
 ## 特点
 
-- 包含业务常用的组件，适合公司业务需求
+- 包含常用的移动端组件
 - 基本可靠的文档
 - 支持 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需导入
 
