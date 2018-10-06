@@ -7,6 +7,7 @@
 - 包含常用的移动端组件
 - 基本可靠的文档
 - 支持 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需导入
+- 支持美好的交互体验
 
 ## 计划
 
