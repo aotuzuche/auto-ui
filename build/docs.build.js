@@ -18,7 +18,7 @@ module.exports = {
     path: resolve('docs/dist'),
     filename: '[name].[hash:8].js',
     chunkFilename: 'chunk-[name].[chunkhash:8].js',
-    publicPath: 'https://shaodahong.github.io/auto-ui/',
+    publicPath: 'https://aotuzuche.github.io/auto-ui/',
   },
 
   module: {
