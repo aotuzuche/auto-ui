@@ -24,7 +24,7 @@ const docsConfig = [
     isTitle: true
   },
   {
-    name: 'A 标签',
+    name: 'A 统计埋点',
     path: '/docs/a',
     component: AsyncComponent(e => import('auto-ui/a/index.zh-CN'))
   },

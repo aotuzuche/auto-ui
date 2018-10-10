@@ -1,7 +1,7 @@
 import AsyncComponent from '../hoc/asyncComponent'
 const mobileConfig = [
   {
-    name: 'A 标签',
+    name: 'A 统计埋点',
     path: '/mobile/a',
     component: AsyncComponent(e => import('./a'))
   },

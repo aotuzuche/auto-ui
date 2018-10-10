@@ -33,7 +33,9 @@ class MobileIndex extends React.Component {
               {MobileConfig.map((v, i) => {
                 return (
                   <li key={i} className="mobile-link">
-                    <Link to={v.path}><span>{v.name}</span></Link>
+                    <Link to={v.path}>
+                      <span>{v.name}</span>
+                    </Link>
                   </li>
                 )
               })}
@@ -41,11 +43,13 @@ class MobileIndex extends React.Component {
           </div>
         )}
 
-        <Switch>
-          {MobileConfig.map((v, i) => {
-            return <Route key={i} path={v.path} component={v.component} />
-          })}
-        </Switch>
+        <div className="mobile-demo">
+          <Switch>
+            {MobileConfig.map((v, i) => {
+              return <Route key={i} path={v.path} component={v.component} />
+            })}
+          </Switch>
+        </div>
       </div>
     )
   }

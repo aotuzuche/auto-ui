@@ -32,7 +32,8 @@ module.exports = function(api) {
       ],
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-object-assign',
-      '@babel/plugin-proposal-class-properties'
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-optional-chaining'
     ]
   }
 }

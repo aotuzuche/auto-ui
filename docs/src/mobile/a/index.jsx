@@ -1,9 +1,27 @@
 import React from 'react'
+import { A, Cell, Toast } from 'auto-ui'
 
-class A extends React.Component {
+class DemoA extends React.Component {
+  click() {
+    Toast.show('Click Me!!!')
+  }
+  clickReport() {
+    Toast.show('控制台查看')
+  }
   render() {
-    return <h1>a</h1>
+    return (
+      <Cell>
+        <Cell.Row>
+          <A onClick={this.click} disabled>Click Me!!!</A>
+        </Cell.Row>
+        <Cell.Row>
+          <A onClick={this.clickReport} report={{ foo: 'bar' }}>
+            发送统计报告
+          </A>
+        </Cell.Row>
+      </Cell>
+    )
   }
 }
 
-export default A
+export default DemoA
