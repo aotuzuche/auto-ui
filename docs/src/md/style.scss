@@ -24,6 +24,15 @@ body,
       &-logo {
         display: inline-block;
         color: $mainC;
+        &__version {
+          color: #666;
+          font-size: 12px;
+          margin-left: 10px;
+          border: 1px solid #999;
+          padding: 0 3px;
+          border-radius: 5px;
+          vertical-align: bottom;
+        }
       }
       &-link {
         float: right;

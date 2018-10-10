@@ -4,6 +4,7 @@ import './style'
 import Config from '../config'
 import MobileConfig from '../mobile/config'
 import cn from 'classnames'
+import packageJson from '../../../package.json'
 
 const baseUrl = process.env.PACKAGE === 'production' ? '/auto-ui' : ''
 
@@ -48,7 +49,10 @@ class MDIndex extends React.Component {
       <div className="MDIndex">
         <div className="nav-box">
           <nav className="nav box">
-            <h1 className="nav-logo">AUTO-UI</h1>
+            <h1 className="nav-logo">
+              AUTO-UI
+              <span className="nav-logo__version">{packageJson.version}</span>
+            </h1>
             <ul className="nav-link">
               <li>GITHUB</li>
             </ul>
@@ -89,7 +93,12 @@ class MDIndex extends React.Component {
               </Switch>
               <div className="simulator">
                 <div className="simulator-header">
-                  <p>{window.location.origin + baseUrl + '/#' + this.state.iframeUrl}</p>
+                  <p>
+                    {window.location.origin +
+                      baseUrl +
+                      '/#' +
+                      this.state.iframeUrl}
+                  </p>
                 </div>
                 <iframe src={baseUrl + '/#' + this.state.iframeUrl} />
               </div>
