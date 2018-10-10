@@ -7,4 +7,6 @@ import { render } from 'react-dom'
 
 import Routers from './routers'
 
+module.hot && module.hot.accept()
+
 render(<Routers />, document.getElementById('root'))

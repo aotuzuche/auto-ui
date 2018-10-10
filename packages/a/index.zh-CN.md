@@ -5,9 +5,11 @@
 
 ## 使用示例
 
-```jsx
+```js
 import { A } from 'auto-ui'
+```
 
+```jsx
 class DemoA extends React.Component {
   render() {
     return <A onClick={this.click}>Click Me!!!</A>

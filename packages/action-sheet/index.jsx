@@ -1,8 +1,7 @@
 import './style'
-import React, { Component, cloneElement } from 'react'
+import React, { Component } from 'react'
 import { createPortal } from 'react-dom'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 import A from '../a'
 import Modal from '../modal'
@@ -21,85 +20,69 @@ class ActionSheet extends Component {
   }
 
   _content() {
-    const title = this.props.title ?
-      <h1 className="x-actionsheet__title">{this.props.title}</h1> :
-      null
+    const {
+      title,
+      visible,
+      className,
+      onClose,
+      onClick,
+      items,
+      closeText,
+      ...otherProps
+    } = this.props
 
-    const isArray = Array.isArray(this.props.children)
+    if (!Array.isArray(items)) {
+      throw new TypeError('ActionSheet 的 items 必须是个数组')
+    }
 
-    const children = this.props.children ? isArray ? this.props.children : [this.props.children] : null
-
-    const css = cn('x-actionsheet', this.props.className)
-
-    const domprops = ignore(this.props, [
-      'onBgClick',
-      'title',
-      'visible',
-      'onClose',
-      'closeText',
-      'onClick'
-    ])
+    const composeClassName = cn('x-actionsheet', className)
 
     return (
-      <Modal {...domprops} visible={this.props.visible} onBgClick={this.props.onBgClick} className={css}>
-        {title}
+      <Modal
+        visible={visible}
+        onBgClick={onClose}
+        className={composeClassName}
+        {...otherProps}
+      >
+        {!!title && <h1 className="x-actionsheet__title">{title}</h1>}
         <div className="x-actionsheet__list">
-          {
-            children && children.map((res, index) => {
-              const css = cn('x-actionsheet__item', res.props.outerClassName)
-              if (res.type === Item) {
-                res = cloneElement(res, {
-                  onClick: this.props.onClick
-                })
-              }
-              return (
-                <div className={css} key={index}>{res}</div>
-              )
-            })
-          }
+          {items.map((item, index) => {
+            const { name, className } = item
+            const composeClassName = cn('x-actionsheet__button', className)
+            return (
+              <div className="x-actionsheet__item" key={index}>
+                <A
+                  key={index}
+                  className={composeClassName}
+                  onClick={() => {
+                    onClick && onClick(item)
+                  }}
+                >
+                  {name}
+                </A>
+              </div>
+            )
+          })}
         </div>
-        <a
-          href="javascript:;"
-          className="x-actionsheet__closebtn"
-          onClick={this.props.onClose}
-        >
-          {this.props.closeText || '取消'}
-        </a>
+        {!!closeText && (
+          <a
+            href="javascript:;"
+            className="x-actionsheet__closebtn"
+            onClick={onClose}
+          >
+            {closeText}
+          </a>
+        )}
       </Modal>
     )
   }
 
   render() {
     if (this._container) {
-      return createPortal(
-        this._content(),
-        this._container,
-      )
+      return createPortal(this._content(), this._container)
     }
     return null
   }
 }
-
-const Item = props => {
-  const css = cn('x-actionsheet__button', props.className)
-
-  const domprops = ignore(props, [
-    'onClick',
-    'value'
-  ])
-
-  return (
-    <A
-      {...domprops}
-      href="javascript:;"
-      className={css}
-      onClick={e => props.onClick && props.onClick.call(this, props.value)}
-    >
-      {props.text}
-    </A>
-  )
-}
-
-ActionSheet.Item = Item
 
 export default ActionSheet

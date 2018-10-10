@@ -29,7 +29,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/a/index.zh-CN'))
   },
   {
-    name: 'ActionSheet 组件',
+    name: 'ActionSheet 动作面板',
     path: '/docs/actionsheet',
     component: AsyncComponent(e => import('auto-ui/action-sheet/index.zh-CN'))
   },
