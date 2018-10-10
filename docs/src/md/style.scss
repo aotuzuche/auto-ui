@@ -123,6 +123,10 @@ body,
             width: 100%;
             text-align: center;
             font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0 40px;
+            text-overflow: ellipsis;
           }
         }
         iframe {
