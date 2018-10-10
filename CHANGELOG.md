@@ -1,6 +1,15 @@
-### 0.0.2
+<a name="0.0.9"></a>
+## [0.0.9](https://github.com/aotuzuche/auto-ui/compare/v0.0.4...v0.0.9) (2018-09-26)
 
-- 添加 `release.sh` 脚本帮助发布版本
-- 所有的图标压缩后转成 base64 方式
-- 增加 example
-- 新增 NavBar 导航栏组件
+
+
+<a name="0.0.4"></a>
+## [0.0.4](https://github.com/aotuzuche/auto-ui/compare/v0.0.3...v0.0.4) (2018-09-26)
+
+
+
+<a name="0.0.3"></a>
+## 0.0.3 (2018-09-26)
+
+
+

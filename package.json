@@ -9,7 +9,9 @@
     "docs": "cross-env NODE_ENV=development PACKAGE=development webpack-dev-server --host 0.0.0.0 --progress --config build/docs.dev.js",
     "docs:build": "rimraf docs/dist && cross-env NODE_ENV=production PACKAGE=production webpack --config build/docs.build.js && gh-pages -d docs/dist",
     "release": "sh build/release.sh",
-    "lint": "eslint packages --fix --ext .js,.jsx"
+    "lint": "eslint packages --fix --ext .js,.jsx",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commit": "git-cz"
   },
   "repository": "git@github.com:aotuzuche/auto-ui.git",
   "author": "shaodahong <337097324@qq.com>",
@@ -60,8 +62,11 @@
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
     "chalk": "^2.4.1",
+    "commitizen": "^3.0.2",
+    "conventional-changelog": "^2.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
+    "cz-conventional-changelog": "^2.1.0",
     "escape-html": "^1.0.3",
     "eslint": "^5.6.0",
     "eslint-loader": "^2.1.0",
@@ -72,6 +77,7 @@
     "fs-extra": "^7.0.0",
     "gh-pages": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.1",
     "lint-staged": "^7.3.0",
     "markdown-it-react-loader": "^0.0.9",
     "node-sass": "^4.9.3",
@@ -86,5 +92,10 @@
     "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
