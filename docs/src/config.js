@@ -12,7 +12,12 @@ const docsConfig = [
   {
     name: '快速开始',
     path: '/docs/quickstart',
-    component: AsyncComponent(e => import('src/md/quick-start.md'))
+    component: AsyncComponent(e => import('src/md/quick-start'))
+  },
+  {
+    name: '使用须知',
+    path: '/docs/useknow',
+    component: AsyncComponent(e => import('src/md/use-know'))
   },
   {
     name: '最近更新',
@@ -34,7 +39,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/action-sheet/index.zh-CN'))
   },
   {
-    name: 'Alert 组件',
+    name: 'Alert 弹出框',
     path: '/docs/alert',
     component: AsyncComponent(e => import('auto-ui/alert/index.zh-CN'))
   },

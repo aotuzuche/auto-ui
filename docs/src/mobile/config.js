@@ -6,12 +6,12 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./a'))
   },
   {
-    name: 'ActionSheet 组件',
+    name: 'ActionSheet 动作面板',
     path: '/mobile/actionsheet',
     component: AsyncComponent(e => import('./actionsheet'))
   },
   {
-    name: 'Alert 组件',
+    name: 'Alert 弹出框',
     path: '/mobile/alert',
     component: AsyncComponent(e => import('./alert'))
   },

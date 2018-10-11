@@ -127,4 +127,3 @@ import { ActionSheet } from 'auto-ui'
 | 属性      | 说明     | 类型               | 默认值 |
 | --------- | -------- | ------------------ | ------ |
 | name      | 显示文字 | String/HTMLElement | -      |
-| className | 样式     | String             | -      |
