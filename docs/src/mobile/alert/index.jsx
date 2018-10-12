@@ -7,16 +7,16 @@ class A extends React.Component {
       <Cell>
         <Cell.Row
           onClick={() => {
-            Alert.show('基本使用')
+            Alert('基本使用')
           }}
         >
           基本使用
         </Cell.Row>
         <Cell.Row
           onClick={() => {
-            Alert.show('基本使用')
+            const { close } = Alert('主动关闭(2s)')
             setTimeout(() => {
-              Alert.hide()
+              close()
             }, 2000)
           }}
         >
@@ -24,7 +24,7 @@ class A extends React.Component {
         </Cell.Row>
         <Cell.Row
           onClick={() => {
-            Alert.show({
+            Alert({
               title: 'Hello',
               desc: 'World'
             })
@@ -34,23 +34,38 @@ class A extends React.Component {
         </Cell.Row>
         <Cell.Row
           onClick={() => {
-            Alert.show({
+            Alert({
               title: 'Hello',
-              desc: 'world',
-              btnTextN: 'monkey',
-              btnTextY: 'kitty',
-              callbackY: () => {
-                Toast.show('kitty')
-              },
-              callbackN: () => {
-                Toast.show('monkey')
-              }
+              desc: '我是一个描述',
+              btns: [
+                {
+                  name: 'monkey',
+                  onClick: () => {
+                    Toast.show('monkey')
+                  }
+                },
+                {
+                  name: 'kitty',
+                  onClick: () => {
+                    Toast.show('kitty')
+                  }
+                },
+                {
+                  name: 'world',
+                  className: 'alert-world',
+                  onClick: () => {
+                    Toast.show('world')
+                  },
+                  report: {
+                    name: 'world'
+                  }
+                }
+              ]
             })
           }}
         >
           confirm 模式
         </Cell.Row>
-        {/* <Cell.Row><Alert decs="ss"></Alert></Cell.Row> */}
       </Cell>
     )
   }

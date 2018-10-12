@@ -12,17 +12,17 @@ import { Alert } from 'auto-ui'
 ### 基本使用
 
 ```js
-Alert.show('基本使用')
+Alert('基本使用')
 ```
 
 ### 主动关闭（2s）
 
-你也可以使用 Alert.hide()来关闭它，一般不会用到
+`Alert` 会返回一个 `close` 方法
 
 ```js
-Alert.show('基本使用')
+const { close } = Alert('主动关闭(2s)')
 setTimeout(() => {
-  Alert.hide()
+  close()
 }, 2000)
 ```
 
@@ -38,28 +38,51 @@ Alert.show({
 ### confirm 模式
 
 ```js
-Alert.show({
+Alert({
   title: 'Hello',
-  desc: 'world',
-  btnTextN: 'monkey',
-  btnTextY: 'kitty',
-  callbackY: () => {
-    Toast.show('kitty')
-  },
-  callbackN: () => {
-    Toast.show('monkey')
-  }
+  desc: '我是一个描述',
+  btns: [
+    {
+      name: 'monkey',
+      onClick: () => {
+        Toast.show('monkey')
+      }
+    },
+    {
+      name: 'kitty',
+      onClick: () => {
+        Toast.show('kitty')
+      }
+    },
+    {
+      name: 'world',
+      className: 'alert-world',
+      onClick: () => {
+        Toast.show('world')
+      }
+    }
+  ]
 })
 ```
 
-| 属性      | 说明             | 类型     | 默认值 |
-| --------- | ---------------- | -------- | ------ |
-| title     | 标题             | String   | -      |
-| desc      | 内容正文         | String   | empty  |
-| className | 样式名           | String   | -      |
-| btnTextN  | 否定按钮文字     | String   | -      |
-| btnTextY  | 肯定按钮文字     | String   | 确定   |
-| btnText   | btnTextY 的别名  | String   | 确定   |
-| callbackN | 否定回调方法     | Function | -      |
-| callbackY | 肯定回调方法     | Function | -      |
-| callback  | callbackY 的别名 | Function | -      |
+## 支持属性
+
+| 属性      | 说明     | 类型   | 默认值   |
+| --------- | -------- | ------ | -------- |
+| title     | 标题     | String | -        |
+| desc      | 内容正文 | String | empty    |
+| className | 样式名   | String | -        |
+| btns      | 按钮集合 | Array  | 确定按钮 |
+
+## 调用返回
+
+| 属性  | 说明     | 类型     | 默认值 |
+| ----- | -------- | -------- | ------ |
+| close | 关闭方法 | Function | -      |
+
+## btns 支持属性
+
+| 属性    | 说明         | 类型               | 默认值 |
+| ------- | ------------ | ------------------ | ------ |
+| name    | 按钮文字     | String/HTMLElement | -      |
+| onClick | 按钮点击回调 | Function           | -      |

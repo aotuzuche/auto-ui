@@ -29,3 +29,12 @@ body,
   &-demo {
   }
 }
+.x-alert {
+  .x-alert__btns {
+    a {
+      &.alert-world {
+        background-color: red;
+      }
+    }
+  }
+}

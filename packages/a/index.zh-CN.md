@@ -27,6 +27,7 @@ class DemoA extends React.Component {
 
 另外目前组件中直接支持埋点数据统计的有
 
+- Alert
 - Button
 - Cell.Row
 - Radio
