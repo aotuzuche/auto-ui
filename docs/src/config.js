@@ -44,7 +44,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/alert/index.zh-CN'))
   },
   {
-    name: 'Button 组件',
+    name: 'Button 按钮',
     path: '/docs/button',
     component: AsyncComponent(e => import('auto-ui/button/index.zh-CN'))
   },

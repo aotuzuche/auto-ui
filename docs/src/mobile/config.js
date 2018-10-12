@@ -16,7 +16,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./alert'))
   },
   {
-    name: 'Button 组件',
+    name: 'Button 按钮',
     path: '/mobile/button',
     component: AsyncComponent(e => import('./button'))
   },

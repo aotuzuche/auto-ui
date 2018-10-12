@@ -1,9 +1,21 @@
 ---
 ---
 
-## Button 按钮
+# Button 按钮
 
-**按钮种类**
+## 使用示例
+
+```js
+import { Button } from 'auto-ui'
+```
+
+### 默认使用
+
+```jsx
+<Button>默认使用</Button>
+```
+
+### 使用 type
 
 按钮分为 primary、danger 与 default3 种（注意：默认为 primary）
 
@@ -15,23 +27,29 @@
 <Button type="default">Default Button</Button>
 ```
 
-**小按钮**
+### 小按钮
 
 ```jsx
-<Button mini>Mini type</Button>
+<Button mini type="primary">小按钮</Button>
+
+<Button mini type="danger">小按钮</Button>
+
+<Button mini type="default">小按钮</Button>
 ```
 
-**加载中**
+### 加载中
 
 ```jsx
-<Button loading>With loading</Button>
+<Button loading>加载中</Button>
 ```
 
-**不可用**
+### 禁用
 
 ```jsx
-<Button disabled>Disabled</Button>
+<Button disabled>禁用</Button>
 ```
+
+## 支持属性
 
 | 属性     | 说明                                   | 类型     | 默认值  |
 | -------- | -------------------------------------- | -------- | ------- |
