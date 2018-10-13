@@ -1,78 +1,64 @@
 import './style'
 import React, { cloneElement } from 'react'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 import A from '../a'
 
-const CellRow = props => {
-  const css = cn('x-cell__row', {
-    'x-cell--activeable': props.onClick || props.activeable,
-  }, props.className)
-
-  const domprops = ignore(props, [
-    'activeable',
-    'onClick',
-    'value',
-    'label',
-    'arrow',
-  ])
-
-  let Node = 'div'
-  if (props.hasOwnProperty('onClick')) {
-    Node = A
-  }
+function CellRow(props) {
+  const { className, ...otherProps } = props
+  const composeClassName = cn(
+    'x-cell__row',
+    className,
+    {
+      'x-cell--activeable': props.onClick || props.activeable
+    },
+    props.className
+  )
 
   return (
-    <Node
-      {...domprops}
-      className={css}
-      onClick={() => props.hasOwnProperty('onClick') && props.onClick(props.value)}
+    <A
+      {...otherProps}
+      className={composeClassName}
+      onClick={() =>
+        props.hasOwnProperty('onClick') && props.onClick(props.value)
+      }
     >
-      {
-        props.hasOwnProperty('label') ?
-          <label>{props.label}</label> :
-          null
-      }
+      {props.hasOwnProperty('label') ? <label>{props.label}</label> : null}
       {props.children}
-      {
-        props.arrow ? <span className="x-cell__arrow"></span> : null
-      }
-    </Node>
+      {props.arrow ? <span className="x-cell__arrow" /> : null}
+    </A>
   )
 }
 
-
-const Cell = props => {
-  const css = cn('x-cell', props.className, {
-    'x-cell--indent-line': props.indentLine,
-    'x-cell--arrow': props.arrow,
+function Cell(props) {
+  const {
+    arrow,
+    indentLine,
+    className,
+    children,
+    onClick,
+    ...otherProps
+  } = props
+  const composeClassName = cn('x-cell', className, {
+    'x-cell--indent-line': indentLine,
+    'x-cell--arrow': arrow
   })
-  let children = props.children
 
-  if (children && typeof props.onClick === 'function') {
-    if (!Array.isArray(children)) {
-      children = [children]
-    }
-    children = children.map((res, index) => {
-      return cloneElement(res, {
-        value: res.props.value || '',
-        key: index,
-        onClick: props.onClick,
-        arrow: props.arrow,
-      })
-    })
-  }
-
-  const domprops = ignore(props, [
-    'indentLine',
-    'onClick',
-    'arrow',
-  ])
+  const composeChildren = [].concat(children)
 
   return (
-    <section {...domprops} className={css}>
-      {children}
+    <section {...otherProps} className={composeClassName}>
+      {composeChildren.map((children, index) => {
+        if (children.type === CellRow) {
+          return cloneElement(children, {
+            onClick: () => {
+              children.props.onClick && children.props.onClick()
+              onClick && onClick()
+            }
+          })
+        }
+        return children
+      })}
     </section>
   )
 }

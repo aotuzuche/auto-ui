@@ -1,40 +1,38 @@
 ---
 ---
 
-## Cell 列
+# Cell 单元格
 
-包括2个部分，Cell和Cell.Row，Cell为列的外容易，内部包含Cell.Row，Cell.Row为每项的内容
+## 使用示例
 
+```jsx
+import { Cell } from 'auto-ui'
+```
 
-**示例代码**
+单元格包含 2 个部分，Cell 和 Cell.Row，Cell 为容器，内部包含 Cell.Row，Cell.Row 为每项的内容
+
+## 基本使用
+
 ```jsx
 <Cell>
-    <Cell.Row>
-        1. balabala
-    </Cell.Row>
-    
-    <Cell.Row>
-        2. balabala
-    </Cell.Row>
-
-    <Cell.Row>
-        3. balabala
-    </Cell.Row>
+  <Cell.Row>基本使用</Cell.Row>
 </Cell>
 ```
 
-**统一点击事件**
+## 统一点击事件
 
 将事件写在 Cell 上，并且 Cell.Row 都带有 value 属性，就可以在每行的点击时捕获他们，事件中将会把 value 作为参数带回。
 
 ```jsx
 <Cell
   onClick={val => {
-    console.log(val)
+    Toast.show(val)
   }}
 >
-  <Cell.Row value={1}>A</Cell.Row>
-  <Cell.Row value={2}>A</Cell.Row>
+  <Cell.Row value="第一项">第一项</Cell.Row>
+  <Cell.Row value="第二项">第二项</Cell.Row>
+  <Cell.Row value="第三项">第三项</Cell.Row>
+  <Cell.Row value="第四项">第四项</Cell.Row>
 </Cell>
 ```
 

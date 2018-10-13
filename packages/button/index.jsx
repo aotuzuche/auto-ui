@@ -15,7 +15,6 @@ const Button = props => {
     children,
     ...otherProps
   } = props
-  console.log('type', type)
   const css = cn(
     'x-button',
     {

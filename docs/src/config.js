@@ -49,7 +49,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/button/index.zh-CN'))
   },
   {
-    name: 'Cell 组件',
+    name: 'Cell 单元格',
     path: '/docs/cell',
     component: AsyncComponent(e => import('auto-ui/cell/index.zh-CN'))
   },
