@@ -5,27 +5,22 @@ import cn from 'classnames'
 import A from '../a'
 
 function CellRow(props) {
-  const { className, ...otherProps } = props
-  const composeClassName = cn(
-    'x-cell__row',
+  const {
     className,
-    {
-      'x-cell--activeable': props.onClick || props.activeable
-    },
-    props.className
-  )
+    arrow,
+    onClick,
+    activeable,
+    children,
+    ...otherProps
+  } = props
+  const composeClassName = cn('x-cell__row', className, {
+    'x-cell--activeable': onClick || activeable,
+    'x-cell--arrow': arrow
+  })
 
   return (
-    <A
-      {...otherProps}
-      className={composeClassName}
-      onClick={() =>
-        props.hasOwnProperty('onClick') && props.onClick(props.value)
-      }
-    >
-      {props.hasOwnProperty('label') ? <label>{props.label}</label> : null}
-      {props.children}
-      {props.arrow ? <span className="x-cell__arrow" /> : null}
+    <A {...otherProps} className={composeClassName} onClick={onClick}>
+      {children}
     </A>
   )
 }
@@ -40,8 +35,7 @@ function Cell(props) {
     ...otherProps
   } = props
   const composeClassName = cn('x-cell', className, {
-    'x-cell--indent-line': indentLine,
-    'x-cell--arrow': arrow
+    'x-cell--indent-line': indentLine
   })
 
   const composeChildren = [].concat(children)
@@ -51,9 +45,14 @@ function Cell(props) {
       {composeChildren.map((children, index) => {
         if (children.type === CellRow) {
           return cloneElement(children, {
+            key: index,
+            arrow: arrow || children.props.arrow,
             onClick: () => {
-              children.props.onClick && children.props.onClick()
-              onClick && onClick()
+              const value = children.props && children.props.value
+              if (onClick) {
+                return onClick(value)
+              }
+              children.props.onClick && children.props.onClick(value)
             }
           })
         }
