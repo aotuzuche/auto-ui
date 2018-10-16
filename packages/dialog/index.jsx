@@ -1,67 +1,60 @@
 import './style'
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { createPortal } from 'react-dom'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 import Modal from '../modal'
 
-class Dialog extends PureComponent {
-  componentDidMount() {
-    this._container = document.createElement('div')
-    this._container.classList.add('_x_dialog_')
-    document.body.appendChild(this._container)
-
-    this.setState({})
+class Dialog extends React.Component {
+  constructor(props) {
+    super(props)
+    this.div = document.createElement('div')
+    this.div.classList.add('_x_dialog_')
+    document.body.appendChild(this.div)
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this._container)
+    if (this.div && this.div.parentNode) {
+      this.div.parentNode.removeChild(this.div)
+    }
   }
-
   _content() {
-    const css = cn('x-dialog', this.props.className)
+    const {
+      className,
+      height,
+      visible,
+      children,
+      onBgClick,
+      ...otherProps
+    } = this.props
 
-    const domprops = ignore(this.props, [
-      'onBgClick',
-      'visible',
-      'height',
-    ])
+    const composeClassName = cn('x-dialog', className)
 
     return (
       <Modal
-        {...domprops}
-        visible={this.props.visible}
-        height={this.props.height}
-        onBgClick={this.props.onBgClick}
-        className={css}
+        {...otherProps}
+        visible={visible}
+        height={height}
+        onBgClick={onBgClick}
+        className={composeClassName}
       >
-        <div className="x-dialog__inner">
-          {this.props.children}
-        </div>
+        <div className="x-dialog__inner">{children}</div>
       </Modal>
     )
   }
 
   render() {
-    if (this._container) {
-      return createPortal(
-        this._content(),
-        this._container,
-      )
-    }
-    return null
+    return createPortal(this._content(), this.div)
   }
 }
 
 const Scroller = props => {
-  const css = cn('x-dialog__scroller', props.className)
-
-  const domprops = ignore(props, [])
+  const { className, children } = props
+  const composeClassName = cn('x-dialog__scroller', className)
 
   return (
-    <div {...domprops} className={css}>
-      <div className="x-dialog__inscroller">{props.children}</div>
+    <div className={composeClassName}>
+      <div className="x-dialog__inscroller">{children}</div>
     </div>
   )
 }

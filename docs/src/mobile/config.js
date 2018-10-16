@@ -26,7 +26,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./cell'))
   },
   {
-    name: 'Dialog 组件',
+    name: 'Dialog 高级弹出框',
     path: '/mobile/dialog',
     component: AsyncComponent(e => import('./dialog'))
   },

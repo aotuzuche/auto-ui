@@ -54,7 +54,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/cell/index.zh-CN'))
   },
   {
-    name: 'Dialog 组件',
+    name: 'Dialog 高级弹出框',
     path: '/docs/dialog',
     component: AsyncComponent(e => import('auto-ui/dialog/index.zh-CN'))
   },
