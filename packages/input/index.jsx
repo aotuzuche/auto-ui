@@ -1,52 +1,60 @@
 import './style'
 import React from 'react'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 const Input = props => {
-  const type = props.type || 'text'
+  const {
+    type,
+    className,
+    addonBefore,
+    addonAfter,
+    error,
+    multi,
+    disabled,
+    value,
+    onChange,
+    ...otherProps
+  } = props
 
-  const addonAfter = props.addonAfter && !props.multi ?
-    <div className="x-input__addon-after">{props.addonAfter}</div> :
-    ''
-  const addonBefore = props.addonBefore && !props.multi ?
-    <div className="x-input__addon-before">{props.addonBefore}</div> :
-    ''
+  const composeClassName = cn(
+    'x-input',
+    {
+      'x-input--error': error,
+      'x-input--multi': multi,
+      'x-input--disabled': disabled
+    },
+    className
+  )
 
-  const css = cn('x-input', {
-    'x-input--error': props.error,
-    'x-input--multi': props.multi,
-    'x-input--disabled': props.disabled,
-  }, props.className)
-
-  const inputprops = ignore(props, [
-    'addonAfter',
-    'addonBefore',
-    'multi',
-    'error',
-  ])
+  if (multi) {
+    return (
+      <div className={composeClassName}>
+        <textarea
+          {...otherProps}
+          disabled={disabled}
+          className="x-input__ipt"
+          value={value}
+          onChange={onChange}
+          type={type || 'text'}
+        />
+      </div>
+    )
+  }
 
   return (
-    <div className={css}>
-      {addonBefore}
-      {
-        props.multi ?
-          <textarea
-            {...inputprops}
-            className="x-input__ipt"
-            value={props.value}
-            onChange={props.onChange}
-            type={type}
-          /> :
-          <input
-            {...inputprops}
-            className="x-input__ipt"
-            value={props.value}
-            onChange={props.onChange}
-            type={type}
-          />
-      }
-      {addonAfter}
+    <div className={composeClassName}>
+      {!!addonBefore && (
+        <div className="x-input__addon-before">{addonBefore}</div>
+      )}
+      <input
+        {...otherProps}
+        disabled={disabled}
+        className="x-input__ipt"
+        value={value}
+        onChange={onChange}
+        type={type || 'text'}
+      />
+      {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
     </div>
   )
 }

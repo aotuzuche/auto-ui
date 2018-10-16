@@ -1,42 +1,50 @@
 ---
 ---
 
-## Input 输入框
+# Input 文本输入
 
-**基本使用**
+## 使用示例
+
+### 基本使用
+
 ```jsx
-<Input type="text" placeholder="Placeholder" />
+<Input placeholder="基本使用" />
 ```
 
-**不可用**
+### 禁用
+
 ```jsx
-<Input type="text" placeholder="Placeholder" disabled />
+<Input placeholder="禁用" disabled />
 ```
 
-**错误**
+### 错误
+
 ```jsx
-<Input type="text" placeholder="Placeholder" error />
+<Input placeholder="错误" error />
 ```
 
-**左侧挂载**
+### 左侧挂载
+
 ```jsx
-<Input type="text" placeholder="Placeholder" addonBefore={<a href="#">Before</a>} />
+<Input placeholder="左侧挂载" addonBefore={<a>Before</a>} />
 ```
 
-**右侧挂载**
+### 右侧挂载
+
 ```jsx
-<Input type="text" placeholder="Placeholder" addonAfter={<a href="#">After</a>} />
+<Input placeholder="右侧挂载" addonAfter={<a>After</a>} />
 ```
 
-**多行**
+### 多行文本
+
 ```jsx
-<Input type="text" placeholder="Placeholder" multi />
+<Input placeholder="多行文本" multi />
 ```
 
-|属性|说明|类型|默认值|
-|-|-|-|-|
-|disabled|是否为不可用|Boolean|false|
-|error|是否为错误样式（红色边框）|Boolean|false|
-|addonBefore|左侧挂载，比如一些icon或标题|Component|-|
-|addonAfter|右侧挂载，比如发送验证码按钮|Component|-|
-|multi|多行显示，默认3行，注意：使用多行时，挂载将失效|Boolean|false|
+| 属性        | 说明                                       | 类型      | 默认值 |
+| ----------- | ------------------------------------------ | --------- | ------ |
+| disabled    | 是否禁用                                   | Boolean   | false  |
+| error       | 是否显示错误样式（红色边框）               | Boolean   | false  |
+| addonBefore | 左侧挂载，比如一些 icon 或标题             | Component | -      |
+| addonAfter  | 右侧挂载，比如发送验证码按钮               | Component | -      |
+| multi       | 多行文本，addonBefore && addonAfter 不可用 | Boolean   | false  |

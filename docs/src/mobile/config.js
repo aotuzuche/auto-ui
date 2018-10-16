@@ -31,7 +31,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./dialog'))
   },
   {
-    name: 'Input 组件',
+    name: 'Input 文本输入',
     path: '/mobile/input',
     component: AsyncComponent(e => import('./input'))
   },

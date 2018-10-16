@@ -59,7 +59,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/dialog/index.zh-CN'))
   },
   {
-    name: 'Input 组件',
+    name: 'Input 文本输入',
     path: '/docs/input',
     component: AsyncComponent(e => import('auto-ui/input/index.zh-CN'))
   },
