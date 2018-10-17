@@ -1,9 +1,46 @@
 import React from 'react'
+import { Cell, Loading } from 'auto-ui'
 
-class A extends React.Component {
+class DemoLoading extends React.Component {
   render() {
-    return <h1>a</h1>
+    return (
+      <Cell>
+        <Cell.Row
+          onClick={() => {
+            const { close } = Loading()
+
+            setTimeout(() => {
+              close()
+            }, 1000)
+          }}
+        >
+          基本使用
+        </Cell.Row>
+
+        <Cell.Row
+          onClick={() => {
+            const { close } = Loading('加载中...')
+
+            setTimeout(() => {
+              close()
+            }, 1000)
+          }}
+        >
+          提示
+        </Cell.Row>
+        <Cell.Row
+          onClick={() => {
+            const { close } = Loading('手动关闭')
+            setTimeout(() => {
+              close()
+            }, 2000)
+          }}
+        >
+          手动关闭
+        </Cell.Row>
+      </Cell>
+    )
   }
 }
 
-export default A
+export default DemoLoading

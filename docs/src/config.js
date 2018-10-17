@@ -69,7 +69,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/layout/index.zh-CN'))
   },
   {
-    name: 'Loading 组件',
+    name: 'Loading 全局加载',
     path: '/docs/loading',
     component: AsyncComponent(e => import('auto-ui/loading/index.zh-CN'))
   },

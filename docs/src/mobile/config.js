@@ -41,7 +41,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./layout'))
   },
   {
-    name: 'Loading 组件',
+    name: 'Loading 全局加载',
     path: '/mobile/loading',
     component: AsyncComponent(e => import('./loading'))
   },
