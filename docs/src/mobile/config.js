@@ -46,11 +46,6 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./loading'))
   },
   {
-    name: 'Modal 组件',
-    path: '/mobile/modal',
-    component: AsyncComponent(e => import('./modal'))
-  },
-  {
     name: 'NavBar 组件',
     path: '/mobile/navbar',
     component: AsyncComponent(e => import('./navbar'))

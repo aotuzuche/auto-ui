@@ -7,7 +7,6 @@ import Dialog from './dialog'
 import Input from './input'
 import Layout from './layout'
 import Loading from './loading'
-import Modal from './modal'
 import NavBar from './navbar'
 import Popup from './popup'
 import Radio from './radio'
@@ -27,7 +26,6 @@ export {
   Input,
   Layout,
   Loading,
-  Modal,
   NavBar,
   Popup,
   Radio,
