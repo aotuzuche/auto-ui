@@ -36,7 +36,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./input'))
   },
   {
-    name: 'Layout 组件',
+    name: 'Layout 布局',
     path: '/mobile/layout',
     component: AsyncComponent(e => import('./layout'))
   },

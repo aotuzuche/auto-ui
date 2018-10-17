@@ -2,127 +2,112 @@ import './style'
 import React from 'react'
 import cn from 'classnames'
 import Spin from '../spin'
-import ignore from '../__libs/ignoreProps'
 
 const Layout = props => {
-  const css = cn(
-    'x-app',
-    props.className,
-  )
+  const { className, children, ...otherProps } = props
+  const composeClassName = cn('x-app', className)
   return (
-    <div {...props} className={css}>
-      {props.children}
+    <div {...otherProps} className={composeClassName}>
+      {children}
     </div>
   )
 }
 
 const LayoutBody = props => {
-  const css = cn(
-    'x-app-body',
-    props.className,
-    {
-      'x-app-body--loading': props.loading,
-      'x-app-body--error': props.errorInfo,
-    },
-  )
+  const { className, loading, errorInfo, children, ...otherProps } = props
+  const composeClassName = cn('x-app-body', className, {
+    'x-app-body--loading': loading,
+    'x-app-body--error': errorInfo
+  })
 
-  const domprops = ignore(props, [
-    'loading',
-    'errorInfo',
-  ])
+  function content() {
+    if (loading) {
+      return <Spin className="x-app__loading" />
+    } else if (errorInfo) {
+      return (
+        <p className="x-app__error-info">
+          <i>!</i>
+          {errorInfo}
+        </p>
+      )
+    } else {
+      return children
+    }
+  }
 
   return (
-    <div
-      {...domprops}
-      className={css}
-    >
-      {
-        props.loading ?
-          <Spin className="x-app__loading"></Spin> :
-          props.errorInfo ?
-            <p className="x-app__error-info"><i>!</i>{props.errorInfo}</p> :
-            props.children
-      }
+    <div {...otherProps} className={composeClassName}>
+      {content()}
     </div>
   )
 }
 
 const LayoutFooter = props => {
-  const css = cn(
-    'x-app-footer',
-    props.className,
-  )
-  if (props.visible === false) {
+  const { className, visible, children, ...otherProps } = props
+  const composeClassName = cn('x-app-footer', className)
+  if (visible === false) {
     return null
   }
 
-  const domprops = ignore(props, [
-    'visible',
-  ])
-
   return (
-    <footer {...domprops} className={css}>
-      {props.children}
+    <footer {...otherProps} className={composeClassName}>
+      {children}
     </footer>
   )
 }
 
 const LayoutHeader = props => {
-  const css = cn(
+  const {
+    className,
+    children,
+    ghost,
+    addonBefore,
+    onBackClick,
+    onCloseClick,
+    title,
+    addonAfter,
+    addonBottom,
+    ...otherProps
+  } = props
+  const composeClassName = cn(
     'x-app-header',
     {
-      'x-app-header--ghost': props.ghost,
+      'x-app-header--ghost': ghost
     },
-    props.className,
+    className
   )
-  const inner = cn(
-    'x-app-header__inner',
-    props.innerClassName,
-  )
-
-  const domprops = ignore(props, [
-    'ghost',
-    'innerClassName',
-    'addonBefore',
-    'onBackClick',
-    'onCloseClick',
-    'title',
-    'addonAfter',
-    'addonBottom',
-  ])
 
   return (
-    <header {...domprops} className={css}>
-      <div className={inner}>
-        {
-          props.addonBefore || props.onBackClick || props.onCloseClick ?
-            <div className="x-app-header__addon-before">
-              {
-                props.onBackClick ?
-                  <a
-                    onClick={props.onBackClick}
-                    href="javascript:;"
-                    className="x-app-header__back"
-                  /> :
-
-                  props.onCloseClick ?
-                    <a
-                      onClick={props.onCloseClick}
-                      href="javascript:;"
-                      className="x-app-header__close"
-                    /> :
-
-                    null
-              }
-              {props.addonBefore}
-            </div> :
-            null
-        }
-        {props.title ? <h1 className="x-app-header__title">{props.title}</h1> : null}
-        {props.children}
-        {props.addonAfter ? <div className="x-app-header__addon-after">{props.addonAfter}</div> : null}
+    <header {...otherProps} className={composeClassName}>
+      <div className="x-app-header__inner">
+        {(addonBefore || onBackClick || onCloseClick) && (
+          <div className="x-app-header__addon-before">
+            {!!onBackClick && (
+              <a
+                onClick={props.onBackClick}
+                href="javascript:;"
+                className="x-app-header__back"
+              />
+            )}
+            {!!onCloseClick && (
+              <a
+                onClick={props.onCloseClick}
+                href="javascript:;"
+                className="x-app-header__close"
+              />
+            )}
+            {addonBefore}
+          </div>
+        )}
+        {!!title && <h1 className="x-app-header__title">{title}</h1>}
+        {children}
+        {!!addonAfter && (
+          <div className="x-app-header__addon-after">{props.addonAfter}</div>
+        )}
       </div>
-      {props.addonBottom ? <div className="x-app-header__addon-bottom">{props.addonBottom}</div> : null}
+      {!!addonBottom && (
+        <div className="x-app-header__addon-bottom">{props.addonBottom}</div>
+      )}
     </header>
   )
 }

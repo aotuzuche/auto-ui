@@ -64,7 +64,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/input/index.zh-CN'))
   },
   {
-    name: 'Layout 组件',
+    name: 'Layout 布局',
     path: '/docs/layout',
     component: AsyncComponent(e => import('auto-ui/layout/index.zh-CN'))
   },
