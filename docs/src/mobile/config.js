@@ -46,7 +46,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./loading'))
   },
   {
-    name: 'NavBar 组件',
+    name: 'NavBar 导航栏',
     path: '/mobile/navbar',
     component: AsyncComponent(e => import('./navbar'))
   },

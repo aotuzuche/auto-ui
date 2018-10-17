@@ -1,33 +1,39 @@
 ---
 ---
 
-## NavBar 导航栏
+# NavBar 导航栏
 
-### 使用
+## 使用示例
 
-```js
+```jsx
 import { NavBar } from 'auto-ui'
-
-<NavBar title="导航栏" />
 ```
 
-### 更多用法
+### 基本使用
 
-```js
-<NavBar title="导航栏" leftBtn />
+```jsx
+<NavBar title="基本使用" />
 ```
+
+### 左侧按钮
+
+```jsx
+<NavBar title="左侧按钮" leftBtn />
+```
+
+### 右侧按钮
 
 ```js
 <NavBar
-  title="导航栏"
+  title="右侧按钮"
   rightBtn
   rightClick={() => {
-    alert('点击呢右侧按钮')
+    Toast.show('点击了右侧按钮')
   }}
 />
 ```
 
-### API
+## 支持属性
 
 | 属性       | 说明             | 类型    | 默认值     |
 | ---------- | ---------------- | ------- | ---------- |

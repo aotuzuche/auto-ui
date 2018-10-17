@@ -19,11 +19,12 @@ class NavBar extends React.Component {
       leftBtn,
       rightBtn,
       leftClick,
-      rightClick
+      rightClick,
+      ...otherProps
     } = this.props
     const composeClass = cn('auto-ui_navbar', className)
     return (
-      <div className={composeClass}>
+      <div {...otherProps} className={composeClass}>
         {leftBtn && (
           <div
             className="auto-ui_navbar-leftbtn"

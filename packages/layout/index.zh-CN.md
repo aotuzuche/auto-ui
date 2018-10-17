@@ -7,6 +7,10 @@
 
 ## 使用示例
 
+```jsx
+import { Layout } from 'auto-ui'
+```
+
 ### 基本使用
 
 ```jsx

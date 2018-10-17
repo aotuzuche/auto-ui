@@ -3,8 +3,7 @@
   line-height: 88px;
   user-select: none;
   background-color: #fff;
-  display: flex;
-  justify-content: space-between;
+  position: relative;
   &-icon {
     height: 88px;
     width: 88px;
@@ -14,8 +13,11 @@
     background-position: 0 50%;
   }
   &-leftbtn {
-    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     padding-left: 30px;
+    height: 100%;
     &-icon {
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAATlBMVEUAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzO4SX6oAAAAGXRSTlMA9vFmST3553BEeV3dUjcNuKaIJBrLyZcu3mlH2gAAAIJJREFUOMvtzkkOgCAQBdFmEEQE54H7X9Q0XuB3YuKGWr9FUeujrNcGtq4UhVvGuC0RskGxNb/aTmz7X23WuA3VDuADbrPA0szW7xieDtYjqs+qN1C/J6CmpepbonUG9VV1B+qVtQoibUE9sHYJ1H3hIqiNSEfGmsCSE2Cyo0/U+r4HzwUNo3qaNwMAAAAASUVORK5CYII=);
     }
@@ -23,10 +25,14 @@
   &-title {
     width: 100%;
     text-align: center;
+    padding: 0 118px;
   }
   &-rightbtn {
-    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
     padding-right: 30px;
+    height: 100%;
     &-icon {
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAOVBMVEUAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzNDquetAAAAEnRSTlMA0/nwFQRToZZ8VrxX5dYxIzp4xV42AAAAZklEQVQ4y+2QSQ7AIAhFAeehtvX+h23FRF3abcNbfZ9ACCAIfyUiYYSJCQelcxHaKeX0G2xtLLW+vdU1W7EJNABYOc0ZlfFD2C4sAHGg8XNXJg0RugifpkYOeWdXyIVK3riAIAjwAA2aBzkP8kM2AAAAAElFTkSuQmCC);
       background-position: 100% 50%;

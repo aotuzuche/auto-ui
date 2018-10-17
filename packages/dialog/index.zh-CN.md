@@ -3,6 +3,10 @@
 
 # Dialog 高级弹出框
 
+```jsx
+import { Dialog } from 'auto-ui'
+```
+
 它是对 Alert 的补充，能实现 Alert 的效果且作用更广，因为它的内部可以放置任意内容的组件
 
 ## 使用示例
