@@ -137,6 +137,13 @@ body,
             padding: 0 40px;
             text-overflow: ellipsis;
           }
+          &__refresh {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 15px;
+          }
         }
         iframe {
           width: 100%;

@@ -51,7 +51,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./navbar'))
   },
   {
-    name: 'Popup 组件',
+    name: 'Popup 弹出层',
     path: '/mobile/popup',
     component: AsyncComponent(e => import('./popup'))
   },

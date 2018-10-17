@@ -6,7 +6,7 @@
 ## 使用示例
 
 ```jsx
-import { Loadind } from 'auto-ui'
+import { Loading } from 'auto-ui'
 ```
 
 ### 基本使用

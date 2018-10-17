@@ -99,8 +99,19 @@ class MDIndex extends React.Component {
                       '/#' +
                       this.state.iframeUrl}
                   </p>
+                  <i
+                    className="simulator-header__refresh"
+                    onClick={() => {
+                      this.iframe.contentWindow.location.reload(true)
+                    }}
+                  />
                 </div>
-                <iframe src={baseUrl + '/#' + this.state.iframeUrl} />
+                <iframe
+                  ref={ele => {
+                    this.iframe = ele
+                  }}
+                  src={baseUrl + '/#' + this.state.iframeUrl}
+                />
               </div>
             </div>
           </div>

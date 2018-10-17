@@ -1,12 +1,11 @@
 import './style'
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { createPortal } from 'react-dom'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 import Modal from '../modal'
 
-class Popup extends PureComponent {
+class Popup extends React.Component {
   componentDidMount() {
     this._container = document.createElement('div')
     this._container.classList.add('_x_popup_')
@@ -20,16 +19,28 @@ class Popup extends PureComponent {
   }
 
   _content() {
-    const css = cn('x-popup', {
-      'x-popup--top': this.props.top,
-    }, this.props.className)
+    const {
+      className,
+      top,
+      build,
+      onBgClick,
+      height,
+      visible,
+      noPadding,
+      children,
+      ...otherProps
+    } = this.props
+    const composeClassName = cn(
+      'x-popup',
+      {
+        'x-popup--top': top
+      },
+      className
+    )
 
-    let children = this.props.children
-    if (!Array.isArray(children)) {
-      children = [children]
-    }
+    const composeChildren = [].concat(children)
     let hasScrollChildren = false
-    children.forEach(res => {
+    composeChildren.forEach(res => {
       if (res.type === Scroller && !hasScrollChildren) {
         hasScrollChildren = true
       }
@@ -37,51 +48,37 @@ class Popup extends PureComponent {
 
     const innercss = cn('x-popup__inner', {
       'x-popup--no-scroll': hasScrollChildren,
-      'x-popup--no-padding': this.props.noPadding,
+      'x-popup--no-padding': noPadding
     })
-
-    const domprops = ignore(this.props, [
-      'visible',
-      'height',
-      'onBgClick',
-      'noPadding',
-      'top',
-    ])
 
     return (
       <Modal
-        {...domprops}
-        visible={this.props.visible}
-        height={this.props.height}
-        onBgClick={this.props.onBgClick}
-        className={css}
+        {...otherProps}
+        visible={visible}
+        height={height}
+        onBgClick={onBgClick}
+        className={composeClassName}
       >
-        <div className={innercss}>
-          {this.props.children}
-        </div>
+        <div className={innercss}>{children}</div>
       </Modal>
     )
   }
 
   render() {
     if (this._container) {
-      return createPortal(
-        this._content(),
-        this._container,
-      )
+      return createPortal(this._content(), this._container)
     }
     return null
   }
 }
 
 const Scroller = props => {
-  const css = cn('x-popup__scroller', props.className)
-
-  const domprops = ignore(props, [])
+  const { className, children, ...otherProps } = props
+  const composeClassName = cn('x-popup__scroller', className)
 
   return (
-    <div {...domprops} className={css}>
-      <div className="x-popup__inscroller">{props.children}</div>
+    <div {...otherProps} className={composeClassName}>
+      <div className="x-popup__inscroller">{children}</div>
     </div>
   )
 }
