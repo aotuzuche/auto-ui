@@ -1,0 +1,15 @@
+.tab {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  line-height: 300px;
+  &-a {
+    background-color: red;
+  }
+  &-b {
+    background-color: blue;
+  }
+  &-c {
+    background-color: green;
+  }
+}

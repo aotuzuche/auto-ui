@@ -5,16 +5,16 @@ import ignore from '../__libs/ignoreProps'
 
 import A from '../a'
 
-const TabsItem = (props) => {
-  const css = cn('x-tabs__item', {
-    'x-tabs--active': props.active,
-  }, props.className)
+const TabsItem = props => {
+  const css = cn(
+    'x-tabs__item',
+    {
+      'x-tabs--active': props.active
+    },
+    props.className
+  )
 
-  const domprops = ignore(props, [
-    'active',
-    'value',
-    'onClick',
-  ])
+  const domprops = ignore(props, ['active', 'value', 'onClick'])
 
   return (
     <A
@@ -29,20 +29,14 @@ const TabsItem = (props) => {
 }
 
 const Tabs = props => {
-  const css = cn('x-tabs', props.className)
+  const { className, children, active, onClick, ...otherProps } = props
+  const composeClassName = cn('x-tabs', className)
 
   let activeOffset = -2
 
-  let children = props.children
-  if (children && !Array.isArray(children)) {
-    children = [children]
-  }
+  let composeChildren = [].concat(children)
 
-  if (!props.hasOwnProperty('children')) {
-    children = []
-  }
-
-  children = children.map((res, index) => {
+  composeChildren = composeChildren.map((res, index) => {
     let act = props.hasOwnProperty('active') && res.props.value === props.active
     if (act) {
       activeOffset = index
@@ -51,27 +45,22 @@ const Tabs = props => {
       active: act,
       key: index,
       value: res.props.value,
-      onClick: props.onClick,
+      onClick: props.onClick
     })
   })
 
   const len = children.length
 
-  const domprops = ignore(props, [
-    'active',
-    'onClick',
-  ])
-
   return (
-    <div {...domprops} className={css}>
+    <div {...otherProps} className={composeClassName}>
       <sub
         className="x-tabs__line"
         style={{
           width: 100 / len + '%',
-          'WebkitTransform': 'translate(' + activeOffset * 100 + '%,0)'
+          WebkitTransform: 'translate(' + activeOffset * 100 + '%,0)'
         }}
       />
-      {children}
+      {composeChildren}
     </div>
   )
 }

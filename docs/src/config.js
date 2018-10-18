@@ -99,7 +99,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/switch/index.zh-CN'))
   },
   {
-    name: 'Tabs 组件',
+    name: 'Tabs 标签页',
     path: '/docs/tabs',
     component: AsyncComponent(e => import('auto-ui/tabs/index.zh-CN'))
   },

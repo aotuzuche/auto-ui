@@ -71,7 +71,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./switch'))
   },
   {
-    name: 'Tabs 组件',
+    name: 'Tabs 标签页',
     path: '/mobile/tabs',
     component: AsyncComponent(e => import('./tabs'))
   },
