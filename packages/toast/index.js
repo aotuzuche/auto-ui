@@ -2,12 +2,18 @@ import './style'
 import React from 'react'
 import { render, createPortal, unmountComponentAtNode } from 'react-dom'
 
+let timer = null
+
 export default function Toast(text, timeout = 2000) {
   if (timeout < 500) {
     timeout = 500
   }
+  const oldDiv = document.getElementById('j-x-toast')
+  oldDiv && oldDiv.parentNode && oldDiv.parentNode.removeChild(oldDiv)
+  timer && clearTimeout(timer)
   const div = document.createElement('div')
   div.classList.add('x-toast', 'x-toast--show')
+  div.id = 'j-x-toast'
   document.body.appendChild(div)
 
   render(
@@ -20,18 +26,20 @@ export default function Toast(text, timeout = 2000) {
     div
   )
 
-  const timer = setTimeout(() => {
-    div.classList.remove('x-toast--show')
-    div.classList.add('x-toast--hide')
+  timer = setTimeout(() => {
     close()
   }, timeout)
 
   function close() {
-    unmountComponentAtNode(div)
+    div.classList.remove('x-toast--show')
+    div.classList.add('x-toast--hide')
     clearTimeout(timer)
-    if (div && div.parentNode) {
-      div.parentNode.removeChild(div)
-    }
+    setTimeout(() => {
+      unmountComponentAtNode(div)
+      if (div && div.parentNode) {
+        div.parentNode.removeChild(div)
+      }
+    }, 200)
   }
 
   return {
