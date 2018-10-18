@@ -66,7 +66,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./spin'))
   },
   {
-    name: 'Switch 组件',
+    name: 'Switch 开关',
     path: '/mobile/switch',
     component: AsyncComponent(e => import('./switch'))
   },

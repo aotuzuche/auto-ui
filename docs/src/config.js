@@ -94,7 +94,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/spin/index.zh-CN'))
   },
   {
-    name: 'Switch 组件',
+    name: 'Switch 开关',
     path: '/docs/switch',
     component: AsyncComponent(e => import('auto-ui/switch/index.zh-CN'))
   },
