@@ -1,3 +1,16 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/aotuzuche/auto-ui/compare/v0.1.0...v0.1.1) (2018-10-18)
+
+
+### Bug Fixes
+
+* Alert 关闭添加回调函数, 修复 Toast.show -> Toast ([16be175](https://github.com/aotuzuche/auto-ui/commit/16be175))
+* 修复 Alert 组件关闭样式动画 bug ([f392874](https://github.com/aotuzuche/auto-ui/commit/f392874))
+* 修复 Cell 组件点击样式判断 bug ([8686a9e](https://github.com/aotuzuche/auto-ui/commit/8686a9e))
+* 修复 Toast 组件出现多个的 bug ([dbf1281](https://github.com/aotuzuche/auto-ui/commit/dbf1281))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/aotuzuche/auto-ui/compare/v0.0.9...v0.1.0) (2018-10-18)
 
