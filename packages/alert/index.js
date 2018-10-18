@@ -7,6 +7,7 @@ import cn from 'classnames'
 class Alert extends React.Component {
   render() {
     const { title, desc, btns, onClose } = this.props
+    console.log('btns', btns)
     return (
       <div className="x-alert__inner">
         <div className="x-alert__body">
@@ -44,7 +45,7 @@ class Alert extends React.Component {
   }
 }
 
-export default function alert(params) {
+export default function alert(params, callback) {
   let { className, btns } = params
   const div = document.createElement('div')
   div.classList.add('x-alert', 'x-alert--show')
@@ -59,6 +60,7 @@ export default function alert(params) {
       if (div && div.parentNode) {
         div.parentNode.removeChild(div)
       }
+      callback && callback()
     }, 200)
   }
 

@@ -16,7 +16,7 @@ class A extends React.Component {
           title="左侧按钮"
           leftBtn
           leftClick={() => {
-            Toast.show('点击了左侧按钮')
+            Toast('点击了左侧按钮')
           }}
         />
         <ul>
@@ -26,7 +26,7 @@ class A extends React.Component {
           title="右侧按钮"
           rightBtn
           rightClick={() => {
-            Toast.show('点击了右侧按钮')
+            Toast('点击了右侧按钮')
           }}
         />
       </React.Fragment>

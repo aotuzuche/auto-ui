@@ -24,6 +24,15 @@ class A extends React.Component {
         </Cell.Row>
         <Cell.Row
           onClick={() => {
+            Alert('关闭通知', () => {
+              Toast('我关闭了')
+            })
+          }}
+        >
+          关闭通知
+        </Cell.Row>
+        <Cell.Row
+          onClick={() => {
             Alert({
               title: 'Hello',
               desc: 'World'
@@ -41,20 +50,20 @@ class A extends React.Component {
                 {
                   name: 'monkey',
                   onClick: () => {
-                    Toast.show('monkey')
+                    Toast('monkey')
                   }
                 },
                 {
                   name: 'kitty',
                   onClick: () => {
-                    Toast.show('kitty')
+                    Toast('kitty')
                   }
                 },
                 {
                   name: 'world',
                   className: 'alert-world',
                   onClick: () => {
-                    Toast.show('world')
+                    Toast('world')
                   },
                   report: {
                     name: 'world'

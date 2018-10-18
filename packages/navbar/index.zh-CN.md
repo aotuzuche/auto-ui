@@ -28,7 +28,7 @@ import { NavBar } from 'auto-ui'
   title="右侧按钮"
   rightBtn
   rightClick={() => {
-    Toast.show('点击了右侧按钮')
+    Toast('点击了右侧按钮')
   }}
 />
 ```

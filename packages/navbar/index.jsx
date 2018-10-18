@@ -9,7 +9,7 @@ class NavBar extends React.Component {
   }
 
   rightClick = () => {
-    Toast.show('点击了功能按钮')
+    Toast('点击了功能按钮')
   }
 
   render() {

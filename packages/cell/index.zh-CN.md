@@ -26,7 +26,7 @@ import { Cell } from 'auto-ui'
 ```jsx
 <Cell
   onClick={val => {
-    Toast.show(val)
+    Toast(val)
   }}
 >
   <Cell.Row value="第一项">第一项</Cell.Row>

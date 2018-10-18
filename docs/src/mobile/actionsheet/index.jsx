@@ -51,7 +51,7 @@ class DemoActionSheet extends React.Component {
             })
           }}
           onClick={item => {
-            Toast.show(item.name)
+            Toast(item.name)
           }}
           items={[
             {
@@ -78,7 +78,7 @@ class DemoActionSheet extends React.Component {
             })
           }}
           onClick={item => {
-            Toast.show(item.name)
+            Toast(item.name)
           }}
           items={[
             {
@@ -104,7 +104,7 @@ class DemoActionSheet extends React.Component {
             })
           }}
           onClick={item => {
-            Toast.show(item.name)
+            Toast(item.name)
           }}
           items={[
             {

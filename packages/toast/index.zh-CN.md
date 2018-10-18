@@ -12,13 +12,13 @@ import { Toast } from 'auto-ui'
 ### 基本使用
 
 ```jsx
-Toast.show('基本使用')
+Toast('基本使用')
 ```
 
 ### 自定义显示时长，默认 2 秒
 
 ```jsx
-Toast.show('5 秒提示', 5000)
+Toast('5 秒提示', 5000)
 ```
 
 ### 手动关闭

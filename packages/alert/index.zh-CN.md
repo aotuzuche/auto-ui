@@ -26,10 +26,18 @@ setTimeout(() => {
 }, 2000)
 ```
 
+### 关闭通知
+
+```js
+Alert('关闭通知', () => {
+  Toast('我关闭了')
+})
+```
+
 ### 标题+内容
 
 ```js
-Alert.show({
+Alert({
   title: 'Hello',
   desc: 'World'
 })
@@ -45,20 +53,20 @@ Alert({
     {
       name: 'monkey',
       onClick: () => {
-        Toast.show('monkey')
+        Toast('monkey')
       }
     },
     {
       name: 'kitty',
       onClick: () => {
-        Toast.show('kitty')
+        Toast('kitty')
       }
     },
     {
       name: 'world',
       className: 'alert-world',
       onClick: () => {
-        Toast.show('world')
+        Toast('world')
       }
     }
   ]

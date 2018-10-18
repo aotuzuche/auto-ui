@@ -23,7 +23,7 @@ import { ActionSheet } from 'auto-ui'
     })
   }}
   onClick={item => {
-    Toast.show(item.name)
+    Toast(item.name)
   }}
   items={[
     {
@@ -55,7 +55,7 @@ import { ActionSheet } from 'auto-ui'
     })
   }}
   onClick={item => {
-    Toast.show(item.name)
+    Toast(item.name)
   }}
   items={[
     {
@@ -86,7 +86,7 @@ import { ActionSheet } from 'auto-ui'
     })
   }}
   onClick={item => {
-    Toast.show(item.name)
+    Toast(item.name)
   }}
   items={[
     {

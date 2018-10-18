@@ -3,10 +3,10 @@ import { A, Cell, Toast } from 'auto-ui'
 
 class DemoA extends React.Component {
   click() {
-    Toast.show('Click Me!!!')
+    Toast('Click Me!!!')
   }
   clickReport() {
-    Toast.show('控制台查看')
+    Toast('控制台查看')
   }
   render() {
     return (
