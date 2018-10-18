@@ -1,41 +1,43 @@
 import './style'
 import React from 'react'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
 
 import A from '../a'
 
 const Radio = props => {
-  const css = cn('x-radio', {
-    'x-radio__checked': props.checked,
-    'x-radio__disabled': props.disabled,
-  }, props.className)
-
-  const domprops = ignore(props, [
-    'checked',
-    'onChange',
-    'value',
-    'text',
-  ])
+  const {
+    checked,
+    disabled,
+    className,
+    text,
+    onChange,
+    value,
+    ...otherProps
+  } = props
+  const composeClassName = cn(
+    'x-radio',
+    {
+      'x-radio__checked': checked,
+      'x-radio__disabled': disabled
+    },
+    className
+  )
 
   return (
     <A
-      {...domprops}
-      className={css}
+      {...otherProps}
+      className={composeClassName}
       onClick={() => {
-        if (!props.disabled && props.onChange) {
-          props.onChange(props.value, props.text)
+        if (disabled) {
+          return
         }
+        onChange && onChange(value, text)
       }}
     >
       <i className="x-radio__icon">
-        <sup className="x-radio__tick"></sup>
+        <sup className="x-radio__tick" />
       </i>
-      {
-        props.text ?
-          <span className="x-radio__text">{props.text}</span> :
-          null
-      }
+      {!!text && <span className="x-radio__text">{text}</span>}
     </A>
   )
 }

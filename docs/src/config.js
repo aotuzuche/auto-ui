@@ -84,7 +84,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/popup/index.zh-CN'))
   },
   {
-    name: 'Radio 组件',
+    name: 'Radio 单选框',
     path: '/docs/radio',
     component: AsyncComponent(e => import('auto-ui/radio/index.zh-CN'))
   },

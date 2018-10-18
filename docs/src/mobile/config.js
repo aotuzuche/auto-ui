@@ -56,7 +56,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./popup'))
   },
   {
-    name: 'Radio 组件',
+    name: 'Radio 单选框',
     path: '/mobile/radio',
     component: AsyncComponent(e => import('./radio'))
   },
