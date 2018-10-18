@@ -22,7 +22,7 @@ class A extends React.Component {
         <h1 className="cell-title">统一点击事件</h1>
         <Cell
           onClick={val => {
-            Toast.show(val)
+            Toast(val)
           }}
         >
           <Cell.Row value="第一项">第一项</Cell.Row>

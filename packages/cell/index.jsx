@@ -11,6 +11,7 @@ function CellRow(props) {
     onClick,
     activeable,
     children,
+    value,
     ...otherProps
   } = props
   const composeClassName = cn('x-cell__row', className, {
@@ -18,10 +19,18 @@ function CellRow(props) {
     'x-cell--arrow': arrow
   })
 
+  const Node = onClick ? A : 'div'
+
   return (
-    <A {...otherProps} className={composeClassName} onClick={onClick}>
+    <Node
+      {...otherProps}
+      className={composeClassName}
+      onClick={() => {
+        onClick && onClick(value)
+      }}
+    >
       {children}
-    </A>
+    </Node>
   )
 }
 
@@ -47,13 +56,7 @@ function Cell(props) {
           return cloneElement(children, {
             key: index,
             arrow: arrow || children.props.arrow,
-            onClick: () => {
-              const value = children.props && children.props.value
-              if (onClick) {
-                return onClick(value)
-              }
-              children.props.onClick && children.props.onClick(value)
-            }
+            onClick: onClick || children.props.onClick
           })
         }
         return children
