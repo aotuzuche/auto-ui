@@ -52,10 +52,14 @@ export default function alert(params) {
   document.body.appendChild(div)
 
   function close() {
-    unmountComponentAtNode(div)
-    if (div && div.parentNode) {
-      div.parentNode.removeChild(div)
-    }
+    div.classList.remove('x-alert--show')
+    div.classList.add('x-alert--hide')
+    setTimeout(() => {
+      unmountComponentAtNode(div)
+      if (div && div.parentNode) {
+        div.parentNode.removeChild(div)
+      }
+    }, 200)
   }
 
   btns = btns ? btns : [{ name: '确定' }]
