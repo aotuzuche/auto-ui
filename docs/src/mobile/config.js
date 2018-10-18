@@ -76,12 +76,12 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./tabs'))
   },
   {
-    name: 'TimePicker 组件',
+    name: 'TimePicker 时间选择',
     path: '/mobile/timepicker',
     component: AsyncComponent(e => import('./timepicker'))
   },
   {
-    name: 'Toast 组件',
+    name: 'Toast 轻提示',
     path: '/mobile/toast',
     component: AsyncComponent(e => import('./toast'))
   }

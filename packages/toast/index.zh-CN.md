@@ -1,22 +1,32 @@
 ---
 ---
 
-## Toast 清提示
+# Toast 轻提示
 
-**基本使用**
+## 使用示例
 
-```js
-Toast.show('吃了吗？')
+```jsx
+import { Toast } from 'auto-ui'
 ```
 
-**自定义显示时长，默认 2 秒**
+### 基本使用
 
-```js
-Toast.show('吃了吗？', 5000)
+```jsx
+Toast.show('基本使用')
 ```
 
-**主动关闭**
+### 自定义显示时长，默认 2 秒
+
+```jsx
+Toast.show('5 秒提示', 5000)
+```
+
+### 手动关闭
 
 ```js
-Toast.hide()
+const { close } = Toast('手动关闭')
+
+setTimeout(() => {
+  close()
+}, 1000)
 ```

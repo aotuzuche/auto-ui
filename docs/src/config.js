@@ -104,12 +104,12 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/tabs/index.zh-CN'))
   },
   {
-    name: 'TimePicker 组件',
+    name: 'TimePicker 时间选择',
     path: '/docs/timepicker',
     component: AsyncComponent(e => import('auto-ui/time-picker/index.zh-CN'))
   },
   {
-    name: 'Toast 组件',
+    name: 'Toast 轻提示',
     path: '/docs/toast',
     component: AsyncComponent(e => import('auto-ui/toast/index.zh-CN'))
   }

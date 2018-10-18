@@ -1,52 +1,40 @@
 import './style'
+import React from 'react'
+import { render, createPortal, unmountComponentAtNode } from 'react-dom'
 
-class Toast {
-  static show(val, duration = 2000) {
-    if (duration < 500) {
-      duration = 500
-    }
+export default function Toast(text, timeout = 2000) {
+  if (timeout < 500) {
+    timeout = 500
+  }
+  const div = document.createElement('div')
+  div.classList.add('x-toast', 'x-toast--show')
+  document.body.appendChild(div)
 
-    this.hide(false)
+  render(
+    createPortal(
+      <div className="x-toast__inner">
+        <p>{text}</p>
+      </div>,
+      div
+    ),
+    div
+  )
 
-    let toast = document.createElement('div')
-    toast.classList.add('x-toast')
-    toast.id = 'j-x-toast'
-    toast.innerHTML = `<div class="x-toast__inner"><p>${val}</p></div>`
+  const timer = setTimeout(() => {
+    div.classList.remove('x-toast--show')
+    div.classList.add('x-toast--hide')
+    close()
+  }, timeout)
 
-    document.body.appendChild(toast)
-
-    setTimeout(function () {
-      toast.classList.add('x-toast--show')
-    })
-
-    clearTimeout(this._t)
-    this._t = setTimeout(this.hide, duration)
-
-    const focusdom = document.querySelector(':focus')
-    if (focusdom) {
-      focusdom.blur()
+  function close() {
+    unmountComponentAtNode(div)
+    clearTimeout(timer)
+    if (div && div.parentNode) {
+      div.parentNode.removeChild(div)
     }
   }
 
-  static hide(animate = true) {
-    let toast = document.getElementById('j-x-toast')
-    if (toast) {
-      if (animate) {
-        toast.classList.remove('x-toast--show')
-        toast.classList.add('x-toast--hide')
-        this.timeout = setTimeout(function () {
-          try {
-            document.body.removeChild(toast)
-          }
-          catch (e) {
-          }
-        }, 200)
-      }
-      else {
-        document.body.removeChild(toast)
-      }
-    }
+  return {
+    close
   }
 }
-
-export default Toast
