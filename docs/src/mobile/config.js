@@ -61,7 +61,7 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./radio'))
   },
   {
-    name: 'Spin 组件',
+    name: 'Spin 加载',
     path: '/mobile/spin',
     component: AsyncComponent(e => import('./spin'))
   },

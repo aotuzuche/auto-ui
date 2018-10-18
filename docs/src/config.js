@@ -89,7 +89,7 @@ const docsConfig = [
     component: AsyncComponent(e => import('auto-ui/radio/index.zh-CN'))
   },
   {
-    name: 'Spin 组件',
+    name: 'Spin 加载',
     path: '/docs/spin',
     component: AsyncComponent(e => import('auto-ui/spin/index.zh-CN'))
   },
