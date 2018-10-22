@@ -1,4 +1,4 @@
-import AS from '../__libs/report'
+import { AS } from 'auto-libs'
 import React from 'react'
 
 const A = props => {
