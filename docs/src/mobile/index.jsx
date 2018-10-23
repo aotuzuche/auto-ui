@@ -4,7 +4,6 @@ import MobileConfig from './config'
 import { Link, Route, Switch } from 'react-router-dom'
 
 import { NavBar } from 'auto-ui'
-console.log('NavBar', NavBar)
 
 class MobileIndex extends React.Component {
   constructor(props) {
