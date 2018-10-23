@@ -39,3 +39,15 @@ babel 配置:
 ```js
 import { Button } from 'auto-ui'
 ```
+
+### 导入所有组件
+
+```jsx
+import auto-ui from 'auto-ui'
+```
+
+### 手动按需导入
+
+```jsx
+import Button from 'auto-ui/lib/button''
+```

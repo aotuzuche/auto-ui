@@ -36,8 +36,22 @@ export {
   Toast
 }
 
-const version = '0.0.1'
-
 export default {
-  version
+  A,
+  ActionSheet,
+  Alert,
+  Button,
+  Cell,
+  Dialog,
+  Input,
+  Layout,
+  Loading,
+  NavBar,
+  Popup,
+  Radio,
+  Spin,
+  Switch,
+  Tabs,
+  TimePicker,
+  Toast
 }
