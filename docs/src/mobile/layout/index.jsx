@@ -6,12 +6,19 @@ import { Layout, Popup, Cell } from 'auto-ui'
 class DemoLayout extends React.Component {
   constructor(props) {
     super(props)
+
+    this.content =
+      '我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容'
     this.state = {
       default: false,
       highest: false,
       Loading: false,
       errorInfo: false,
-      hideFooter: false
+      hideFooter: false,
+      reachBottom: false,
+      content: [
+        '我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容'
+      ]
     }
   }
   render() {
@@ -62,6 +69,15 @@ class DemoLayout extends React.Component {
             }}
           >
             不显示底部
+          </Cell.Row>
+          <Cell.Row
+            onClick={() => {
+              this.setState({
+                reachBottom: true
+              })
+            }}
+          >
+            上拉刷新
           </Cell.Row>
         </Cell>
         <Popup
@@ -153,6 +169,30 @@ class DemoLayout extends React.Component {
             <Layout.Body>body</Layout.Body>
 
             <Layout.Footer visible={false}>footer</Layout.Footer>
+          </Layout>
+        </Popup>
+        <Popup visible={this.state.reachBottom}>
+          <Layout>
+            <Layout.Header>header</Layout.Header>
+
+            <Layout.Body
+              onReachBottom={{
+                handler: () => {
+                  return new Promise(resolve => {
+                    setTimeout(() => {
+                      this.setState({
+                        content: this.state.content.concat(this.content)
+                      })
+                      resolve()
+                    }, 2000)
+                  })
+                }
+              }}
+            >
+              {this.state.content}
+            </Layout.Body>
+
+            <Layout.Footer>footer</Layout.Footer>
           </Layout>
         </Popup>
       </React.Fragment>

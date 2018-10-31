@@ -2,25 +2,31 @@ import './style'
 import React from 'react'
 import cn from 'classnames'
 import Spin from '../spin'
+import IPhoneXHeader from '../iphonex_header'
+import IPhoneXFooter from '../iphonex_footer'
 
 const Layout = props => {
   const { className, children, ...otherProps } = props
   const composeClassName = cn('x-app', className)
   return (
     <div {...otherProps} className={composeClassName}>
+      <IPhoneXHeader />
       {children}
+      <IPhoneXFooter />
     </div>
   )
 }
 
-const LayoutBody = props => {
-  const { className, loading, errorInfo, children, ...otherProps } = props
-  const composeClassName = cn('x-app-body', className, {
-    'x-app-body--loading': loading,
-    'x-app-body--error': errorInfo
-  })
-
-  function content() {
+class LayoutBody extends React.Component {
+  constructor(props) {
+    super(props)
+    this.timer = null
+    this.state = {
+      bottomLoading: false
+    }
+  }
+  content() {
+    const { loading, errorInfo, children } = this.props
     if (loading) {
       return <Spin className="x-app__loading" />
     } else if (errorInfo) {
@@ -35,11 +41,79 @@ const LayoutBody = props => {
     }
   }
 
-  return (
-    <div {...otherProps} className={composeClassName}>
-      {content()}
-    </div>
-  )
+  scroll = e => {
+    e.preventDefault()
+    const { onReachBottom } = this.props
+    if (onReachBottom && onReachBottom.disable) {
+      return
+    }
+
+    const wrapper = e.target
+    const inner = e.target.querySelector('.x-app-body__inner')
+    if (e.target.className.indexOf('x-app-body') > -1) {
+      this.detectReachBottom(wrapper, inner)
+    }
+  }
+
+  // 判断是否到达底部
+  detectReachBottom = (wrapper, inner) => {
+    if (this.state.bottomLoading) {
+      return
+    }
+    const { onReachBottom } = this.props
+    this.timer && clearTimeout(this.timer)
+    this.timer = setTimeout(() => {
+      const h = inner.clientHeight
+      const bh = wrapper.clientHeight + wrapper.scrollTop
+      // 快滚动到底部时
+      if (h - bh < 200) {
+        this.setState(
+          {
+            bottomLoading: true
+          },
+          async () => {
+            onReachBottom && (await onReachBottom.handler())
+            this.setState({
+              bottomLoading: false
+            })
+          }
+        )
+      }
+    }, 300)
+  }
+
+  render() {
+    const {
+      loading,
+      errorInfo,
+      className,
+      onReachBottom,
+      ...otherProps
+    } = this.props
+    const composeClassName = cn('x-app-body', className, {
+      'x-app-body--loading': loading,
+      'x-app-body--error': errorInfo
+    })
+    return (
+      <div {...otherProps} className={composeClassName} onScroll={this.scroll}>
+        <div className="x-app-body__inner">{this.content()}</div>
+        {onReachBottom && (
+          <div className="x-app-body__bottom">
+            {!this.state.bottomLoading && (
+              <div className="x-app-body__bottom-inner">
+                {onReachBottom.content}
+              </div>
+            )}
+            {!!this.state.bottomLoading && (
+              <div className="x-app-body__bottom-inner">
+                <Spin text="加载中..." />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    )
+  }
 }
 
 const LayoutFooter = props => {
