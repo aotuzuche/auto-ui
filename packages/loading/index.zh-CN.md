@@ -29,3 +29,12 @@ setTimeout(() => {
   close()
 }, 2000)
 ```
+
+或者
+
+```jsx
+Loading('手动关闭')
+setTimeout(() => {
+  Loading.hide()
+}, 2000)
+```

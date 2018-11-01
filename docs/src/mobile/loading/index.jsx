@@ -7,10 +7,9 @@ class DemoLoading extends React.Component {
       <Cell>
         <Cell.Row
           onClick={() => {
-            const { close } = Loading()
-
+            Loading()
             setTimeout(() => {
-              close()
+              Loading.hide()
             }, 1000)
           }}
         >
