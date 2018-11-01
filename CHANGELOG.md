@@ -1,3 +1,23 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/aotuzuche/auto-ui/compare/v0.1.3...v0.1.4) (2018-11-01)
+
+
+### Performance Improvements
+
+* **Layout.Body:** 增加 onScroll 事件 ([99b50eb](https://github.com/aotuzuche/auto-ui/commit/99b50eb))
+
+
+
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/aotuzuche/auto-ui/compare/v0.1.2...v0.1.3) (2018-11-01)
+
+
+### Performance Improvements
+
+* **popup:** 修改popup组件，新增local属性 ([1f343c9](https://github.com/aotuzuche/auto-ui/commit/1f343c9))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/aotuzuche/auto-ui/compare/v0.1.1...v0.1.2) (2018-11-01)
 
