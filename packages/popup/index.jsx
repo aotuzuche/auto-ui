@@ -7,22 +7,24 @@ import Modal from '../modal'
 
 class Popup extends React.Component {
   componentDidMount() {
+    // 在当前节点中展示
+    if (this.props.local) {
+      return
+    }
+
     this._container = document.createElement('div')
     this._container.classList.add('_x_popup_')
     document.body.appendChild(this._container)
-
-    this.setState({})
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this._container)
+    this._container && document.body.removeChild(this._container)
   }
 
   _content() {
     const {
       className,
       top,
-      build,
       onBgClick,
       height,
       visible,
@@ -51,6 +53,9 @@ class Popup extends React.Component {
       'x-popup--no-padding': noPadding
     })
 
+    // DOM没有local这个属性，需要删除
+    delete otherProps.local
+
     return (
       <Modal
         {...otherProps}
@@ -67,6 +72,9 @@ class Popup extends React.Component {
   render() {
     if (this._container) {
       return createPortal(this._content(), this._container)
+    }
+    else if (this.props.local) {
+      return this._content()
     }
     return null
   }

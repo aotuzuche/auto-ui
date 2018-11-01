@@ -10,9 +10,11 @@ class A extends React.Component {
       top: false,
       bg: false,
       padding: false,
-      isScroll: false
+      isScroll: false,
+      isLocal: false
     }
   }
+
   render() {
     return (
       <React.Fragment>
@@ -71,6 +73,15 @@ class A extends React.Component {
           >
             滚动
           </Cell.Row>
+          <Cell.Row
+            onClick={() => {
+              this.setState({
+                isLocal: true
+              })
+            }}
+          >
+            从当前容器内弹出
+          </Cell.Row>
         </Cell>
         <Popup visible={this.state.default}>基本使用</Popup>
         <Popup height="80" visible={this.state.customHeight}>
@@ -108,6 +119,33 @@ class A extends React.Component {
 
           <Button>我是在最底下的按钮，同样不需要滚动</Button>
         </Popup>
+        <div
+          style={{
+            display: this.state.isLocal ? 'block' : 'none',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: '#f00'
+          }}
+        >
+          <div
+            style={{
+              display: this.state.isLocal ? 'block' : 'none',
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              width: '100%',
+              height: '50%',
+              background: '#ff0'
+            }}
+          >
+            <Popup top local visible={this.state.isLocal}>
+              从黄色容器内弹出
+            </Popup>
+          </div>
+        </div>
       </React.Fragment>
     )
   }

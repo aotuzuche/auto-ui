@@ -54,6 +54,16 @@ import { NavBar } from 'auto-ui'
 </Popup>
 ```
 
+### 从父容器的位置弹出
+
+```jsx
+<div className={父容器}>
+  <Popup local visible={this.state.isLocal}>
+    不需要内 padding
+  </Popup>
+</div>
+```
+
 ### 滚动
 
 Popup 组件内其实本身是可以滚动的，但如果我要实现如下滚动方式，就需要用到该组件
@@ -86,3 +96,4 @@ Popup 组件内其实本身是可以滚动的，但如果我要实现如下滚�
 | height    | 1-100                                                              | Int      | 50     |
 | top       | 是否从顶部滑入                                                     | Boolean  | false  |
 | noPadding | 内 padding，为 true 时则没有，比如在内部再嵌套 Layout 时就需要用到 | Boolean  | false  |
+| local       | 从当前Popup的父容器中弹出                                                     | Boolean  | false  |
