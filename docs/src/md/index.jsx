@@ -94,7 +94,10 @@ class MDIndex extends React.Component {
               <div className="simulator">
                 <div className="simulator-header">
                   <p>
-                    {window.location.origin + baseUrl + this.state.iframeUrl}
+                    {window.location.origin +
+                      baseUrl +
+                      '/#' +
+                      this.state.iframeUrl}
                   </p>
                   <i
                     className="simulator-header__refresh"
@@ -107,7 +110,7 @@ class MDIndex extends React.Component {
                   ref={ele => {
                     this.iframe = ele
                   }}
-                  src={baseUrl + this.state.iframeUrl}
+                  src={baseUrl + '/#' + this.state.iframeUrl}
                 />
               </div>
             </div>

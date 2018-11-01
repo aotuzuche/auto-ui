@@ -42,6 +42,9 @@ class LayoutBody extends React.Component {
   }
 
   scroll = e => {
+    const { onScroll } = this.props
+    onScroll && onScroll(e)
+
     e.preventDefault()
     const { onReachBottom } = this.props
     if (onReachBottom && onReachBottom.disable) {
@@ -87,6 +90,7 @@ class LayoutBody extends React.Component {
       loading,
       errorInfo,
       className,
+      onScroll,
       onReachBottom,
       ...otherProps
     } = this.props

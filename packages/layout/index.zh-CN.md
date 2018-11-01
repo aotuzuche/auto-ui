@@ -123,11 +123,12 @@ import { Layout } from 'auto-ui'
 
 ## Layout.Body 支持属性
 
-| 属性          | 说明                                                          | 类型    | 默认值 |
-| ------------- | ------------------------------------------------------------- | ------- | ------ |
-| loading       | 是否正在加载中，若为 true 显示 loading 效果并隐藏内容         | Boolean | false  |
-| errorInfo     | 出错时的文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String  | -      |
-| onReachBottom | 上拉刷新,详细使用见上面示例                                   | Object  | -      |
+| 属性          | 说明                                                          | 类型     | 默认值 |
+| ------------- | ------------------------------------------------------------- | -------- | ------ |
+| loading       | 是否正在加载中，若为 true 显示 loading 效果并隐藏内容         | Boolean  | false  |
+| errorInfo     | 出错时的文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String   | -      |
+| onReachBottom | 上拉刷新,详细使用见上面示例                                   | Object   | -      |
+| onScroll      | 滚动回调函数                                                  | Function | -      |
 
 ## Layout.Footer 支持属性
 
