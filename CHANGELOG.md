@@ -1,3 +1,20 @@
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/aotuzuche/auto-ui/compare/v0.1.1...v0.1.2) (2018-11-01)
+
+
+### Features
+
+* **Layout:** Layout 组件支持 iphoneX 页面显示, 并且增加上拉刷新支持 ([b7db916](https://github.com/aotuzuche/auto-ui/commit/b7db916))
+* Loading 组件增加 hide 方法帮助关闭 ([1d6df4a](https://github.com/aotuzuche/auto-ui/commit/1d6df4a))
+
+
+### Performance Improvements
+
+* **A 组件:** 去掉 report js 文件，直接引用 auto-libs 使用 ([a1feafd](https://github.com/aotuzuche/auto-ui/commit/a1feafd))
+* 增加全局和手动按需导入组件功能 ([8fdf8ac](https://github.com/aotuzuche/auto-ui/commit/8fdf8ac))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/aotuzuche/auto-ui/compare/v0.1.0...v0.1.1) (2018-10-18)
 
