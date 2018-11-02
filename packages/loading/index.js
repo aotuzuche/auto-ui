@@ -13,6 +13,9 @@ function close() {
 }
 
 function Loading(text) {
+  // 防止多次调用先 close 检查下
+  close()
+
   div = document.createElement('div')
   div.classList.add('x-loading', 'x-loading--show')
   document.body.appendChild(div)
