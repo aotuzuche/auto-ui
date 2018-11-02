@@ -1,3 +1,13 @@
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/aotuzuche/auto-ui/compare/v0.1.4...v0.1.5) (2018-11-02)
+
+
+### Bug Fixes
+
+* **Loading:** 修复创建多次只能关闭一个的 bug ([4f01437](https://github.com/aotuzuche/auto-ui/commit/4f01437))
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/aotuzuche/auto-ui/compare/v0.1.3...v0.1.4) (2018-11-01)
 
