@@ -1,3 +1,14 @@
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/aotuzuche/auto-ui/compare/v0.1.5...v0.1.6) (2018-11-06)
+
+
+### Bug Fixes
+
+* **Input:** 修改成 Class 写法 ([61769ed](https://github.com/aotuzuche/auto-ui/commit/61769ed))
+* **Popup:** 修复了错误使用生命周期导致不正常的创建 ([5c5a07b](https://github.com/aotuzuche/auto-ui/commit/5c5a07b))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/aotuzuche/auto-ui/compare/v0.1.4...v0.1.5) (2018-11-02)
 
