@@ -6,7 +6,7 @@ class InputDemo extends React.Component {
     return (
       <Cell>
         <Cell.Row>
-          <Input placeholder="基本使用" />
+          <Input placeholder="基本使用" autoFocus />
         </Cell.Row>
         <Cell.Row>
           <Input placeholder="禁用" disabled />
