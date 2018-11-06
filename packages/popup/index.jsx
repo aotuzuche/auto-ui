@@ -6,9 +6,12 @@ import cn from 'classnames'
 import Modal from '../modal'
 
 class Popup extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
+    const { local } = this.props
+
     // 在当前节点中展示
-    if (this.props.local) {
+    if (local) {
       return
     }
 
@@ -72,8 +75,7 @@ class Popup extends React.Component {
   render() {
     if (this._container) {
       return createPortal(this._content(), this._container)
-    }
-    else if (this.props.local) {
+    } else if (this.props.local) {
       return this._content()
     }
     return null
