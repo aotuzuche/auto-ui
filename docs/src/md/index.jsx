@@ -54,7 +54,9 @@ class MDIndex extends React.Component {
               <span className="nav-logo__version">{packageJson.version}</span>
             </h1>
             <ul className="nav-link">
-              <li>GITHUB</li>
+              <li>
+                <a href="//github.com/aotuzuche/auto-ui" />
+              </li>
             </ul>
           </nav>
         </div>
