@@ -27,6 +27,8 @@
     transform-origin: 50%;
     border-radius: 6px;
     width: 85%;
+    height: auto;
+    display: block;
   }
   &.x-modal--enter {
     .x-modal__bg {
@@ -47,11 +49,26 @@
 }
 
 @keyframes __x_dialog_enter {
-  0% { transform: scale(1.4,1.4); opacity: 0;}
-  75% { transform: scale(0.95,0.95); opacity: 1;}
-  100% { transform: scale(1,1); opacity: 1;}
+  0% {
+    transform: scale(1.4, 1.4);
+    opacity: 0;
+  }
+  75% {
+    transform: scale(0.95, 0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
 }
 @keyframes __x_dialog_leave {
-  0% { transform: scale(1,1); opacity: 1;}
-  100% { transform: scale(0.95,0.95); opacity: 0;}
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95, 0.95);
+    opacity: 0;
+  }
 }
