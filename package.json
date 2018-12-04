@@ -69,6 +69,7 @@
     "chalk": "^2.4.1",
     "commitizen": "^3.0.2",
     "conventional-changelog": "^2.0.3",
+    "conventional-changelog-cli": "^2.0.11",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "cz-conventional-changelog": "^2.1.0",
