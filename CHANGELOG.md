@@ -1,4 +1,12 @@
-<a name="0.1.6"></a>
+## [0.1.7](https://github.com/aotuzuche/auto-ui/compare/v0.1.6...v0.1.7) (2018-12-04)
+
+
+### Bug Fixes
+
+* **Dialog:** 修复 ios8.1.1 的 iphone5 撑不开内容区域 ([a85124f](https://github.com/aotuzuche/auto-ui/commit/a85124f))
+
+
+
 ## [0.1.6](https://github.com/aotuzuche/auto-ui/compare/v0.1.5...v0.1.6) (2018-11-06)
 
 
@@ -9,7 +17,6 @@
 
 
 
-<a name="0.1.5"></a>
 ## [0.1.5](https://github.com/aotuzuche/auto-ui/compare/v0.1.4...v0.1.5) (2018-11-02)
 
 
@@ -19,7 +26,6 @@
 
 
 
-<a name="0.1.4"></a>
 ## [0.1.4](https://github.com/aotuzuche/auto-ui/compare/v0.1.3...v0.1.4) (2018-11-01)
 
 
@@ -29,7 +35,6 @@
 
 
 
-<a name="0.1.3"></a>
 ## [0.1.3](https://github.com/aotuzuche/auto-ui/compare/v0.1.2...v0.1.3) (2018-11-01)
 
 
@@ -39,7 +44,6 @@
 
 
 
-<a name="0.1.2"></a>
 ## [0.1.2](https://github.com/aotuzuche/auto-ui/compare/v0.1.1...v0.1.2) (2018-11-01)
 
 
@@ -56,7 +60,6 @@
 
 
 
-<a name="0.1.1"></a>
 ## [0.1.1](https://github.com/aotuzuche/auto-ui/compare/v0.1.0...v0.1.1) (2018-10-18)
 
 
@@ -69,7 +72,6 @@
 
 
 
-<a name="0.1.0"></a>
 # [0.1.0](https://github.com/aotuzuche/auto-ui/compare/v0.0.9...v0.1.0) (2018-10-18)
 
 
@@ -109,17 +111,14 @@
 
 
 
-<a name="0.0.9"></a>
 ## [0.0.9](https://github.com/aotuzuche/auto-ui/compare/v0.0.4...v0.0.9) (2018-09-26)
 
 
 
-<a name="0.0.4"></a>
 ## [0.0.4](https://github.com/aotuzuche/auto-ui/compare/v0.0.3...v0.0.4) (2018-09-26)
 
 
 
-<a name="0.0.3"></a>
 ## 0.0.3 (2018-09-26)
 
 
