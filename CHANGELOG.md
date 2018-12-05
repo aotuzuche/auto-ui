@@ -1,3 +1,12 @@
+## [0.1.8](https://github.com/aotuzuche/auto-ui/compare/v0.1.7...v0.1.8) (2018-12-05)
+
+
+### Bug Fixes
+
+* **Input:** fix textarea 模式下没有使用 addonBefore 和 addonAfter ([e0868a8](https://github.com/aotuzuche/auto-ui/commit/e0868a8))
+
+
+
 ## [0.1.7](https://github.com/aotuzuche/auto-ui/compare/v0.1.6...v0.1.7) (2018-12-04)
 
 
