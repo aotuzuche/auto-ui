@@ -30,6 +30,9 @@ class Input extends React.Component {
     if (multi) {
       return (
         <div className={composeClassName}>
+          {!!addonBefore && (
+            <div className="x-input__addon-before">{addonBefore}</div>
+          )}
           <textarea
             {...otherProps}
             disabled={disabled}
@@ -38,6 +41,9 @@ class Input extends React.Component {
             onChange={onChange}
             type={type || 'text'}
           />
+          {!!addonAfter && (
+            <div className="x-input__addon-after">{addonAfter}</div>
+          )}
         </div>
       )
     }
