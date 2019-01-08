@@ -1,3 +1,12 @@
+## [0.1.20](https://github.com/aotuzuche/auto-ui/compare/v0.1.9...v0.1.20) (2019-01-08)
+
+
+### Performance Improvements
+
+* 升级依赖 autos-libs 的版本 ([316b93a](https://github.com/aotuzuche/auto-ui/commit/316b93a))
+
+
+
 ## [0.1.9](https://github.com/aotuzuche/auto-ui/compare/v0.1.8...v0.1.9) (2019-01-08)
 
 
