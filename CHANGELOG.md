@@ -1,3 +1,12 @@
+## [0.1.24](https://github.com/aotuzuche/auto-ui/compare/v0.1.23...v0.1.24) (2019-01-08)
+
+
+### Bug Fixes
+
+* **Navbar:** 提高 z-index ([d66a2db](https://github.com/aotuzuche/auto-ui/commit/d66a2db))
+
+
+
 ## [0.1.23](https://github.com/aotuzuche/auto-ui/compare/v0.1.22...v0.1.23) (2019-01-08)
 
 
