@@ -45,6 +45,18 @@ class A extends React.Component {
             Toast('点击了右侧按钮')
           }}
         />
+        <ul>
+          <li />
+        </ul>
+        <NavBar
+          title="透明模式"
+          leftBtn
+          rightBtn
+          transparent
+          rightClick={() => {
+            Toast('点击了右侧按钮')
+          }}
+        />
       </React.Fragment>
     )
   }

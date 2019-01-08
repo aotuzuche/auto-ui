@@ -6,6 +6,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  font-size: 30px;
+  color: #333;
   &-icon {
     height: 88px;
     width: 88px;
@@ -59,5 +62,9 @@
         }
       }
     }
+  }
+  &-transparent {
+    background-color: transparent;
+    box-shadow: none;
   }
 }

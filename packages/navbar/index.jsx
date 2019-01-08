@@ -20,12 +20,14 @@ class NavBar extends React.Component {
       leftClick,
       rightClick,
       dark,
+      transparent,
       ...otherProps
     } = this.props
     const composeClass = cn(
       'auto-ui_navbar',
       {
-        'auto-ui_navbar-dark': dark
+        'auto-ui_navbar-dark': dark,
+        'auto-ui_navbar-transparent': transparent
       },
       className
     )
