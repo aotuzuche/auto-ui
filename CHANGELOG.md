@@ -1,3 +1,12 @@
+## [0.1.23](https://github.com/aotuzuche/auto-ui/compare/v0.1.22...v0.1.23) (2019-01-08)
+
+
+### Bug Fixes
+
+* **Navbar:** 替换成设计的图标 ([0462163](https://github.com/aotuzuche/auto-ui/commit/0462163))
+
+
+
 ## [0.1.22](https://github.com/aotuzuche/auto-ui/compare/v0.1.21...v0.1.22) (2019-01-08)
 
 
