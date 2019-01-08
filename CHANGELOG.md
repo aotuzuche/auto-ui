@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/aotuzuche/auto-ui/compare/v0.1.8...v0.1.9) (2019-01-08)
+
+
+### Features
+
+* **Navbar:** 增加深色模式，修改了图标，增加了易用性 ([942cfe5](https://github.com/aotuzuche/auto-ui/commit/942cfe5))
+
+
+
 ## [0.1.8](https://github.com/aotuzuche/auto-ui/compare/v0.1.7...v0.1.8) (2018-12-05)
 
 
