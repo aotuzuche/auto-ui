@@ -4,6 +4,8 @@
   user-select: none;
   background-color: #fff;
   position: relative;
+  display: flex;
+  align-items: center;
   &-icon {
     height: 88px;
     width: 88px;

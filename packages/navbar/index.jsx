@@ -47,9 +47,7 @@ class NavBar extends React.Component {
         {rightBtn && (
           <div
             className="auto-ui_navbar-rightbtn"
-            onClick={e => {
-              rightClick && rightClick(e)
-            }}
+            onClick={rightClick || this.rightClick}
           >
             {rightBtn === true ? (
               <i className="auto-ui_navbar-icon auto-ui_navbar-rightbtn-icon" />
