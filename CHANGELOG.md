@@ -1,3 +1,12 @@
+## [0.1.22](https://github.com/aotuzuche/auto-ui/compare/v0.1.21...v0.1.22) (2019-01-08)
+
+
+### Bug Fixes
+
+* **Navbar:** 增加透明模式和阴影 ([2462112](https://github.com/aotuzuche/auto-ui/commit/2462112))
+
+
+
 ## [0.1.21](https://github.com/aotuzuche/auto-ui/compare/v0.1.20...v0.1.21) (2019-01-08)
 
 
