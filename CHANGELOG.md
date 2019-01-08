@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/aotuzuche/auto-ui/compare/v0.1.20...v0.1.21) (2019-01-08)
+
+
+### Bug Fixes
+
+* **Navbar:** 修复样式和右侧按钮默认值的 bug ([50f8e69](https://github.com/aotuzuche/auto-ui/commit/50f8e69))
+
+
+
 ## [0.1.20](https://github.com/aotuzuche/auto-ui/compare/v0.1.9...v0.1.20) (2019-01-08)
 
 
