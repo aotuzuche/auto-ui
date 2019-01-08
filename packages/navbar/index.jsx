@@ -1,15 +1,14 @@
 import './style.scss'
 import React from 'react'
 import cn from 'classnames'
-import Toast from '../toast'
 
 class NavBar extends React.Component {
-  leftClick = () => {
+  leftClick = e => {
     window.history.go(-1)
   }
 
-  rightClick = () => {
-    Toast('点击了功能按钮')
+  rightClick = e => {
+    window.location.href = window.location.origin + '/m/index'
   }
 
   render() {
@@ -20,9 +19,16 @@ class NavBar extends React.Component {
       rightBtn,
       leftClick,
       rightClick,
+      dark,
       ...otherProps
     } = this.props
-    const composeClass = cn('auto-ui_navbar', className)
+    const composeClass = cn(
+      'auto-ui_navbar',
+      {
+        'auto-ui_navbar-dark': dark
+      },
+      className
+    )
     return (
       <div {...otherProps} className={composeClass}>
         {leftBtn && (
@@ -30,16 +36,26 @@ class NavBar extends React.Component {
             className="auto-ui_navbar-leftbtn"
             onClick={leftClick || this.leftClick}
           >
-            <i className="auto-ui_navbar-icon auto-ui_navbar-leftbtn-icon" />
+            {leftBtn === true ? (
+              <i className="auto-ui_navbar-icon auto-ui_navbar-leftbtn-icon" />
+            ) : (
+              leftBtn
+            )}
           </div>
         )}
         <div className="auto-ui_navbar-title">{title}</div>
         {rightBtn && (
           <div
             className="auto-ui_navbar-rightbtn"
-            onClick={rightClick || this.rightClick}
+            onClick={e => {
+              rightClick && rightClick(e)
+            }}
           >
-            <i className="auto-ui_navbar-icon auto-ui_navbar-rightbtn-icon" />
+            {rightBtn === true ? (
+              <i className="auto-ui_navbar-icon auto-ui_navbar-rightbtn-icon" />
+            ) : (
+              rightBtn
+            )}
           </div>
         )}
       </div>

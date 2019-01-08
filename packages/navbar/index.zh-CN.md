@@ -33,6 +33,26 @@ import { NavBar } from 'auto-ui'
 />
 ```
 
+### 自定义按钮
+
+```js
+<NavBar title="自定义按钮" leftBtn="返回上一页" rightBtn="自定义右侧" />
+```
+
+### 深色模式
+
+```js
+<NavBar
+  title="深色模式"
+  dark
+  leftBtn
+  rightBtn
+  rightClick={() => {
+    Toast('点击了右侧按钮')
+  }}
+/>
+```
+
 ## 支持属性
 
 | 属性       | 说明             | 类型    | 默认值     |

@@ -29,6 +29,22 @@ class A extends React.Component {
             Toast('点击了右侧按钮')
           }}
         />
+        <ul>
+          <li />
+        </ul>
+        <NavBar title="自定义按钮" leftBtn="返回上一页" rightBtn="自定义右侧" />
+        <ul>
+          <li />
+        </ul>
+        <NavBar
+          title="深色模式"
+          dark
+          leftBtn
+          rightBtn
+          rightClick={() => {
+            Toast('点击了右侧按钮')
+          }}
+        />
       </React.Fragment>
     )
   }
