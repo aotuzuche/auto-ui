@@ -1,25 +1,44 @@
-import './style'
-import React, { Component } from 'react'
-import { createPortal } from 'react-dom'
 import cn from 'classnames'
+import * as React from 'react'
+import { createPortal } from 'react-dom'
+import './style'
 
-import A from '../a'
-import Modal from '../modal'
+import { A } from '../a'
+import { Modal } from '../modal'
 
-class ActionSheet extends Component {
-  componentDidMount() {
+export interface ActionSheetProps {
+  title?: string
+  visible?: boolean
+  className?: string
+  items: []
+  closeText: any
+  onClose?: (
+    e: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>
+  ) => void
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+}
+
+export interface ActionSheetState {}
+
+export class ActionSheet extends React.Component<
+  ActionSheetProps,
+  ActionSheetState
+  > {
+  public _container: HTMLDivElement
+  public state: ActionSheetState = {}
+
+  public constructor(props: ActionSheetProps) {
+    super(props)
     this._container = document.createElement('div')
     this._container.classList.add('_x_actionsheet_')
     document.body.appendChild(this._container)
-
-    this.setState({})
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     document.body.removeChild(this._container)
   }
 
-  _content() {
+  public _content() {
     const {
       title,
       visible,
@@ -42,6 +61,7 @@ class ActionSheet extends Component {
         visible={visible}
         onBgClick={onClose}
         className={composeClassName}
+        a="1"
         {...otherProps}
       >
         {!!title && <h1 className="x-actionsheet__title">{title}</h1>}
@@ -77,12 +97,10 @@ class ActionSheet extends Component {
     )
   }
 
-  render() {
+  public render() {
     if (this._container) {
       return createPortal(this._content(), this._container)
     }
     return null
   }
 }
-
-export default ActionSheet
