@@ -1,1 +1,3 @@
-import gulp from 'gulp'
+const { watch } = require('./base')
+
+watch()

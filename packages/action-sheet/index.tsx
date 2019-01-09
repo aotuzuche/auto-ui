@@ -18,14 +18,8 @@ export interface ActionSheetProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }
 
-export interface ActionSheetState {}
-
-export class ActionSheet extends React.Component<
-  ActionSheetProps,
-  ActionSheetState
-  > {
+export class ActionSheet extends React.Component<ActionSheetProps> {
   public _container: HTMLDivElement
-  public state: ActionSheetState = {}
 
   public constructor(props: ActionSheetProps) {
     super(props)
