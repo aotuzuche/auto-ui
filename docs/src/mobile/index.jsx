@@ -3,7 +3,7 @@ import React from 'react'
 import MobileConfig from './config'
 import { Link, Route, Switch } from 'react-router-dom'
 
-import { NavBar } from 'auto-ui'
+import { Navbar } from 'auto-ui'
 
 class MobileIndex extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class MobileIndex extends React.Component {
   render() {
     return (
       <div className="mobile">
-        {!this.state.isExact && <NavBar title="导航栏" leftBtn rightBtn />}
+        {!this.state.isExact && <Navbar title="导航栏" leftBtn rightBtn />}
         {this.state.isExact && (
           <div>
             <h1 className="mobile-title">AUTO-UI</h1>

@@ -1,12 +1,24 @@
-import './style'
-import React from 'react'
-import { createPortal } from 'react-dom'
 import cn from 'classnames'
+import React, { FC, MouseEventHandler } from 'react'
+import { createPortal } from 'react-dom'
 
-import Modal from '../modal'
+import { Modal } from '../modal'
 
-class Popup extends React.Component {
-  constructor(props) {
+export interface PopupProps {
+  local?: boolean
+  className?: string
+  top?: boolean
+  onBgClick?: MouseEventHandler<HTMLDivElement>
+  height?: number
+  visible?: boolean
+  noPadding?: boolean
+  [otherProps: string]: any
+}
+
+export class Popup extends React.Component<PopupProps, any> {
+  public static Scroller: FC<PopupScrollerProps>
+  public _container: HTMLDivElement = document.createElement('div')
+  public constructor(props: PopupProps) {
     super(props)
     const { local } = this.props
 
@@ -15,16 +27,15 @@ class Popup extends React.Component {
       return
     }
 
-    this._container = document.createElement('div')
     this._container.classList.add('_x_popup_')
     document.body.appendChild(this._container)
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     this._container && document.body.removeChild(this._container)
   }
 
-  _content() {
+  public _content() {
     const {
       className,
       top,
@@ -43,7 +54,11 @@ class Popup extends React.Component {
       className
     )
 
-    const composeChildren = [].concat(children)
+    let composeChildren: any[] = []
+    if (children) {
+      composeChildren = composeChildren.concat(children)
+    }
+
     let hasScrollChildren = false
     composeChildren.forEach(res => {
       if (res.type === Scroller && !hasScrollChildren) {
@@ -72,7 +87,7 @@ class Popup extends React.Component {
     )
   }
 
-  render() {
+  public render() {
     if (this._container) {
       return createPortal(this._content(), this._container)
     } else if (this.props.local) {
@@ -82,7 +97,12 @@ class Popup extends React.Component {
   }
 }
 
-const Scroller = props => {
+export interface PopupScrollerProps {
+  className?: string
+  [otherProps: string]: any
+}
+
+const Scroller: FC<PopupScrollerProps> = props => {
   const { className, children, ...otherProps } = props
   const composeClassName = cn('x-popup__scroller', className)
 
@@ -94,5 +114,3 @@ const Scroller = props => {
 }
 
 Popup.Scroller = Scroller
-
-export default Popup

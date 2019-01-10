@@ -1,10 +1,19 @@
-import './style'
-import React from 'react'
 import cn from 'classnames'
+import React, { FC, ReactNode } from 'react'
 
-import A from '../a'
+import { A } from '../a'
 
-const Radio = props => {
+export interface RadioProps {
+  checked?: boolean
+  disabled?: boolean
+  className?: string
+  text?: ReactNode
+  onChange?: (value?: string, text?: ReactNode) => void
+  value?: string
+  [otherProps: string]: any
+}
+
+export const Radio: FC<RadioProps> = props => {
   const {
     checked,
     disabled,
@@ -41,5 +50,3 @@ const Radio = props => {
     </A>
   )
 }
-
-export default Radio

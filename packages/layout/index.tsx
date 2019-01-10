@@ -1,31 +1,57 @@
-import './style'
-import React from 'react'
 import cn from 'classnames'
-import Spin from '../spin'
-import IPhoneXHeader from '../iphonex_header'
-import IPhoneXFooter from '../iphonex_footer'
+import React, {
+  ComponentClass,
+  FC,
+  MouseEventHandler,
+  ReactNode,
+  UIEventHandler
+} from 'react'
+import { IphoneXFooter } from '../iphonex_footer'
+import { IphoneXHeader } from '../iphonex_header'
+import { Spin } from '../spin'
 
-const Layout = props => {
+export interface LayoutProps {
+  className?: string
+  [otherProps: string]: any
+}
+
+export const Layout: FC<LayoutProps> & {
+  Header: FC<LayoutHeaderProps>;
+  Footer: FC<LayoutFooterProps>;
+  Body: ComponentClass<LayoutBodyProps>;
+} = props => {
   const { className, children, ...otherProps } = props
   const composeClassName = cn('x-app', className)
   return (
     <div {...otherProps} className={composeClassName}>
-      <IPhoneXHeader />
+      <IphoneXHeader />
       {children}
-      <IPhoneXFooter />
+      <IphoneXFooter />
     </div>
   )
 }
 
-class LayoutBody extends React.Component {
-  constructor(props) {
+export interface LayoutBodyProps {
+  loading?: boolean
+  errorInfo?: ReactNode
+  className?: string
+  onScroll?: UIEventHandler<HTMLDivElement>
+  onReachBottom?: {
+    content?: ReactNode;
+    handler: () => void;
+    disable?: boolean;
+  }
+}
+
+class LayoutBody extends React.Component<LayoutBodyProps, any> {
+  private timer = 0
+  public constructor(props: LayoutBodyProps) {
     super(props)
-    this.timer = null
     this.state = {
       bottomLoading: false
     }
   }
-  content() {
+  public content() {
     const { loading, errorInfo, children } = this.props
     if (loading) {
       return <Spin className="x-app__loading" />
@@ -41,7 +67,7 @@ class LayoutBody extends React.Component {
     }
   }
 
-  scroll = e => {
+  public scroll: UIEventHandler<HTMLDivElement> = e => {
     const { onScroll } = this.props
     onScroll && onScroll(e)
 
@@ -51,25 +77,27 @@ class LayoutBody extends React.Component {
       return
     }
 
-    const wrapper = e.target
-    const inner = e.target.querySelector('.x-app-body__inner')
-    if (e.target.className.indexOf('x-app-body') > -1) {
+    const wrapper = e.target as Element
+    const inner = wrapper.querySelector('.x-app-body__inner')
+    if (wrapper.className.indexOf('x-app-body') > -1) {
       this.detectReachBottom(wrapper, inner)
     }
   }
 
   // 判断是否到达底部
-  detectReachBottom = (wrapper, inner) => {
-    if (this.state.bottomLoading) {
+  public detectReachBottom = (wrapper: Element, inner: Element | null) => {
+    if (this.state.bottomLoading || !inner) {
       return
     }
     const { onReachBottom } = this.props
     this.timer && clearTimeout(this.timer)
+    const timeNumber = 300
     this.timer = setTimeout(() => {
       const h = inner.clientHeight
       const bh = wrapper.clientHeight + wrapper.scrollTop
+      const value = 200
       // 快滚动到底部时
-      if (h - bh < 200) {
+      if (h - bh < value) {
         this.setState(
           {
             bottomLoading: true
@@ -82,10 +110,10 @@ class LayoutBody extends React.Component {
           }
         )
       }
-    }, 300)
+    }, timeNumber)
   }
 
-  render() {
+  public render() {
     const {
       loading,
       errorInfo,
@@ -120,7 +148,12 @@ class LayoutBody extends React.Component {
   }
 }
 
-const LayoutFooter = props => {
+export interface LayoutFooterProps {
+  className?: string
+  [otherProps: string]: any
+}
+
+const LayoutFooter: FC<LayoutFooterProps> = props => {
   const { className, visible, children, ...otherProps } = props
   const composeClassName = cn('x-app-footer', className)
   if (visible === false) {
@@ -134,7 +167,20 @@ const LayoutFooter = props => {
   )
 }
 
-const LayoutHeader = props => {
+export interface LayoutHeaderProps {
+  className?: string
+  children?: ReactNode
+  ghost?: boolean
+  addonBefore?: ReactNode
+  onBackClick?: MouseEventHandler<HTMLAnchorElement>
+  onCloseClick?: MouseEventHandler<HTMLAnchorElement>
+  title?: string
+  addonAfter?: ReactNode
+  addonBottom?: ReactNode
+  [otherProps: string]: any
+}
+
+const LayoutHeader: FC<LayoutHeaderProps> = props => {
   const {
     className,
     children,
@@ -193,4 +239,3 @@ const LayoutHeader = props => {
 Layout.Header = LayoutHeader
 Layout.Body = LayoutBody
 Layout.Footer = LayoutFooter
-export default Layout

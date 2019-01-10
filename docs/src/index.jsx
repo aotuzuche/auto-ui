@@ -4,6 +4,7 @@ import './assets/css/docs.scss'
 
 import React from 'react'
 import { render } from 'react-dom'
+import 'auto-ui/style'
 
 import Routers from './routers'
 

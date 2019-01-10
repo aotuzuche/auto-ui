@@ -1,10 +1,15 @@
-import './style'
-import React, { cloneElement } from 'react'
 import cn from 'classnames'
+import React, { cloneElement, FC, MouseEventHandler } from 'react'
 
-import A from '../a'
+export interface CellRowProps {
+  className?: string
+  arrow?: boolean
+  onClick?: MouseEventHandler<HTMLAnchorElement>
+  value?: any
+  activeable?: boolean
+}
 
-function CellRow(props) {
+const CellRow: FC<CellRowProps> = props => {
   const {
     className,
     arrow,
@@ -19,10 +24,8 @@ function CellRow(props) {
     'x-cell--arrow': arrow
   })
 
-  const Node = onClick ? A : 'div'
-
   return (
-    <Node
+    <div
       {...otherProps}
       className={composeClassName}
       onClick={() => {
@@ -30,11 +33,20 @@ function CellRow(props) {
       }}
     >
       {children}
-    </Node>
+    </div>
   )
 }
 
-function Cell(props) {
+export interface CellProps {
+  className?: string
+  indentLine?: boolean
+  arrow?: boolean
+  onClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+export const Cell: FC<CellProps> & {
+  Row: FC<CellRowProps>;
+} = props => {
   const {
     arrow,
     indentLine,
@@ -47,12 +59,15 @@ function Cell(props) {
     'x-cell--indent-line': indentLine
   })
 
-  const composeChildren = [].concat(children)
+  let composeChildren: any[] = []
+  if (children) {
+    composeChildren = composeChildren.concat(children)
+  }
 
   return (
     <section {...otherProps} className={composeClassName}>
       {composeChildren.map((children, index) => {
-        if (children.type === CellRow) {
+        if (children && children.type === CellRow) {
           return cloneElement(children, {
             key: index,
             arrow: arrow || children.props.arrow,
@@ -66,5 +81,3 @@ function Cell(props) {
 }
 
 Cell.Row = CellRow
-
-export default Cell

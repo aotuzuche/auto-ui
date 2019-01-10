@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
-import { createPortal } from 'react-dom'
-import './style'
 
+import { createPortal } from 'react-dom'
 import { A } from '../a'
 import { Modal } from '../modal'
 
@@ -55,7 +54,6 @@ export class ActionSheet extends React.Component<ActionSheetProps> {
         visible={visible}
         onBgClick={onClose}
         className={composeClassName}
-        a="1"
         {...otherProps}
       >
         {!!title && <h1 className="x-actionsheet__title">{title}</h1>}

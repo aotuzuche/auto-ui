@@ -1,6 +1,5 @@
-import './style'
-import React from 'react'
 import cn from 'classnames'
+import React from 'react'
 
 export interface ModalProps {
   visible?: boolean
@@ -16,7 +15,7 @@ export interface ModalState {
 }
 
 export class Modal extends React.Component<ModalProps, ModalState> {
-  constructor(props: ModalProps) {
+  public constructor(props: ModalProps) {
     super(props)
 
     this.state = {
@@ -25,13 +24,13 @@ export class Modal extends React.Component<ModalProps, ModalState> {
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     if (this.props.visible) {
       this._enter()
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps: ModalProps) {
+  public UNSAFE_componentWillReceiveProps(nextProps: ModalProps) {
     if (!this.props.visible && nextProps.visible) {
       this._enter()
     } else if (this.props.visible && !nextProps.visible) {
@@ -39,7 +38,7 @@ export class Modal extends React.Component<ModalProps, ModalState> {
     }
   }
 
-  _enter() {
+  public _enter() {
     this.setState({
       visible: true
     })
@@ -56,13 +55,13 @@ export class Modal extends React.Component<ModalProps, ModalState> {
     }
   }
 
-  _leave() {
+  public _leave() {
     this.setState({
       ani: 'leave'
     })
   }
 
-  _onAnimationEnd: (
+  public _onAnimationEnd: (
     event: React.AnimationEvent<HTMLDivElement>
   ) => void = e => {
     if (this.state.ani !== 'leave') {
@@ -74,7 +73,7 @@ export class Modal extends React.Component<ModalProps, ModalState> {
     })
   }
 
-  render() {
+  public render() {
     const { className, height, onBgClick, ...otherProps } = this.props
     const css = cn('x-modal', `x-modal--${this.state.ani}`, className)
 
@@ -92,7 +91,7 @@ export class Modal extends React.Component<ModalProps, ModalState> {
         <div
           className="x-modal__inner"
           style={{
-            height: composeHeight + '%'
+            height: composeHeight ? composeHeight + '%' : 'auto'
           }}
           onAnimationEnd={this._onAnimationEnd}
         >

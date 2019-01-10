@@ -1,11 +1,18 @@
-import './style'
-import React, { cloneElement } from 'react'
 import cn from 'classnames'
-import ignore from '../__libs/ignoreProps'
+import React, { cloneElement, FC, MouseEventHandler } from 'react'
 
-import A from '../a'
+import { A } from '../a'
 
-const TabsItem = props => {
+export interface TabsItemProps {
+  active?: boolean
+  className?: string
+  onClick?: (value?: string) => void
+  value?: string
+  [otherProps: string]: any
+}
+
+const TabsItem: FC<TabsItemProps> = props => {
+  const { active, className, onClick, value, ...otherProps } = props
   const css = cn(
     'x-tabs__item',
     {
@@ -14,30 +21,40 @@ const TabsItem = props => {
     props.className
   )
 
-  const domprops = ignore(props, ['active', 'value', 'onClick'])
-
   return (
     <A
-      {...domprops}
+      {...otherProps}
       href="javascript:;"
       className={css}
-      onClick={() => props.onClick && props.onClick(props.value)}
+      onClick={() => props.onClick && props.onClick(value)}
     >
       {props.children}
     </A>
   )
 }
 
-const Tabs = props => {
+export interface TabsProps {
+  className?: string
+  active?: string
+  onClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+export const Tabs: FC<TabsProps> & {
+  Item: FC<TabsItemProps>;
+} = props => {
   const { className, children, active, onClick, ...otherProps } = props
   const composeClassName = cn('x-tabs', className)
 
   let activeOffset = -2
 
-  let composeChildren = [].concat(children)
+  let composeChildren: any[] = []
+  if (children) {
+    composeChildren = composeChildren.concat(children)
+  }
 
   composeChildren = composeChildren.map((res, index) => {
-    let act = props.hasOwnProperty('active') && res.props.value === props.active
+    let act =
+      props.hasOwnProperty('active') && res.props.value === props.active
     if (act) {
       activeOffset = index
     }
@@ -49,7 +66,7 @@ const Tabs = props => {
     })
   })
 
-  const len = children.length
+  const len = composeChildren.length
 
   return (
     <div {...otherProps} className={composeClassName}>
@@ -66,4 +83,3 @@ const Tabs = props => {
 }
 
 Tabs.Item = TabsItem
-export default Tabs

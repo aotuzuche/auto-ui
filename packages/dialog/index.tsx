@@ -1,24 +1,34 @@
-import './style'
-import React from 'react'
-import { createPortal } from 'react-dom'
 import cn from 'classnames'
+import React, { FC, MouseEventHandler, ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 
-import Modal from '../modal'
+import { Modal } from '../modal'
 
-class Dialog extends React.Component {
-  constructor(props) {
+export interface DialogProps {
+  className?: string
+  height?: number
+  visible?: boolean
+  children?: ReactNode
+  onBgClick?: MouseEventHandler<HTMLDivElement>
+  [otherProps: string]: any
+}
+
+export class Dialog extends React.Component<DialogProps, any> {
+  public static Scroller: FC<DialogScrollerProps>
+  private div: HTMLDivElement
+  public constructor(props: DialogProps) {
     super(props)
     this.div = document.createElement('div')
     this.div.classList.add('_x_dialog_')
     document.body.appendChild(this.div)
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     if (this.div && this.div.parentNode) {
       this.div.parentNode.removeChild(this.div)
     }
   }
-  _content() {
+  public _content() {
     const {
       className,
       height,
@@ -43,12 +53,16 @@ class Dialog extends React.Component {
     )
   }
 
-  render() {
+  public render() {
     return createPortal(this._content(), this.div)
   }
 }
 
-const Scroller = props => {
+export interface DialogScrollerProps {
+  className?: string
+}
+
+const Scroller: FC<DialogScrollerProps> = props => {
   const { className, children } = props
   const composeClassName = cn('x-dialog__scroller', className)
 
@@ -60,5 +74,3 @@ const Scroller = props => {
 }
 
 Dialog.Scroller = Scroller
-
-export default Dialog

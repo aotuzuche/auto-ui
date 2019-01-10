@@ -1,10 +1,20 @@
-import './style'
-import React from 'react'
 import classnames from 'classnames'
+import React, { FC, MouseEventHandler } from 'react'
 
-import A from '../a'
+import { A } from '../a'
 
-const Switch = props => {
+export interface SwitchProps {
+  i?: boolean
+  o?: boolean
+  active?: boolean
+  icon?: boolean
+  disabled?: boolean
+  className?: string
+  onChange?: MouseEventHandler<HTMLAnchorElement>
+  [otherProps: string]: any
+}
+
+export const Switch: FC<SwitchProps> = props => {
   const {
     i,
     o,
@@ -40,5 +50,3 @@ const Switch = props => {
     </A>
   )
 }
-
-export default Switch

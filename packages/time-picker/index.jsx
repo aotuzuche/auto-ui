@@ -9,7 +9,7 @@ import event from './event'
 let ID = 0
 
 // component.
-class TimePicker extends React.PureComponent {
+export class TimePicker extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -390,5 +390,3 @@ class TimePicker extends React.PureComponent {
     )
   }
 }
-
-export default TimePicker

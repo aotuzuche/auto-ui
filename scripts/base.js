@@ -14,7 +14,7 @@ const paths = {
   scripts: {
     src: ['packages/**/*.ts', 'packages/**/*.tsx']
   },
-  dest: 'lib/'
+  dest: process.env.NODE_ENV === 'development' ? 'packages/' : 'lib/'
 }
 
 // clear dest dir
@@ -24,7 +24,10 @@ function clean() {
 
 // compile ts
 function scripts() {
-  const result = gulp.src(paths.scripts.src).pipe(tsConfig())
+  const result = gulp
+    .src(paths.scripts.src)
+    .pipe(tsConfig(ts.reporter.fullReporter()))
+    .on('error', () => {})
 
   return merge([
     result.js.pipe(gulp.dest(paths.dest)),

@@ -7,3 +7,8 @@ node_modules
 /es
 /lib
 /docs/dist/
+
+
+/packages/*/*.js
+/packages/*/*.d.ts
+/packages/*/*.css
