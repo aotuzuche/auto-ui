@@ -61,6 +61,11 @@ const mobileConfig = [
     component: AsyncComponent(e => import('./radio'))
   },
   {
+    name: 'SafeArea 安全区域',
+    path: '/mobile/safearea',
+    component: AsyncComponent(e => import('./safearea'))
+  },
+  {
     name: 'Spin 加载',
     path: '/mobile/spin',
     component: AsyncComponent(e => import('./spin'))

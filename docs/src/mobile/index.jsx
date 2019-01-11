@@ -3,7 +3,7 @@ import React from 'react'
 import MobileConfig from './config'
 import { Link, Route, Switch } from 'react-router-dom'
 
-import { Navbar } from 'auto-ui'
+import { NavBar, SafeArea } from 'auto-ui'
 
 class MobileIndex extends React.Component {
   constructor(props) {
@@ -25,7 +25,8 @@ class MobileIndex extends React.Component {
   render() {
     return (
       <div className="mobile">
-        {!this.state.isExact && <Navbar title="导航栏" leftBtn rightBtn />}
+        <SafeArea />
+        {!this.state.isExact && <NavBar title="导航栏" leftBtn rightBtn />}
         {this.state.isExact && (
           <div>
             <h1 className="mobile-title">AUTO-UI</h1>
@@ -50,6 +51,7 @@ class MobileIndex extends React.Component {
             })}
           </Switch>
         </div>
+        <SafeArea bottom />
       </div>
     )
   }

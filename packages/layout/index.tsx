@@ -6,8 +6,8 @@ import React, {
   ReactNode,
   UIEventHandler
 } from 'react'
-import { IphoneXFooter } from '../iphonex_footer'
-import { IphoneXHeader } from '../iphonex_header'
+
+import { SafeArea } from '../safe-area'
 import { Spin } from '../spin'
 
 export interface LayoutProps {
@@ -24,9 +24,9 @@ export const Layout: FC<LayoutProps> & {
   const composeClassName = cn('x-app', className)
   return (
     <div {...otherProps} className={composeClassName}>
-      <IphoneXHeader />
+      <SafeArea />
       {children}
-      <IphoneXFooter />
+      <SafeArea bottom />
     </div>
   )
 }

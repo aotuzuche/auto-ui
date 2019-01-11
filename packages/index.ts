@@ -7,51 +7,12 @@ export * from './dialog'
 export * from './input'
 export * from './layout'
 export * from './loading'
-export * from './navbar'
+export * from './nav-bar'
 export * from './popup'
 export * from './radio'
 export * from './spin'
 export * from './switch'
 export * from './tabs'
-export * from './time-picker'
+// export * from './time-picker'
 export * from './toast'
-
-// export {
-//   A,
-//   ActionSheet,
-//   Alert,
-//   Button,
-//   Cell,
-//   Dialog,
-//   Input,
-//   Layout,
-//   Loading,
-//   NavBar,
-//   Popup,
-//   Radio,
-//   Spin,
-//   Switch,
-//   Tabs,
-//   TimePicker,
-//   Toast
-// }
-
-// export default {
-//   A,
-//   ActionSheet,
-//   Alert,
-//   Button,
-//   Cell,
-//   Dialog,
-//   Input,
-//   Layout,
-//   Loading,
-//   NavBar,
-//   Popup,
-//   Radio,
-//   Spin,
-//   Switch,
-//   Tabs,
-//   TimePicker,
-//   Toast
-// }
+export * from './safe-area'

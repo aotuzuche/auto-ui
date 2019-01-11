@@ -1,3 +1,4 @@
+console.log(0)
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 import { createPortal } from 'react-dom'
@@ -17,7 +18,7 @@ export interface PopupProps {
 
 export class Popup extends React.Component<PopupProps, any> {
   public static Scroller: FC<PopupScrollerProps>
-  public _container: HTMLDivElement = document.createElement('div')
+  private _container: HTMLDivElement | null = null
   public constructor(props: PopupProps) {
     super(props)
     const { local } = this.props
@@ -26,6 +27,8 @@ export class Popup extends React.Component<PopupProps, any> {
     if (local) {
       return
     }
+
+    this._container = document.createElement('div')
 
     this._container.classList.add('_x_popup_')
     document.body.appendChild(this._container)

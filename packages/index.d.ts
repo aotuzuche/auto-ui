@@ -13,5 +13,5 @@ export * from './radio';
 export * from './spin';
 export * from './switch';
 export * from './tabs';
-export * from './time-picker';
 export * from './toast';
+export * from './safe-area';

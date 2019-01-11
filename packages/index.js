@@ -18,8 +18,9 @@ __export(require("./radio"));
 __export(require("./spin"));
 __export(require("./switch"));
 __export(require("./tabs"));
-__export(require("./time-picker"));
+// export * from './time-picker'
 __export(require("./toast"));
+__export(require("./safe-area"));
 // export {
 //   A,
 //   ActionSheet,
