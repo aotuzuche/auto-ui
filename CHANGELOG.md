@@ -1,3 +1,20 @@
+# [0.2.0](https://github.com/aotuzuche/auto-ui/compare/v0.1.24...v0.2.0) (2019-01-14)
+
+
+### Features
+
+* 使用 ts 重构了组件，除了 TimePicker ([d883162](https://github.com/aotuzuche/auto-ui/commit/d883162))
+* 增加 SafeArea 组件，删除了 iphonex_header 和 iphonex_footer 组件，优化了一些 ts 的写法 ([6be51ea](https://github.com/aotuzuche/auto-ui/commit/6be51ea))
+* 完成初版的 ts 改造 ([a78fbfe](https://github.com/aotuzuche/auto-ui/commit/a78fbfe))
+
+
+### Performance Improvements
+
+* 优化 npm 上传的文件 ([589912c](https://github.com/aotuzuche/auto-ui/commit/589912c))
+* 使用 gulp 来重新编写 ts 和 scss 的构建 ([e54b926](https://github.com/aotuzuche/auto-ui/commit/e54b926))
+
+
+
 ## [0.1.24](https://github.com/aotuzuche/auto-ui/compare/v0.1.23...v0.1.24) (2019-01-08)
 
 
