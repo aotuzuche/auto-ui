@@ -15,6 +15,7 @@ export interface ActionSheetProps {
     e: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>
   ) => void
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  [otherProps: string]: any
 }
 
 export class ActionSheet extends React.Component<ActionSheetProps> {

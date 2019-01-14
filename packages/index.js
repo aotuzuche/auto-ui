@@ -12,50 +12,12 @@ __export(require("./dialog"));
 __export(require("./input"));
 __export(require("./layout"));
 __export(require("./loading"));
-__export(require("./navbar"));
+__export(require("./nav-bar"));
 __export(require("./popup"));
 __export(require("./radio"));
 __export(require("./spin"));
 __export(require("./switch"));
 __export(require("./tabs"));
-// export * from './time-picker'
+__export(require("./time-picker"));
 __export(require("./toast"));
 __export(require("./safe-area"));
-// export {
-//   A,
-//   ActionSheet,
-//   Alert,
-//   Button,
-//   Cell,
-//   Dialog,
-//   Input,
-//   Layout,
-//   Loading,
-//   NavBar,
-//   Popup,
-//   Radio,
-//   Spin,
-//   Switch,
-//   Tabs,
-//   TimePicker,
-//   Toast
-// }
-// export default {
-//   A,
-//   ActionSheet,
-//   Alert,
-//   Button,
-//   Cell,
-//   Dialog,
-//   Input,
-//   Layout,
-//   Loading,
-//   NavBar,
-//   Popup,
-//   Radio,
-//   Spin,
-//   Switch,
-//   Tabs,
-//   TimePicker,
-//   Toast
-// }

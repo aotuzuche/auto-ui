@@ -2,8 +2,9 @@
   "name": "auto-ui",
   "version": "0.1.8",
   "description": "auto ui components",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "lib/index",
+  "typings": "lib/index",
+  "module": "es/index",
   "scripts": {
     "start": "cross-env NODE_ENV=development PACKAGE=development node scripts/start.js",
     "build": "cross-env NODE_ENV=production PACKAGE=production && node scripts/build.js",
@@ -34,7 +35,7 @@
     }
   },
   "dependencies": {
-    "auto-libs": "^0.0.6",
+    "auto-libs": "^0.0.7",
     "classnames": "^2.2.6",
     "iscroll": "^5.2.0",
     "react": "^16.3.2",

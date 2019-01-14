@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { FC, ReactNodeArray } from 'react'
-import { A } from '../a'
 import { Spin } from '../spin'
+import { Report } from '../utils'
 
 export interface ButtonProps {
   className?: string
@@ -38,7 +38,7 @@ export const Button: FC<ButtonProps> = props => {
   }
 
   return (
-    <A {...otherProps} className={css}>
+    <Report {...otherProps} className={css}>
       {!!loading && <Spin className="x-button__loading" />}
       {composeChildren.map((children, index) => {
         return (
@@ -47,6 +47,6 @@ export const Button: FC<ButtonProps> = props => {
           </p>
         )
       })}
-    </A>
+    </Report>
   )
 }

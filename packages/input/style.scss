@@ -41,7 +41,7 @@
   }
   &--disabled {
     .x-input__ipt {
-      background: #e6e6e6 + 20;
+      background: darken(#e6e6e6, 20);
     }
   }
   &.x-input--error {
@@ -50,7 +50,8 @@
       box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
     }
   }
-  &__addon-before, &__addon-after {
+  &__addon-before,
+  &__addon-after {
     display: flex;
     align-items: center;
     height: 100%;

@@ -124,7 +124,7 @@
         background: #00bb55;
         color: #fff; }
         .x-alert__btns a.x-alert__btn-y:active {
-          background: #00b14b; }
+          background: #00ee6c; }
       .x-alert__btns a:active {
         opacity: 1;
         background: #ebebeb; }
@@ -157,7 +157,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  user-select: none;
   width: 100%;
   height: 90px;
   font-size: 30px;
@@ -180,12 +180,12 @@
     background: #00bb55;
     color: #fff; }
     .x-button--primary:active {
-      background: #00b14b; }
+      background: #00ee6c; }
   .x-button--danger {
     background: #ff5f4a;
     color: #fff; }
     .x-button--danger:active {
-      background: #f55540; }
+      background: #ff8c7d; }
   .x-button--default {
     border: 2px solid #00bb55;
     /*no*/
@@ -354,7 +354,7 @@
       z-index: 2;
       box-shadow: 0 0 10px rgba(0, 187, 85, 0.3); }
   .x-input--disabled .x-input__ipt {
-    background: #fafafa; }
+    background: #b3b3b3; }
   .x-input.x-input--error .x-input__ipt {
     border: 2px solid #ff6600;
     /*no*/
@@ -382,22 +382,6 @@
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
-
-.iphonex-footer {
-  width: 100%;
-  height: constant(safe-area-inset-bottom);
-  height: env(safe-area-inset-bottom);
-  background-color: #fff; }
-
-.iphonex-header {
-  background-color: #fff;
-  width: 100%;
-  height: 70px; }
-
-.isAtzucheiOSNotiPhoneX {
-  background-color: #fff;
-  width: 100%;
-  height: 40px; }
 
 .auto-ui_navbar {
   height: 110px;
