@@ -19,9 +19,7 @@
   "author": "shaodahong <337097324@qq.com>",
   "license": "MIT",
   "files": [
-    "es",
-    "lib",
-    "packages"
+    "lib"
   ],
   "lint-staged": {
     "*.{js,jsx}": [
