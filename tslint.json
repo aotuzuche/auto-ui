@@ -1,0 +1,11 @@
+{
+  "extends": ["tslint-config-alloy"],
+  "linterOptions": {
+    "exclude": ["**/node_modules/**"]
+  },
+  "rules": {
+    "semicolon": [true, "never"],
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "arrow-parens": false
+  }
+}

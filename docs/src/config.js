@@ -76,7 +76,7 @@ const docsConfig = [
   {
     name: 'NavBar 导航栏',
     path: '/docs/navbar',
-    component: AsyncComponent(e => import('auto-ui/navbar/index.zh-CN'))
+    component: AsyncComponent(e => import('auto-ui/nav-bar/index.zh-CN'))
   },
   {
     name: 'Popup 弹出层',
@@ -87,6 +87,11 @@ const docsConfig = [
     name: 'Radio 单选框',
     path: '/docs/radio',
     component: AsyncComponent(e => import('auto-ui/radio/index.zh-CN'))
+  },
+  {
+    name: 'SafeArea 安全区域',
+    path: '/docs/safearea',
+    component: AsyncComponent(e => import('auto-ui/safe-area/index.zh-CN'))
   },
   {
     name: 'Spin 加载',

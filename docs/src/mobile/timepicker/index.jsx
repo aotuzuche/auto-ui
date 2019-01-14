@@ -1,5 +1,6 @@
 import React from 'react'
-import { TimePicker, Popup } from 'auto-ui'
+import { Popup } from 'auto-ui'
+import { TimePicker } from 'auto-ui/time-picker/index'
 
 class A extends React.Component {
   constructor(props) {
