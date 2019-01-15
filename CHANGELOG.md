@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/aotuzuche/auto-ui/compare/v0.2.1...v0.2.2) (2019-01-15)
+
+
+### Bug Fixes
+
+* **NavBar:** title 增大字体到 34px, 增加 font-weight ([24a6d77](https://github.com/aotuzuche/auto-ui/commit/24a6d77))
+
+
+
 ## [0.2.1](https://github.com/aotuzuche/auto-ui/compare/v0.2.0...v0.2.1) (2019-01-15)
 
 
