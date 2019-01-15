@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.08);
-  font-size: 30px;
+  font-size: 34px;
   color: #333;
   z-index: 2;
   &-icon {
@@ -35,6 +35,7 @@
     width: 100%;
     text-align: center;
     padding: 0 118px;
+    font-weight: 600;
   }
   &-rightbtn {
     position: absolute;
