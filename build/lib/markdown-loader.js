@@ -153,6 +153,8 @@ module.exports = function(source) {
     .replace(/<hr>/g, '<hr />')
     .replace(/<br>/g, '<br />')
     .replace(/class=/g, 'className=')
+    .replace(/\[x\]/g, '<input type="checkbox" checked disabled />')
+    .replace(/\[ \]/g, '<input type="checkbox" disabled />')
 
   return formatModule(imports, moduleJS.join('\n'), content)
 }

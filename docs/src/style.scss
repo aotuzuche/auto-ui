@@ -163,7 +163,7 @@ a:active {
 
 /* 去除默认皮肤样式，默认事件等 */
 * {
-  -webkit-appearance: none;
+  // -webkit-appearance: none;
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
