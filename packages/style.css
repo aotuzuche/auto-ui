@@ -354,7 +354,7 @@
       z-index: 2;
       box-shadow: 0 0 10px rgba(0, 187, 85, 0.3); }
   .x-input--disabled .x-input__ipt {
-    background: #b3b3b3; }
+    background: #f3f3f3; }
   .x-input.x-input--error .x-input__ipt {
     border: 2px solid #ff6600;
     /*no*/

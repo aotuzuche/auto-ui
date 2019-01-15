@@ -41,7 +41,7 @@
   }
   &--disabled {
     .x-input__ipt {
-      background: darken(#e6e6e6, 20);
+      background: lighten(#e6e6e6, 5);
     }
   }
   &.x-input--error {
