@@ -1,3 +1,13 @@
+## [0.2.1](https://github.com/aotuzuche/auto-ui/compare/v0.2.0...v0.2.1) (2019-01-15)
+
+
+### Bug Fixes
+
+* 修复 ts 的模块导出，打包后的组件增加 scss 源文件 ([08b4194](https://github.com/aotuzuche/auto-ui/commit/08b4194))
+* **Input:** 修复新的 scss color function 计算颜色偏差 ([4641d60](https://github.com/aotuzuche/auto-ui/commit/4641d60))
+
+
+
 # [0.2.0](https://github.com/aotuzuche/auto-ui/compare/v0.1.24...v0.2.0) (2019-01-14)
 
 
