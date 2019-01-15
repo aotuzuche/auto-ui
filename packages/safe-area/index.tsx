@@ -7,7 +7,7 @@ export interface SafeAreaProps {
   bottom?: boolean
 }
 
-export class SafeArea extends Component<SafeAreaProps> {
+export default class SafeArea extends Component<SafeAreaProps> {
   public render() {
     const { className, top, bottom } = this.props
 

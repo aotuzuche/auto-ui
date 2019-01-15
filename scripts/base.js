@@ -3,7 +3,6 @@ const ts = require('gulp-typescript')
 const del = require('del')
 const sass = require('gulp-sass')
 const merge = require('merge2')
-
 const tsConfig = ts.createProject('tsconfig.build.json')
 
 // set const path var
@@ -43,6 +42,11 @@ function styles() {
     .pipe(gulp.dest(paths.dest))
 }
 
+// copy some files for build
+function copy() {
+  return gulp.src(paths.styles.src).pipe(gulp.dest(paths.dest))
+}
+
 // start watch files
 function watch() {
   gulp.watch(paths.scripts.src, scripts)
@@ -50,7 +54,8 @@ function watch() {
 }
 
 // build compile
-const build = gulp.series(clean, gulp.parallel(styles, scripts))
+const build = gulp.series(clean, gulp.parallel(copy, styles, scripts))
 
 exports.watch = watch
 exports.build = build
+exports.copy = copy

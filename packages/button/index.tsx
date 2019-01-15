@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React, { FC, ReactNodeArray } from 'react'
-import { Spin } from '../spin'
+import Spin from '../spin'
 import { Report } from '../utils'
 
 export interface ButtonProps {
@@ -12,7 +12,7 @@ export interface ButtonProps {
   [otherProps: string]: any
 }
 
-export const Button: FC<ButtonProps> = props => {
+const Button: FC<ButtonProps> = props => {
   const {
     type,
     disabled,
@@ -50,3 +50,5 @@ export const Button: FC<ButtonProps> = props => {
     </Report>
   )
 }
+
+export default Button

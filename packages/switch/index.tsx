@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { A } from '../a'
+import A from '../a'
 
 export interface SwitchProps {
   i?: boolean
@@ -14,7 +14,7 @@ export interface SwitchProps {
   [otherProps: string]: any
 }
 
-export const Switch: FC<SwitchProps> = props => {
+const Switch: FC<SwitchProps> = props => {
   const {
     i,
     o,
@@ -50,3 +50,5 @@ export const Switch: FC<SwitchProps> = props => {
     </A>
   )
 }
+
+export default Switch

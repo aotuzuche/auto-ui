@@ -6,7 +6,7 @@ const DefaultTime = 500
 const minTimeNum = 200
 // const DefaultTimeNum = 1500
 
-export function Toast(text: ReactNode, timeout: number) {
+export default function Toast(text: ReactNode, timeout: number) {
   let composeTimeout = timeout || DefaultTime
   if (timeout < minTimeNum) {
     composeTimeout = DefaultTime

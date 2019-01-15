@@ -2,8 +2,8 @@ import cn from 'classnames'
 import * as React from 'react'
 
 import { createPortal } from 'react-dom'
-import { A } from '../a'
-import { Modal } from '../modal'
+import A from '../a'
+import Modal from '../modal'
 
 export interface ActionSheetProps {
   title?: string
@@ -18,7 +18,7 @@ export interface ActionSheetProps {
   [otherProps: string]: any
 }
 
-export class ActionSheet extends React.Component<ActionSheetProps> {
+export default class ActionSheet extends React.Component<ActionSheetProps> {
   public _container: HTMLDivElement
 
   public constructor(props: ActionSheetProps) {

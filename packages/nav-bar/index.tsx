@@ -13,7 +13,7 @@ export interface NavbarProps {
   [otherProps: string]: any
 }
 
-export class NavBar extends React.Component<NavbarProps, any> {
+export default class NavBar extends React.Component<NavbarProps, any> {
   public leftClick: MouseEventHandler<HTMLDivElement> = e => {
     window.history.go(-1)
   }

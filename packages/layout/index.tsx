@@ -7,15 +7,15 @@ import React, {
   UIEventHandler
 } from 'react'
 
-import { SafeArea } from '../safe-area'
-import { Spin } from '../spin'
+import SafeArea from '../safe-area'
+import Spin from '../spin'
 
 export interface LayoutProps {
   className?: string
   [otherProps: string]: any
 }
 
-export const Layout: FC<LayoutProps> & {
+const Layout: FC<LayoutProps> & {
   Header: FC<LayoutHeaderProps>;
   Footer: FC<LayoutFooterProps>;
   Body: ComponentClass<LayoutBodyProps>;
@@ -239,3 +239,5 @@ const LayoutHeader: FC<LayoutHeaderProps> = props => {
 Layout.Header = LayoutHeader
 Layout.Body = LayoutBody
 Layout.Footer = LayoutFooter
+
+export default Layout

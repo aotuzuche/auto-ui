@@ -14,7 +14,7 @@ export interface ModalState {
   ani: string
 }
 
-export class Modal extends React.Component<ModalProps, ModalState> {
+export default class Modal extends React.Component<ModalProps, ModalState> {
   public constructor(props: ModalProps) {
     super(props)
 

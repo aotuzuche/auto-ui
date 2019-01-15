@@ -7,7 +7,7 @@ export interface SpinProps {
   [otherProps: string]: any
 }
 
-export const Spin: React.FC<SpinProps> = props => {
+const Spin: React.FC<SpinProps> = props => {
   const { className, text, ...otherProps } = props
 
   const loadingSpin = (
@@ -35,3 +35,5 @@ export const Spin: React.FC<SpinProps> = props => {
     </div>
   )
 }
+
+export default Spin

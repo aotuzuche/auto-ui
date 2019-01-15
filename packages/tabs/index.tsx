@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { cloneElement, FC, MouseEventHandler } from 'react'
 
-import { A } from '../a'
+import A from '../a'
 
 export interface TabsItemProps {
   active?: boolean
@@ -39,7 +39,7 @@ export interface TabsProps {
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-export const Tabs: FC<TabsProps> & {
+const Tabs: FC<TabsProps> & {
   Item: FC<TabsItemProps>;
 } = props => {
   const { className, children, active, onClick, ...otherProps } = props
@@ -83,3 +83,5 @@ export const Tabs: FC<TabsProps> & {
 }
 
 Tabs.Item = TabsItem
+
+export default Tabs

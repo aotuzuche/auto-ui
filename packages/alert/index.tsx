@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { MouseEventHandler } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
-import { A } from '../a'
+import A from '../a'
 
 export interface AlertProps {
   title?: React.ReactNode
@@ -60,7 +60,7 @@ class AlertCom extends React.Component<AlertProps, any> {
   }
 }
 
-export function Alert(params: AlertProps, callback: Function) {
+export default function Alert(params: AlertProps, callback: Function) {
   let composeParams: AlertProps = params
   if (typeof params === 'string') {
     composeParams = {

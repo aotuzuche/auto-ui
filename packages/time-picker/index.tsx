@@ -8,7 +8,6 @@ import React, { Component, ReactNode } from 'react'
 import '../__libs/dateFormat'
 import event from './event'
 
-
 let ID = 0
 
 export interface TimePickerProps {
@@ -40,7 +39,10 @@ export interface TimePickerState {
   dayIndex: number
 }
 // component.
-export class TimePicker extends Component<TimePickerProps, TimePickerState> {
+export default class TimePicker extends Component<
+  TimePickerProps,
+  TimePickerState
+> {
   public static getDerivedStateFromProps(
     props: TimePickerProps,
     state: TimePickerState

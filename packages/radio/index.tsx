@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { FC, ReactNode } from 'react'
 
-import { A } from '../a'
+import A from '../a'
 
 export interface RadioProps {
   checked?: boolean
@@ -13,7 +13,7 @@ export interface RadioProps {
   [otherProps: string]: any
 }
 
-export const Radio: FC<RadioProps> = props => {
+const Radio: FC<RadioProps> = props => {
   const {
     checked,
     disabled,
@@ -50,3 +50,5 @@ export const Radio: FC<RadioProps> = props => {
     </A>
   )
 }
+
+export default Radio

@@ -44,7 +44,7 @@ export interface CellProps {
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-export const Cell: FC<CellProps> & {
+const Cell: FC<CellProps> & {
   Row: FC<CellRowProps>;
 } = props => {
   const {
@@ -81,3 +81,5 @@ export const Cell: FC<CellProps> & {
 }
 
 Cell.Row = CellRow
+
+export default Cell

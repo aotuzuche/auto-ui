@@ -3,7 +3,7 @@ import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 import { createPortal } from 'react-dom'
 
-import { Modal } from '../modal'
+import Modal from '../modal'
 
 export interface PopupProps {
   local?: boolean
@@ -16,7 +16,7 @@ export interface PopupProps {
   [otherProps: string]: any
 }
 
-export class Popup extends React.Component<PopupProps, any> {
+export default class Popup extends React.Component<PopupProps, any> {
   public static Scroller: FC<PopupScrollerProps>
   private _container: HTMLDivElement | null = null
   public constructor(props: PopupProps) {

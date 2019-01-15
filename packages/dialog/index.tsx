@@ -2,7 +2,7 @@ import cn from 'classnames'
 import React, { FC, MouseEventHandler, ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 
-import { Modal } from '../modal'
+import Modal from '../modal'
 
 export interface DialogProps {
   className?: string
@@ -13,7 +13,7 @@ export interface DialogProps {
   [otherProps: string]: any
 }
 
-export class Dialog extends React.Component<DialogProps, any> {
+export default class Dialog extends React.Component<DialogProps, any> {
   public static Scroller: FC<DialogScrollerProps>
   private div: HTMLDivElement
   public constructor(props: DialogProps) {

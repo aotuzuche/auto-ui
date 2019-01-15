@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
-import { Spin } from '../spin'
+import Spin from '../spin'
 
 let div: HTMLDivElement
 
@@ -12,7 +12,7 @@ function close() {
   }
 }
 
-export function Loading(text: ReactNode) {
+export default function Loading(text: ReactNode) {
   // 防止多次调用先 close 检查下
   close()
 

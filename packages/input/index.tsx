@@ -14,7 +14,7 @@ export interface InputProps {
   [otherProps: string]: any
 }
 
-export class Input extends React.Component<InputProps> {
+export default class Input extends React.Component<InputProps> {
   public render() {
     const {
       type,

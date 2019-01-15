@@ -7,7 +7,7 @@ export interface AProps {
   [otherProps: string]: any
 }
 
-export const A: React.FC<AProps> = props => {
+const A: React.FC<AProps> = props => {
   const { report, children, onClick, ...otherProps } = props
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -22,3 +22,5 @@ export const A: React.FC<AProps> = props => {
     </a>
   )
 }
+
+export default A
