@@ -5,11 +5,12 @@ export interface SafeAreaProps {
   className?: string
   top?: boolean
   bottom?: boolean
+  [otherProps: string]: any
 }
 
 export default class SafeArea extends Component<SafeAreaProps> {
   public render() {
-    const { className, top, bottom } = this.props
+    const { className, top, bottom, ...otherProps } = this.props
 
     const cn = cns(
       'auto-safe-area',
@@ -19,6 +20,6 @@ export default class SafeArea extends Component<SafeAreaProps> {
       },
       className
     )
-    return <div className={cn} />
+    return <div {...otherProps} className={cn} />
   }
 }
