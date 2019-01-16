@@ -12,7 +12,7 @@ function close() {
   }
 }
 
-export default function Loading(text: ReactNode) {
+function Loading(text: ReactNode) {
   // 防止多次调用先 close 检查下
   close()
 
@@ -37,3 +37,5 @@ export default function Loading(text: ReactNode) {
 }
 
 Loading.hide = close
+
+export default Loading

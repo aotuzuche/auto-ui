@@ -41,23 +41,9 @@ class A extends React.Component {
         </Cell.Row>
         <Cell.Row>加载中</Cell.Row>
         <Cell.Row>
-          <Button
-            loading={this.state.loading}
-            onClick={() => {
-              this.setState({
-                loading: true,
-                text: '加载中(2s)'
-              })
-
-              setTimeout(() => {
-                this.setState({
-                  loading: false,
-                  text: '点击加载'
-                })
-              }, 2000)
-            }}
-          >
-            {this.state.text}
+          <Button loading mini />
+          <Button loading mini>
+            加载中
           </Button>
         </Cell.Row>
         <Cell.Row>禁用</Cell.Row>

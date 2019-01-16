@@ -11,7 +11,7 @@ const paths = {
     src: 'packages/**/*.scss'
   },
   scripts: {
-    src: ['packages/**/*.ts', 'packages/**/*.tsx']
+    src: ['packages/**/*.ts', 'packages/**/*.tsx', '!packages/**/*.d.ts']
   },
   dest: process.env.NODE_ENV === 'development' ? 'packages/' : 'lib/'
 }
@@ -59,3 +59,4 @@ const build = gulp.series(clean, gulp.parallel(copy, styles, scripts))
 exports.watch = watch
 exports.build = build
 exports.copy = copy
+exports.scripts = scripts

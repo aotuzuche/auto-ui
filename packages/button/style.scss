@@ -9,10 +9,10 @@
   height: 90px;
   font-size: 30px;
   border-radius: 5px;
-  &:active {
-    opacity: 1;
-    color: #fff;
-  }
+  // &:active {
+  //   opacity: 1;
+  //   color: #fff;
+  // }
   .x-button__loading {
     width: 25px;
     height: 25px;
@@ -30,18 +30,19 @@
     background: #00bb55;
     color: #fff;
     &:active {
-      background: lighten(#00bb55, 10);
+      background: lighten(#00bb55, 5);
     }
   }
   &--danger {
     background: #ff5f4a;
     color: #fff;
     &:active {
-      background: lighten(#ff5f4a, 10);
+      background: red;
+      // background: lighten(#ff5f4a, 5);
     }
   }
   &--default {
-    border: 2px solid #00bb55; /*no*/
+    border: 1px solid #00bb55; /*no*/
     background: #fff;
     color: #00bb55;
     &:active {

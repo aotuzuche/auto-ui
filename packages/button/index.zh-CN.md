@@ -51,10 +51,10 @@ import { Button } from 'auto-ui'
 
 ## 支持属性
 
-| 属性     | 说明                                   | 类型     | 默认值  |
-| -------- | -------------------------------------- | -------- | ------- |
-| type     | 按钮的种类，primary / danger / default | String   | primary |
-| onClick  | 点击事件                               | Function | -       |
-| mini     | 是否使用小按钮                         | Boolean  | false   |
-| loading  | 是否为加载中状态                       | Boolean  | false   |
-| disabled | 是否不可用                             | Boolean  | false   |
+| 属性     | 说明             | 类型                       | 默认值  |
+| -------- | ---------------- | -------------------------- | ------- |
+| type     | 类型             | primary / danger / default | primary |
+| onClick  | 点击事件         | Function                   | -       |
+| mini     | 是否使用小按钮   | Boolean                    | false   |
+| loading  | 是否为加载中状态 | Boolean                    | false   |
+| disabled | 是否不可用       | Boolean                    | false   |

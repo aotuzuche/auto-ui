@@ -1,8 +1,8 @@
-import { AS } from 'auto-libs'
+import { AS, ASData } from 'auto-libs'
 import React from 'react'
 
 export interface AProps {
-  report?: object
+  report?: ASData
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
   [otherProps: string]: any
 }

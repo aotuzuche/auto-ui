@@ -10,16 +10,15 @@ export interface ReportProps {
 
 export const Report: FC<ReportProps> = props => {
   const { report, onClick, children, ...otherProps } = props
+
+  const clickHandle: MouseEventHandler<HTMLDivElement> = e => {
+    if (report) {
+      AS(report)
+    }
+    onClick && onClick(e)
+  }
   return (
-    <div
-      onClick={e => {
-        if (report) {
-          AS(report)
-        }
-        onClick && onClick(e)
-      }}
-      {...otherProps}
-    >
+    <div onClick={clickHandle} {...otherProps}>
       {children}
     </div>
   )

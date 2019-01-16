@@ -8,7 +8,8 @@ node_modules
 /lib
 /docs/dist/
 
-
-/packages/*/*.js
-/packages/*/*.d.ts
-/packages/*/*.css
+packages/*.js
+packages/*.css
+packages/**/*.js
+packages/**/*.d.ts
+packages/**/*.css
