@@ -11,10 +11,10 @@ const Spin: React.FC<SpinProps> = props => {
   const { className, text, ...otherProps } = props
 
   const loadingSpin = (
-    <div className="x-loading__spin">
-      <svg className="x-loading__spin_circular" viewBox="25 25 50 50">
+    <div className="auto-ui-loading__spin">
+      <svg className="auto-ui-loading__spin_circular" viewBox="25 25 50 50">
         <circle
-          className="x-loading__spin_path"
+          className="auto-ui-loading__spin_path"
           cx="50"
           cy="50"
           r="20"
@@ -26,12 +26,12 @@ const Spin: React.FC<SpinProps> = props => {
     </div>
   )
 
-  let composeClassName = cn('x-spin', className)
+  let composeClassName = cn('auto-ui-spin', className)
 
   return (
     <div {...otherProps} className={composeClassName}>
       {loadingSpin}
-      {!!text && <p className="x-spin__text">{text}</p>}
+      {!!text && <p className="auto-ui-spin__text">{text}</p>}
     </div>
   )
 }

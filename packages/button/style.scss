@@ -11,10 +11,9 @@
   padding: 0;
   text-align: center;
   &__loading {
-    width: 45px;
+    width: 25px;
     height: 25px;
-    padding: 0 10px;
-    &__spin_path {
+    .auto-ui-loading__spin_path {
       stroke: #fff;
       stroke-width: 5px; /*no*/
     }
@@ -25,7 +24,7 @@
   &--primary {
     background: #00bb55;
     color: #fff;
-    border: 1px solid #00bb55;
+    border: 1px solid #00bb55; /* no */
     &:active {
       background: darken(#00bb55, 5);
     }
@@ -33,17 +32,17 @@
   &--danger {
     background: #ff5f4a;
     color: #fff;
-    border: 1px solid #ff5f4a;
+    border: 1px solid #ff5f4a; /* no */
     &:active {
       background: darken(#ff5f4a, 5);
     }
   }
   &--default {
-    background: #f0f0f0;
+    background: #e3e3e3;
     color: #666;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #e3e3e3; /* no */
     &:active {
-      background: darken(#f0f0f0, 5);
+      background: darken(#e3e3e3, 5);
     }
     .auto-ui-button__loading {
       .auto-ui-loading__spin_path {
@@ -55,7 +54,10 @@
     background-color: #fff;
     &.auto-ui-button--default {
       &:active {
-        background: rgba(#f0f0f0, 0.4);
+        background: rgba(#e3e3e3, 0.4);
+      }
+      .auto-ui-loading__spin_path {
+        stroke: #666;
       }
     }
     &.auto-ui-button--danger {
@@ -63,11 +65,17 @@
       &:active {
         background: rgba(#ff5f4a, 0.2);
       }
+      .auto-ui-loading__spin_path {
+        stroke: #ff5f4a;
+      }
     }
     &.auto-ui-button--primary {
       color: #00bb55;
       &:active {
         background: rgba(#00bb55, 0.2);
+      }
+      .auto-ui-loading__spin_path {
+        stroke: #00bb55;
       }
     }
   }

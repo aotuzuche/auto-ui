@@ -10,6 +10,7 @@ class A extends React.Component {
       loading: false,
       text: '点击加载'
     }
+    alert(window.devicePixelRatio)
   }
   render() {
     return (

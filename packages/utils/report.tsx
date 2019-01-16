@@ -1,5 +1,5 @@
 import { AS, ASData } from 'auto-libs'
-import React, { createElement, FC, MouseEventHandler, ReactNode } from 'react'
+import { createElement, FC, MouseEventHandler, ReactNode } from 'react'
 
 export interface ReportProps {
   report?: ASData
