@@ -1,15 +1,16 @@
 import { AS, ASData } from 'auto-libs'
-import React, { FC, MouseEventHandler, ReactNode } from 'react'
+import React, { createElement, FC, MouseEventHandler, ReactNode } from 'react'
 
 export interface ReportProps {
   report?: ASData
   onClick?: MouseEventHandler<HTMLDivElement>
   children?: ReactNode
+  type?: string
   [otherProps: string]: any
 }
 
 export const Report: FC<ReportProps> = props => {
-  const { report, onClick, children, ...otherProps } = props
+  const { report, type = 'div', onClick, children, ...otherProps } = props
 
   const clickHandle: MouseEventHandler<HTMLDivElement> = e => {
     if (report) {
@@ -17,9 +18,12 @@ export const Report: FC<ReportProps> = props => {
     }
     onClick && onClick(e)
   }
-  return (
-    <div onClick={clickHandle} {...otherProps}>
-      {children}
-    </div>
+  return createElement(
+    type,
+    {
+      ...otherProps,
+      onClick: clickHandle
+    },
+    children
   )
 }

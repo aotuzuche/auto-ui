@@ -36,7 +36,7 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: './build/lib/markdown-loader.js',
+            loader: './scripts/lib/markdown-loader.js',
             options: {
               markdownItReact: function() {
                 return {
@@ -100,7 +100,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.md', '.scss', '.css'],
     alias: {
       'auto-ui': resolve('packages'),
-      'src': resolve('docs/src'),
+      src: resolve('docs/src'),
       '@': resolve('')
     }
   },

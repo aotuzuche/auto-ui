@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.scss'
 
 import { Button, Cell } from 'auto-ui'
 
@@ -13,19 +14,21 @@ class A extends React.Component {
   render() {
     return (
       <Cell>
-        <Cell.Row>默认使用</Cell.Row>
+        <Cell.Row>按钮类型</Cell.Row>
         <Cell.Row>
-          <Button>默认使用</Button>
+          <Button>默认</Button>
+          <Button type="primary">primary</Button>
+          <Button type="danger">danger</Button>
         </Cell.Row>
-        <Cell.Row>使用 type</Cell.Row>
+        <Cell.Row>空心类型</Cell.Row>
         <Cell.Row>
-          <Button type="primary">Primary Button</Button>
-        </Cell.Row>
-        <Cell.Row>
-          <Button type="danger">Danger Button</Button>
-        </Cell.Row>
-        <Cell.Row>
-          <Button type="default">Default Button</Button>
+          <Button hollow>默认</Button>
+          <Button hollow type="primary">
+            primary
+          </Button>
+          <Button hollow type="danger">
+            danger
+          </Button>
         </Cell.Row>
         <Cell.Row>小按钮</Cell.Row>
         <Cell.Row className="space-between">
@@ -40,15 +43,27 @@ class A extends React.Component {
           </Button>
         </Cell.Row>
         <Cell.Row>加载中</Cell.Row>
-        <Cell.Row>
+        <Cell.Row className="loading">
           <Button loading mini />
           <Button loading mini>
+            加载中
+          </Button>
+          <Button type="primary" loading mini>
+            加载中
+          </Button>
+          <Button type="primary" hollow loading mini>
             加载中
           </Button>
         </Cell.Row>
         <Cell.Row>禁用</Cell.Row>
         <Cell.Row>
           <Button disabled> 禁用</Button>
+          <Button type="primary" disabled>
+            禁用
+          </Button>
+          <Button hollow type="primary" disabled>
+            禁用
+          </Button>
         </Cell.Row>
       </Cell>
     )

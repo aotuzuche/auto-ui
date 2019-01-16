@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { createBrowserHistory } from 'history'
 import React, { MouseEventHandler } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
 import A from '../a'
@@ -75,6 +76,12 @@ export default function Alert(params: AlertProps, callback: Function) {
   className && div.classList.add(className)
   document.body.appendChild(div)
 
+  const browserHistory = createBrowserHistory()
+
+  const unListen = browserHistory.listen((location, action) => {
+    close()
+  })
+
   function close() {
     div.classList.remove('x-alert--show')
 
@@ -86,6 +93,7 @@ export default function Alert(params: AlertProps, callback: Function) {
         div.parentNode.removeChild(div)
       }
       callback && callback()
+      unListen()
     }, timeNumber)
   }
 

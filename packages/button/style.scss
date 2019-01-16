@@ -1,57 +1,73 @@
 @charset "utf-8";
 
-.x-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.auto-ui-button {
   user-select: none;
   width: 100%;
   height: 90px;
   font-size: 30px;
   border-radius: 5px;
-  // &:active {
-  //   opacity: 1;
-  //   color: #fff;
-  // }
-  .x-button__loading {
-    width: 25px;
+  border: none;
+  line-height: 1;
+  padding: 0;
+  text-align: center;
+  &__loading {
+    width: 45px;
     height: 25px;
-    .x-loading__spin_path {
+    padding: 0 10px;
+    &__spin_path {
       stroke: #fff;
       stroke-width: 5px; /*no*/
     }
   }
   &__text {
-    display: block;
     padding: 0 10px;
-    white-space: nowrap;
   }
   &--primary {
     background: #00bb55;
     color: #fff;
+    border: 1px solid #00bb55;
     &:active {
-      background: lighten(#00bb55, 5);
+      background: darken(#00bb55, 5);
     }
   }
   &--danger {
     background: #ff5f4a;
     color: #fff;
+    border: 1px solid #ff5f4a;
     &:active {
-      background: red;
-      // background: lighten(#ff5f4a, 5);
+      background: darken(#ff5f4a, 5);
     }
   }
   &--default {
-    border: 1px solid #00bb55; /*no*/
-    background: #fff;
-    color: #00bb55;
+    background: #f0f0f0;
+    color: #666;
+    border: 1px solid #f0f0f0;
     &:active {
-      opacity: 0.7;
-      color: #00bb55;
+      background: darken(#f0f0f0, 5);
     }
-    .x-button__loading {
-      .x-loading__spin_path {
-        stroke: #00bb55;
+    .auto-ui-button__loading {
+      .auto-ui-loading__spin_path {
+        stroke: #666;
+      }
+    }
+  }
+  &--hollow {
+    background-color: #fff;
+    &.auto-ui-button--default {
+      &:active {
+        background: rgba(#f0f0f0, 0.4);
+      }
+    }
+    &.auto-ui-button--danger {
+      color: #ff5f4a;
+      &:active {
+        background: rgba(#ff5f4a, 0.2);
+      }
+    }
+    &.auto-ui-button--primary {
+      color: #00bb55;
+      &:active {
+        background: rgba(#00bb55, 0.2);
       }
     }
   }
@@ -61,15 +77,15 @@
     height: 70px;
     font-size: 28px;
     padding: 0 30px;
-    .x-button__loading {
-      .x-loading__spin {
+    .auto-ui-button__loading {
+      .auto-ui-loading__spin {
         width: 20px;
         height: 20px;
       }
     }
   }
   &--disabled {
-    opacity: 0.6;
+    opacity: 0.7;
     pointer-events: none;
   }
 }

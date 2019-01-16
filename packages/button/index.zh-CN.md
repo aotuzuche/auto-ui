@@ -56,5 +56,6 @@ import { Button } from 'auto-ui'
 | type     | 类型             | primary / danger / default | primary |
 | onClick  | 点击事件         | Function                   | -       |
 | mini     | 是否使用小按钮   | Boolean                    | false   |
+| hollow   | 是否使用空心按钮 | Boolean                    | false   |
 | loading  | 是否为加载中状态 | Boolean                    | false   |
 | disabled | 是否不可用       | Boolean                    | false   |
