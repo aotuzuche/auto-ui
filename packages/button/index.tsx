@@ -14,7 +14,7 @@ export interface ButtonProps {
   [otherProps: string]: any
 }
 
-export default class Button extends Component<ButtonProps, null> {
+export default class Button extends Component<ButtonProps, any> {
   public render() {
     const {
       type = 'default',

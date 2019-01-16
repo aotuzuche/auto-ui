@@ -3,18 +3,11 @@ import { createBrowserHistory } from 'history'
 import React, { MouseEventHandler } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
 
-import { Report } from '../utils'
+import Button, { ButtonProps } from '../button'
 
 export interface AlertProps {
   title?: React.ReactNode
-  btns?: [
-    {
-      name: string;
-      className?: string;
-      onClick?: MouseEventHandler<Element>;
-      [otherProps: string]: any;
-    }
-  ]
+  btns?: ButtonProps[]
   className?: string
   desc?: React.ReactNode
   onClose?: MouseEventHandler<Element>
@@ -33,28 +26,51 @@ class AlertCom extends React.Component<AlertProps, any> {
         <div className="x-alert__btns">
           {!!btns &&
             btns.map((btn, index) => {
-              const { name, className, onClick, ...otherProps } = btn
-              let composeClassName
-              if (index === 0) {
-                composeClassName = cn('x-alert__btn-y', className)
-              } else if (index === 1) {
-                composeClassName = cn('x-alert__btn-n', className)
-              } else {
-                composeClassName = cn('x-alert__btn-y', className)
-              }
+              const {
+                name,
+                onClick,
+                className,
+                type = 'primary',
+                ...otherProps
+              } = btn
+
+              const composeClassName = cn('auto-ui-alert__btns-btn', className)
+
               return (
-                <Report
+                <Button
                   className={composeClassName}
-                  {...otherProps}
                   onClick={e => {
                     onClick && onClick(e)
                     onClose && onClose(e)
                   }}
                   key={index}
+                  type={type}
+                  {...otherProps}
                 >
                   {name}
-                </Report>
+                </Button>
               )
+              // let composeClassName
+              // if (index === 0) {
+              //   composeClassName = cn('x-alert__btn-y', className)
+              // } else if (index === 1) {
+              //   composeClassName = cn('x-alert__btn-n', className)
+              // } else {
+              //   composeClassName = cn('x-alert__btn-y', className)
+              // }
+              // return (
+              //   <Report
+              //     className={composeClassName}
+              //     {...otherProps}
+              //     onClick={e => {
+              //       onClick && onClick(e)
+              //       onClose && onClose(e)
+              //     }}
+              //     key={index}
+              //   >
+              //     {name}
+              //   </Report>
+              // )
             })}
         </div>
       </div>

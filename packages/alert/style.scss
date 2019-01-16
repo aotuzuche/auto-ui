@@ -41,6 +41,12 @@
   &__btns {
     display: flex;
     padding: 40px;
+    .auto-ui-alert__btns-btn {
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
 
     a {
       display: block;

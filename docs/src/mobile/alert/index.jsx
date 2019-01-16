@@ -51,13 +51,8 @@ class A extends React.Component {
                   name: 'monkey',
                   onClick: () => {
                     Toast('monkey')
-                  }
-                },
-                {
-                  name: 'kitty',
-                  onClick: () => {
-                    Toast('kitty')
-                  }
+                  },
+                  mini: true
                 },
                 {
                   name: 'world',
@@ -65,6 +60,8 @@ class A extends React.Component {
                   onClick: () => {
                     Toast('world')
                   },
+                  mini: true,
+                  type: 'danger',
                   report: {
                     name: 'world'
                   }
