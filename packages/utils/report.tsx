@@ -3,7 +3,7 @@ import { createElement, FC, MouseEventHandler, ReactNode } from 'react'
 
 export interface ReportProps {
   report?: ASData
-  onClick?: MouseEventHandler<HTMLDivElement>
+  onClick?: MouseEventHandler<Element>
   children?: ReactNode
   type?: string
   [otherProps: string]: any
@@ -12,7 +12,7 @@ export interface ReportProps {
 export const Report: FC<ReportProps> = props => {
   const { report, type = 'div', onClick, children, ...otherProps } = props
 
-  const clickHandle: MouseEventHandler<HTMLDivElement> = e => {
+  const clickHandle: MouseEventHandler<Element> = e => {
     if (report) {
       AS(report)
     }

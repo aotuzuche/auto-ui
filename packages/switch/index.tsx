@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import A from '../a'
+import { Report } from '../utils'
 
 export interface SwitchProps {
   i?: boolean
@@ -38,7 +38,7 @@ const Switch: FC<SwitchProps> = props => {
   const hasIO = i && o
 
   return (
-    <A
+    <Report
       {...otherProps}
       href="javascript:;"
       className={composeClassName}
@@ -47,7 +47,7 @@ const Switch: FC<SwitchProps> = props => {
       {hasIO && <sub>{props.i}</sub>}
       {hasIO && <sup>{props.o}</sup>}
       <em />
-    </A>
+    </Report>
   )
 }
 

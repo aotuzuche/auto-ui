@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { cloneElement, FC, MouseEventHandler } from 'react'
 
-import A from '../a'
+import { Report } from '../utils'
 
 export interface TabsItemProps {
   active?: boolean
@@ -22,14 +22,14 @@ const TabsItem: FC<TabsItemProps> = props => {
   )
 
   return (
-    <A
+    <Report
       {...otherProps}
       href="javascript:;"
       className={css}
       onClick={() => props.onClick && props.onClick(value)}
     >
       {props.children}
-    </A>
+    </Report>
   )
 }
 

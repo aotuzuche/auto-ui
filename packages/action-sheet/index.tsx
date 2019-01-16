@@ -1,20 +1,28 @@
 import cn from 'classnames'
 import * as React from 'react'
 
+import { ASData } from 'auto-libs'
 import { createPortal } from 'react-dom'
-import A from '../a'
 import Modal from '../modal'
+import { Report } from '../utils'
+
+export interface ActionSheetPropsItems {
+  name: string
+  className?: string
+  report?: ASData
+  [otherProps: string]: any
+}
 
 export interface ActionSheetProps {
   title?: string
   visible?: boolean
   className?: string
-  items: []
+  items: ActionSheetPropsItems[]
   closeText: any
   onClose?: (
     e: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>
   ) => void
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  onClick?: (item: ActionSheetPropsItems) => void
   [otherProps: string]: any
 }
 
@@ -60,11 +68,12 @@ export default class ActionSheet extends React.Component<ActionSheetProps> {
         {!!title && <h1 className="x-actionsheet__title">{title}</h1>}
         <div className="x-actionsheet__list">
           {items.map((item, index) => {
-            const { name, className } = item
+            const { name, className, ...otherProps } = item
             const composeClassName = cn('x-actionsheet__button', className)
             return (
               <div className="x-actionsheet__item" key={index}>
-                <A
+                <Report
+                  {...otherProps}
                   key={index}
                   className={composeClassName}
                   onClick={() => {
@@ -72,7 +81,7 @@ export default class ActionSheet extends React.Component<ActionSheetProps> {
                   }}
                 >
                   {name}
-                </A>
+                </Report>
               </div>
             )
           })}

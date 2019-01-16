@@ -2,7 +2,8 @@ import cn from 'classnames'
 import { createBrowserHistory } from 'history'
 import React, { MouseEventHandler } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
-import A from '../a'
+
+import { Report } from '../utils'
 
 export interface AlertProps {
   title?: React.ReactNode
@@ -10,13 +11,13 @@ export interface AlertProps {
     {
       name: string;
       className?: string;
-      onClick?: MouseEventHandler<HTMLAnchorElement>;
+      onClick?: MouseEventHandler<Element>;
       [otherProps: string]: any;
     }
   ]
   className?: string
   desc?: React.ReactNode
-  onClose?: MouseEventHandler<HTMLAnchorElement>
+  onClose?: MouseEventHandler<Element>
   [otherProps: string]: any
 }
 
@@ -42,7 +43,7 @@ class AlertCom extends React.Component<AlertProps, any> {
                 composeClassName = cn('x-alert__btn-y', className)
               }
               return (
-                <A
+                <Report
                   className={composeClassName}
                   {...otherProps}
                   onClick={e => {
@@ -52,7 +53,7 @@ class AlertCom extends React.Component<AlertProps, any> {
                   key={index}
                 >
                   {name}
-                </A>
+                </Report>
               )
             })}
         </div>

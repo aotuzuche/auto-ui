@@ -1,4 +1,3 @@
-export { default as A } from './a'
 export { default as ActionSheet } from './action-sheet'
 export { default as Alert } from './alert'
 export { default as Button } from './button'

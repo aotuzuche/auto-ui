@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { FC, ReactNode } from 'react'
 
-import A from '../a'
+import { Report } from '../utils'
 
 export interface RadioProps {
   checked?: boolean
@@ -33,7 +33,7 @@ const Radio: FC<RadioProps> = props => {
   )
 
   return (
-    <A
+    <Report
       {...otherProps}
       className={composeClassName}
       onClick={() => {
@@ -47,7 +47,7 @@ const Radio: FC<RadioProps> = props => {
         <sup className="x-radio__tick" />
       </i>
       {!!text && <span className="x-radio__text">{text}</span>}
-    </A>
+    </Report>
   )
 }
 

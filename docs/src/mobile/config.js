@@ -1,11 +1,6 @@
 import AsyncComponent from '../hoc/asyncComponent'
 const mobileConfig = [
   {
-    name: 'A 统计埋点',
-    path: '/mobile/a',
-    component: AsyncComponent(e => import('./a'))
-  },
-  {
     name: 'ActionSheet 动作面板',
     path: '/mobile/actionsheet',
     component: AsyncComponent(e => import('./actionsheet'))

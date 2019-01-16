@@ -29,11 +29,6 @@ const docsConfig = [
     isTitle: true
   },
   {
-    name: 'A 统计埋点',
-    path: '/docs/a',
-    component: AsyncComponent(e => import('auto-ui/a/index.zh-CN'))
-  },
-  {
     name: 'ActionSheet 动作面板',
     path: '/docs/actionsheet',
     component: AsyncComponent(e => import('auto-ui/action-sheet/index.zh-CN'))
