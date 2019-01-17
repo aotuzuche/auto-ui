@@ -50,27 +50,6 @@ class AlertCom extends React.Component<AlertProps, any> {
                   {name}
                 </Button>
               )
-              // let composeClassName
-              // if (index === 0) {
-              //   composeClassName = cn('x-alert__btn-y', className)
-              // } else if (index === 1) {
-              //   composeClassName = cn('x-alert__btn-n', className)
-              // } else {
-              //   composeClassName = cn('x-alert__btn-y', className)
-              // }
-              // return (
-              //   <Report
-              //     className={composeClassName}
-              //     {...otherProps}
-              //     onClick={e => {
-              //       onClick && onClick(e)
-              //       onClose && onClose(e)
-              //     }}
-              //     key={index}
-              //   >
-              //     {name}
-              //   </Report>
-              // )
             })}
         </div>
       </div>
@@ -78,7 +57,7 @@ class AlertCom extends React.Component<AlertProps, any> {
   }
 }
 
-export default function Alert(params: AlertProps, callback: Function) {
+function Alert(params: AlertProps, callback: Function) {
   let composeParams: AlertProps = params
   if (typeof params === 'string') {
     composeParams = {
@@ -128,3 +107,13 @@ export default function Alert(params: AlertProps, callback: Function) {
     close
   }
 }
+
+Alert.async = async (params: AlertProps) => {
+  return new Promise(resolve => {
+    Alert(params, () => {
+      resolve()
+    })
+  })
+}
+
+export default Alert

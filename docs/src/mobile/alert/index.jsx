@@ -6,8 +6,9 @@ class A extends React.Component {
     return (
       <Cell>
         <Cell.Row
-          onClick={() => {
-            Alert('基本使用')
+          onClick={async () => {
+            await Alert('基本使用')
+            console.log(123)
           }}
         >
           基本使用
@@ -71,6 +72,16 @@ class A extends React.Component {
           }}
         >
           confirm 模式
+        </Cell.Row>
+        <Cell.Row
+          onClick={async () => {
+            await Alert.async({
+              title: '异步模式',
+              desc: '我是一个描述'
+            })
+          }}
+        >
+          异步模式
         </Cell.Row>
       </Cell>
     )
