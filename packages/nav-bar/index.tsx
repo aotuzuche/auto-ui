@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { MouseEventHandler, ReactNode } from 'react'
 
-export interface NavbarProps {
+export interface NavBarProps {
   title?: ReactNode
   className?: string
   leftBtn?: ReactNode
@@ -13,7 +13,7 @@ export interface NavbarProps {
   [otherProps: string]: any
 }
 
-export default class NavBar extends React.Component<NavbarProps, any> {
+export default class NavBar extends React.Component<NavBarProps, any> {
   public leftClick: MouseEventHandler<HTMLDivElement> = e => {
     window.history.go(-1)
   }
