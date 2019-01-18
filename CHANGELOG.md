@@ -1,3 +1,23 @@
+## [0.2.3](https://github.com/aotuzuche/auto-ui/compare/v0.2.2...v0.2.3) (2019-01-17)
+
+
+### Bug Fixes
+
+* **Button:** 修复 border 1 像素不转化成 rem ([04f5be5](https://github.com/aotuzuche/auto-ui/commit/04f5be5))
+* **SafeArea:** 增加 otherProps 支持更多的属性 ([db6c5dd](https://github.com/aotuzuche/auto-ui/commit/db6c5dd))
+
+
+### Features
+
+* 优化开发的构建流程，优化了 Button 组件得 active 样式 ([6b7921e](https://github.com/aotuzuche/auto-ui/commit/6b7921e))
+* **A:** 去除 A 组件 ([0d3acda](https://github.com/aotuzuche/auto-ui/commit/0d3acda))
+* **Alert:** 按钮使用 Button 组件 ([dd3a57b](https://github.com/aotuzuche/auto-ui/commit/dd3a57b))
+* **Alert:** 添加 async 模式 ([26bf2ac](https://github.com/aotuzuche/auto-ui/commit/26bf2ac))
+* **Button:** 改用原生的 button 标签，增加空心类型，优化部分的样式 ([22fae48](https://github.com/aotuzuche/auto-ui/commit/22fae48))
+* **NavBar:** 左右边距扩大到 40px ([3446451](https://github.com/aotuzuche/auto-ui/commit/3446451))
+
+
+
 ## [0.2.2](https://github.com/aotuzuche/auto-ui/compare/v0.2.1...v0.2.2) (2019-01-15)
 
 
