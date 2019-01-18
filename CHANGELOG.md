@@ -1,3 +1,13 @@
+## [0.2.4](https://github.com/aotuzuche/auto-ui/compare/v0.2.3...v0.2.4) (2019-01-18)
+
+
+### Bug Fixes
+
+* **Layout:** fix 样式丢失 ([d387337](https://github.com/aotuzuche/auto-ui/commit/d387337))
+* **NavBar:** 修复 NavBar 组件 inteface 的命名 ([aee069a](https://github.com/aotuzuche/auto-ui/commit/aee069a))
+
+
+
 ## [0.2.3](https://github.com/aotuzuche/auto-ui/compare/v0.2.2...v0.2.3) (2019-01-17)
 
 
