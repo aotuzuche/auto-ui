@@ -74,7 +74,7 @@ export default class Modal extends React.Component<ModalProps, ModalState> {
   }
 
   public render() {
-    const { className, height, onBgClick, ...otherProps } = this.props
+    const { className, height, onBgClick, visible, ...otherProps } = this.props
     const css = cn('x-modal', `x-modal--${this.state.ani}`, className)
 
     const composeHeight = height || 0

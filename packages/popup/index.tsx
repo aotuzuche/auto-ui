@@ -1,4 +1,3 @@
-console.log(0)
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 import { createPortal } from 'react-dom'

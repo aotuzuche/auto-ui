@@ -124,6 +124,6 @@ import { ActionSheet } from 'auto-ui'
 
 ## items 支持属性
 
-| 属性      | 说明     | 类型               | 默认值 |
-| --------- | -------- | ------------------ | ------ |
-| name      | 显示文字 | String/HTMLElement | -      |
+| 属性 | 说明     | 类型               | 默认值 |
+| ---- | -------- | ------------------ | ------ |
+| name | 显示文字 | String/HTMLElement | -      |

@@ -12,7 +12,6 @@ export default function Toast(text: ReactNode, timeout: number) {
     composeTimeout = DefaultTime
   }
   const oldDiv = document.getElementById('j-x-toast')
-  console.log('oldDiv', oldDiv)
   oldDiv && oldDiv.parentNode && oldDiv.parentNode.removeChild(oldDiv)
   timer && clearTimeout(timer)
 

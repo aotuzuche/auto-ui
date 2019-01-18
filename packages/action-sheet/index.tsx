@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import * as React from 'react'
+import React, { Component, MouseEventHandler } from 'react'
 
 import { ASData } from 'auto-libs'
 import { createPortal } from 'react-dom'
@@ -19,15 +19,13 @@ export interface ActionSheetProps {
   className?: string
   items: ActionSheetPropsItems[]
   closeText: any
-  onClose?: (
-    e: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>
-  ) => void
+  onClose?: MouseEventHandler<HTMLElement>
   onClick?: (item: ActionSheetPropsItems) => void
   [otherProps: string]: any
 }
 
-export default class ActionSheet extends React.Component<ActionSheetProps> {
-  public _container: HTMLDivElement
+export default class ActionSheet extends Component<ActionSheetProps> {
+  private _container: HTMLDivElement
 
   public constructor(props: ActionSheetProps) {
     super(props)

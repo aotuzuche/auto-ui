@@ -92,6 +92,8 @@ module.exports = function(source) {
     this.query && this.query.markdownItReact ? this.query.markdownItReact() : {}
   )
 
+  console.log(this.resolve)
+
   const {
     body,
     attributes: { imports: importMap }
