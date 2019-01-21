@@ -1,3 +1,12 @@
+## [0.2.5](https://github.com/aotuzuche/auto-ui/compare/v0.2.4...v0.2.5) (2019-01-21)
+
+
+### Bug Fixes
+
+* 修复内部组件引用样式丢失 bug ([45acaa4](https://github.com/aotuzuche/auto-ui/commit/45acaa4))
+
+
+
 ## [0.2.4](https://github.com/aotuzuche/auto-ui/compare/v0.2.3...v0.2.4) (2019-01-18)
 
 
