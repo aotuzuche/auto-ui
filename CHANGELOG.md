@@ -1,3 +1,13 @@
+## [0.2.6](https://github.com/aotuzuche/auto-ui/compare/v0.2.5...v0.2.6) (2019-01-21)
+
+
+### Bug Fixes
+
+* **NavBar:** 修复 title 超长省略显示, title 字体设置默认值 ([5c6872a](https://github.com/aotuzuche/auto-ui/commit/5c6872a))
+* **Spin:** 修复样式设置错误导致大小改变无效 ([2f8ba09](https://github.com/aotuzuche/auto-ui/commit/2f8ba09))
+
+
+
 ## [0.2.5](https://github.com/aotuzuche/auto-ui/compare/v0.2.4...v0.2.5) (2019-01-21)
 
 
