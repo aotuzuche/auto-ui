@@ -11,8 +11,19 @@ export interface SpinProps {
 const Spin: React.FC<SpinProps> = props => {
   const { className, text, ...otherProps } = props
 
+  let innerClassName
+  let outClassName
+
+  if (text) {
+    innerClassName = cn('auto-ui-loading__spin')
+    outClassName = cn('auto-ui-spin', className)
+  } else {
+    innerClassName = cn('auto-ui-loading__spin', className)
+    outClassName = cn('auto-ui-spin')
+  }
+
   const loadingSpin = (
-    <div className="auto-ui-loading__spin">
+    <div className={innerClassName}>
       <svg className="auto-ui-loading__spin_circular" viewBox="25 25 50 50">
         <circle
           className="auto-ui-loading__spin_path"
@@ -27,10 +38,8 @@ const Spin: React.FC<SpinProps> = props => {
     </div>
   )
 
-  let composeClassName = cn('auto-ui-spin', className)
-
   return (
-    <div {...otherProps} className={composeClassName}>
+    <div {...otherProps} className={outClassName}>
       {loadingSpin}
       {!!text && <p className="auto-ui-spin__text">{text}</p>}
     </div>

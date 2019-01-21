@@ -92,7 +92,7 @@ export default class Modal extends React.Component<ModalProps, ModalState> {
         <div
           className="x-modal__inner"
           style={{
-            height: composeHeight ? composeHeight + '%' : 'auto'
+            height: composeHeight ? composeHeight + '%' : ''
           }}
           onAnimationEnd={this._onAnimationEnd}
         >
