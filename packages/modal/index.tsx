@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
+import './style.css'
 
 export interface ModalProps {
   visible?: boolean

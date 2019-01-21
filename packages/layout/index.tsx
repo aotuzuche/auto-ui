@@ -6,6 +6,7 @@ import React, {
   ReactNode,
   UIEventHandler
 } from 'react'
+import './style.css'
 
 import SafeArea from '../safe-area'
 import Spin from '../spin'

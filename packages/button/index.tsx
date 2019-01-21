@@ -2,6 +2,7 @@ import cn from 'classnames'
 import React, { Component, MouseEventHandler, ReactNodeArray } from 'react'
 import Spin from '../spin'
 import { Report } from '../utils'
+import './style.css'
 
 export interface ButtonProps {
   className?: string

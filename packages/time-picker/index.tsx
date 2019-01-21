@@ -7,6 +7,7 @@ import IScroll from 'iscroll/build/iscroll-lite'
 import React, { Component, ReactNode } from 'react'
 import '../__libs/dateFormat'
 import event from './event'
+import './style.css'
 
 let ID = 0
 

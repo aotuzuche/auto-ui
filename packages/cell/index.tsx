@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { cloneElement, FC, MouseEventHandler } from 'react'
+import './style.css'
 
 export interface CellRowProps {
   className?: string

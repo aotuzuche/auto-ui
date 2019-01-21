@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
 import Spin from '../spin'
+import './style.css'
 
 let div: HTMLDivElement
 

@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { ChangeEventHandler, ReactNode } from 'react'
+import './style.css'
 
 export interface InputProps {
   type?: string

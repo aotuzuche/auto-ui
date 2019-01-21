@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
+import './style.css'
 
 import { Report } from '../utils'
 

@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { MouseEventHandler, ReactNode } from 'react'
+import './style.css'
 
 export interface NavBarProps {
   title?: ReactNode

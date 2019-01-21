@@ -1,5 +1,6 @@
 import cns from 'classnames'
 import React, { Component } from 'react'
+import './style.css'
 
 export interface SafeAreaProps {
   className?: string

@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { Component, MouseEventHandler } from 'react'
+import './style.css'
 
 import { ASData } from 'auto-libs'
 import { createPortal } from 'react-dom'

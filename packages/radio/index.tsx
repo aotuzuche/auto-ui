@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { FC, ReactNode } from 'react'
+import './style.css'
 
 import { Report } from '../utils'
 

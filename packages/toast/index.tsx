@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import './style.css'
 
 let timer: number
 const DefaultTime = 500

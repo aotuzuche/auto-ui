@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { createBrowserHistory } from 'history'
 import React, { MouseEventHandler } from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import './style.css'
 
 import Button, { ButtonProps } from '../button'
 

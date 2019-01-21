@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { ReactNode } from 'react'
+import './style.css'
 
 export interface SpinProps {
   className?: string

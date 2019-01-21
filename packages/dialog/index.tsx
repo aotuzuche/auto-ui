@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler, ReactNode } from 'react'
 import { createPortal } from 'react-dom'
+import './style.css'
 
 import Modal from '../modal'
 
