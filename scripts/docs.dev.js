@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'px2rem-loader?remUnit=100']
       },
       {
         test: /\.scss$/,

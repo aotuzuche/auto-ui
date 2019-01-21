@@ -18,7 +18,7 @@ module.exports = {
     path: resolve('docs/dist'),
     filename: '[name].[hash:8].js',
     chunkFilename: 'chunk-[name].[chunkhash:8].js',
-    publicPath: 'https://aotuzuche.github.io/auto-ui/',
+    publicPath: 'https://aotuzuche.github.io/auto-ui/'
   },
 
   module: {
@@ -47,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'px2rem-loader?remUnit=100']
       },
       {
         test: /\.scss$/,
@@ -86,7 +86,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.md', '.scss', '.css'],
     alias: {
       'auto-ui': resolve('packages'),
-      'src': resolve('docs/src'),
+      src: resolve('docs/src'),
       '@': resolve('')
     }
   }

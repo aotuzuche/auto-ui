@@ -55,10 +55,10 @@ import { NavBar } from 'auto-ui'
 
 ## 支持属性
 
-| 属性       | 说明             | 类型    | 默认值     |
-| ---------- | ---------------- | ------- | ---------- |
-| title      | 标题             | string  | ''         |
-| leftBtn    | 是否显示左侧按钮 | Boolean | false      |
-| rightBtn   | 是否显示右侧按钮 | Boolean | false      |
-| leftClick  | 点击左侧按钮触发 | Boolean | 返回上一页 |
-| rightClick | 点击右侧按钮触发 | Boolean | Toast 提示 |
+| 属性       | 说明             | 类型                              | 默认值     |
+| ---------- | ---------------- | --------------------------------- | ---------- |
+| title      | 标题             | ReactNode                         | ''         |
+| leftBtn    | 是否显示左侧按钮 | ReactNode                         | false      |
+| rightBtn   | 是否显示右侧按钮 | ReactNode                         | false      |
+| leftClick  | 点击左侧按钮触发 | MouseEventHandler<HTMLDivElement> | 返回上一页 |
+| rightClick | 点击右侧按钮触发 | MouseEventHandler<HTMLDivElement> | Toast 提示 |
