@@ -6,10 +6,10 @@ class A extends React.Component {
     return (
       <Cell>
         <Cell.Row>
-          <Spin />
+          <Spin className="a" />
         </Cell.Row>
         <Cell.Row>
-          <Spin text="显示文字" />
+          <Spin className="b" text="显示文字" />
         </Cell.Row>
       </Cell>
     )
