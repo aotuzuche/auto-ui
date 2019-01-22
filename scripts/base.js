@@ -54,7 +54,7 @@ function watch() {
 }
 
 // build compile
-const build = gulp.series(clean, gulp.parallel(copy, styles, scripts))
+const build = gulp.series(clean, gulp.parallel(styles, scripts))
 
 exports.watch = watch
 exports.build = build
