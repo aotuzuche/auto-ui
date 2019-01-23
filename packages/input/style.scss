@@ -16,7 +16,7 @@
     line-height: 1.5;
     color: #333;
     padding: 20px;
-    border: 2px solid #e6e6e6; /*no*/
+    border: 1px solid #e6e6e6; /*no*/
     border-radius: 5px;
     background: #fff;
     font-weight: normal;
@@ -33,7 +33,7 @@
       border-bottom-left-radius: 0;
     }
     &:focus {
-      border: 2px solid #00bb55; /*no*/
+      border: 1px solid #00bb55; /*no*/
       position: relative;
       z-index: 2;
       box-shadow: 0 0 10px rgba(0, 187, 85, 0.3);
@@ -46,7 +46,7 @@
   }
   &.x-input--error {
     .x-input__ipt {
-      border: 2px solid #ff6600; /*no*/
+      border: 1px solid #ff6600; /*no*/
       box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
     }
   }
@@ -56,7 +56,7 @@
     align-items: center;
     height: 100%;
     background: #fff;
-    border: 2px solid #e6e6e6; /*no*/
+    border: 1px solid #e6e6e6; /*no*/
     border-radius: 5px;
     font-size: 30px;
     > * {
