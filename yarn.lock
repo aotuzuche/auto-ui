@@ -4426,6 +4426,11 @@ gh-pages@^2.0.0:
     graceful-fs "^4.1.11"
     rimraf "^2.6.2"
 
+git-cz@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/git-cz/-/git-cz-1.8.0.tgz#b8a116d70e03f2fd8243444a788e75cf0001cdcc"
+  integrity sha512-DaQaTZhcFnTvEO1sPniGaEooKjOiwanzkYfbKgJhwZeeFjEfF5OfSSYiBhIVVxzsOYFdCekxZEqtA6FlMpSOiw==
+
 git-raw-commits@2.0.0, git-raw-commits@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/git-raw-commits/-/git-raw-commits-2.0.0.tgz#d92addf74440c14bcc5c83ecce3fb7f8a79118b5"
