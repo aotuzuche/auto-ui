@@ -25,7 +25,6 @@ const TabsItem: FC<TabsItemProps> = props => {
   return (
     <Report
       {...otherProps}
-      href="javascript:;"
       className={css}
       onClick={() => props.onClick && props.onClick(value)}
     >
