@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { cloneElement, FC, MouseEventHandler } from 'react'
+import React, { cloneElement, FC } from 'react'
 import './style.css'
 
 import { Report } from '../utils'
@@ -37,7 +37,7 @@ const TabsItem: FC<TabsItemProps> = props => {
 export interface TabsProps {
   className?: string
   active?: string
-  onClick?: MouseEventHandler<HTMLAnchorElement>
+  onClick?: (value?: string) => void
 }
 
 const Tabs: FC<TabsProps> & {
