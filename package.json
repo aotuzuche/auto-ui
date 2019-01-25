@@ -4,7 +4,6 @@
   "description": "auto ui components",
   "main": "lib/index",
   "typings": "lib/index",
-  "module": "es/index",
   "scripts": {
     "start": "cross-env NODE_ENV=development PACKAGE=development node scripts/start.js",
     "build": "cross-env NODE_ENV=production PACKAGE=production node scripts/build.js",

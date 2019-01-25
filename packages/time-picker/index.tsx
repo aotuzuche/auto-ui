@@ -1,7 +1,5 @@
 /* tslint:disable:no-magic-numbers no-import-side-effect no-var-requires no-reference*/
 
-/// <reference path="../../types/custom.d.ts" />
-
 import classnames from 'classnames'
 import IScroll from 'iscroll/build/iscroll-lite'
 import React, { Component, ReactNode } from 'react'

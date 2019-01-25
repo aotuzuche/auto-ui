@@ -11,7 +11,12 @@ const paths = {
     src: 'packages/**/*.scss'
   },
   scripts: {
-    src: ['packages/**/*.ts', 'packages/**/*.tsx', '!packages/**/*.d.ts']
+    src: [
+      'packages/**/*.ts',
+      'packages/**/*.tsx',
+      '!packages/**/*.d.ts',
+      'types/**/*.ts'
+    ]
   },
   dest: process.env.NODE_ENV === 'development' ? 'packages/' : 'lib/'
 }
