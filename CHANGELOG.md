@@ -1,3 +1,24 @@
+## [0.2.7](https://github.com/aotuzuche/auto-ui/compare/v0.2.6...v0.2.7) (2019-01-25)
+
+
+### Bug Fixes
+
+* 🐛 Tabs ([8944e66](https://github.com/aotuzuche/auto-ui/commit/8944e66))
+* 🐛 Tabs.Item ([1455d1e](https://github.com/aotuzuche/auto-ui/commit/1455d1e))
+* 🐛 修复 tsconfig 的 include 没有包含 types 文件导致编译报错 ([532b244](https://github.com/aotuzuche/auto-ui/commit/532b244))
+
+
+### Features
+
+* **Input:** 使用 1px 的 border ([2893cf0](https://github.com/aotuzuche/auto-ui/commit/2893cf0))
+
+
+### Performance Improvements
+
+* ⚡️ 使用本地的 git-cz ([50b4bf9](https://github.com/aotuzuche/auto-ui/commit/50b4bf9))
+
+
+
 ## [0.2.6](https://github.com/aotuzuche/auto-ui/compare/v0.2.5...v0.2.6) (2019-01-21)
 
 
