@@ -2,6 +2,8 @@ import cn from 'classnames'
 import React from 'react'
 import './style.css'
 
+import { is0to100Int } from '../utils'
+
 export interface ModalProps {
   visible?: boolean
   onBgClick?: (e: React.MouseEvent<HTMLDivElement>) => void
@@ -78,7 +80,7 @@ export default class Modal extends React.Component<ModalProps, ModalState> {
     const { className, height, onBgClick, visible, ...otherProps } = this.props
     const css = cn('x-modal', `x-modal--${this.state.ani}`, className)
 
-    const composeHeight = height || 0
+    const composeHeight = is0to100Int(height) ? height + '%' : ''
 
     return (
       <div
@@ -92,7 +94,7 @@ export default class Modal extends React.Component<ModalProps, ModalState> {
         <div
           className="x-modal__inner"
           style={{
-            height: composeHeight ? composeHeight + '%' : ''
+            height: composeHeight
           }}
           onAnimationEnd={this._onAnimationEnd}
         >
