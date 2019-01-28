@@ -19,7 +19,7 @@ export interface ActionSheetProps {
   visible?: boolean
   className?: string
   items: ActionSheetPropsItems[]
-  closeText: any
+  closeText?: any
   onClose?: MouseEventHandler<HTMLElement>
   onClick?: (item: ActionSheetPropsItems) => void
   [otherProps: string]: any
