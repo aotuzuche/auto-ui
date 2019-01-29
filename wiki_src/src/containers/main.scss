@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+.web-main {
+  margin-left: 250px;
+  padding: 40px 495px 40px 60px;
+  position: relative;
+  .markdown-content {
+    min-width: 600px;
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 14px;
+      color: #666;
+      line-height: 2.4;
+      margin-bottom: 20px;
+      code {
+        border: 1px dashed #ddd;
+        background: #f7f7f7;
+        margin: 0 4px;
+        padding: 0 4px;
+        border-radius: 3px;
+      }
+      em {
+        font-style: italic;
+        color: #333;
+      }
+      strong {
+        font-weight: bold;
+        color: #333;
+        padding: 0 4px;
+      }
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    li {
+      list-style-type: circle;
+      margin-left: 1.5em;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .code-box {
+      border: 1px solid #ddd;
+      position: relative;
+      z-index: 2;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      cursor: pointer;
+      > header {
+        padding: 15px;
+        border-bottom: 1px dashed #eee;
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+      }
+      > .bd {
+        height: 200px;
+        overflow: auto;
+      }
+      pre[class*='language-'] {
+        border-radius: 5px !important;
+        margin: 0 !important;
+        padding: 30px !important;
+        background: none !important;
+      }
+      &:hover,
+      &.active {
+        border: 1px solid #00bb55;
+        box-shadow: 0 0 10px rgba(#00bb55, 0.3);
+      }
+      &.active > .bd {
+        height: auto;
+      }
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-right: 400px;
+      margin-bottom: 30px;
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px 16px;
+        font-size: 14px;
+        color: #666;
+      }
+      thead th {
+        background: #f7f7f7;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+  .mobile-preview {
+    position: fixed;
+    z-index: 9;
+    right: 60px;
+    top: 50%;
+    margin-top: -370px;
+  }
+}

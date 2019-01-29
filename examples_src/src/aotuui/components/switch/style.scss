@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import '../theme.scss';
+
+.x-switch {
+  display: inline-flex;
+  width: px(100);
+  height: px(54);
+  background-color: rgb(220, 220, 220);
+  border-radius: px(27);
+  transition: all 0.3s ease-out;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba($primaryColor, 0) inset;
+
+  &:active {
+    opacity: 1;
+    background-color: rgb(210, 210, 210);
+  }
+
+  > em {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: px(46);
+    height: px(46);
+    position: absolute;
+    left: px(4);
+    top: px(4);
+    background-color: #fff;
+    transition: all 0.3s ease-out;
+    svg {
+      width: px(22);
+      height: px(22);
+    }
+    path {
+      fill: #ddd;
+    }
+  }
+
+  &.x-switch--active {
+    path {
+      fill: $primaryColor;
+    }
+  }
+
+  &--active {
+    box-shadow: 0 0 0 px(30) rgba($primaryColor, 1) inset;
+    background-color: $primaryColor;
+    em {
+      transform: translate(px(46), 0);
+    }
+    &:active {
+      box-shadow: 0 0 0 px(30) rgba(mix($primaryColor, #000, 92%), 1) inset;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &--io {
+    width: px(120);
+    sub,
+    sup {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      font-style: normal;
+      color: #fff;
+      padding: 0 px(20);
+      font-size: px(24);
+      transition: opacity 0.2s ease-out;
+      opacity: 0;
+    }
+
+    sub {
+      justify-content: flex-end;
+      opacity: 1;
+    }
+
+    &.x-switch--active {
+      sub {
+        opacity: 0;
+      }
+      sup {
+        opacity: 1;
+      }
+      em {
+        transform: translate(px(66), 0);
+      }
+    }
+  }
+}

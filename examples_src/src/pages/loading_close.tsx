@@ -1,0 +1,19 @@
+import * as React from 'react';
+import { Button, Layout, Loading } from '../aotuui';
+
+const Demo: React.FC<any> = () => {
+  const onClick = () => {
+    Loading('加载中...');
+    setTimeout(Loading.hide, 2000);
+  };
+
+  return (
+    <Layout>
+      <Layout.Body>
+        <Button onClick={onClick}>点击加载</Button>
+      </Layout.Body>
+    </Layout>
+  );
+};
+
+export default Demo;

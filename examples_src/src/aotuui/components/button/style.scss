@@ -1,0 +1,106 @@
+@charset "utf-8";
+@import '../theme.scss';
+
+.x-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: px(90);
+  font-size: px(30);
+  border-radius: px($buttonRadius);
+  white-space: nowrap;
+  transition: all 0.15s ease-out;
+  user-select: none;
+  &:active {
+    opacity: 1;
+  }
+  .x-button__loading {
+    width: px(25);
+    height: px(25);
+    margin-right: px(10);
+    .x-loading__spin_path {
+      stroke: #fff;
+      stroke-width: px(5); /*no*/
+    }
+  }
+  &--default {
+    background: rgb(240, 240, 240);
+    color: rgb(170, 170, 170);
+    &:active {
+      background: rgb(230, 230, 230);
+      color: rgb(165, 165, 165);
+      opacity: 1;
+    }
+    .x-loading__spin_path {
+      stroke: rgb(170, 170, 170) !important;
+    }
+    &.x-button--hollow {
+      border: px(1) solid $borderColor; /*no*/
+      background: #fff;
+      &:active {
+        border: px(1) solid mix($borderColor, #000, 92%); /*no*/
+        background: rgb(245, 245, 245);
+      }
+    }
+  }
+  &--primary {
+    background: $primaryColor;
+    color: #fff;
+    &:active {
+      background: mix($primaryColor, #000, 92%);
+    }
+    &.x-button--hollow {
+      border: px(1) solid $primaryColor; /*no*/
+      background: #fff;
+      color: $primaryColor;
+      &:active {
+        border: px(1) solid mix($primaryColor, #000, 92%); /*no*/
+        color: mix($primaryColor, #000, 92%);
+        background: rgba(mix($primaryColor, #000, 92%), 0.1);
+      }
+      .x-loading__spin_path {
+        stroke: $primaryColor;
+      }
+    }
+  }
+  &--danger {
+    background: $dangerColor;
+    color: #fff;
+    &:active {
+      background: mix($dangerColor, #000, 92%);
+    }
+    &.x-button--hollow {
+      border: px(1) solid $dangerColor; /*no*/
+      background: #fff;
+      color: $dangerColor;
+      &:active {
+        border: px(1) solid mix($dangerColor, #000, 92%); /*no*/
+        color: mix($dangerColor, #000, 92%);
+        background: rgba(mix($dangerColor, #000, 92%), 0.1);
+      }
+      .x-loading__spin_path {
+        stroke: $dangerColor;
+      }
+    }
+  }
+  &--mini {
+    width: auto;
+    display: inline-flex;
+    height: px(70);
+    font-size: px(28);
+    padding: 0 px(30);
+    .x-button__loading {
+      .x-loading__spin {
+        width: px(20);
+        height: px(20);
+      }
+    }
+  }
+  &--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

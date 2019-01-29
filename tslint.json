@@ -1,11 +1,34 @@
 {
-  "extends": ["tslint-config-alloy"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-config-airbnb"
+  ],
   "linterOptions": {
     "exclude": ["**/node_modules/**"]
   },
   "rules": {
-    "semicolon": [true, "never"],
-    "no-unused-expression": [true, "allow-fast-null-checks"],
-    "arrow-parens": false
+    "semicolon": [true, "always"],
+    "align": false,
+    "import-name": false,
+    "no-console": false,
+    "no-empty-interface": false,
+    "object-literal-sort-keys": false,
+    "variable-name": false,
+    "no-shadowed-variable": false,
+    "max-classes-per-file": [true, 2],
+    "ordered-imports": false,
+    "no-empty": false,
+    "interface-name": false,
+    "max-line-length": false,
+    "ter-arrow-parens": false,
+    "function-name": false,
+    "no-increment-decrement": false,
+    "no-boolean-literal-compare": false,
+    "trailing-comma": [
+      true,
+      { "multiline": "always", "singleline": "never", "esSpecCompliant": true }
+    ]
   }
 }

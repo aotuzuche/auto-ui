@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import '../theme.scss';
+
+.x-tabs {
+  display: flex;
+  height: px(100);
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-bottom: px(1) solid $borderColor; /*no*/
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    background: #fff;
+    font-size: px(30);
+    color: #999;
+    position: relative;
+    &:active {
+      color: inherit;
+    }
+  }
+  &--active {
+    color: #333;
+    &:active {
+      color: #333;
+      opacity: 1;
+    }
+  }
+  &__line {
+    width: 50%;
+    height: px(6);
+    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    top: auto;
+    pointer-events: none;
+    &:after {
+      content: '';
+      background: nth($primaryColor, 1);
+      width: px(30);
+      height: px(6);
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: px(-15);
+      border-radius: px(3);
+    }
+  }
+}

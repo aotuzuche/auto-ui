@@ -1,0 +1,20 @@
+import * as React from 'react';
+import { Layout } from '../aotuui';
+
+const Demo: React.FC<any> = () => {
+  return (
+    <Layout>
+      <Layout.Header
+        addonBefore={<a href="#">左侧挂载</a>}
+        title="标题"
+        onBackClick={() => {}}
+        onCloseClick={() => {}}
+        addonAfter={<a href="#">右侧挂载</a>}
+        addonBottom={<p>下方挂载</p>}
+      />
+      <Layout.Body>body</Layout.Body>
+    </Layout>
+  );
+};
+
+export default Demo;

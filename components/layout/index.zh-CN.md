@@ -1,0 +1,65 @@
+# Layout 布局
+
+包括 3 个部分，`Header`、`Body`和`Footer`，用于页面结构最外层
+
+## 基本使用
+
+code=[基本使用](layout)
+
+## 高级导航
+
+code=[header](layout_header)
+
+## 透明头
+
+code=[ghost header](layout_ghost)
+
+## Loading
+
+code=[loading](layout_loading)
+
+## 错误信息展示
+
+code=[errorInfo](layout_error_info)
+
+## 到达底部
+
+code=[onReachBottom](layout_reach_bottom)
+
+## Layout 支持属性
+
+| 属性                | 说明               | 类型   | 默认值 |
+| ------------------- | ------------------ | ------ | ------ |
+| topSaveAreaColor    | 头部安全区域的颜色 | String | white  |
+| bottomSaveAreaColor | 底部安全区域的颜色 | String | white  |
+
+## Layout.Header 支持属性
+
+| 属性         | 说明                                 | 类型                 | 默认值 |
+| ------------ | ------------------------------------ | -------------------- | ------ |
+| title        | 标题                                 | String               | -      |
+| ghost        | 透明模式，一般用在个人主页之类的顶部 | Boolean              | false  |
+| addonBefore  | 左侧挂载                             | Component            | -      |
+| onBackClick  | 返回事件，基于左侧挂载的封装         | Function             | -      |
+| onCloseClick | 关闭事件，基于左侧挂载的封装         | Function             | -      |
+| addonAfter   | 右侧挂载                             | Component            | -      |
+| addonBottom  | 下方挂载                             | Component            | -      |
+| borderType   | 头部下方是使用阴影、线或是没有       | border、shadow、none | none   |
+
+## Layout.Body 支持属性
+
+| 属性                   | 说明                                                      | 类型     | 默认值   |
+| ---------------------- | --------------------------------------------------------- | -------- | -------- |
+| loading                | 若为 true 显示 loading 效果并隐藏内容                     | Boolean  | false    |
+| errorInfo              | 出错文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String   | -        |
+| onReachBottom          | 到达底部时的钩子                                          | Object   | -        |
+| onReachButton.disabled | 是否禁用该功能，没有 onReachBottom 对象时也表示禁用       | Boolean  | false    |
+| onReachButton.content  | 提示内容                                                  | String   | 加载更多 |
+| onReachButton.handle   | 点击提示文字或页面到达底部触发的方法                      | Function | -        |
+| onScroll               | 滚动回调函数                                              | Function | -        |
+
+## Layout.Footer 支持属性
+
+| 属性    | 说明     | 类型    | 默认值 |
+| ------- | -------- | ------- | ------ |
+| visible | 是否显示 | Boolean | true   |

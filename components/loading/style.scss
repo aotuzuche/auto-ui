@@ -1,0 +1,43 @@
+@charset "utf-8";
+@import '../theme.scss';
+
+.x-loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 99995;
+  background: rgba(255, 255, 255, 0.5);
+
+  .x-loading__spin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: px(60);
+    height: px(60);
+    margin: px(-30) 0 0 px(-30);
+    &_path {
+      stroke-width: px(2); /*no*/
+    }
+  }
+
+  .x-loading__inner {
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    padding-top: px(100);
+    p {
+      font-size: px(24);
+      color: nth($primaryColor, 1);
+    }
+  }
+
+  &--show {
+    .x-loading__inner {
+      opacity: 1;
+    }
+  }
+}

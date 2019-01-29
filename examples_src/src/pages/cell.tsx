@@ -1,0 +1,20 @@
+import * as React from 'react';
+import { Cell, Layout } from '../aotuui';
+
+const Demo: React.FC<any> = () => {
+  return (
+    <Layout>
+      <Layout.Body>
+        <Cell.Title text="单元格" />
+        <Cell>
+          <Cell.Row>cell 1</Cell.Row>
+          <Cell.Row>cell 2</Cell.Row>
+          <Cell.Row>cell 3</Cell.Row>
+          <Cell.Row>cell 4</Cell.Row>
+        </Cell>
+      </Layout.Body>
+    </Layout>
+  );
+};
+
+export default Demo;
