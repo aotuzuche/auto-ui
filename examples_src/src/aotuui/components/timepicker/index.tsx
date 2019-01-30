@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import IScroll from './iscroll.js';
+import IScroll from 'iscroll/build/iscroll-lite';
 import model, { Times, TimeData } from './model';
 import './style';
 

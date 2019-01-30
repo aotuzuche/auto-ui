@@ -16,6 +16,7 @@ const componentList = [
   'Tabs',
   'Space',
   'TimePicker',
+  'NavBar'
 ];
 
 module.exports = componentList;
