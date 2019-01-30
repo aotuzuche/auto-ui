@@ -1,0 +1,14 @@
+.vscode
+.DS_Store
+/node_modules
+.idea
+package-lock.json
+yarn.lock
+
+scripts
+Makefile
+.prettierrc
+
+examples_src
+wiki_src
+demo

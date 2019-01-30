@@ -18,6 +18,10 @@ code=[ghost header](layout_ghost)
 
 code=[loading](layout_loading)
 
+## Header 的 border 类型
+
+code=[header border](layout_border_type)
+
 ## 错误信息展示
 
 code=[errorInfo](layout_error_info)

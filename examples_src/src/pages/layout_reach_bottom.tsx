@@ -12,7 +12,7 @@ class Demo extends React.PureComponent {
     };
     return (
       <Layout>
-        <Layout.Header title="很长的列表" />
+        <Layout.Header title="很长的列表" borderType="shadow" />
         <Layout.Body onReachBottom={reachObj}>
           <Cell>
             {this.state.list.map(i => (

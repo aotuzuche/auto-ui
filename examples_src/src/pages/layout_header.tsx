@@ -9,6 +9,7 @@ const Demo: React.FC<any> = () => {
         title="标题"
         onBackClick={() => {}}
         onCloseClick={() => {}}
+        borderType="shadow"
         addonAfter={<a href="#">右侧挂载</a>}
         addonBottom={<p>下方挂载</p>}
       />

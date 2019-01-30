@@ -9,9 +9,6 @@ es6:
 	@cp -ri examples_src/src/aotuui/components components
 	@node scripts/createWiki.js
 	@tsc -p tsconfig.json
-
-#把components中的scss文件拷贝到es目录下
-es6scss:
 	@node scripts/mvscss2es.js
 
 #发布gh-pages分之的内容

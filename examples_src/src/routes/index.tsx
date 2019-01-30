@@ -27,6 +27,7 @@ import PageInputDisabled from '../pages/input_disabled';
 import PageInputError from '../pages/input_error';
 import PageInputMultiLine from '../pages/input_multi_line';
 import PageLayout from '../pages/layout';
+import PageLayoutBorderType from '../pages/layout_border_type';
 import PageLayoutErrorInfo from '../pages/layout_error_info';
 import PageLayoutGhost from '../pages/layout_ghost';
 import PageLayoutHeader from '../pages/layout_header';
@@ -114,6 +115,7 @@ const routes: Array<[string, any]> = [
   ['actionsheet_custom_items', PageActionsheetCustomItems],
   ['layout', PageLayout],
   ['layout_error_info', PageLayoutErrorInfo],
+  ['layout_border_type', PageLayoutBorderType],
   ['layout_ghost', PageLayoutGhost],
   ['layout_header', PageLayoutHeader],
   ['layout_loading', PageLayoutLoading],
