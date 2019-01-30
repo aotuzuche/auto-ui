@@ -5,7 +5,7 @@ make:
 #注意：这一步执行完成后需要再执行 make es6scss
 es6:
 	@rm -rf components
-	@rm -rf lib
+	@rm -rf es
 	@cp -ri examples_src/src/auto-ui/components components
 	@node scripts/createWiki.js
 	@tsc -p tsconfig.json
