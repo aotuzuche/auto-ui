@@ -1,12 +1,9 @@
----
----
-
 # NavBar 导航栏
 
-## 使用示例
+### 使用示例
 
 ```jsx
-import { NavBar } from 'auto-ui'
+import { NavBar } from 'auto-ui';
 ```
 
 ### 基本使用
@@ -28,7 +25,7 @@ import { NavBar } from 'auto-ui'
   title="右侧按钮"
   rightBtn
   rightClick={() => {
-    Toast('点击了右侧按钮')
+    Toast('点击了右侧按钮');
   }}
 />
 ```
@@ -48,12 +45,12 @@ import { NavBar } from 'auto-ui'
   leftBtn
   rightBtn
   rightClick={() => {
-    Toast('点击了右侧按钮')
+    Toast('点击了右侧按钮');
   }}
 />
 ```
 
-## 支持属性
+### 支持属性
 
 | 属性       | 说明             | 类型                                | 默认值     |
 | ---------- | ---------------- | ----------------------------------- | ---------- |

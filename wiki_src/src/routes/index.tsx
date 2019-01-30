@@ -26,6 +26,7 @@ const PageSpin = Load(import('../pages/spin'));
 const PageActionSheet = Load(import('../pages/actionsheet'));
 const PageTabs = Load(import('../pages/tabs'));
 const PageSpace = Load(import('../pages/space'));
+const PageNavBar = Load(import('../pages/nav-bar'));
 
 export default (history: any) => {
   return (
@@ -49,6 +50,7 @@ export default (history: any) => {
             <Route exact={true} path="/actionsheet" component={PageActionSheet} />
             <Route exact={true} path="/tabs" component={PageTabs} />
             <Route exact={true} path="/space" component={PageSpace} />
+            <Route exact={true} path="/navbar" component={PageNavBar} />
             <Redirect from="*" to="/layout" />
             <Redirect from="*" to="/button" />
           </Switch>
