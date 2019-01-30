@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Loading } from '../aotuui';
+import { Loading } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
   Loading('加载中...');

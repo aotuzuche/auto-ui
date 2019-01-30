@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Cell, Layout, Space, Switch, Toast } from '../aotuui';
+import { Button, Cell, Layout, Space, Switch, Toast } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { disabled: false };

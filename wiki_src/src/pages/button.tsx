@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/button',
+    previewUrl: 'http://localhost:3333/#/button',
   }
 
   public render() {
@@ -12,7 +12,7 @@ export default class View extends React.PureComponent {
       <div>
         <div className="markdown-content">
 <h1>Button 按钮</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/button') })} onClick={this.onCodeClick.bind(null, '/button')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -31,7 +31,7 @@ export default class View extends React.PureComponent {
 export default Demo;
 </span>`}} /></pre></div></div><h2>按钮类型</h2><p>按钮分为<code>primary</code>、<code>danger</code>、与<code>default</code>三种（注意：默认为<code>primary</code>）。另外，按钮加上<code>hollow</code>属性即可变为空心按钮，所以实际上来讲，一共有 6 种不同的按钮</p>
 <div className={C('code-box', { active: this.state.previewUrl.endsWith('/button_type') })} onClick={this.onCodeClick.bind(null, '/button_type')}><header>type</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -73,7 +73,7 @@ export default Demo;
 
 export default Demo;
 </span>`}} /></pre></div></div><h2>小按钮</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/button_mini') })} onClick={this.onCodeClick.bind(null, '/button_mini')}><header>mini</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -118,7 +118,7 @@ export default Demo;
 
 export default Demo;
 </span>`}} /></pre></div></div><h2>加载中</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/button_loading') })} onClick={this.onCodeClick.bind(null, '/button_loading')}><header>loading</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> loading<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -166,7 +166,7 @@ export default Demo;
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo<span class="token punctuation">;</span>
 `}} /></pre></div></div><h2>禁用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/button_disabled') })} onClick={this.onCodeClick.bind(null, '/button_disabled')}><header>disabled</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Switch<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Space<span class="token punctuation">,</span> Switch<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> disabled<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -265,7 +265,7 @@ export default Demo;
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
+      previewUrl: 'http://localhost:3333/#' + url,
     })
   }
 }

@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/loading',
+    previewUrl: 'http://localhost:3333/#/loading',
   }
 
   public render() {
@@ -12,7 +12,7 @@ export default class View extends React.PureComponent {
       <div>
         <div className="markdown-content">
 <h1>Loading 全局加载</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/loading') })} onClick={this.onCodeClick.bind(null, '/loading')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token function">Loading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -21,7 +21,7 @@ export default class View extends React.PureComponent {
 
 export default Demo;
 </span>`}} /></pre></div></div><h2>提示</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/loading_text') })} onClick={this.onCodeClick.bind(null, '/loading_text')}><header>text</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token function">Loading</span><span class="token punctuation">(</span><span class="token string">'加载中...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -30,7 +30,7 @@ export default Demo;
 
 export default Demo;
 </span>`}} /></pre></div></div><h2>关闭</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/loading_close') })} onClick={this.onCodeClick.bind(null, '/loading_close')}><header>close</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -57,7 +57,7 @@ export default Demo;
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
+      previewUrl: 'http://localhost:3333/#' + url,
     })
   }
 }

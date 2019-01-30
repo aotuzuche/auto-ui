@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Cell, Layout } from '../aotuui';
+import { Cell, Layout } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], disabled: false };

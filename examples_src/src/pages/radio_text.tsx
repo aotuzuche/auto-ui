@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Cell, Layout, Radio } from '../aotuui';
+import { Cell, Layout, Radio } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { checked: true };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, Tabs } from '../aotuui';
+import { Layout, Tabs } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { active: 1 };

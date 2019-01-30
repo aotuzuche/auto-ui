@@ -1,5 +1,5 @@
 import A from './components/a';
-import ActionSheet from './components/actionsheet';
+import ActionSheet from './components/action-sheet';
 import Alert from './components/alert';
 import Button from './components/button';
 import Cell from './components/cell';
@@ -8,15 +8,15 @@ import Emitter from './components/emitter';
 import Input from './components/input';
 import Layout from './components/layout';
 import Loading from './components/loading';
+import NavBar from './components/nav-bar';
 import Popup from './components/popup';
 import Radio from './components/radio';
 import Space from './components/space';
 import Spin from './components/spin';
 import Switch from './components/switch';
 import Tabs from './components/tabs';
-import TimePicker from './components/timepicker';
+import TimePicker from './components/time-picker';
 import Toast from './components/toast';
-import NavBar from './components/nav-bar';
 
 export {
   A,

@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/tabs',
+    previewUrl: 'http://localhost:3333/#/tabs',
   }
 
   public render() {
@@ -13,7 +13,7 @@ export default class View extends React.PureComponent {
         <div className="markdown-content">
 <h1>Tabs 标签页</h1><h2>基本使用</h2><p>本组件仅提空<code>Tabs</code>本身，即没有标签内容部分，这部分请自行根据<code>Tabs</code>的<code>active</code>属性判断显示，<code>Tabs</code>的<code>active</code>值与<code>Tabs.Item</code>的<code>value</code>值相等时，该<code>tab</code>即为当前</p>
 <div className={C('code-box', { active: this.state.previewUrl.endsWith('/tabs') })} onClick={this.onCodeClick.bind(null, '/tabs')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Tabs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Tabs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> active<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -90,7 +90,7 @@ export default class View extends React.PureComponent {
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
+      previewUrl: 'http://localhost:3333/#' + url,
     })
   }
 }

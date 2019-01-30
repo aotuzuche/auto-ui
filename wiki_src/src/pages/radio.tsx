@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/radio',
+    previewUrl: 'http://localhost:3333/#/radio',
   }
 
   public render() {
@@ -12,7 +12,7 @@ export default class View extends React.PureComponent {
       <div>
         <div className="markdown-content">
 <h1>Radio 勾选框</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio') })} onClick={this.onCodeClick.bind(null, '/radio')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> checked<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -41,7 +41,7 @@ export default class View extends React.PureComponent {
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo<span class="token punctuation">;</span>
 `}} /></pre></div></div><h2>带文字</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_text') })} onClick={this.onCodeClick.bind(null, '/radio_text')}><header>text</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> checked<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -72,7 +72,7 @@ export default class View extends React.PureComponent {
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo<span class="token punctuation">;</span>
 `}} /></pre></div></div><h2>禁用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_disabled') })} onClick={this.onCodeClick.bind(null, '/radio_disabled')}><header>disabled</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'aotuui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> checked<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> disabled<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -161,7 +161,7 @@ export default class View extends React.PureComponent {
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
+      previewUrl: 'http://localhost:3333/#' + url,
     })
   }
 }

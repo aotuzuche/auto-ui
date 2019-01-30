@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ActionSheet, Button, Input, Layout, Space, Toast } from '../aotuui';
+import { ActionSheet, Button, Input, Layout, Space, Toast } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { visible: false, value: '' };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Alert, Button, Layout, Toast } from '../aotuui';
+import { Alert, Button, Layout, Toast } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
   const onClickA = () => {

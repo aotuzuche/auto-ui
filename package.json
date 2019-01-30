@@ -41,7 +41,5 @@
     "prismjs": "^1.15.0",
     "typescript": "^3.2.4"
   },
-  "dependencies": {
-    "iscroll": "^5.2.0"
-  }
+  "dependencies": {}
 }

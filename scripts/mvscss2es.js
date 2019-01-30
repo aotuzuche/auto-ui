@@ -1,11 +1,12 @@
 const fs = require('fs');
 const componentList = require('./componentList');
+const fo = require('./file');
 
-componentList.push('modal');
-componentList.push('savearea');
+componentList.push('Modal');
+componentList.push('SaveArea');
 
 componentList.forEach(component => {
-  const name = component.toLowerCase();
+  const name = fo.toLowerLine(component);
   const path = `components/${name}/style.scss`;
 
   if (fs.existsSync(path)) {

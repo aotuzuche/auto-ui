@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Cell, Input, Layout, Switch } from '../aotuui';
+import { Cell, Input, Layout, Switch } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { value: '', disabled: false };

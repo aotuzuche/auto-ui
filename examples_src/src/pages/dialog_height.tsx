@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Dialog, Layout } from '../aotuui';
+import { Button, Dialog, Layout } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { visible: false, height: 40 };

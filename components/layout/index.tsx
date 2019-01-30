@@ -3,7 +3,7 @@ import cn from 'classnames';
 import IconBack from '../icon/back_s';
 import IconClose from '../icon/close_s';
 import IconError from '../icon/error';
-import SaveArea from '../savearea';
+import SaveArea from '../save-area';
 import Spin from '../spin/index';
 import './style.scss';
 

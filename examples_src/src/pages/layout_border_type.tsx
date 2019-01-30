@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Layout } from '../aotuui';
+import { Button, Layout } from '../auto-ui';
 
 interface IState {
   borderType?: 'none' | 'shadow' | 'border';

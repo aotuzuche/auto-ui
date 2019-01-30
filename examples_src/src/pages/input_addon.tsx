@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input, Layout } from '../aotuui';
+import { Input, Layout } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
   const onChange = () => {};

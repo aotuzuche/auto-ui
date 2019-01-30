@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Cell, Layout, Spin } from '../aotuui';
+import { Cell, Layout, Spin } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
   return (

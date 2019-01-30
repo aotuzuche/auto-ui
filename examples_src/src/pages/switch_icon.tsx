@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, Switch } from '../aotuui';
+import { Layout, Switch } from '../auto-ui';
 
 class Demo extends React.PureComponent {
   public state = { active: true };

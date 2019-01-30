@@ -6,7 +6,7 @@ make:
 es6:
 	@rm -rf components
 	@rm -rf lib
-	@cp -ri examples_src/src/aotuui/components components
+	@cp -ri examples_src/src/auto-ui/components components
 	@node scripts/createWiki.js
 	@tsc -p tsconfig.json
 	@node scripts/mvscss2es.js
