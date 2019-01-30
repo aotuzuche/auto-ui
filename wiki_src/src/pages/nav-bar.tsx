@@ -4,28 +4,22 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'http://localhost:3333/#',
+    previewUrl: 'http://localhost:3333/#/nav-bar',
   }
 
   public render() {
     return (
       <div>
         <div className="markdown-content">
-<h1>NavBar 导航栏</h1><h3>使用示例</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token punctuation">{</span> NavBar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>`}} /></pre></div></div><h3>基本使用</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>基本使用<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>`}} /></pre></div></div><h3>左侧按钮</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>左侧按钮<span class="token punctuation">"</span></span> <span class="token attr-name">leftBtn</span> <span class="token punctuation">/></span></span>`}} /></pre></div></div><h3>右侧按钮</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span>
-  <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>右侧按钮<span class="token punctuation">"</span></span>
-  <span class="token attr-name">rightBtn</span>
-  <span class="token attr-name">rightClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'点击了右侧按钮'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>`}} /></pre></div></div><h3>自定义按钮</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>自定义按钮<span class="token punctuation">"</span></span> <span class="token attr-name">leftBtn</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>返回上一页<span class="token punctuation">"</span></span> <span class="token attr-name">rightBtn</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>自定义右侧<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>`}} /></pre></div></div><h3>深色模式</h3><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span>
-  <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>深色模式<span class="token punctuation">"</span></span>
-  <span class="token attr-name">dark</span>
-  <span class="token attr-name">leftBtn</span>
-  <span class="token attr-name">rightBtn</span>
-  <span class="token attr-name">rightClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'点击了右侧按钮'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>`}} /></pre></div></div><h3>支持属性</h3><table>
+<h1>NavBar 导航栏</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/nav-bar') })} onClick={this.onCodeClick.bind(null, '/nav-bar')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> NavBar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>123<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">;
+
+export default Demo;
+</span>`}} /></pre></div></div><h3>支持属性</h3><table>
 <thead>
 <tr>
 <th>属性</th>
