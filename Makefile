@@ -23,4 +23,4 @@ ghpages:
 	@git add .
 	@git commit -am 'update: gh-pages'
 	@git pull && git push
-	@git push --prefix=demo origin gh-pages
+	@git subtree push --prefix=demo origin gh-pages
