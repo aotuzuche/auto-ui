@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'http://localhost:3333/#/alert',
+    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/alert',
   }
 
   public render() {
@@ -278,7 +278,7 @@ export default Demo;
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'http://localhost:3333/#' + url,
+      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
     })
   }
 }
