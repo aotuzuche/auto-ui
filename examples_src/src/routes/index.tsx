@@ -54,7 +54,7 @@ import PageSwitchDisabled from '../pages/switch_disabled';
 import PageSwitchIcon from '../pages/switch_icon';
 import PageSwitchIO from '../pages/switch_io';
 import PageTabs from '../pages/tabs';
-import PageTimePicker from '../pages/time_picker';
+import PageTimePicker from '../pages/time-picker';
 import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
@@ -95,7 +95,7 @@ const routes: Array<[string, any]> = [
   ['spin', PageSpin],
   ['spin_text', PageSpinText],
   ['tabs', PageTabs],
-  ['time_picker', PageTimePicker],
+  ['time-picker', PageTimePicker],
   ['radio', PageRadio],
   ['radio_disabled', PageRadioDisabled],
   ['radio_text', PageRadioText],
