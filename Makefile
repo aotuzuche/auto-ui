@@ -13,6 +13,7 @@ es6:
 
 #发布gh-pages分之的内容
 ghpages:
+	@node scripts/createWiki.js
 	@cd wiki_src && yarn
 	@cd wiki_src && npm run build
 	@rm -rf demo
