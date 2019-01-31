@@ -23,10 +23,11 @@ const PageSwitch = Load(import('../pages/switch'));
 const PageToast = Load(import('../pages/toast'));
 const PageLoading = Load(import('../pages/loading'));
 const PageSpin = Load(import('../pages/spin'));
-const PageActionSheet = Load(import('../pages/actionsheet'));
+const PageActionSheet = Load(import('../pages/action-sheet'));
 const PageTabs = Load(import('../pages/tabs'));
 const PageSpace = Load(import('../pages/space'));
 const PageNavBar = Load(import('../pages/nav-bar'));
+const PageTimePicker = Load(import('../pages/time-picker'));
 
 export default (history: any) => {
   return (
@@ -51,6 +52,7 @@ export default (history: any) => {
             <Route exact={true} path="/tabs" component={PageTabs} />
             <Route exact={true} path="/space" component={PageSpace} />
             <Route exact={true} path="/navbar" component={PageNavBar} />
+            <Route exact={true} path="/timepicker" component={PageTimePicker} />
             <Redirect from="*" to="/layout" />
             <Redirect from="*" to="/button" />
           </Switch>
