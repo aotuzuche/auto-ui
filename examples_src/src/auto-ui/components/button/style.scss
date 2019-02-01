@@ -86,11 +86,8 @@
     }
   }
   &--mini {
-    width: auto;
-    display: inline-flex;
     height: px(70);
     font-size: px(28);
-    padding: 0 px(30);
     .x-button__loading {
       .x-loading__spin {
         width: px(20);
@@ -102,5 +99,10 @@
     opacity: 0.6;
     pointer-events: none;
     cursor: not-allowed;
+  }
+  &--shrink {
+    width: auto;
+    padding: 0 px(30);
+    display: inline-flex;
   }
 }

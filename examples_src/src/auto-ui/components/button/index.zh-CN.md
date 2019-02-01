@@ -10,6 +10,12 @@ code=[基本使用](button)
 
 code=[type](button_type)
 
+## 收缩
+
+注意：mini 类型的按钮该值默认为 true
+
+code=[type](button_shrink)
+
 ## 小按钮
 
 code=[mini](button_mini)
@@ -24,10 +30,11 @@ code=[disabled](button_disabled)
 
 ## 支持属性
 
-| 属性     | 说明                                   | 类型     | 默认值  |
-| -------- | -------------------------------------- | -------- | ------- |
-| type     | 按钮的种类，primary / danger / default | String   | primary |
-| onClick  | 点击事件                               | Function | -       |
-| mini     | 是否使用小按钮                         | Boolean  | false   |
-| loading  | 是否为加载中状态                       | Boolean  | false   |
-| disabled | 是否不可用                             | Boolean  | false   |
+| 属性     | 说明                                   | 类型     | 默认值                            |
+| -------- | -------------------------------------- | -------- | --------------------------------- |
+| type     | 按钮的种类，primary / danger / default | String   | primary                           |
+| onClick  | 点击事件                               | Function | -                                 |
+| mini     | 是否使用小按钮                         | Boolean  | false                             |
+| loading  | 是否为加载中状态                       | Boolean  | false                             |
+| disabled | 是否不可用                             | Boolean  | false                             |
+| shrink   | 是否收缩到文字显示范围                 | Boolean  | false(mini 为 true 是该值为 true) |

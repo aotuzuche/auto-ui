@@ -12,6 +12,7 @@ import PageButton from '../pages/button';
 import PageButtonDisabled from '../pages/button_disabled';
 import PageButtonLoading from '../pages/button_loading';
 import PageButtonMini from '../pages/button_mini';
+import PageButtonShrink from '../pages/button_shrink';
 import PageButtonType from '../pages/button_type';
 import PageCell from '../pages/cell';
 import PageCellArrow from '../pages/cell_arrow';
@@ -36,6 +37,7 @@ import PageLayoutReachBottom from '../pages/layout_reach_bottom';
 import PageLoading from '../pages/loading';
 import PageLoadingClose from '../pages/loading_close';
 import PageLoadingText from '../pages/loading_text';
+import PageNavBar from '../pages/nav-bar';
 import PagePopup from '../pages/popup';
 import PagePopupFromParent from '../pages/popup_from_parent';
 import PagePopupHeight from '../pages/popup_height';
@@ -58,12 +60,12 @@ import PageTimePicker from '../pages/time-picker';
 import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
-import PageNavBar from '../pages/nav-bar';
 import { Redirect, Route, Router, Switch } from 'dva/router';
 
-const routes: Array<[string, any]> = [
+const routes: any[] = [
   ['button', PageButton],
   ['button_mini', PageButtonMini],
+  ['button_shrink', PageButtonShrink],
   ['button_type', PageButtonType],
   ['button_loading', PageButtonLoading],
   ['button_disabled', PageButtonDisabled],

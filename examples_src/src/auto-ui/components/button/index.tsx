@@ -9,6 +9,7 @@ interface ButtonProps {
   disabled?: boolean;
   hollow?: boolean;
   mini?: boolean;
+  shrink?: boolean;
   onClick: React.MouseEventHandler<HTMLAnchorElement>;
   loading?: boolean;
   className?: string;
@@ -18,7 +19,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = props => {
-  const { type, disabled, mini, hollow, loading, className, children, onClick, ...otherProps } = props;
+  const { type, disabled, shrink, mini, hollow, loading, className, children, onClick, ...otherProps } = props;
 
   const composeClassName = cn(
     'x-button',
@@ -26,6 +27,7 @@ const Button: React.FC<ButtonProps> = props => {
       'x-button--disabled': disabled || loading,
       'x-button--mini': mini,
       'x-button--hollow': hollow,
+      'x-button--shrink': shrink !== undefined ? shrink : !!mini,
     },
     `x-button--${type}`,
     className,
