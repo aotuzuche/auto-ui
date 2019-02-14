@@ -11,7 +11,9 @@ const A: React.FC<IProps> = props => {
   const { onClick, children, emit, ...otherProps } = props;
 
   const _onClick = async (e: any) => {
-    onClick && onClick(e);
+    if (onClick) {
+      onClick(e);
+    }
     if (typeof emit === 'string') {
       emitter.emit(emit);
     } else if (Array.isArray(emit)) {

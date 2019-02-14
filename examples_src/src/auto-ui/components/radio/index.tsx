@@ -10,7 +10,7 @@ interface IProps {
   className?: string;
   text?: string;
   children?: null;
-  onChange: (checked: boolean) => void;
+  onChange?: (checked: boolean) => void;
   emit?: [string, any] | string;
   [otherProps: string]: any;
 }
@@ -31,16 +31,27 @@ const Radio: React.FC<IProps> = props => {
     if (disabled) {
       return;
     }
-    onChange!(!checked);
+    if (onChange) {
+      onChange(!checked);
+    }
   };
-
+  if (onChange) {
+    return (
+      <A {...otherProps} className={composeClassName} onClick={onClick}>
+        <i className="x-radio__icon">
+          <IconCheck />
+        </i>
+        {!!text && <span className="x-radio__text">{text}</span>}
+      </A>
+    );
+  }
   return (
-    <A {...otherProps} className={composeClassName} onClick={onClick}>
+    <span {...otherProps} className={composeClassName} onClick={onClick}>
       <i className="x-radio__icon">
         <IconCheck />
       </i>
       {!!text && <span className="x-radio__text">{text}</span>}
-    </A>
+    </span>
   );
 };
 
