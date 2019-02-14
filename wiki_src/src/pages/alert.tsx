@@ -175,13 +175,13 @@ export default Demo;
 <tbody><tr>
 <td>title</td>
 <td>标题</td>
-<td>String</td>
+<td>String/ReactElement</td>
 <td>-</td>
 </tr>
 <tr>
 <td>desc</td>
 <td>内容正文</td>
-<td>String</td>
+<td>String/ReactElement</td>
 <td>empty</td>
 </tr>
 <tr>

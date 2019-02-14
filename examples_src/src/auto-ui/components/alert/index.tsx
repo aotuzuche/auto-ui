@@ -13,15 +13,16 @@ interface IBtn {
 }
 
 interface IProps {
-  title: string;
-  desc?: any;
+  title: string | React.ReactElement<any>;
+  desc?: string | React.ReactElement<any>;
   className?: string;
   btns?: IBtn[];
   onClose: (btn: IBtn) => void;
 }
 
 const AlertComponent: React.FC<IProps> = props => {
-  let { title, desc, btns, onClose } = props;
+  const { title, desc, onClose } = props;
+  let { btns } = props;
 
   const onBtnClick = (onClick: () => void = () => {}, btn: IBtn) => {
     return () => {
@@ -70,8 +71,8 @@ const AlertComponent: React.FC<IProps> = props => {
 };
 
 interface IAlertParams {
-  title?: string;
-  desc?: React.ReactNode;
+  title?: string | React.ReactElement<any>;
+  desc?: string | React.ReactElement<any>;
   className?: string;
   btns?: IBtn[];
 }
