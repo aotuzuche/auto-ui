@@ -2,7 +2,7 @@
 @import '../theme.scss';
 
 .x-dialog {
-  z-index: 99999;
+  z-index: 10001;
   &__inner {
     padding: px(40);
     overflow: hidden;
