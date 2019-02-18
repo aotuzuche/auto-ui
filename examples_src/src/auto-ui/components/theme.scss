@@ -4,7 +4,7 @@ $buttonRadius: 5 !default; // input、button的圆角
 $alertRadius: 8 !default; // alert、toast、dialog的圆角
 $borderColor: #ededed !default; // input、cell的边的颜色
 $background: #f3f4f6 !default; // layout.body的背景色
-$maskColor: rgba(0, 34, 54, 0.2) !default;
+$maskColor: rgba(0, 0, 0, 0.7) !default;
 
 @function px($px) {
   @return $px * 1px;
