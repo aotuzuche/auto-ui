@@ -1,3 +1,58 @@
+## [0.3.9](https://github.com/aotuzuche/auto-ui/compare/v0.3.8...v0.3.9) (2019-02-18)
+
+
+### Performance Improvements
+
+* ⚡️ Modal ([d8681b2](https://github.com/aotuzuche/auto-ui/commit/d8681b2)), closes [#3](https://github.com/aotuzuche/auto-ui/issues/3)
+
+
+
+## [0.3.8](https://github.com/aotuzuche/auto-ui/compare/v0.3.7...v0.3.8) (2019-02-18)
+
+
+### Bug Fixes
+
+* 🐛 Dialog ([fcf1090](https://github.com/aotuzuche/auto-ui/commit/fcf1090))
+
+
+
+## [0.3.7](https://github.com/aotuzuche/auto-ui/compare/v0.3.2...v0.3.7) (2019-02-18)
+
+
+### Bug Fixes
+
+* 🐛 Modal ([52f7a0d](https://github.com/aotuzuche/auto-ui/commit/52f7a0d))
+
+
+### Features
+
+* **alert:** 修改该组件让其参数为对象时,title和desc可以传递reactElement结构的数据 ([ac13800](https://github.com/aotuzuche/auto-ui/commit/ac13800))
+* **Button:** button组件增加shrink属性，用于控制按钮占用的宽度' ([4b310da](https://github.com/aotuzuche/auto-ui/commit/4b310da))
+* **radio:** 修改当radio的onChange属性不传递时,使用span标签' ([644c4ab](https://github.com/aotuzuche/auto-ui/commit/644c4ab))
+
+
+
+## [0.3.2](https://github.com/aotuzuche/auto-ui/compare/v0.3.1...v0.3.2) (2019-01-30)
+
+
+### Bug Fixes
+
+* 🐛 修复 jsx 生成的格式 ([6ee81d1](https://github.com/aotuzuche/auto-ui/commit/6ee81d1))
+
+
+
+## [0.3.1](https://github.com/aotuzuche/auto-ui/compare/v0.2.7...v0.3.1) (2019-01-30)
+
+
+### Bug Fixes
+
+* 🐛 ActionSheet ([1d837b0](https://github.com/aotuzuche/auto-ui/commit/1d837b0))
+* 🐛 Modal ([cc280e7](https://github.com/aotuzuche/auto-ui/commit/cc280e7))
+* 🐛 修复不生成 d.ts 文件 ([ac135fb](https://github.com/aotuzuche/auto-ui/commit/ac135fb))
+* 修改部分组件的目录名，使其能支持按需加载' ([ba7d44a](https://github.com/aotuzuche/auto-ui/commit/ba7d44a))
+
+
+
 ## [0.2.7](https://github.com/aotuzuche/auto-ui/compare/v0.2.6...v0.2.7) (2019-01-25)
 
 
