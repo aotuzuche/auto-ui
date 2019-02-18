@@ -15,6 +15,7 @@ interface IProps {
   children?: null;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  inputProps?: React.InputHTMLAttributes<any>;
   [otherProps: string]: any;
 }
 
@@ -31,6 +32,7 @@ const Input: React.FC<IProps> = props => {
     onChange,
     placeholder,
     mini,
+    inputProps,
     ...otherProps
   } = props;
 
@@ -71,6 +73,7 @@ const Input: React.FC<IProps> = props => {
         placeholder={placeholder}
         onChange={onChange}
         type={type || 'text'}
+        {...inputProps}
       />
       {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
     </div>
