@@ -8,6 +8,7 @@ import Emitter from './es/emitter';
 import Input from './es/input';
 import Layout from './es/layout';
 import Loading from './es/loading';
+import NavBar from './es/nav-bar';
 import Popup from './es/popup';
 import Radio from './es/radio';
 import SaveArea from './es/savearea';
@@ -38,4 +39,5 @@ export {
   Tabs,
   Toast,
   TimePicker,
+  NavBar,
 };
