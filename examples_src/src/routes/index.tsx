@@ -60,6 +60,7 @@ import PageTimePicker from '../pages/time-picker';
 import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
+import PageNavBarWidthAddonBottom from '../pages/nav-bar-width-addonBottom';
 import { Redirect, Route, Router, Switch } from 'dva/router';
 
 const routes: any[] = [
@@ -124,6 +125,7 @@ const routes: any[] = [
   ['layout_loading', PageLayoutLoading],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['nav-bar', PageNavBar],
+  ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom]
 ];
 
 export default (history: any) => {
