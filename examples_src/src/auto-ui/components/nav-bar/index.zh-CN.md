@@ -16,3 +16,4 @@ code=[大头](nav-bar-width-addonBottom)
 | leftClick  | 点击左侧按钮触发 | `MouseEventHandler<HTMLDivElement>` | 返回上一页 |
 | rightClick | 点击右侧按钮触发 | `MouseEventHandler<HTMLDivElement>` | M 站首页   |
 | mode       | 模式           | `normal/large`                     |normal|
+| dark       | 黑色主题        | boolean                              |false |
