@@ -18,17 +18,11 @@ const isApp = () => {
 };
 
 const SafeArea: React.FC<IProps> = props => {
-  const composeClassName = cn(`x-safe-area-inset-${props.inset}`, props.className);
-  const node = <div className={composeClassName} style={{ backgroundColor: props.color }} />;
+  let composeClassName = cn(`x-safe-area-inset-${props.inset}`, props.className);
   if (props.inset === 'top' && isiOS() && isApp()) {
-    return (
-      <React.Fragment>
-        {node}
-        <div style={{ backgroundColor: props.color }} className="x-safe-area-ios-app" />
-      </React.Fragment>
-    );
+    composeClassName += ' x-safe-area-ios-app';
   }
-  return node;
+  return <div className={composeClassName} style={{ backgroundColor: props.color }} />;
 };
 
 SafeArea.defaultProps = {

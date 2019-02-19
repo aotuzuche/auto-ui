@@ -18,8 +18,5 @@
 }
 
 .x-safe-area-ios-app {
-  position: relative;
-  z-index: 99;
-  height: 20px; /*no*/
-  overflow: hidden;
+  min-height: 20px; /*no*/
 }
