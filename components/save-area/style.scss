@@ -16,3 +16,10 @@
   height: env(safe-area-inset-bottom);
   overflow: hidden;
 }
+
+.x-save-area-ios-app {
+  position: relative;
+  z-index: 99;
+  height: 20px; /*no*/
+  overflow: hidden;
+}
