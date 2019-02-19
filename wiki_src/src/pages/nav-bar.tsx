@@ -4,7 +4,7 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'http://localhost:3333/#/nav-bar',
+    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/nav-bar',
   }
 
   public render() {
@@ -15,10 +15,29 @@ export default class View extends React.PureComponent {
 <span class="token keyword">import</span> <span class="token punctuation">{</span> NavBar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>123<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>123<span class="token punctuation">"</span></span> <span class="token attr-name">dark</span><span class="token punctuation">/></span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token plain-text">;
 
 export default Demo;
+</span>`}} /></pre></div></div><div className={C('code-box', { active: this.state.previewUrl.endsWith('/nav-bar-width-addonBottom') })} onClick={this.onCodeClick.bind(null, '/nav-bar-width-addonBottom')}><header>大头</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>NavBar<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span>
+      <span class="token attr-name">leftBtn</span>
+      <span class="token attr-name">rightBtn</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>规则说明<span class="token punctuation">"</span></span>
+      <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>large<span class="token punctuation">"</span></span>
+      <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>费用明细<span class="token punctuation">'</span></span>
+      <span class="token attr-name">addonBottom</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">实际支付 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'#f00'</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">34元</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token punctuation">}</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">;
+
+export default Demo;
+
 </span>`}} /></pre></div></div><h3>支持属性</h3><table>
 <thead>
 <tr>
@@ -58,6 +77,12 @@ export default Demo;
 <td><code>MouseEventHandler&lt;HTMLDivElement&gt;</code></td>
 <td>M 站首页</td>
 </tr>
+<tr>
+<td>mode</td>
+<td>模式</td>
+<td>`normal</td>
+<td>large`</td>
+</tr>
 </tbody></table>
 
         </div>
@@ -68,7 +93,7 @@ export default Demo;
 
   private onCodeClick = (url: string) => {
     this.setState({
-      previewUrl: 'http://localhost:3333/#' + url,
+      previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#' + url,
     })
   }
 }

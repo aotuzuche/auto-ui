@@ -11,8 +11,8 @@ const package = require('../package.json');
 const getPageContent = content => {
   const reg = /onCodeClick\.bind\(null,.*'(.+?)'.*\)/;
   const href = content.match(reg) ? content.match(reg)[1] : '';
-  const previewPrefix = 'http://localhost:3333/#';
-  // const previewPrefix = 'https://aotuzuche.github.io/auto-ui/examples/#';
+  // const previewPrefix = 'http://localhost:3333/#';
+  const previewPrefix = 'https://aotuzuche.github.io/auto-ui/examples/#';
   return `import * as React from 'react';
 import C from 'classnames';
 import MobilePreview from '../components/mobilePreview';

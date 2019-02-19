@@ -59,6 +59,7 @@ import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
 import PageNavBar from '../pages/nav-bar';
+import PageNavBarWidthAddonBottom from '../pages/nav-bar-width-addonBottom';
 import { Redirect, Route, Router, Switch } from 'dva/router';
 
 const routes: Array<[string, any]> = [
@@ -122,6 +123,7 @@ const routes: Array<[string, any]> = [
   ['layout_loading', PageLayoutLoading],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['nav-bar', PageNavBar],
+  ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom]
 ];
 
 export default (history: any) => {

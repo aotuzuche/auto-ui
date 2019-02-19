@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavBar } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
-  return <NavBar title="123"/>;
+  return <NavBar title="123" dark/>;
 };
 
 export default Demo;
