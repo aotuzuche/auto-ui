@@ -180,13 +180,13 @@ export default Demo;
 </tr>
 </thead>
 <tbody><tr>
-<td>topSaveAreaColor</td>
+<td>topSafeAreaColor</td>
 <td>头部安全区域的颜色</td>
 <td>String</td>
 <td>white</td>
 </tr>
 <tr>
-<td>bottomSaveAreaColor</td>
+<td>bottomSafeAreaColor</td>
 <td>底部安全区域的颜色</td>
 <td>String</td>
 <td>white</td>

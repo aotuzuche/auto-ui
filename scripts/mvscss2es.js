@@ -3,7 +3,7 @@ const componentList = require('./componentList');
 const fo = require('./file');
 
 componentList.push('Modal');
-componentList.push('SaveArea');
+componentList.push('SafeArea');
 
 componentList.forEach(component => {
   const name = fo.toLowerLine(component);

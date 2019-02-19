@@ -17,22 +17,22 @@ const isApp = () => {
   return navigator.userAgent.indexOf('atzuche') > -1;
 };
 
-const SaveArea: React.FC<IProps> = props => {
-  const composeClassName = cn(`x-save-area-inset-${props.inset}`, props.className);
+const SafeArea: React.FC<IProps> = props => {
+  const composeClassName = cn(`x-safe-area-inset-${props.inset}`, props.className);
   const node = <div className={composeClassName} style={{ backgroundColor: props.color }} />;
-  if (props.inset === 'top' && isiOS && isApp) {
+  if (props.inset === 'top' && isiOS() && isApp()) {
     return (
       <React.Fragment>
         {node}
-        <div style={{ backgroundColor: props.color }} className="x-save-area-ios-app" />
+        <div style={{ backgroundColor: props.color }} className="x-safe-area-ios-app" />
       </React.Fragment>
     );
   }
   return node;
 };
 
-SaveArea.defaultProps = {
+SafeArea.defaultProps = {
   color: '#ffffff',
 };
 
-export default SaveArea;
+export default SafeArea;

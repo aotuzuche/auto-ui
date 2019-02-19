@@ -34,8 +34,8 @@ code=[onReachBottom](layout_reach_bottom)
 
 | 属性                | 说明               | 类型   | 默认值 |
 | ------------------- | ------------------ | ------ | ------ |
-| topSaveAreaColor    | 头部安全区域的颜色 | String | white  |
-| bottomSaveAreaColor | 底部安全区域的颜色 | String | white  |
+| topSafeAreaColor    | 头部安全区域的颜色 | String | white  |
+| bottomSafeAreaColor | 底部安全区域的颜色 | String | white  |
 
 ## Layout.Header 支持属性
 

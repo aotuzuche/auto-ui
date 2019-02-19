@@ -10,7 +10,7 @@ import Layout from './es/layout';
 import Loading from './es/loading';
 import Popup from './es/popup';
 import Radio from './es/radio';
-import SaveArea from './es/save-area';
+import SafeArea from './es/safe-area';
 import Space from './es/space';
 import Spin from './es/spin';
 import Switch from './es/switch';
@@ -32,7 +32,7 @@ export {
   Loading,
   Popup,
   Radio,
-  SaveArea,
+  SafeArea,
   Space,
   Spin,
   Switch,

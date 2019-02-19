@@ -38,7 +38,7 @@ function deepCopy(frompath, topath, level = 0) {
 }
 
 // 驼峰转中划线
-// eg: SaveArea -> save-area || saveArea -> save-area
+// eg: SafeArea -> safe-area || safeArea -> safe-area
 function toLowerLine(str) {
   var temp = str.replace(/[A-Z]/g, function(match) {
     return '-' + match.toLowerCase();

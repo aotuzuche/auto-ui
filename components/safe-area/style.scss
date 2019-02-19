@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import '../theme.scss';
 
-.x-save-area-inset-top {
+.x-safe-area-inset-top {
   position: relative;
   z-index: 99;
   height: constant(safe-area-inset-top);
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.x-save-area-inset-bottom {
+.x-safe-area-inset-bottom {
   position: relative;
   z-index: 99;
   height: constant(safe-area-inset-bottom);
@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.x-save-area-ios-app {
+.x-safe-area-ios-app {
   position: relative;
   z-index: 99;
   height: 20px; /*no*/

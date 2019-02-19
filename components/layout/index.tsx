@@ -3,14 +3,14 @@ import cn from 'classnames';
 import IconBack from '../icon/back_s';
 import IconClose from '../icon/close_s';
 import IconError from '../icon/error';
-import SaveArea from '../save-area';
+import SafeArea from '../safe-area';
 import Spin from '../spin/index';
 import './style.scss';
 
 interface ILayoutProps {
   className?: string;
-  topSaveAreaColor?: string;
-  bottomSaveAreaColor?: string;
+  topSafeAreaColor?: string;
+  bottomSafeAreaColor?: string;
   [otherProps: string]: any;
 }
 
@@ -25,9 +25,9 @@ const Layout: React.FC<ILayoutProps> & ILayout = props => {
   const composeClassName = cn('x-app', className);
   return (
     <div {...otherProps} className={composeClassName}>
-      <SaveArea inset="top" color={props.topSaveAreaColor} />
+      <SafeArea inset="top" color={props.topSafeAreaColor} />
       {children}
-      <SaveArea inset="bottom" color={props.bottomSaveAreaColor} />
+      <SafeArea inset="bottom" color={props.bottomSafeAreaColor} />
     </div>
   );
 };
