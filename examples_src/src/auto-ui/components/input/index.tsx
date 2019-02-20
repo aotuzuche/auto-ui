@@ -16,6 +16,7 @@ interface IProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   inputProps?: React.InputHTMLAttributes<any>;
+  textareaProps?: React.TextareaHTMLAttributes<any>;
   [otherProps: string]: any;
 }
 
@@ -33,6 +34,7 @@ const Input: React.FC<IProps> = props => {
     placeholder,
     mini,
     inputProps,
+    textareaProps,
     ...otherProps
   } = props;
 
@@ -47,6 +49,22 @@ const Input: React.FC<IProps> = props => {
     className,
   );
 
+  // 劫持onBlur事件，解决input失去焦点时页面卡在半当中的情况
+  const onBlur: React.FocusEventHandler<any> = evt => {
+    evt.persist();
+    if (multi && textareaProps && textareaProps.onBlur) {
+      textareaProps.onBlur(evt);
+    } else if (inputProps && inputProps.onBlur) {
+      inputProps.onBlur(evt);
+    }
+    setTimeout(() => {
+      const ele = evt.target;
+      if (ele) {
+        (ele as any).scrollIntoViewIfNeeded(false);
+      }
+    }, 300);
+  };
+
   if (multi) {
     return (
       <div {...otherProps} className={composeClassName}>
@@ -57,6 +75,8 @@ const Input: React.FC<IProps> = props => {
           value={value}
           placeholder={placeholder}
           onChange={onChange as any}
+          {...textareaProps}
+          onBlur={onBlur}
         />
         {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
       </div>
@@ -74,6 +94,7 @@ const Input: React.FC<IProps> = props => {
         onChange={onChange}
         type={type || 'text'}
         {...inputProps}
+        onBlur={onBlur}
       />
       {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
     </div>
