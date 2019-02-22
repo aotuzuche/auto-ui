@@ -14,6 +14,10 @@ code=[header](layout_header)
 
 code=[ghost header](layout_ghost)
 
+## headline 模式
+
+code=[headline header](layout_headline)
+
 ## Loading
 
 code=[loading](layout_loading)
@@ -43,6 +47,7 @@ code=[onReachBottom](layout_reach_bottom)
 | ------------ | ------------------------------------ | -------------------- | ------ |
 | title        | 标题                                 | String               | -      |
 | ghost        | 透明模式，一般用在个人主页之类的顶部 | Boolean              | false  |
+| leading      | 大字标题模式，即标题非常大的那种     | Boolean              | false  |
 | addonBefore  | 左侧挂载                             | Component            | -      |
 | onBackClick  | 返回事件，基于左侧挂载的封装         | Function             | -      |
 | onCloseClick | 关闭事件，基于左侧挂载的封装         | Function             | -      |

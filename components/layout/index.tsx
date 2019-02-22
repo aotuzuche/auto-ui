@@ -199,6 +199,7 @@ interface IHeaderProps {
   addonAfter?: React.ReactNode;
   addonBottom?: React.ReactNode;
   borderType?: 'border' | 'shadow' | 'none';
+  headline?: boolean;
   [otherProps: string]: any;
 }
 
@@ -214,12 +215,14 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     addonAfter,
     addonBottom,
     borderType,
+    headline,
     ...otherProps
   } = props;
   const composeClassName = cn(
     'x-app-header',
     {
       'x-app-header--ghost': ghost,
+      'x-app-header--headline': headline,
       [`x-app-header--${borderType}`]: !!borderType || borderType !== 'none',
     },
     className,
@@ -244,7 +247,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
           </div>
         )}
         {!!title && <h1 className="x-app-header__title">{title}</h1>}
-        {children}
+        {!title && children}
         {!!addonAfter && <div className="x-app-header__addon-after">{props.addonAfter}</div>}
       </div>
       {!!addonBottom && <div className="x-app-header__addon-bottom">{props.addonBottom}</div>}

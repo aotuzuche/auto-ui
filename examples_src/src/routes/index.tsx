@@ -32,12 +32,14 @@ import PageLayoutBorderType from '../pages/layout_border_type';
 import PageLayoutErrorInfo from '../pages/layout_error_info';
 import PageLayoutGhost from '../pages/layout_ghost';
 import PageLayoutHeader from '../pages/layout_header';
+import PageLayoutHeadline from '../pages/layout_headline';
 import PageLayoutLoading from '../pages/layout_loading';
 import PageLayoutReachBottom from '../pages/layout_reach_bottom';
 import PageLoading from '../pages/loading';
 import PageLoadingClose from '../pages/loading_close';
 import PageLoadingText from '../pages/loading_text';
 import PageNavBar from '../pages/nav-bar';
+import PageNavBarWidthAddonBottom from '../pages/nav-bar-width-addonBottom';
 import PagePopup from '../pages/popup';
 import PagePopupFromParent from '../pages/popup_from_parent';
 import PagePopupHeight from '../pages/popup_height';
@@ -60,7 +62,6 @@ import PageTimePicker from '../pages/time-picker';
 import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
-import PageNavBarWidthAddonBottom from '../pages/nav-bar-width-addonBottom';
 import { Redirect, Route, Router, Switch } from 'dva/router';
 
 const routes: any[] = [
@@ -121,11 +122,12 @@ const routes: any[] = [
   ['layout_error_info', PageLayoutErrorInfo],
   ['layout_border_type', PageLayoutBorderType],
   ['layout_ghost', PageLayoutGhost],
+  ['layout_headline', PageLayoutHeadline],
   ['layout_header', PageLayoutHeader],
   ['layout_loading', PageLayoutLoading],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['nav-bar', PageNavBar],
-  ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom]
+  ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom],
 ];
 
 export default (history: any) => {
@@ -133,7 +135,7 @@ export default (history: any) => {
     <Router history={history}>
       <Switch>
         {routes.map(r => {
-          return <Route key={r[0]} exact={true} path={'/' + r[0]} component={r[1]} />;
+          return <Route key={r[0]} exact={true} path={`/${r[0]}`} component={r[1]} />;
         })}
         <Redirect from="*" to="/button" />
       </Switch>

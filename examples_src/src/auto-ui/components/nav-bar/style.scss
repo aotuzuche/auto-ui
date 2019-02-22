@@ -43,9 +43,9 @@
     height: 110px;
     display: flex;
     align-items: center;
-    line-height: 50px ;
-    font-size:28px;
-    color:rgb(102,102,102);
+    line-height: 50px;
+    font-size: 28px;
+    color: rgb(102, 102, 102);
     &-icon {
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAlCAMAAAD7q3BLAAAAh1BMVEUAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMAulUEslMJrFEqWz0uTDkbjUkieET9CPMZAAAAJXRSTlMAIPImmvcO/uRJB867Vgns1aGMWy0cBd/IlZJ7Y15SQ6uESz43JFctUgAAAPhJREFUOMvNk9lugzAQADcGYyAQQkhIc/cacrT//311UkUCFxepL808WKvVaHd9SYdDpolnkfhI19yIE48QjLkzS6WHXAHTJNhoYByIyyTEEk5sOJ8CetvXQeVt+7kzcKW6lffFdeA3p8OqPd0iA8xLbcN7X7WXLhsDPI3Ekujv0OV9CaiDrad8+4/Kq7KQlV1fpZ9Kw1piqMTHFpZiwH9TERgBxA/wByP9YVw+L+1USOgap+bUThmMazRN46Qe1Tg2xwHj/HFupzKygTOt5/XwvfyTMfDGkBhy8ZFDLCGo3aifnYJQAsVvqOD25/zoRCxBWdBPUdoKX7BrMWS1aoFDAAAAAElFTkSuQmCC');
       background-position: 99% 50%;
@@ -59,7 +59,7 @@
         &-icon {
           background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAlCAMAAAD7q3BLAAAAk1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AulXU8uC7680kwGUXvl2I3Klj0Y6ICGjUAAAAKXRSTlMAH/GaIvQFSQ324s67k11VJQnr5tX6xqCLe2NZT0EvKREH3auijYQ+Nx0Tt9YAAAD+SURBVDjL1ZJnT8MwEEAve48mhZZOyn7pgP//64jDUGpiIvEF9UmJ7Mvz3cW2nLFOI+L5rZjYZXTUgUFwE76Y+0NCYQPTYHtzBSSl6EwcWpxJO9xMAW+hCWWiosu+fX/WcO6pzO73fFUB8bNWIdv1llgpLU+fDW9VXbvQ6nYNX3dpA+9jqPNypxau23w28Dj0/+GDUizJ2vdKhllGkEkMuZhYQCxAaDRCQNRj5m+G/8PYv+77IQdHN47NUQvp06ZpLsQ4NacR4/B26IdS0pE99Tf++Ln8jzF+x2oojEYBtThg5641hJvb4Ijr8RueKxJEmIkCaSlnleF7NStF3gGwSDd0zUqvHQAAAABJRU5ErkJggg==');
         }
-        color: rgba(255,255,255,0.8);
+        color: rgba(255, 255, 255, 0.8);
       }
     }
   }
@@ -79,32 +79,15 @@
       }
     }
   }
-  &-large{
-    box-shadow:none;
-    display: block;
-    height: auto;
-    padding-bottom: 40px;
-    .auto-ui_navbar-title{
-      padding-top:100px;
-      text-align: left;
-      line-height: 66px;
-      font-size: 48px;
-      padding-left: 40px;
-    }
-    .auto-ui_navbar-subTitle{
-      padding-left: 40px;
-      font-weight: normal;
-    }
-  }
-  &-btn{
+  &-btn {
     height: 110px;
-    padding-right:20px;
+    padding-right: 20px;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    svg{
+    svg {
       width: 34px;
       height: 34px;
     }

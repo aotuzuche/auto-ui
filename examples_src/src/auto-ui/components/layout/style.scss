@@ -146,6 +146,29 @@ body,
   }
 }
 
+.x-app-header--headline {
+  .x-app-header {
+    &__addon-before,
+    &__addon-after {
+      height: 110px;
+    }
+    &__inner {
+      min-height: 0;
+      padding: 100px 0 60px 0;
+    }
+    &__title {
+      text-align: left;
+      padding: 0 40px;
+      font-size: 48px;
+      font-weight: bold;
+    }
+    &__addon-bottom {
+      margin-top: -35px;
+      padding: 0 40px 40px 40px;
+    }
+  }
+}
+
 .x-app-body {
   width: 100%;
   // height: 100%;
