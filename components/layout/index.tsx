@@ -69,15 +69,15 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
 
     return (
       <div {...otherProps} className={composeClassName} onScroll={this.scroll}>
-        <div className="x-app-body__inner">{this.renderContent()}</div>
+        {this.renderContent()}
         {this.renderReachBottom()}
       </div>
     );
   }
 
   private renderReachBottom() {
-    const { onReachBottom } = this.props;
-    if (!onReachBottom || onReachBottom.disabled) {
+    const { onReachBottom, loading, errorInfo } = this.props;
+    if (!onReachBottom || onReachBottom.disabled || loading || errorInfo) {
       return null;
     }
     return (
@@ -109,7 +109,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
         </p>
       );
     }
-    return children;
+    return <div className="x-app-body__inner">{children}</div>;
   }
 
   private scroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -223,9 +223,9 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     {
       'x-app-header--ghost': ghost,
       'x-app-header--headline': headline,
-      [`x-app-header--${borderType}`]: !!borderType || borderType !== 'none',
     },
     className,
+    borderType ? `x-app-header--${borderType}` : undefined,
   );
 
   return (
