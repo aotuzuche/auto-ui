@@ -101,7 +101,8 @@ class Model {
 
     // 分钟
     let currentMMIndex = 0;
-    let currentMMValue = times.MMList[times.HHList[currentHHIndex]][0];
+    const mmList = times.MMList[times.HHList[currentHHIndex]];
+    let currentMMValue = mmList ? mmList[0] : '00';
     if (hasMatchDay && defMM) {
       for (let i = 0; i < times.MMList[times.HHList[currentHHIndex]].length; i++) {
         const d = times.MMList[times.HHList[currentHHIndex]][i];
