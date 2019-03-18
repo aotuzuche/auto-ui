@@ -32,7 +32,7 @@ export {
   Loading,
   Popup,
   Radio,
-  SaveArea,
+  SafeArea,
   Space,
   Spin,
   Switch,
