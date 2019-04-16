@@ -1,5 +1,5 @@
-import * as React from 'react';
 import cn from 'classnames';
+import * as React from 'react';
 import IconBack from '../icon/back_s';
 import IconClose from '../icon/close_s';
 import IconError from '../icon/error';
@@ -21,13 +21,13 @@ interface ILayout {
 }
 
 const Layout: React.FC<ILayoutProps> & ILayout = props => {
-  const { className, children, ...otherProps } = props;
+  const { className, children, topSafeAreaColor, bottomSafeAreaColor, ...otherProps } = props;
   const composeClassName = cn('x-app', className);
   return (
     <div {...otherProps} className={composeClassName}>
-      <SafeArea inset="top" color={props.topSafeAreaColor} />
+      <SafeArea inset="top" color={topSafeAreaColor} />
       {children}
-      <SafeArea inset="bottom" color={props.bottomSafeAreaColor} />
+      <SafeArea inset="bottom" color={bottomSafeAreaColor} />
     </div>
   );
 };
