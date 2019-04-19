@@ -1,6 +1,6 @@
+import cn from 'classnames';
 import * as React from 'react';
 import A from '../a/index';
-import cn from 'classnames';
 import Spin from '../spin/index';
 import './style.scss';
 
@@ -24,7 +24,8 @@ const Button: React.FC<ButtonProps> = props => {
   const composeClassName = cn(
     'x-button',
     {
-      'x-button--disabled': disabled || loading,
+      'x-button--disabled': disabled,
+      'x-button--loading': loading,
       'x-button--mini': mini,
       'x-button--hollow': hollow,
       'x-button--shrink': shrink !== undefined ? shrink : !!mini,
