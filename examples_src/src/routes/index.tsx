@@ -1,3 +1,4 @@
+import { Redirect, Route, Router, Switch } from 'dva/router';
 import * as React from 'react';
 import PageActionsheet from '../pages/actionsheet';
 import PageActionsheetCloseButton from '../pages/actionsheet_close_button';
@@ -62,7 +63,6 @@ import PageTimePicker from '../pages/time-picker';
 import PageToast from '../pages/toast';
 import PageToastClose from '../pages/toast_close';
 import PageToastDuartion from '../pages/toast_duration';
-import { Redirect, Route, Router, Switch } from 'dva/router';
 
 const routes: any[] = [
   ['button', PageButton],

@@ -1,6 +1,6 @@
+import cn from 'classnames';
 import * as React from 'react';
 import A from '../a/index';
-import cn from 'classnames';
 import './style.scss';
 
 interface IItemProps {
@@ -19,7 +19,7 @@ const TabsItem: React.FC<IItemProps> = props => {
     {
       'x-tabs--active': !!active,
     },
-    className
+    className,
   );
 
   const onAClick = () => {
@@ -37,12 +37,17 @@ interface ITabsProps {
   className?: string;
   active: string | number;
   onClick: (value: string | number) => void;
+  borderType?: 'border' | 'none';
   [otherProps: string]: any;
 }
 
 const Tabs: React.FC<ITabsProps> & { Item: React.FC<IItemProps> } = props => {
-  const { className, children, active, onClick, ...otherProps } = props;
-  const composeClassName = cn('x-tabs', className);
+  const { className, children, active, onClick, borderType = 'border', ...otherProps } = props;
+  const composeClassName = cn(
+    'x-tabs',
+    className,
+    borderType && borderType !== 'none' ? `x-tabs--bottom-${borderType}` : undefined,
+  );
 
   let activeOffset = -2;
 

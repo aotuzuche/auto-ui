@@ -8,10 +8,11 @@ code=[基本使用](tabs)
 
 ## 支持属性
 
-| 属性    | 说明                                                                | 类型       | 默认值 |
-| ------- | ------------------------------------------------------------------- | ---------- | ------ |
-| active  | 当前的活动 tab 编号                                                 | String/Int | -      |
-| onClick | 代理 Tabs.Item 的点击事件，并将 Tabs.Item 的 value 属性作为参数返回 | Function   | -      |
+| 属性       | 说明                                                                | 类型         | 默认值 |
+| ---------- | ------------------------------------------------------------------- | ------------ | ------ |
+| active     | 当前的活动 tab 编号                                                 | String/Int   | -      |
+| onClick    | 代理 Tabs.Item 的点击事件，并将 Tabs.Item 的 value 属性作为参数返回 | Function     | -      |
+| borderType | 下方有 border 或无                                                  | border、none | border |
 
 ## Tabs.Item 支持属性
 

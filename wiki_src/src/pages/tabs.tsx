@@ -64,6 +64,12 @@ export default class View extends React.PureComponent {
 <td>Function</td>
 <td>-</td>
 </tr>
+<tr>
+<td>borderType</td>
+<td>下方有 border 或无</td>
+<td>border、none</td>
+<td>border</td>
+</tr>
 </tbody></table>
 <h2>Tabs.Item 支持属性</h2><table>
 <thead>

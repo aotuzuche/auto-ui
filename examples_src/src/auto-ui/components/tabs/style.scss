@@ -7,7 +7,9 @@
   position: relative;
   width: 100%;
   background: #fff;
-  border-bottom: px(1) solid $borderColor; /*no*/
+  &.x-tabs--bottom-border {
+    border-bottom: px(1) solid $borderColor; /*no*/
+  }
   &__item {
     display: flex;
     align-items: center;

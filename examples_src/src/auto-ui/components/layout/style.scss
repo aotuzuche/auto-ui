@@ -23,10 +23,10 @@ body,
   z-index: 2;
   display: flex;
   flex-direction: column;
-  &.x-app-header--shadow {
+  &.x-app-header--bottom-shadow {
     box-shadow: 0 0 px(20) rgba(0, 0, 0, 0.08);
   }
-  &.x-app-header--border {
+  &.x-app-header--bottom-border {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); /*no*/
   }
   &:after {

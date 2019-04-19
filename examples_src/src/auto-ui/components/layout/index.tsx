@@ -227,7 +227,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
       'x-app-header--headline': headline,
     },
     className,
-    borderType ? `x-app-header--${borderType}` : undefined,
+    borderType && borderType !== 'none' ? `x-app-header--bottom-${borderType}` : undefined,
   );
 
   if (hideInApp && /atzuche/gi.test(navigator.userAgent)) {
