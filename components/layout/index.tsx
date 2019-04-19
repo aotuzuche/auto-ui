@@ -68,7 +68,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     });
 
     return (
-      <div {...otherProps} className={composeClassName} onScroll={this.scroll}>
+      <div {...otherProps} className={composeClassName} onScroll={onReachBottom ? this.scroll : onScroll}>
         {this.renderContent()}
         {this.renderReachBottom()}
       </div>
@@ -200,6 +200,7 @@ interface IHeaderProps {
   addonBottom?: React.ReactNode;
   borderType?: 'border' | 'shadow' | 'none';
   headline?: boolean;
+  hideInApp?: boolean;
   [otherProps: string]: any;
 }
 
@@ -216,6 +217,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     addonBottom,
     borderType,
     headline,
+    hideInApp,
     ...otherProps
   } = props;
   const composeClassName = cn(
@@ -227,6 +229,10 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     className,
     borderType ? `x-app-header--${borderType}` : undefined,
   );
+
+  if (hideInApp && /atzuche/gi.test(navigator.userAgent)) {
+    return null;
+  }
 
   return (
     <header {...otherProps} className={composeClassName}>
