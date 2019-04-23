@@ -47,6 +47,9 @@ function toLowerLine(str) {
     // 如果首字母是大写，执行replace时会多一个-，这里需要去掉
     temp = temp.slice(1);
   }
+  if (temp.indexOf('a-t-') === 0) {
+    temp = temp.replace('a-t-', 'at-');
+  }
   return temp;
 }
 

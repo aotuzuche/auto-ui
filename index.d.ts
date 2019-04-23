@@ -1,6 +1,7 @@
 import A from './es/a';
 import ActionSheet from './es/action-sheet';
 import Alert from './es/alert';
+import ATCalendar from './es/at-calendar';
 import Button from './es/button';
 import Cell from './es/cell';
 import Dialog from './es/dialog';
@@ -23,6 +24,7 @@ export {
   A,
   ActionSheet,
   Alert,
+  ATCalendar,
   Button,
   Cell,
   Dialog,
