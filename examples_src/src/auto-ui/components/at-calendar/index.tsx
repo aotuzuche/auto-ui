@@ -122,7 +122,9 @@ class ATCalendar extends Controller {
     const key = date.valueOf();
     const data: any = this.props.data && this.props.data[key] ? this.props.data[key] : { disabled: 'DISABLED' };
     let isDisabledBefore = this.props.disabledBefore ? this.props.disabledBefore > date : false;
-    isDisabledBefore = data.disabled === 'DISABLED';
+    if (data.disabled === 'DISABLED') {
+      isDisabledBefore = true;
+    }
     const readonly = this.props.readonly;
     const wkname = ['sun', 'mon', 'tues', 'wed', 'thur', 'fri', 'sat'];
     const css = cn('month-day', wkname[date.getDay()], {
