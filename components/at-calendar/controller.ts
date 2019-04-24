@@ -13,7 +13,7 @@ interface IData {
 
 interface IProps {
   readonly?: boolean;
-  readonlyTitle?: string;
+  title?: string;
   onClose: () => void;
   disabledBefore?: Date;
   months: [Date, Date];
@@ -155,10 +155,15 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 判断一个日期是否在chooseRange范围内
   protected isBtweenChooseRange(date: Date): boolean {
-    if (this.state.chooseRange[0] === null || this.state.chooseRange[1] === null) {
+    return this.isBtweenRange(date, this.state.chooseRange);
+  }
+
+  // 判断一个日期是否在一个范围内
+  protected isBtweenRange(date: Date, range: [Date | null, Date | null]): boolean {
+    if (range[0] === null || range[1] === null) {
       return false;
     }
-    if (date < this.state.chooseRange[0] || date > this.state.chooseRange[1]) {
+    if (date < range[0] || date > range[1]) {
       return false;
     }
     return true;
@@ -229,7 +234,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       }
     }
 
-    if (range[0] && range[1] && !this.checkTimeRangeCanUsed(range)) {
+    if (range[0] && range[1] && !this.checkTimeRangeCanUsed(range, this.state.chooseRange)) {
       Alert({
         desc: '您选的期间内有不可租用时间，请重新选择。',
         btns: [{ name: '好的' }],
@@ -253,7 +258,9 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
     this.setState({
       chooseRange: [null, null],
+      preChooseRange: [null, null],
       timePickerTimes: [null, null],
+      preTimePickerTimes: [null, null],
     });
   }
 
@@ -353,7 +360,11 @@ class Controller extends React.PureComponent<IProps, IState> {
   }
 
   // 判断时间范围内是否都为可用
-  private checkTimeRangeCanUsed(range: [Date | null, Date | null]) {
+  private checkTimeRangeCanUsed(range: [Date | null, Date | null], ignoreRange: [Date | null, Date | null]) {
+    const ignore = [...ignoreRange];
+    if (ignore[0] && !ignore[1]) {
+      ignore[1] = ignore[0];
+    }
     if (!range[0] || !range[1] || range[0] > range[1]) {
       return false;
     }
@@ -364,14 +375,17 @@ class Controller extends React.PureComponent<IProps, IState> {
     if (!data) {
       return false;
     }
-    let current = range[0].valueOf();
+    let current = range[0];
     const target = range[1].valueOf();
-    while (current <= target) {
-      if (!data[current] || data[current].disabled) {
-        return false;
+    while (current.valueOf() <= target) {
+      // 如果在该天已经选中了，则不做数据检查，直接认为该天是可用的
+      if (!this.isBtweenRange(current, ignore as any)) {
+        if (!data[current.valueOf()] || data[current.valueOf()].disabled) {
+          return false;
+        }
       }
-      const d = new Date(current);
-      current = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1).valueOf();
+      const d = new Date(current.valueOf());
+      current = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
     }
     return true;
   }

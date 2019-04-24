@@ -170,8 +170,12 @@
         em {
           background: $primaryColor !important;
           border-radius: 50%;
-          color: #fff;
+          color: #fff !important;
         }
+      }
+
+      &.active-first.disabled-all:not(.active) p:before {
+        display: none;
       }
 
       &.active:last-child,

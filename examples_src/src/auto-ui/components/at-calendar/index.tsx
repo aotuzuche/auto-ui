@@ -60,7 +60,7 @@ class ATCalendar extends Controller {
         className="header"
         borderType="border"
         onCloseClick={this.props.onClose}
-        title={this.props.readonlyTitle}
+        title={this.props.title}
         addonAfter={
           !this.props.readonly && (
             <a href="javascript:;" className="clear" onClick={this.clearChooseRange}>
@@ -127,8 +127,9 @@ class ATCalendar extends Controller {
     }
     const readonly = this.props.readonly;
     const wkname = ['sun', 'mon', 'tues', 'wed', 'thur', 'fri', 'sat'];
+    const isBtween = this.isBtweenChooseRange(date);
     const css = cn('month-day', wkname[date.getDay()], {
-      active: !readonly && this.isBtweenChooseRange(date),
+      active: !readonly && isBtween,
       'active-first': !readonly && this.state.chooseRange[0] && this.state.chooseRange[0].valueOf() === key,
       'active-end': !readonly && this.state.chooseRange[1] && this.state.chooseRange[1].valueOf() === key,
       disabled: isDisabledBefore,
@@ -137,7 +138,7 @@ class ATCalendar extends Controller {
       'disabled-part': !isDisabledBefore && data.disabled === 'PART',
     });
     const onClick = () => {
-      if (isDisabledBefore || data.disabled === 'ALL' || readonly) {
+      if ((isDisabledBefore || readonly || data.disabled) && !isBtween) {
         return;
       }
       this.onDayClick(date, data);
