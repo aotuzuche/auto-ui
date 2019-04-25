@@ -200,6 +200,7 @@ interface IHeaderProps {
   addonBottom?: React.ReactNode;
   borderType?: 'border' | 'shadow' | 'none';
   headline?: boolean;
+  hideInAlipay?: boolean;
   hideInApp?: boolean;
   [otherProps: string]: any;
 }
@@ -217,6 +218,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     addonBottom,
     borderType,
     headline,
+    hideInAlipay,
     hideInApp,
     ...otherProps
   } = props;
@@ -231,6 +233,17 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
   );
 
   if (hideInApp && /atzuche/gi.test(navigator.userAgent)) {
+    return null;
+  }
+
+  let isInAlipay = false;
+  if ((window as any).my && (window as any).my.getEnv) {
+    (window as any).my.getEnv((res: any) => {
+      isInAlipay = !!res.miniprogram;
+    });
+  }
+
+  if (hideInAlipay && isInAlipay) {
     return null;
   }
 

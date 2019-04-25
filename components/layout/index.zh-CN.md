@@ -54,6 +54,7 @@ code=[onReachBottom](layout_reach_bottom)
 | addonAfter   | 右侧挂载                             | Component            | -      |
 | addonBottom  | 下方挂载                             | Component            | -      |
 | hideInApp    | 在 app 中隐藏自身                    | Boolean              | false  |
+| hideInAlipay | 在 支付宝小程序 中隐藏自身           | Boolean              | false  |
 | borderType   | 头部下方是使用阴影、线或是没有       | border、shadow、none | none   |
 
 ## Layout.Body 支持属性
