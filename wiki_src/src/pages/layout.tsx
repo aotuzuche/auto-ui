@@ -277,6 +277,12 @@ export default Demo;
 </tr>
 <tr>
 <td>hideInAlipay</td>
+<td>在 支付宝(网页和小程序) 中隐藏自身</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>hideInAlipayMP</td>
 <td>在 支付宝小程序 中隐藏自身</td>
 <td>Boolean</td>
 <td>false</td>

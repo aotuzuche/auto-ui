@@ -201,6 +201,7 @@ interface IHeaderProps {
   borderType?: 'border' | 'shadow' | 'none';
   headline?: boolean;
   hideInAlipay?: boolean;
+  hideInAlipayMP?: boolean;
   hideInApp?: boolean;
   [otherProps: string]: any;
 }
@@ -219,31 +220,47 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     borderType,
     headline,
     hideInAlipay,
+    hideInAlipayMP,
     hideInApp,
     ...otherProps
   } = props;
+
+  // headline模式下，如果标题上方没有内容，去掉上方的空隙
+  let fixPaddingTop = false;
+  if (headline && !addonBefore && !onBackClick && !onCloseClick && !addonAfter) {
+    fixPaddingTop = true;
+  }
+
   const composeClassName = cn(
     'x-app-header',
     {
       'x-app-header--ghost': ghost,
       'x-app-header--headline': headline,
+      'x-app-header--headline-fix-padding': fixPaddingTop,
     },
     className,
     borderType && borderType !== 'none' ? `x-app-header--bottom-${borderType}` : undefined,
   );
 
+  // 在app中隐藏
   if (hideInApp && /atzuche/gi.test(navigator.userAgent)) {
     return null;
   }
 
-  let isInAlipay = false;
+  // 在支付宝中隐藏，包括扫一扫进入的网页和小程序
+  if (hideInAlipay && /AlipayClient/gi.test(navigator.userAgent)) {
+    return null;
+  }
+
+  // 在支付宝小程序中隐藏
+  let isInAlipayMP = false;
   if ((window as any).my && (window as any).my.getEnv) {
     (window as any).my.getEnv((res: any) => {
-      isInAlipay = !!res.miniprogram;
+      isInAlipayMP = !!res.miniprogram;
     });
   }
 
-  if (hideInAlipay && isInAlipay) {
+  if (hideInAlipayMP && isInAlipayMP) {
     return null;
   }
 

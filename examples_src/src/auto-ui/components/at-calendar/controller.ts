@@ -234,6 +234,11 @@ class Controller extends React.PureComponent<IProps, IState> {
       }
     }
 
+    if ((type === 'rent' && data.rent.length) === 0 || (type === 'revert' && data.revert.length)) {
+      Toast('该天没有可选的时间');
+      return;
+    }
+
     if (range[0] && range[1] && !this.checkTimeRangeCanUsed(range, this.state.chooseRange)) {
       Alert({
         desc: '您选的期间内有不可租用时间，请重新选择。',

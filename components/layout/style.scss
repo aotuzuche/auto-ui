@@ -167,6 +167,11 @@ body,
       padding: 0 40px 40px 40px;
     }
   }
+  &-fix-padding {
+    .x-app-header__inner {
+      padding-top: 50px;
+    }
+  }
 }
 
 .x-app-body {
