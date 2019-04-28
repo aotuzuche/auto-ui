@@ -234,7 +234,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       }
     }
 
-    if ((type === 'rent' && data.rent.length) === 0 || (type === 'revert' && data.revert.length)) {
+    if ((type === 'rent' && data.rent.length) === 0 || (type === 'revert' && data.revert.length === 0)) {
       Toast('该天没有可选的时间');
       return;
     }
