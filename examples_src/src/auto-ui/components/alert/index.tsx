@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Button from '../button/index';
 import { createPortal, render, unmountComponentAtNode } from 'react-dom';
+import Button from '../button/index';
 import './style.scss';
 
 interface IBtn {

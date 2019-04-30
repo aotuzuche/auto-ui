@@ -10,7 +10,7 @@ import './style';
 
 const nil = () => {};
 
-class ATCalendar extends Controller {
+class AtCalendar extends Controller {
   public render() {
     return (
       <Layout className="at-calendar">
@@ -241,4 +241,4 @@ class ATCalendar extends Controller {
   }
 }
 
-export default ATCalendar;
+export default AtCalendar;
