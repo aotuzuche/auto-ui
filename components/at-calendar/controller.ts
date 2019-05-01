@@ -93,9 +93,6 @@ class Controller extends React.PureComponent<IProps, IState> {
 
     // 验证参数
     if (props.disabledBefore) {
-      if (props.disabledBefore <= this.props.months[0]) {
-        throw new Error('disabledBefore必须大于monthRange的开始时间');
-      }
       if (!this.isZeroTime(props.disabledBefore)) {
         throw new Error('disabledBefore的时间必须为整点时间');
       }
