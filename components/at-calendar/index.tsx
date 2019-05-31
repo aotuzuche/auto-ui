@@ -6,7 +6,7 @@ import Layout from '../layout';
 import Popup from '../popup';
 import TimePicker from '../time-picker';
 import Controller from './controller';
-import './style';
+import './style.scss';
 
 const nil = () => {};
 
