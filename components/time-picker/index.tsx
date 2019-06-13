@@ -2,7 +2,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import IScroll from 'iscroll/build/iscroll-lite';
 import model, { Times, TimeData } from './model';
-import './style';
+import './style.scss';
 
 let ID = 0;
 

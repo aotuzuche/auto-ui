@@ -2,7 +2,6 @@ make:
 	@echo ''
 
 #从components中生成es6版本的js代码到es目录下
-#注意：这一步执行完成后需要再执行 make es6scss
 es6:
 	@rm -rf components
 	@rm -rf es
