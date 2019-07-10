@@ -290,7 +290,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 px(30);
-    border-bottom: px(1) solid #f2f2f2; /*no*/
     a {
       font-size: px(26);
       &.cancel {
@@ -301,8 +300,12 @@
   .x-time-picker {
     padding-left: px(200);
     padding-right: px(200);
+    overflow: visible;
   }
   .x-time-picker__day-list {
     display: none;
+  }
+  .x-time-picker__tips {
+    margin-top: -20px;
   }
 }

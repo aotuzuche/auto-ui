@@ -1,14 +1,12 @@
-import cn from 'classnames';
-import * as React from 'react';
-import { dateFormat, offsetDays } from '../__utils/transfer';
-import Button from '../button';
-import Layout from '../layout';
-import Popup from '../popup';
-import TimePicker from '../time-picker';
-import Controller from './controller';
-import './style.scss';
-
-const nil = () => {};
+import cn from 'classnames'
+import * as React from 'react'
+import { dateFormat, offsetDays } from '../__utils/transfer'
+import Button from '../button'
+import Layout from '../layout'
+import Popup from '../popup'
+import TimePicker from '../time-picker'
+import Controller from './controller'
+import './style.scss'
 
 class AtCalendar extends Controller {
   public render() {
@@ -230,10 +228,11 @@ class AtCalendar extends Controller {
         </header>
         <TimePicker
           data={[this.state.timePickerData]}
+          tips={this.state.timePickerTips}
           format={['MM月dd日 周wk', 'h点', 'm分']}
           interval={15}
           defaultDay={def}
-          onChange={nil}
+          onChange={this.onTimeChange}
           ref={this.timePickerRef}
         />
       </Popup>

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Button, Layout, TimePicker, Toast } from '../auto-ui';
+import * as React from 'react'
+import { Button, Layout, TimePicker, Toast } from '../auto-ui'
 
 class Demo extends React.PureComponent {
   public state = { visible: false };
@@ -37,11 +37,11 @@ class Demo extends React.PureComponent {
 
   private onClick = () => {
     this.setState({ visible: !this.state.visible });
-  }
+  };
 
   private showTime = (value: Date) => {
     Toast(value.toString());
-  }
+  };
 }
 
 export default Demo;

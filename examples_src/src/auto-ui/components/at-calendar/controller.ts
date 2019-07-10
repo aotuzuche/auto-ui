@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { dateFormat, offsetHours, stringToDate } from '../__utils/transfer';
-import Alert from '../alert';
-import Toast from '../toast';
+import * as React from 'react'
+import { dateFormat, offsetHours, stringToDate } from '../__utils/transfer'
+import Alert from '../alert'
+import Loading from '../loading'
+import Toast from '../toast'
 
 interface IData {
   isHoliday: boolean;
@@ -19,6 +20,7 @@ interface IProps {
   months: [Date, Date];
   chooseRange?: [Date, Date];
   onSubmit: (start: Date, end: Date) => void;
+  onDayClick?: (day: Date, type: string) => any;
   lock?: 'start' | 'end';
   data?: {
     [time: number]: IData;
@@ -33,6 +35,7 @@ interface IState {
   preChooseRange: [Date | null, Date | null];
   timePickerVisible: boolean;
   timePickerTimes: [Date | null, Date | null];
+  timePickerTips: Record<string, string>;
   preTimePickerTimes: [Date | null, Date | null];
   timePickerData: {
     day: Date;
@@ -87,6 +90,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerVisible: false,
       timePickerTimes: [tr1, tr2],
       preTimePickerTimes: [tr1, tr2],
+      timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
       chooseType: '',
     };
@@ -125,7 +129,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       preTimePickerTimes: [...this.state.timePickerTimes] as any,
       timePickerVisible: false,
     });
-  }
+  };
 
   // 根据months获取一个月份列表
   protected getMonthList(): Date[] {
@@ -167,7 +171,7 @@ class Controller extends React.PureComponent<IProps, IState> {
   }
 
   // 日期点击
-  protected onDayClick(day: Date, data: IData) {
+  protected async onDayClick(day: Date, data: IData) {
     const range: [Date | null, Date | null] = [this.state.chooseRange[0], this.state.chooseRange[1]];
     const times: [Date | null, Date | null] = [this.state.timePickerTimes[0], this.state.timePickerTimes[1]];
 
@@ -243,10 +247,21 @@ class Controller extends React.PureComponent<IProps, IState> {
       });
       return;
     }
+
+    let timePickerTips = {};
+    if (this.props.onDayClick) {
+      Loading();
+      try {
+        const res = await this.props.onDayClick(day, type);
+        timePickerTips = res || {};
+      } catch (err) {}
+      Loading.hide();
+    }
     this.setState({
       chooseRange: range,
       timePickerVisible: true,
       timePickerTimes: times,
+      timePickerTips: timePickerTips,
       timePickerData: { day, times: type === 'rent' ? data.rent : data.revert },
       chooseType: type,
     });
@@ -264,7 +279,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTimes: [null, null],
       preTimePickerTimes: [null, null],
     });
-  }
+  };
 
   // 取消日期选择
   protected timePickerCancel = () => {
@@ -273,7 +288,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTimes: [...this.state.preTimePickerTimes] as any,
       timePickerVisible: false,
     });
-  }
+  };
 
   // 日期选择下一步
   protected timePickerNext = async () => {
@@ -337,7 +352,10 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTimes: times,
       timePickerVisible: false,
     });
-  }
+  };
+
+  // 时间改变
+  protected onTimeChange = () => {};
 
   // 确认提交
   protected onSubmit = () => {
@@ -351,7 +369,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       return;
     }
     this.props.onSubmit(times[0], times[1]);
-  }
+  };
 
   // 判断是否为整点时间
   private isZeroTime(date?: Date | null) {

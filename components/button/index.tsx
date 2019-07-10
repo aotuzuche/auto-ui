@@ -18,6 +18,8 @@ interface ButtonProps {
   [otherProps: string]: any;
 }
 
+
+
 const Button: React.FC<ButtonProps> = props => {
   const { type, disabled, shrink, mini, hollow, loading, className, children, onClick, ...otherProps } = props;
 

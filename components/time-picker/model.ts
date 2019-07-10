@@ -1,4 +1,4 @@
-import dateFormat from './dateFormat';
+import dateFormat from './dateFormat'
 
 export interface Times {
   HHList: string[];
@@ -42,7 +42,7 @@ class Model {
   // 获取时间列表，并format格式
   public getDayList: (data: TimeData[], format: DateFormat) => string[] = (
     data,
-    format = ['MM月dd日 周wk', 'h点', 'm分'],
+    format = ['MM月dd日 周wk', 'h点', 'm分']
   ) => {
     const days: string[] = [];
     const dayFormat: string = format[0];
@@ -54,7 +54,7 @@ class Model {
       });
     }
     return days;
-  }
+  };
 
   // 根据时间转换出state需要的数据
   public getStateByTime: (time: Date, data: TimeData[]) => TimeState = (time, data) => {
@@ -126,7 +126,7 @@ class Model {
       MMList: times.MMList[times.HHList[currentHHIndex]], // 分钟的列表
     };
     return res;
-  }
+  };
 
   // 将时间和分钟分为两组数据，接收的数据格式为getTimeList方法返回的格式
   public transTimeList: (times: string[]) => Times = times => {
@@ -147,7 +147,7 @@ class Model {
       });
     }
     return result;
-  }
+  };
 
   // 根据两个范围获取可用的时间
   // eg: getTimeRange(0215, 1200) 表示2:15至12点间的可用时间
@@ -184,7 +184,7 @@ class Model {
       }
     }
     return range;
-  }
+  };
 
   // 判断是否为整点时间
   public isZeroTime(date: Date) {
@@ -227,7 +227,7 @@ class Model {
       times = this.getTimeRange(day.times[0] as string, day.times[1] as string);
     }
     return times.sort((a, b) => Number(a) - Number(b));
-  }
+  };
 }
 
 export default new Model();

@@ -1,14 +1,16 @@
-import * as React from 'react';
-import classnames from 'classnames';
-import IScroll from 'iscroll/build/iscroll-lite';
-import model, { Times, TimeData } from './model';
-import './style.scss';
+import classnames from 'classnames'
+import IScroll from 'iscroll/build/iscroll-lite'
+import * as React from 'react'
+import dateFormat from './dateFormat'
+import model, { TimeData, Times } from './model'
+import './style.scss'
 
 let ID = 0;
 
 interface IProps {
   format: [string, string, string];
   data: TimeData[];
+  tips?: Record<string, string>;
   interval?: number;
   defaultDay: Date;
   onChange: (data: Date) => void;
@@ -16,10 +18,11 @@ interface IProps {
 }
 
 interface IState {
-  props: IProps;
+  props: IProps; // props的备份
   days: string[]; // ['5月1日 周二', '5月2日 周三', ...]
   currentDayValue: Date;
   currentDayIndex: number;
+  currentTips: string;
   times: Times; // { '00': ['00', '15', '30', '45'], '01': [...] }
   HHList: string[]; // ['00', '01', '02', '03', ...]
   currentHHValue: string; // '02'
@@ -69,6 +72,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
     this.state = {
       props,
       days: [],
+      currentTips: '',
       currentDayValue: new Date(),
       currentDayIndex: 0,
       times: { HHList: [], MMList: {} },
@@ -143,7 +147,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
         currentMMValue: state.currentMMValue,
         currentMMIndex: state.currentMMIndex,
       },
-      this.initScrolls,
+      this.initScrolls
     );
   }
 
@@ -169,7 +173,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       {
         ...state,
       },
-      this.refreshScrolls,
+      this.refreshScrolls
     );
   }
 
@@ -188,17 +192,17 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       {
         ...state,
       },
-      this.refreshScrolls,
+      this.refreshScrolls
     );
   }
 
   public render() {
-    const { data, format, interval, defaultDay, onChange, className, ...otherProps } = this.props;
-
+    const { data, format, interval, defaultDay, onChange, className, tips, ...otherProps } = this.props;
     const css = classnames('x-time-picker', className);
 
     return (
       <div {...otherProps} className={css}>
+        <span className="x-time-picker__tips">{this.state.currentTips}</span>
         <sup className="x-time-picker__mask-t" />
         <sup className="x-time-picker__mask-b" />
         {this.renderDayList()}
@@ -282,7 +286,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
         this.scrollEndCalc(this.iScrollMM, Key);
       });
     }
-  }
+  };
 
   // 刷新滚动条
   private refreshScrolls = () => {
@@ -298,7 +302,15 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       this.iScrollMM.refresh();
       this.iScrollMM.scrollTo(0, -this.realScrollRowHeight * this.state.currentMMIndex, 300);
     }
-  }
+    const dayValue = this.state.currentDayValue;
+    const hValue = this.state.currentHHValue;
+    const mValue = this.state.currentMMValue;
+    const day = `${dateFormat(dayValue, 'yyyyMMdd')}${hValue}${mValue}`;
+    const tips = this.props.tips || {};
+    this.setState({
+      currentTips: tips[day] || '',
+    });
+  };
 
   // 渲染天列表
   private renderDayList() {
@@ -377,21 +389,25 @@ class TimePicker extends React.PureComponent<IProps, IState> {
           mIndex = 0;
         }
 
+        const dayValue = this.props.data[row].day;
         const hValue = times.HHList[hIndex];
         const mList = times.MMList[hValue];
         const mValue = mList[mIndex];
+        const day = `${dateFormat(dayValue, 'yyyyMMdd')}${hValue}${mValue}`;
+        const tips = this.props.tips || {};
 
         this.setState(
           {
             times,
             currentDayIndex: row,
-            currentDayValue: this.props.data[row].day,
+            currentDayValue: dayValue,
             HHList: times.HHList,
             currentHHIndex: hIndex,
             currentHHValue: hValue,
             MMList: mList,
             currentMMIndex: mIndex,
             currentMMValue: mValue,
+            currentTips: tips[day] || '',
           },
           () => {
             if (this.iScrollHH) {
@@ -403,7 +419,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
               this.iScrollMM.scrollTo(0, -mIndex * this.realScrollRowHeight, 0);
             }
             this.onChange();
-          },
+          }
         );
       } else if (type === 'HHList') {
         // 如果滚动的是小时，更新小时
@@ -412,10 +428,14 @@ class TimePicker extends React.PureComponent<IProps, IState> {
         const mList = this.state.times.MMList[h];
         let mIndex = mList.indexOf(this.state.currentMMValue);
         mIndex = mIndex > -1 ? mIndex : 0;
+        const day = `${dateFormat(this.state.currentDayValue, 'yyyyMMdd')}${h}${mList[mIndex]}`;
+        const tips = this.props.tips || {};
+
         this.setState(
           {
             currentHHIndex: row,
             currentHHValue: h,
+            currentTips: tips[day] || '',
             MMList: mList,
             currentMMIndex: mIndex,
             currentMMValue: mList[mIndex],
@@ -426,28 +446,33 @@ class TimePicker extends React.PureComponent<IProps, IState> {
               this.iScrollMM.scrollTo(0, -mIndex * this.realScrollRowHeight, 0);
             }
             this.onChange();
-          },
+          }
         );
       } else if (type === 'MM') {
         // 如果滚动的分钟，更新自身的值
+        const state = this.state;
+        const day = `${dateFormat(state.currentDayValue, 'yyyyMMdd')}${state.currentHHValue}${state.MMList[row]}`;
+        const tips = this.props.tips || {};
+
         this.setState(
           {
+            currentTips: tips[day] || '',
             currentMMIndex: row,
             currentMMValue: this.state.MMList[row],
           },
-          this.onChange,
+          this.onChange
         );
       }
     }
-  }
+  };
 
   // 值改变的事件
   private onChange = () => {
-    const date = this.getTime();
     if (this.props.onChange) {
+      const date = this.getTime();
       this.props.onChange(date);
     }
-  }
+  };
 
   // 删除全部iScroll
   private destroyScrolls = () => {
@@ -460,7 +485,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
     if (this.iScrollMM && this.iScrollMM.destroy) {
       this.iScrollMM.destroy();
     }
-  }
+  };
 }
 
 export default TimePicker;

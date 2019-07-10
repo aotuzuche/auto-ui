@@ -22,6 +22,17 @@
       display: block;
     }
   }
+  &__tips {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    text-align: center;
+    color: #ff3d3b;
+    font-size: 22px;
+    pointer-events: none;
+  }
   &__mask-t,
   &__mask-b {
     position: absolute;
@@ -40,11 +51,14 @@
   }
   &__day-list {
     flex-grow: 1;
+    overflow: hidden;
   }
   &__hh-list {
     flex-grow: 1;
+    overflow: hidden;
   }
   &__mm-list {
     flex-grow: 1;
+    overflow: hidden;
   }
 }
