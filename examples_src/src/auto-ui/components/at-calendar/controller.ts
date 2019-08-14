@@ -20,7 +20,7 @@ interface IProps {
   months: [Date, Date];
   chooseRange?: [Date, Date];
   onSubmit: (start: Date, end: Date) => void;
-  onDayClick?: (day: Date, type: string) => any;
+  onDayClick?: (day: Date, type: 'rent' | 'revert') => any;
   lock?: 'start' | 'end';
   data?: {
     [time: number]: IData;
