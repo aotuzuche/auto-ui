@@ -5,6 +5,14 @@
   display: flex;
   height: px(90);
   width: 100%;
+  border: px(1) solid $borderColor; /*no*/
+  border-radius: px($buttonRadius);
+  transition: all 0.1s ease-out;
+  background: #fff;
+  overflow: hidden;
+  &:focus-within {
+    border: px(1) solid #999; /*no*/
+  }
   &--mini {
     height: px(70);
   }
@@ -20,27 +28,11 @@
     line-height: 1.5;
     color: #333;
     padding: px(20);
-    border: px(1) solid $borderColor; /*no*/
-    border-radius: px($buttonRadius);
-    background: #fff;
+    border: none;
     font-weight: normal;
-    transition: all 0.1s ease-out;
+    resize: none;
     &::-webkit-input-placeholder {
       color: #b4b4b4;
-    }
-    &:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &:focus {
-      border: px(1) solid $primaryColor; /*no*/
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 0 px(10) rgba($primaryColor, 0.3);
     }
   }
   &--disabled {
@@ -49,9 +41,8 @@
     }
   }
   &.x-input--error {
+    border: px(1) solid $dangerColor; /*no*/
     .x-input__ipt {
-      border: px(1) solid $dangerColor; /*no*/
-      box-shadow: 0 0 px(10) rgba($dangerColor, 0.3);
       color: $dangerColor !important;
     }
   }
@@ -60,26 +51,12 @@
     display: flex;
     align-items: center;
     height: 100%;
-    background: #fff;
-    border: px(1) solid $borderColor; /*no*/
-    border-radius: px($buttonRadius);
     font-size: px(30);
     > * {
-      padding: 0 px(20);
       height: 100%;
       display: flex;
       align-items: center;
     }
-  }
-  &__addon-before {
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  &__addon-after {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
   }
 
   // date类型

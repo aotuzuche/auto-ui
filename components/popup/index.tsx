@@ -1,8 +1,8 @@
-import * as React from 'react';
-import cn from 'classnames';
-import Modal from '../modal/index';
-import { createPortal } from 'react-dom';
-import './style.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import { createPortal } from 'react-dom'
+import Modal from '../modal/index'
+import './style.scss'
 
 interface IProps {
   className?: string;
@@ -10,6 +10,7 @@ interface IProps {
   top?: boolean;
   height?: number | string;
   visible?: boolean;
+  smoothBorder?: boolean;
   children: React.ReactNode;
   onMaskClick?: () => void;
   noPadding?: boolean;
@@ -42,13 +43,24 @@ class Popup extends React.PureComponent<IProps, IState> {
   }
 
   public content() {
-    const { className, top, onMaskClick, height, visible, noPadding, children, ...otherProps } = this.props;
+    const {
+      className,
+      top,
+      onMaskClick,
+      height,
+      visible,
+      noPadding,
+      smoothBorder,
+      children,
+      ...otherProps
+    } = this.props;
     const composeClassName = cn(
       'x-popup',
       {
         'x-popup--top': top,
+        'x-popup--smooth-border': smoothBorder,
       },
-      className,
+      className
     );
 
     const composeChildren: any[] = [];

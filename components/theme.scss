@@ -1,9 +1,9 @@
-$primaryColor: #00bb55 !default; // 主色调与主色调:active的颜色
+$primaryColor: #00bc93 !default; // 主色调与主色调:active的颜色
 $dangerColor: #ff5f4a !default; // 警告色与警告色:active的颜色
 $buttonRadius: 5 !default; // input、button的圆角
 $alertRadius: 8 !default; // alert、toast、dialog的圆角
-$borderColor: #ededed !default; // input、cell的边的颜色
-$background: #f3f4f6 !default; // layout.body的背景色
+$borderColor: #eee !default; // input、cell的边的颜色
+$background: #f5f5f5 !default; // layout.body的背景色
 $maskColor: rgba(0, 0, 0, 0.7) !default;
 
 @function px($px) {
