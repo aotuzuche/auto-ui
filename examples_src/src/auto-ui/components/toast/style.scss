@@ -15,8 +15,8 @@
   pointer-events: none;
   &__inner {
     background: rgba(0, 0, 0, 0.7);
-    padding: px(10) px(16);
-    border-radius: px($alertRadius);
+    padding: px(30) px(36);
+    border-radius: px($buttonRadius);
     opacity: 0;
     transform-origin: 50%;
     max-width: 80%;

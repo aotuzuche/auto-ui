@@ -175,7 +175,7 @@ class Controller extends React.PureComponent<IProps, IState> {
     const range: [Date | null, Date | null] = [this.state.chooseRange[0], this.state.chooseRange[1]];
     const times: [Date | null, Date | null] = [this.state.timePickerTimes[0], this.state.timePickerTimes[1]];
 
-    let type: string = 'rent';
+    let type: 'rent' | 'revert' = 'rent';
 
     if (this.props.lock === 'start') {
       if (range[0]!.valueOf() > day.valueOf()) {

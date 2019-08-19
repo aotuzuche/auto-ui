@@ -6,6 +6,19 @@
   &--top {
     align-items: flex-start !important;
   }
+  &--smooth-border {
+    .x-modal__inner {
+      border-top-left-radius: px($alertRadius);
+      border-top-right-radius: px($alertRadius);
+    }
+    &.x-popup--top {
+      .x-modal__inner {
+        border-radius: 0;
+        border-bottom-left-radius: px($alertRadius);
+        border-bottom-right-radius: px($alertRadius);
+      }
+    }
+  }
   &__inner {
     overflow: auto;
     padding: px(40);
@@ -17,6 +30,7 @@
   &__scroller {
     flex: 1;
     display: flex;
+    overflow: hidden;
   }
   &__inscroller {
     flex: 1;
