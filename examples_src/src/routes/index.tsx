@@ -48,6 +48,7 @@ import PagePopupHeight from '../pages/popup_height'
 import PagePopupMaskClick from '../pages/popup_mask_click'
 import PagePopupNoPadding from '../pages/popup_no_padding'
 import PagePopupScroll from '../pages/popup_scroll'
+import PagePopupSmoothBorder from '../pages/popup_smooth_border'
 import PagePopupTop from '../pages/popup_top'
 import PageRadio from '../pages/radio'
 import PageRadioBorder from '../pages/radio_border'
@@ -116,6 +117,7 @@ const routes: any[] = [
   ['popup_mask_click', PagePopupMaskClick],
   ['popup_no_padding', PagePopupNoPadding],
   ['popup_scroll', PagePopupScroll],
+  ['popup_smooth_border', PagePopupSmoothBorder],
   ['popup_top', PagePopupTop],
   ['space', PageSpace],
   ['actionsheet', PageActionsheet],

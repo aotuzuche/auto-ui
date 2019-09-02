@@ -38,11 +38,12 @@ code=[scroll](popup_scroll)
 
 ## 支持属性
 
-| 属性      | 说明                        | 类型          | 默认值 |
-| --------- | --------------------------- | ------------- | ------ |
-| visible   | 是否显示                    | Boolean       | false  |
-| onBgClick | 蒙层点击事件                | Function      | -      |
-| height    | 高度                        | Number/String | 50     |
-| top       | 是否从顶部滑入              | Boolean       | false  |
-| noPadding | 是否需要内 padding          | Boolean       | false  |
-| local     | 从当前 Popup 的父容器中弹出 | Boolean       | false  |
+| 属性         | 说明                        | 类型          | 默认值 |
+| ------------ | --------------------------- | ------------- | ------ |
+| visible      | 是否显示                    | Boolean       | false  |
+| onBgClick    | 蒙层点击事件                | Function      | -      |
+| height       | 高度                        | Number/String | 50     |
+| smoothBorder | 平滑边角，即圆角            | Boolean       | false  |
+| top          | 是否从顶部滑入              | Boolean       | false  |
+| noPadding    | 是否需要内 padding          | Boolean       | false  |
+| local        | 从当前 Popup 的父容器中弹出 | Boolean       | false  |

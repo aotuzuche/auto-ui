@@ -22,7 +22,6 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          <Button onClick={this.onClick}>显示ActionSheet</Button>
           <TimePicker
             data={data}
             format={['MM月dd日 周wk', 'h点', 'm分']}
@@ -34,10 +33,6 @@ class Demo extends React.PureComponent {
       </Layout>
     );
   }
-
-  private onClick = () => {
-    this.setState({ visible: !this.state.visible });
-  };
 
   private showTime = (value: Date) => {
     Toast(value.toString());
