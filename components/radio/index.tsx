@@ -1,12 +1,13 @@
-import * as React from 'react';
-import A from '../a/index';
-import cn from 'classnames';
-import IconCheck from '../icon/check';
-import './style.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import A from '../a/index'
+import IconCheck from '../icon/check'
+import './style.scss'
 
 interface IProps {
   checked: boolean;
   disabled?: boolean;
+  border?: boolean;
   className?: string;
   text?: string;
   children?: null;
@@ -16,15 +17,16 @@ interface IProps {
 }
 
 const Radio: React.FC<IProps> = props => {
-  const { checked, disabled, className, text, onChange, ...otherProps } = props;
+  const { checked, disabled, className, text, onChange, border, ...otherProps } = props;
 
   const composeClassName = cn(
     'x-radio',
     {
-      'x-radio__checked': checked,
-      'x-radio__disabled': disabled,
+      'x-radio--checked': checked,
+      'x-radio--disabled': disabled,
+      'x-radio--border': border,
     },
-    className,
+    className
   );
 
   const onClick = () => {

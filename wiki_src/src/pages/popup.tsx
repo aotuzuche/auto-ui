@@ -271,6 +271,12 @@ export default class View extends React.PureComponent {
 <td>50</td>
 </tr>
 <tr>
+<td>smoothBorder</td>
+<td>平滑边角，即圆角</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>top</td>
 <td>是否从顶部滑入</td>
 <td>Boolean</td>

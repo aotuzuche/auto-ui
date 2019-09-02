@@ -45,7 +45,7 @@
     user-select: none;
   }
 
-  &__checked {
+  &--checked {
     .x-radio__icon {
       background: $primaryColor;
       svg {
@@ -63,7 +63,7 @@
     }
   }
 
-  &__disabled {
+  &--disabled {
     &:active {
       opacity: 1 !important;
     }
@@ -72,6 +72,19 @@
     }
     .x-radio__text {
       color: #bbb;
+    }
+  }
+
+  &--border:not(.x-radio--checked) {
+    .x-radio__icon {
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.13) inset; /*no*/
+    }
+    &:active {
+      opacity: 1;
+      .x-radio__icon {
+        background: rgb(240, 240, 240);
+      }
     }
   }
 }

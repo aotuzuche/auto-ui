@@ -13,6 +13,7 @@
   &__scroller {
     flex: 1;
     display: flex;
+    overflow: hidden;
   }
   &__inscroller {
     flex: 1;
