@@ -44,7 +44,7 @@
     pointer-events: none;
     &:after {
       content: '';
-      background: nth($primaryColor, 1);
+      background: $primaryColor;
       width: px(30);
       height: px(6);
       position: absolute;
