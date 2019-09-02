@@ -50,6 +50,7 @@ import PagePopupNoPadding from '../pages/popup_no_padding'
 import PagePopupScroll from '../pages/popup_scroll'
 import PagePopupTop from '../pages/popup_top'
 import PageRadio from '../pages/radio'
+import PageRadioBorder from '../pages/radio_border'
 import PageRadioDisabled from '../pages/radio_disabled'
 import PageRadioText from '../pages/radio_text'
 import PageSpace from '../pages/space'
@@ -102,6 +103,7 @@ const routes: any[] = [
   ['tabs', PageTabs],
   ['time-picker', PageTimePicker],
   ['radio', PageRadio],
+  ['radio_border', PageRadioBorder],
   ['radio_disabled', PageRadioDisabled],
   ['radio_text', PageRadioText],
   ['dialog', PageDialog],
