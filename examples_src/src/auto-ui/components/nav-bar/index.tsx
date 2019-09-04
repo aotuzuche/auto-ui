@@ -39,7 +39,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
         {leftBtn && (
           <div className="auto-ui_navbar-leftbtn" onClick={leftClick || this.leftClick}>
             {leftBtn === true ? (
-              <a href="javascript:;" className="auto-ui_navbar-btn">
+              <a className="auto-ui_navbar-btn">
                 <IconBackS color={dark ? '#fff' : '#000'} />
               </a>
             ) : (

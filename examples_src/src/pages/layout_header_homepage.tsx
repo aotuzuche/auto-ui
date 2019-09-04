@@ -11,10 +11,9 @@ const Demo: React.FC<any> = () => {
       <Layout.Header
         title="标题"
         borderType="shadow"
-        homepageButton={true}
-        onHomepageButtonClick={onHomepageButtonClick}
+        homepage={true}
       />
-      <Layout.Body>请点击右上角的图标<br />若没有自定义onHomepageButtonClick，则跳转到当前域名的/m/index页面</Layout.Body>
+      <Layout.Body>请点击右上角的图标</Layout.Body>
     </Layout>
   );
 };

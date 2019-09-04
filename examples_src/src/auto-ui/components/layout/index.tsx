@@ -83,7 +83,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     return (
       <div className="x-app-body__bottom">
         {!this.state.bottomLoading && (
-          <a href="javascript:;" onClick={this.handler} className="x-app-body__bottom-inner">
+          <a onClick={this.handler} className="x-app-body__bottom-inner">
             {onReachBottom.content || '加载更多'}
           </a>
         )}
@@ -193,8 +193,8 @@ interface IHeaderProps {
   className?: string;
   ghost?: boolean;
   addonBefore?: React.ReactNode;
-  onBackClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-  onCloseClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onBackClick?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | boolean;
+  onCloseClick?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | boolean;
   title?: string;
   addonAfter?: React.ReactNode;
   addonBottom?: React.ReactNode;
@@ -203,8 +203,7 @@ interface IHeaderProps {
   hideInAlipay?: boolean;
   hideInAlipayMP?: boolean;
   hideInApp?: boolean;
-  homepageButton?: boolean;
-  onHomepageButtonClick?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string;
+  homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean;
   [otherProps: string]: any;
 }
 
@@ -224,8 +223,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     hideInAlipay,
     hideInAlipayMP,
     hideInApp,
-    homepageButton,
-    onHomepageButtonClick,
+    homepage,
     ...otherProps
   } = props;
 
@@ -269,15 +267,32 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
   } // TODO: 异步获取是否在支付宝中的flag，所以这段代码有bug
 
   const gotoHomepage = (evt: any) => {
-    if (onHomepageButtonClick) {
-      if (typeof onHomepageButtonClick === 'string') {
-        window.location.href = onHomepageButtonClick;
-      } else {
-        onHomepageButtonClick(evt)
-      }
-      return
+    if (!homepage) return;
+    if (typeof homepage === 'string') {
+      window.location.href = homepage;
+    } else if (typeof homepage === 'boolean') {
+      window.location.href = '/m/index';
+    } else {
+      homepage(evt);
     }
-    window.location.href = '/m/index';
+  };
+
+  const _onBackClick = (evt: any) => {
+    if (!onBackClick) return;
+    if (typeof onBackClick === 'boolean') {
+      window.history.back();
+    }  else {
+      onBackClick(evt);
+    }
+  };
+
+  const _onCloseClick = (evt: any) => {
+    if (!onCloseClick) return;
+    if (typeof onCloseClick === 'boolean') {
+      window.history.back();
+    }  else {
+      onCloseClick(evt);
+    }
   };
 
   return (
@@ -286,12 +301,12 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         {(addonBefore || onBackClick || onCloseClick) && (
           <div className="x-app-header__addon-before">
             {!!onBackClick && (
-              <a onClick={props.onBackClick} href="javascript:;" className="x-app-header__back">
+              <a onClick={_onBackClick} className="x-app-header__back">
                 <IconBack />
               </a>
             )}
             {!!onCloseClick && (
-              <a onClick={props.onCloseClick} href="javascript:;" className="x-app-header__close">
+              <a onClick={_onCloseClick} className="x-app-header__close">
                 <IconClose />
               </a>
             )}
@@ -300,10 +315,10 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         )}
         {!!title && <h1 className="x-app-header__title">{title}</h1>}
         {!title && children}
-        {(!!addonAfter || homepageButton) && (
+        {(!!addonAfter || homepage) && (
           <div className="x-app-header__addon-after">
             {props.addonAfter}
-            {homepageButton && <a className="x-app-header__homepage-button" onClick={gotoHomepage} />}
+            {homepage && <a className="x-app-header__homepage-button" onClick={gotoHomepage} />}
           </div>
         )}
       </div>

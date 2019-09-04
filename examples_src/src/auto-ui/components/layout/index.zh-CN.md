@@ -8,11 +8,13 @@ code=[基本使用](layout)
 
 ## 回首页按钮
 
-回首页按钮默认回到当前域名下的/m/index，你也可以用onHomepageButtonClick方法重写事件
+homepage有几种类型的值可选
 
-**onHomepageButtonClick可以直接写一个域名，也可以写个回调方法来处理**
+- true: 显示该按钮且点击到达/m/index页面
+- string类型: 将值当作url进行跳转
+- function类型: 调用该方法
 
-code=[homepage button](layout_header_homepage)
+code=[homepage](layout_header_homepage)
 
 ## 高级导航
 
@@ -51,22 +53,21 @@ code=[onReachBottom](layout_reach_bottom)
 
 ## Layout.Header 支持属性
 
-| 属性                  | 说明                                               | 类型                 | 默认值 |
-| --------------------- | -------------------------------------------------- | -------------------- | ------ |
-| title                 | 标题                                               | String               | -      |
-| ghost                 | 透明模式，一般用在个人主页之类的顶部               | Boolean              | false  |
-| leading               | 大字标题模式，即标题非常大的那种                   | Boolean              | false  |
-| addonBefore           | 左侧挂载                                           | Component            | -      |
-| onBackClick           | 返回事件，基于左侧挂载的封装                       | Function             | -      |
-| onCloseClick          | 关闭事件，基于左侧挂载的封装                       | Function             | -      |
-| addonAfter            | 右侧挂载                                           | Component            | -      |
-| addonBottom           | 下方挂载                                           | Component            | -      |
-| homepageButton        | 是否显示回首页的按钮                               | Boolean              | false  |
-| onHomepageButtonClick | 回首页按钮点击的事件，默认回到当前域名下的/m/index | Function             | -      |
-| hideInApp             | 在 app 中隐藏自身                                  | Boolean              | false  |
-| hideInAlipay          | 在 支付宝(网页和小程序) 中隐藏自身                 | Boolean              | false  |
-| hideInAlipayMP        | 在 支付宝小程序 中隐藏自身                         | Boolean              | false  |
-| borderType            | 头部下方是使用阴影、线或是没有                     | border、shadow、none | none   |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 标题 | String | - |
+| ghost | 透明模式，一般用在个人主页之类的顶部 | Boolean | false |
+| leading | 大字标题模式，即标题非常大的那种 | Boolean | false |
+| addonBefore | 左侧挂载 | Component | - |
+| onBackClick | 返回事件，基于左侧挂载的封装，若值为true，则调用window.history.back() | Function/Boolean | - |
+| onCloseClick | 关闭事件，基于左侧挂载的封装，若值为true，则调用window.history.back() | Function/Boolean | - |
+| addonAfter | 右侧挂载 | Component | - |
+| addonBottom | 下方挂载 | Component | - |
+| homepage | 首页按钮，若值为 true，点击到达/m/index 页面，若为 string 类型，则认为该 string 是个 url 进行跳转，若为 function 类型，则调用该方法 | Function/String/Boolean | - |
+| hideInApp | 在 app 中隐藏自身 | Boolean | false |
+| hideInAlipay | 在 支付宝(网页和小程序) 中隐藏自身 | Boolean | false |
+| hideInAlipayMP | 在 支付宝小程序 中隐藏自身 | Boolean | false |
+| borderType | 头部下方是使用阴影、线或是没有 | border、shadow、none | none |
 
 ## Layout.Body 支持属性
 

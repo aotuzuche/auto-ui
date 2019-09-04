@@ -22,7 +22,7 @@ const A: React.FC<IProps> = props => {
   };
 
   return (
-    <a {...otherProps} onClick={_onClick} href="javascript:;">
+    <a {...otherProps} onClick={_onClick}>
       {children}
     </a>
   );

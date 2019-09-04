@@ -61,7 +61,7 @@ class AtCalendar extends Controller {
         title={this.props.title}
         addonAfter={
           !this.props.readonly && (
-            <a href="javascript:;" className="clear" onClick={this.clearChooseRange}>
+            <a className="clear" onClick={this.clearChooseRange}>
               清空
             </a>
           )
@@ -218,11 +218,11 @@ class AtCalendar extends Controller {
         onMaskClick={this.timePickerCancel}
         height="4.9rem">
         <header className="header">
-          <a href="javascript:;" className="cancel" onClick={this.timePickerCancel}>
+          <a className="cancel" onClick={this.timePickerCancel}>
             取消
           </a>
           <h2>请选择{this.state.chooseType === 'rent' ? '取' : '还'}车时间</h2>
-          <a href="javascript:;" onClick={this.timePickerNext}>
+          <a onClick={this.timePickerNext}>
             下一步
           </a>
         </header>
