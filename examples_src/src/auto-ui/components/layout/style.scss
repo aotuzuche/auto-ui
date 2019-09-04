@@ -95,12 +95,18 @@ body,
       margin-top: px(-30);
     }
   }
+  a {
+    color: #666;
+  }
   &--ghost {
     box-shadow: none;
     &:after {
       opacity: 0;
     }
     .x-app-header__title {
+      color: #fff;
+    }
+    a {
       color: #fff;
     }
   }
