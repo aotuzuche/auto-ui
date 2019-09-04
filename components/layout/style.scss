@@ -80,6 +80,14 @@ body,
   &__addon-after {
     justify-content: flex-end;
   }
+  &__homepage-button {
+    display: block;
+    width: px(80);
+    height: px(80);
+    background: url('./images/icon-home.png') center no-repeat;
+    background-size: px(33);
+    margin-right: px(-23);
+  }
   &__addon-bottom {
     position: relative;
     z-index: 1;

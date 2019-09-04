@@ -203,6 +203,8 @@ interface IHeaderProps {
   hideInAlipay?: boolean;
   hideInAlipayMP?: boolean;
   hideInApp?: boolean;
+  homepageButton?: boolean;
+  onHomepageButtonClick?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string;
   [otherProps: string]: any;
 }
 
@@ -222,6 +224,8 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     hideInAlipay,
     hideInAlipayMP,
     hideInApp,
+    homepageButton,
+    onHomepageButtonClick,
     ...otherProps
   } = props;
 
@@ -262,7 +266,19 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 
   if (hideInAlipayMP && isInAlipayMP) {
     return null;
-  }
+  } // TODO: 异步获取是否在支付宝中的flag，所以这段代码有bug
+
+  const gotoHomepage = (evt: any) => {
+    if (onHomepageButtonClick) {
+      if (typeof onHomepageButtonClick === 'string') {
+        window.location.href = onHomepageButtonClick;
+      } else {
+        onHomepageButtonClick(evt)
+      }
+      return
+    }
+    window.location.href = '/m/index';
+  };
 
   return (
     <header {...otherProps} className={composeClassName}>
@@ -284,7 +300,12 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         )}
         {!!title && <h1 className="x-app-header__title">{title}</h1>}
         {!title && children}
-        {!!addonAfter && <div className="x-app-header__addon-after">{props.addonAfter}</div>}
+        {(!!addonAfter || homepageButton) && (
+          <div className="x-app-header__addon-after">
+            {props.addonAfter}
+            {homepageButton && <a className="x-app-header__homepage-button" onClick={gotoHomepage} />}
+          </div>
+        )}
       </div>
       {!!addonBottom && <div className="x-app-header__addon-bottom">{props.addonBottom}</div>}
     </header>

@@ -34,6 +34,7 @@ import PageLayoutBorderType from '../pages/layout_border_type'
 import PageLayoutErrorInfo from '../pages/layout_error_info'
 import PageLayoutGhost from '../pages/layout_ghost'
 import PageLayoutHeader from '../pages/layout_header'
+import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
 import PageLayoutHeadline from '../pages/layout_headline'
 import PageLayoutLoading from '../pages/layout_loading'
 import PageLayoutReachBottom from '../pages/layout_reach_bottom'
@@ -129,6 +130,7 @@ const routes: any[] = [
   ['layout_ghost', PageLayoutGhost],
   ['layout_headline', PageLayoutHeadline],
   ['layout_header', PageLayoutHeader],
+  ['layout_header_homepage', PageLayoutHeaderHomepage],
   ['layout_loading', PageLayoutLoading],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['nav-bar', PageNavBar],
