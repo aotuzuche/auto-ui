@@ -11,7 +11,7 @@ const Demo: React.FC<any> = () => {
       <Layout.Header
         title="标题"
         borderType="shadow"
-        homepage={true}
+        homepage={onHomepageButtonClick}
       />
       <Layout.Body>请点击右上角的图标</Layout.Body>
     </Layout>
