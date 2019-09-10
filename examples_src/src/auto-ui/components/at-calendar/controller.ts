@@ -22,6 +22,7 @@ interface IProps {
   onSubmit: (start: Date, end: Date) => void;
   onDayClick?: (day: Date, type: 'rent' | 'revert') => any;
   lock?: 'start' | 'end';
+  localCheckTimeRange?: boolean; // 本地验证租期范围
   data?: {
     [time: number]: IData;
   };
@@ -45,7 +46,7 @@ interface IState {
 }
 
 class Controller extends React.PureComponent<IProps, IState> {
-  protected timePickerRef: React.RefObject<any> = React.createRef();
+  timePickerRef: React.RefObject<any> = React.createRef();
 
   constructor(props: IProps) {
     super(props);
@@ -103,7 +104,7 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     let cur = document.querySelector('#x-calendar-body .active-first');
     if (!cur) {
       cur = document.querySelector('#x-calendar-body .month-day:not(.empty):not(.disabled)');
@@ -306,7 +307,8 @@ class Controller extends React.PureComponent<IProps, IState> {
     } else {
       times[1] = this.timePickerRef.current.getTime();
     }
-    if (times[0] && times[1]) {
+    // 如果需要本地验证租期范围的话
+    if (this.props.localCheckTimeRange && times[0] && times[1]) {
       const offset = offsetHours(times[0], times[1]);
       if (offset <= 0 || offset < min || offset > max) {
         let tips = '';
@@ -413,6 +415,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
 (Controller as any).defaultProps = {
   maxHours: 99999,
+  localCheckTimeRange: true,
 };
 
 export default Controller;
