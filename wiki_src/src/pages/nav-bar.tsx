@@ -19,7 +19,8 @@ export default class View extends React.PureComponent {
 <span class="token punctuation">}</span><span class="token plain-text">;
 
 export default Demo;
-</span>`}} /></pre></div></div><h3>支持属性</h3><table>
+</span>`}} /></pre></div></div><p><strong>由于其所有功能都能在Layout.Header中实现，所以之后将不维护该组件，请及时替换</strong></p>
+<h2>支持属性</h2><table>
 <thead>
 <tr>
 <th>属性</th>
