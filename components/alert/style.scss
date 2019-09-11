@@ -46,7 +46,7 @@
     display: flex;
     padding: px(40);
     justify-content: flex-end;
-    a {
+    .x-button {
       font-size: px(28);
       &:not(:last-child) {
         margin-right: px(20);
