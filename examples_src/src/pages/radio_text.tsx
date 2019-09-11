@@ -13,7 +13,7 @@ class Demo extends React.PureComponent {
               <Radio checked={this.state.checked} onChange={this.onChange} text="同意什么什么协议" />
             </Cell.Row>
             <Cell.Row>
-              <Radio checked={this.state.checked} onChange={this.onChange} text="另一个什么什么协议" />
+              <Radio border={true} checked={this.state.checked} onChange={this.onChange} text="另一个什么什么协议" />
             </Cell.Row>
           </Cell>
         </Layout.Body>

@@ -10,7 +10,7 @@ const Demo: React.FC<any> = () => {
     <Layout>
       <Layout.Body>
         <Cell.Title text="分隔线缩进" />
-        <Cell onClick={onClick} arrow={true} indentLine={true}>
+        <Cell onClick={onClick} arrow={true} indentLine={true} endIndentLine={true}>
           <Cell.Row value="1">cell 1</Cell.Row>
           <Cell.Row value="2">cell 2</Cell.Row>
           <Cell.Row value="3">cell 3</Cell.Row>

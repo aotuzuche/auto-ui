@@ -10,16 +10,19 @@ interface IRowProps {
   className?: string;
   children: React.ReactNode;
   title?: string;
-  emit?: [string, any] | string;
+  indentLine?: boolean;
+  endIndentLine?: boolean;
   [otherProps: string]: any;
 }
 
 const CellRow: React.FC<IRowProps> = props => {
-  const { value, arrow, onClick, activeable, className, children, title, ...otherProps } = props;
+  const { value, arrow, onClick, activeable, className, children, title, indentLine, endIndentLine, ...otherProps } = props;
 
   const composeClassName = cn('x-cell__row', className, {
     'x-cell__row--activeable': onClick || activeable,
     'x-cell__row--arrow': arrow,
+    'x-cell__row--indent-line': indentLine,
+    'x-cell__row--end-indent-line': endIndentLine,
   });
 
   const onClickHandle = onClick ? () => {
@@ -52,6 +55,7 @@ const CellTitle: React.FC<ITitleProps> = props => {
 interface ICellProps {
   arrow?: boolean;
   indentLine?: boolean;
+  endIndentLine?: boolean;
   onClick?: (value?: any) => void;
   className?: string;
   children: React.ReactNode;
@@ -62,11 +66,9 @@ const Cell: React.FC<ICellProps> & {
   Row: React.FC<IRowProps>;
   Title: React.FC<ITitleProps>;
 } = props => {
-  const { arrow, indentLine, className, children, onClick, ...otherProps } = props;
+  const { arrow, indentLine, endIndentLine, className, children, onClick, ...otherProps } = props;
 
-  const composeClassName = cn('x-cell', className, {
-    'x-cell--indent-line': indentLine,
-  });
+  const composeClassName = cn('x-cell', className);
 
   const composeChildren: any[] = [];
   if (Array.isArray(children)) {
@@ -83,6 +85,8 @@ const Cell: React.FC<ICellProps> & {
             key: index,
             arrow: arrow || children.props.arrow,
             onClick: onClick || children.props.onClick,
+            indentLine: indentLine,
+            endIndentLine: endIndentLine,
           });
         }
         return children;

@@ -11,7 +11,6 @@ interface IProps {
   text?: string;
   children?: null;
   onChange?: (checked: boolean) => void;
-  emit?: [string, any] | string;
   [otherProps: string]: any;
 }
 

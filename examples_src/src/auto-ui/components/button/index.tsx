@@ -13,7 +13,6 @@ interface ButtonProps {
   loading?: boolean;
   className?: string;
   children: React.ReactNode;
-  emit?: [string, any] | string;
   [otherProps: string]: any;
 }
 
