@@ -1,5 +1,4 @@
 import * as React from 'react';
-import A from '../a/index';
 import cn from 'classnames';
 import IconCheck from '../icon/check';
 import IconClose from '../icon/close';
@@ -34,21 +33,21 @@ const Switch: React.FC<IProps> = props => {
   const hasIO: boolean = !!i && !!o;
 
   const onClick = () => {
-    if (disabled) {
+    if (disabled || !onChange) {
       return;
     }
-    onChange!(!active);
+    onChange(!active);
   };
 
   return (
-    <A {...otherProps} className={composeClassName} onClick={onClick}>
+    <button {...otherProps} className={composeClassName} onClick={onClick}>
       {hasIO && <sub>{props.i}</sub>}
       {hasIO && <sup>{props.o}</sup>}
       <em>
         {icon && !active && <IconClose />}
         {icon && active && <IconCheck />}
       </em>
-    </A>
+    </button>
   );
 };
 

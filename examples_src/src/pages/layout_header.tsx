@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Layout } from '../auto-ui';
+import { Layout, Button } from '../auto-ui';
 
 const Demo: React.FC<any> = () => {
   return (
     <Layout>
       <Layout.Header
-        addonBefore={<a href="#">左侧挂载</a>}
+        addonBefore={<button>左侧挂载</button>}
         title="标题"
         onBackClick={() => {}}
         onCloseClick={() => {}}
         borderType="shadow"
-        addonAfter={<a href="#">右侧挂载</a>}
+        addonAfter={<Button shrink mini onClick={() => {}}>右侧挂载</Button>}
         homepageButton={true}
         addonBottom={<p>下方挂载</p>}
       />

@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import * as React from 'react';
-import A from '../a/index';
 import './style.scss';
 
 interface IItemProps {
@@ -27,9 +26,9 @@ const TabsItem: React.FC<IItemProps> = props => {
   };
 
   return (
-    <A {...otherProps} className={composeClassName} onClick={onAClick}>
+    <button {...otherProps} className={composeClassName} onClick={onAClick}>
       {children}
-    </A>
+    </button>
   );
 };
 

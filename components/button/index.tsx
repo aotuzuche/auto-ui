@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import * as React from 'react';
-import A from '../a/index';
 import Spin from '../spin/index';
 import './style.scss';
 
@@ -10,7 +9,7 @@ interface ButtonProps {
   hollow?: boolean;
   mini?: boolean;
   shrink?: boolean;
-  onClick: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   loading?: boolean;
   className?: string;
   children: React.ReactNode;
@@ -36,7 +35,7 @@ const Button: React.FC<ButtonProps> = props => {
     className,
   );
 
-  const clickHandle: React.MouseEventHandler<HTMLAnchorElement> = evt => {
+  const clickHandle: React.MouseEventHandler<HTMLButtonElement> = evt => {
     if (disabled || loading) {
       return;
     }
@@ -44,10 +43,10 @@ const Button: React.FC<ButtonProps> = props => {
   };
 
   return (
-    <A {...otherProps} className={composeClassName} onClick={clickHandle}>
+    <button {...otherProps} className={composeClassName} onClick={clickHandle}>
       {!!loading && <Spin className="x-button__loading" />}
       {children}
-    </A>
+    </button>
   );
 };
 

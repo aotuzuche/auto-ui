@@ -83,9 +83,9 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     return (
       <div className="x-app-body__bottom">
         {!this.state.bottomLoading && (
-          <a onClick={this.handler} className="x-app-body__bottom-inner">
+          <button onClick={this.handler} className="x-app-body__bottom-inner">
             {onReachBottom.content || '加载更多'}
-          </a>
+          </button>
         )}
         {!!this.state.bottomLoading && (
           <div className="x-app-body__bottom-inner">
@@ -301,14 +301,14 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         {(addonBefore || onBackClick || onCloseClick) && (
           <div className="x-app-header__addon-before">
             {!!onBackClick && (
-              <a onClick={_onBackClick} className="x-app-header__back">
+              <button onClick={_onBackClick} className="x-app-header__back">
                 <IconBack />
-              </a>
+              </button>
             )}
             {!!onCloseClick && (
-              <a onClick={_onCloseClick} className="x-app-header__close">
+              <button onClick={_onCloseClick} className="x-app-header__close">
                 <IconClose />
-              </a>
+              </button>
             )}
             {addonBefore}
           </div>
@@ -318,7 +318,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         {(!!addonAfter || homepage) && (
           <div className="x-app-header__addon-after">
             {props.addonAfter}
-            {homepage && <a className="x-app-header__homepage-button" onClick={gotoHomepage} />}
+            {homepage && <button className="x-app-header__homepage-button" onClick={gotoHomepage} />}
           </div>
         )}
       </div>

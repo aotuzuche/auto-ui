@@ -1,5 +1,4 @@
 import * as React from 'react';
-import A from '../a/index';
 import cn from 'classnames';
 import './style.scss';
 
@@ -23,22 +22,12 @@ const CellRow: React.FC<IRowProps> = props => {
     'x-cell__row--arrow': arrow,
   });
 
-  if (onClick) {
-    const onClickHandle = () => {
-      if (onClick) {
-        onClick(value);
-      }
-    };
-    return (
-      <A {...otherProps} className={composeClassName} onClick={onClickHandle}>
-        {title && <label>{title}</label>}
-        {children}
-      </A>
-    );
-  }
+  const onClickHandle = onClick ? () => {
+    onClick(value);
+  } : undefined;
 
   return (
-    <div {...otherProps} className={composeClassName}>
+    <div {...otherProps} className={composeClassName} onClick={onClickHandle}>
       {title && <label>{title}</label>}
       {children}
     </div>

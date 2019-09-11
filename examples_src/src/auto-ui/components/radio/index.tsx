@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import * as React from 'react'
-import A from '../a/index'
 import IconCheck from '../icon/check'
 import './style.scss'
 
@@ -39,12 +38,12 @@ const Radio: React.FC<IProps> = props => {
   };
   if (onChange) {
     return (
-      <A {...otherProps} className={composeClassName} onClick={onClick}>
+      <button {...otherProps} className={composeClassName} onClick={onClick}>
         <i className="x-radio__icon">
           <IconCheck />
         </i>
         {!!text && <span className="x-radio__text">{text}</span>}
-      </A>
+      </button>
     );
   }
   return (

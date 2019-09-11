@@ -68,7 +68,7 @@ class ActionSheet extends React.PureComponent<IProps, any> {
     if (typeof children === 'string' || typeof children === 'number') {
       const composeClassName = cn('x-actionsheet__button', className);
       return (
-        <a className={composeClassName} onClick={this.onItemClick(value)} children={children} />
+        <button className={composeClassName} onClick={this.onItemClick(value)} children={children} />
       );
     }
     const composeClassName = cn('x-actionsheet__item-con', className);
@@ -98,7 +98,7 @@ class ActionSheet extends React.PureComponent<IProps, any> {
           })}
         </div>
         {!!closeText && (
-          <a className="x-actionsheet__closebtn" onClick={onClose} children={closeText} />
+          <button className="x-actionsheet__closebtn" onClick={onClose} children={closeText} />
         )}
       </Modal>
     );
