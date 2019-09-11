@@ -6,7 +6,6 @@ interface IItemProps {
   value: string | number;
   className?: string;
   children: React.ReactNode;
-  emit?: [string, any] | string;
   [otherProps: string]: any;
 }
 

@@ -17,6 +17,28 @@
     color: #333;
     position: relative;
     border-bottom: px(1) solid $borderColor; /*no*/
+    &--indent-line, &--end-indent-line {
+      border-bottom: none;
+      &::after {
+        content: '';
+        display: block;
+        height: px(1); /*no*/
+        background: $borderColor;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      &:last-child:after {
+        display: none;
+      }
+    }
+    &--indent-line::after {
+      left: px(40);
+    }
+    &--end-indent-line::after {
+      right: px(40);
+    }
     > label {
       font-size: px(30);
     }
@@ -43,25 +65,6 @@
       &:active {
         opacity: 1;
         background: #fafafa;
-      }
-    }
-  }
-  &--indent-line {
-    .x-cell__row {
-      border-bottom: none;
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: px(1); /*no*/
-        background: $borderColor;
-        position: absolute;
-        left: px(40);
-        right: 0;
-        bottom: 0;
-      }
-      &:last-child:after {
-        display: none;
       }
     }
   }

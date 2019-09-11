@@ -16,7 +16,7 @@ code=[cell 的 onClick](cell_click)
 
 使每行的分隔线左侧不顶到头，很多列表菜单使用这种样式
 
-code=[indentLine](cell_indent_line)
+code=[indentLine 和 endIndentLine](cell_indent_line)
 
 ## 带箭头
 
@@ -30,6 +30,7 @@ code=[arrow](cell_arrow)
 | ---------- | ---------------------------------------------------- | -------- | ------ |
 | onClick    | 会覆盖掉 Cell.Row 的 onClick                         | Function | -      |
 | indentLine | 使每行的分隔线左侧不顶到头，很多列表菜单使用这种样式 | Boolean  | false  |
+| endIndentLine | 使每行的分隔线右侧不顶到头 | Boolean  | false  |
 | arrow      | 使每行的右侧带箭头符号                               | Boolean  | false  |
 
 ## Cell.Row 支持属性
