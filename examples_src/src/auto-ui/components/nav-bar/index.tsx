@@ -25,6 +25,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
   }
 
   public render() {
+    console.warn('NavBar组件将在3.0.0之后删除，请使用Layout.Header来代替')
     const { title, className, leftBtn, rightBtn, leftClick, rightClick, dark, transparent, ...otherProps } = this.props;
     const composeClass = cn(
       'auto-ui_navbar',

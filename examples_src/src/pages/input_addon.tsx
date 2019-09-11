@@ -11,7 +11,7 @@ const Demo: React.FC<any> = () => {
         <br />
         <Input value="" onChange={onChange} addonBefore={<p>手机号</p>} />
         <br />
-        <Input value="" onChange={onChange} addonAfter={<a>获取验证码</a>} />
+        <Input value="" onChange={onChange} addonAfter={<button>获取验证码</button>} />
       </Layout.Body>
     </Layout>
   );
