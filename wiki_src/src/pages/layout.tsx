@@ -26,11 +26,11 @@ export default class View extends React.PureComponent {
 <span class="token punctuation">}</span><span class="token plain-text">;
 
 export default Demo;
-</span>`}} /></pre></div></div><h2>回首页按钮</h2><p>homepage有几种类型的值可选</p>
+</span>`}} /></pre></div></div><h2>回首页按钮</h2><p>homepage 有几种类型的值可选</p>
 <ul>
-<li>true: 显示该按钮且点击到达/m/index页面</li>
-<li>string类型: 将值当作url进行跳转</li>
-<li>function类型: 调用该方法</li>
+<li>true: 显示该按钮且点击到达/m/index 页面</li>
+<li>string 类型: 将值当作 url 进行跳转</li>
+<li>function 类型: 调用该方法</li>
 </ul>
 <div className={C('code-box', { active: this.state.previewUrl.endsWith('/layout_header_homepage') })} onClick={this.onCodeClick.bind(null, '/layout_header_homepage')}><header>homepage</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
@@ -239,6 +239,18 @@ export default Demo;
 <td>String</td>
 <td>white</td>
 </tr>
+<tr>
+<td>useTopSafeArea</td>
+<td>是否使用顶部安全区域，默认使用</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>useBottomSafeArea</td>
+<td>是否使用底部安全区域，默认使用</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
 </tbody></table>
 <h2>Layout.Header 支持属性</h2><table>
 <thead>
@@ -275,13 +287,13 @@ export default Demo;
 </tr>
 <tr>
 <td>onBackClick</td>
-<td>返回事件，基于左侧挂载的封装，若值为true，则调用window.history.back()</td>
+<td>返回事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back()</td>
 <td>Function/Boolean</td>
 <td>-</td>
 </tr>
 <tr>
 <td>onCloseClick</td>
-<td>关闭事件，基于左侧挂载的封装，若值为true，则调用window.history.back()</td>
+<td>关闭事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back()</td>
 <td>Function/Boolean</td>
 <td>-</td>
 </tr>
@@ -326,6 +338,12 @@ export default Demo;
 <td>头部下方是使用阴影、线或是没有</td>
 <td>border、shadow、none</td>
 <td>none</td>
+</tr>
+<tr>
+<td>useSafeArea</td>
+<td>是否使用安全区域，默认是在 Layout 中使用，可以在 Layout 中关闭，在 Header 中使用，特殊情况下可以这么做，比如有吸顶 banner 图的时候</td>
+<td>Boolean</td>
+<td>false</td>
 </tr>
 </tbody></table>
 <h2>Layout.Body 支持属性</h2><table>

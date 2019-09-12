@@ -9,7 +9,9 @@ import './style.scss';
 
 interface ILayoutProps {
   className?: string;
+  useTopSafeArea?: boolean;
   topSafeAreaColor?: string;
+  useBottomSafeArea?: boolean;
   bottomSafeAreaColor?: string;
   [otherProps: string]: any;
 }
@@ -21,13 +23,13 @@ interface ILayout {
 }
 
 const Layout: React.FC<ILayoutProps> & ILayout = props => {
-  const { className, children, topSafeAreaColor, bottomSafeAreaColor, ...otherProps } = props;
+  const { className, children, useTopSafeArea = true, useBottomSafeArea = true, topSafeAreaColor, bottomSafeAreaColor, ...otherProps } = props;
   const composeClassName = cn('x-app', className);
   return (
     <div {...otherProps} className={composeClassName}>
-      <SafeArea inset="top" color={topSafeAreaColor} />
+      {useTopSafeArea && <SafeArea inset="top" color={topSafeAreaColor} />}
       {children}
-      <SafeArea inset="bottom" color={bottomSafeAreaColor} />
+      {useBottomSafeArea && <SafeArea inset="bottom" color={bottomSafeAreaColor} />}
     </div>
   );
 };
@@ -204,6 +206,7 @@ interface IHeaderProps {
   hideInAlipayMP?: boolean;
   hideInApp?: boolean;
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean;
+  useSafeArea?: boolean;
   [otherProps: string]: any;
 }
 
@@ -224,6 +227,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     hideInAlipayMP,
     hideInApp,
     homepage,
+    useSafeArea,
     ...otherProps
   } = props;
 
@@ -297,6 +301,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 
   return (
     <header {...otherProps} className={composeClassName}>
+      {useSafeArea && <SafeArea inset="top" color="transparent" />}
       <div className="x-app-header__inner">
         {(addonBefore || onBackClick || onCloseClick) && (
           <div className="x-app-header__addon-before">
