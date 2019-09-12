@@ -23,13 +23,13 @@ interface ILayout {
 }
 
 const Layout: React.FC<ILayoutProps> & ILayout = props => {
-  const { className, children, useTopSafeArea, useBottomSafeArea, topSafeAreaColor, bottomSafeAreaColor, ...otherProps } = props;
+  const { className, children, useTopSafeArea = true, useBottomSafeArea = true, topSafeAreaColor, bottomSafeAreaColor, ...otherProps } = props;
   const composeClassName = cn('x-app', className);
   return (
     <div {...otherProps} className={composeClassName}>
-      {typeof useTopSafeArea === 'boolean' && useTopSafeArea && <SafeArea inset="top" color={topSafeAreaColor} />}
+      {useTopSafeArea && <SafeArea inset="top" color={topSafeAreaColor} />}
       {children}
-      {typeof useBottomSafeArea === 'boolean' && useBottomSafeArea && <SafeArea inset="bottom" color={bottomSafeAreaColor} />}
+      {useBottomSafeArea && <SafeArea inset="bottom" color={bottomSafeAreaColor} />}
     </div>
   );
 };
