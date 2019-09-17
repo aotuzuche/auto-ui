@@ -1,11 +1,9 @@
-import A from './es/a';
 import ActionSheet from './es/action-sheet';
 import Alert from './es/alert';
 import AtCalendar from './es/at-calendar';
 import Button from './es/button';
 import Cell from './es/cell';
 import Dialog from './es/dialog';
-import Emitter from './es/emitter';
 import Input from './es/input';
 import Layout from './es/layout';
 import Loading from './es/loading';
@@ -21,14 +19,12 @@ import TimePicker from './es/time-picker';
 import Toast from './es/toast';
 
 export {
-  A,
   ActionSheet,
   Alert,
   AtCalendar,
   Button,
   Cell,
   Dialog,
-  Emitter,
   Input,
   Layout,
   Loading,
