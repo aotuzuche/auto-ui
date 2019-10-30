@@ -17,6 +17,7 @@ const componentList = [
   'Tabs',
   'Space',
   'TimePicker',
+  'Card',
   'NavBar',
 ];
 

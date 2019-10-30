@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Button, Cell, Layout, Space, Switch, Toast } from '../auto-ui';
+import * as React from 'react'
+import { Button, Cell, Layout, Space, Switch, Toast } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { disabled: false };
+  state = { disabled: false }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -18,7 +18,12 @@ class Demo extends React.PureComponent {
                 按钮
               </Button>
               <Space size={2} />
-              <Button type="danger" onClick={this.onButtonClick} mini={true} disabled={this.state.disabled}>
+              <Button
+                type="danger"
+                onClick={this.onButtonClick}
+                mini={true}
+                disabled={this.state.disabled}
+              >
                 按钮
               </Button>
               <Space size={2} />
@@ -26,26 +31,35 @@ class Demo extends React.PureComponent {
                 按钮
               </Button>
               <Space size={2} />
-              <Button type="default" onClick={this.onButtonClick} mini={true} disabled={this.state.disabled}>
+              <Button
+                type="default"
+                onClick={this.onButtonClick}
+                mini={true}
+                disabled={this.state.disabled}
+              >
                 按钮
               </Button>
             </Cell.Row>
             <Cell.Row title="通过我设置disabled">
-              <Switch active={!this.state.disabled} onChange={this.onClick} style={{ marginLeft: 'auto' }} />
+              <Switch
+                active={!this.state.disabled}
+                onChange={this.onClick}
+                style={{ marginLeft: 'auto' }}
+              />
             </Cell.Row>
           </Cell>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onClick = (disabled: boolean) => {
-    this.setState({ disabled: !disabled });
+    this.setState({ disabled: !disabled })
   }
 
   private onButtonClick = () => {
-    Toast('点击事件');
+    Toast('点击事件')
   }
 }
 
-export default Demo;
+export default Demo

@@ -9,7 +9,7 @@ import Controller from './controller'
 import './style.scss'
 
 class AtCalendar extends Controller {
-  public render() {
+  render() {
     return (
       <Layout className="at-calendar">
         {this.renderHeader()}
@@ -17,42 +17,16 @@ class AtCalendar extends Controller {
         {this.renderFooter()}
         {this.renderTimePicker()}
       </Layout>
-    );
+    )
   }
 
   // 页头
   private renderHeader() {
-    const addonBottom = () => {
-      const d1 = this.state.chooseRange[0];
-      const d2 = this.state.chooseRange[1];
-      const t1 = this.state.timePickerTimes[0];
-      const t2 = this.state.timePickerTimes[1];
-      return (
-        <React.Fragment>
-          {!this.props.readonly && (
-            <div className="time-range">
-              <div className={cn('date', 'from', { active: !!d1 })}>
-                <h6>{d1 ? dateFormat(d1, 'M月d日 周wk') : '取车时间'}</h6>
-                <p>{t1 ? dateFormat(t1, 'hh:mm') : '请设置'}</p>
-              </div>
-              <div className={cn('date', 'to', { active: !!d2 })}>
-                <h6>{d2 ? dateFormat(d2, 'M月d日 周wk') : '还车时间'}</h6>
-                <p>{t2 ? dateFormat(t2, 'hh:mm') : '请设置'}</p>
-              </div>
-            </div>
-          )}
-          <ul className="weeks">
-            <li>一</li>
-            <li>二</li>
-            <li>三</li>
-            <li>四</li>
-            <li>五</li>
-            <li>六</li>
-            <li>日</li>
-          </ul>
-        </React.Fragment>
-      );
-    };
+    const d1 = this.state.chooseRange[0]
+    const d2 = this.state.chooseRange[1]
+    const t1 = this.state.timePickerTimes[0]
+    const t2 = this.state.timePickerTimes[1]
+
     return (
       <Layout.Header
         className="header"
@@ -66,9 +40,33 @@ class AtCalendar extends Controller {
             </a>
           )
         }
-        addonBottom={addonBottom()}
+        addonBottom={
+          <>
+            {!this.props.readonly && (
+              <div className="time-range">
+                <div className={cn('date', 'from', { active: !!d1 })}>
+                  <h6>{d1 ? dateFormat(d1, 'M月d日 周wk') : '取车时间'}</h6>
+                  <p>{t1 ? dateFormat(t1, 'hh:mm') : '请设置'}</p>
+                </div>
+                <div className={cn('date', 'to', { active: !!d2 })}>
+                  <h6>{d2 ? dateFormat(d2, 'M月d日 周wk') : '还车时间'}</h6>
+                  <p>{t2 ? dateFormat(t2, 'hh:mm') : '请设置'}</p>
+                </div>
+              </div>
+            )}
+            <ul className="weeks">
+              <li>一</li>
+              <li>二</li>
+              <li>三</li>
+              <li>四</li>
+              <li>五</li>
+              <li>六</li>
+              <li>日</li>
+            </ul>
+          </>
+        }
       />
-    );
+    )
   }
 
   // 主体
@@ -76,31 +74,31 @@ class AtCalendar extends Controller {
     return (
       <Layout.Body className="body" id="x-calendar-body">
         {this.getMonthList().map(month => {
-          return this.renderMonth(month);
+          return this.renderMonth(month)
         })}
       </Layout.Body>
-    );
+    )
   }
 
   // 月
   private renderMonth(month: Date) {
-    const y = month.getFullYear();
-    const m = month.getMonth();
-    let w = month.getDay() - 1;
+    const y = month.getFullYear()
+    const m = month.getMonth()
+    let w = month.getDay() - 1
     if (w === -1) {
-      w = 6;
+      w = 6
     }
     const space = (() => {
-      const arr = [];
+      const arr = []
       for (let i = 0; i < w; i++) {
-        arr.push('');
+        arr.push('')
       }
-      return arr;
-    })();
-    const count = new Date(y, m + 1, 0).getDate();
-    const list = [];
+      return arr
+    })()
+    const count = new Date(y, m + 1, 0).getDate()
+    const list = []
     for (let i = 0; i < count; i++) {
-      list.push(new Date(y, m, i + 1));
+      list.push(new Date(y, m, i + 1))
     }
     return (
       <div className="month" key={month.valueOf()}>
@@ -112,35 +110,38 @@ class AtCalendar extends Controller {
           {list.map(date => this.renderMonthDay(date))}
         </div>
       </div>
-    );
+    )
   }
 
   // 月份的每一天
   private renderMonthDay(date: Date) {
-    const key = date.valueOf();
-    const data: any = this.props.data && this.props.data[key] ? this.props.data[key] : { disabled: 'DISABLED' };
-    let isDisabledBefore = this.props.disabledBefore ? this.props.disabledBefore > date : false;
+    const key = date.valueOf()
+    const data: any =
+      this.props.data && this.props.data[key] ? this.props.data[key] : { disabled: 'DISABLED' }
+    let isDisabledBefore = this.props.disabledBefore ? this.props.disabledBefore > date : false
     if (data.disabled === 'DISABLED') {
-      isDisabledBefore = true;
+      isDisabledBefore = true
     }
-    const readonly = this.props.readonly;
-    const wkname = ['sun', 'mon', 'tues', 'wed', 'thur', 'fri', 'sat'];
-    const isBtween = this.isBtweenChooseRange(date);
+    const readonly = this.props.readonly
+    const wkname = ['sun', 'mon', 'tues', 'wed', 'thur', 'fri', 'sat']
+    const isBtween = this.isBtweenChooseRange(date)
     const css = cn('month-day', wkname[date.getDay()], {
       active: !readonly && isBtween,
-      'active-first': !readonly && this.state.chooseRange[0] && this.state.chooseRange[0].valueOf() === key,
-      'active-end': !readonly && this.state.chooseRange[1] && this.state.chooseRange[1].valueOf() === key,
+      'active-first':
+        !readonly && this.state.chooseRange[0] && this.state.chooseRange[0].valueOf() === key,
+      'active-end':
+        !readonly && this.state.chooseRange[1] && this.state.chooseRange[1].valueOf() === key,
       disabled: isDisabledBefore,
       'is-holiday': data.isHoliday,
       'disabled-all': !isDisabledBefore && data.disabled === 'ALL',
       'disabled-part': !isDisabledBefore && data.disabled === 'PART',
-    });
+    })
     const onClick = () => {
       if ((isDisabledBefore || readonly || data.disabled) && !isBtween) {
-        return;
+        return
       }
-      this.onDayClick(date, data);
-    };
+      this.onDayClick(date, data)
+    }
     return (
       <div className={css} key={key} onClick={onClick}>
         <p>
@@ -148,14 +149,14 @@ class AtCalendar extends Controller {
         </p>
         {data.price && <span>￥{data.price}</span>}
       </div>
-    );
+    )
   }
 
   // 页脚
   private renderFooter() {
-    const min = this.props.minHours || 0;
-    const times = this.state.timePickerTimes;
-    const chooseOk = times[0] !== null && times[1] !== null;
+    const min = this.props.minHours || 0
+    const times = this.state.timePickerTimes
+    const chooseOk = times[0] !== null && times[1] !== null
     return (
       <Layout.Footer className="footer">
         <div className="tips">
@@ -176,7 +177,11 @@ class AtCalendar extends Controller {
               </p>
             ) : (
               <p>
-                {min >= 24 ? `${Math.round((min / 24) * 100) / 100}天起租` : min > 0 ? `${min}小时起租` : '请选择租期'}
+                {min >= 24
+                  ? `${Math.round((min / 24) * 100) / 100}天起租`
+                  : min > 0
+                    ? `${min}小时起租`
+                    : '请选择租期'}
               </p>
             )}
             <Button className="submit" onClick={this.onSubmit}>
@@ -185,29 +190,29 @@ class AtCalendar extends Controller {
           </div>
         )}
       </Layout.Footer>
-    );
+    )
   }
 
   // 时间选择器
   private renderTimePicker() {
-    let def = new Date(2000, 1, 1);
+    let def = new Date(2000, 1, 1)
     if (this.state.chooseType === 'rent' && this.state.chooseRange[0]) {
-      def = this.state.chooseRange[0];
+      def = this.state.chooseRange[0]
     } else if (this.state.chooseType === 'revert' && this.state.chooseRange[1]) {
-      def = this.state.chooseRange[1];
+      def = this.state.chooseRange[1]
     }
     if (
       this.state.chooseType === 'rent' &&
       this.state.preChooseRange[0] &&
       def.valueOf() === this.state.preChooseRange[0].valueOf()
     ) {
-      def = this.state.preTimePickerTimes[0]!;
+      def = this.state.preTimePickerTimes[0]!
     } else if (
       this.state.chooseType === 'revert' &&
       this.state.preChooseRange[1] &&
       def.valueOf() === this.state.preChooseRange[1].valueOf()
     ) {
-      def = this.state.preTimePickerTimes[1]!;
+      def = this.state.preTimePickerTimes[1]!
     }
 
     return (
@@ -216,15 +221,14 @@ class AtCalendar extends Controller {
         noPadding={true}
         className="at-calendar__time-picker"
         onMaskClick={this.timePickerCancel}
-        height="4.9rem">
+        height="4.9rem"
+      >
         <header className="header">
           <a className="cancel" onClick={this.timePickerCancel}>
             取消
           </a>
           <h2>请选择{this.state.chooseType === 'rent' ? '取' : '还'}车时间</h2>
-          <a onClick={this.timePickerNext}>
-            下一步
-          </a>
+          <a onClick={this.timePickerNext}>下一步</a>
         </header>
         <TimePicker
           data={[this.state.timePickerData]}
@@ -236,8 +240,8 @@ class AtCalendar extends Controller {
           ref={this.timePickerRef}
         />
       </Popup>
-    );
+    )
   }
 }
 
-export default AtCalendar;
+export default AtCalendar

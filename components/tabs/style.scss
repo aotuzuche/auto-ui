@@ -6,10 +6,6 @@
   height: px(100);
   position: relative;
   width: 100%;
-  background: #fff;
-  &.x-tabs--bottom-border {
-    border-bottom: px(1) solid $borderColor; /*no*/
-  }
   &__item {
     display: flex;
     align-items: center;
@@ -18,40 +14,58 @@
     flex: 1;
     background: #fff;
     font-size: px(30);
-    color: #999;
+    color: #3e3d57;
     position: relative;
     &:active {
       color: inherit;
     }
   }
   &--active {
-    color: #333;
+    color: $primaryColor;
+    font-weight: bold;
     &:active {
-      color: #333;
+      color: $primaryColor;
       opacity: 1;
     }
   }
   &__line {
     width: 50%;
     height: px(6);
-    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 0.3s ease-out;
     display: block;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: px(10);
     z-index: 9;
     top: auto;
     pointer-events: none;
     &:after {
       content: '';
-      background: $primaryColor;
-      width: px(30);
+      background: linear-gradient(to left, #ffd100, rgba(#ffd100, 0));
+      width: px(60);
       height: px(6);
       position: absolute;
       left: 50%;
       top: 0;
-      margin-left: px(-15);
+      margin-left: px(-30);
       border-radius: px(3);
     }
+    &--ani {
+      &:after {
+        animation: __x_tabs_line_scale 0.3s ease-out;
+      }
+    }
+  }
+}
+
+@keyframes __x_tabs_line_scale {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(4);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }

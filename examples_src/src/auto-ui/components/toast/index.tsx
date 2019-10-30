@@ -1,36 +1,36 @@
-import * as React from 'react';
-import { createPortal, render, unmountComponentAtNode } from 'react-dom';
-import './style.scss';
+import * as React from 'react'
+import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import './style.scss'
 
-let timer: any = 0;
-let div: HTMLDivElement | null;
+let timer: any = 0
+let div: HTMLDivElement | null
 
 const close = () => {
   if (div) {
-    div.classList.remove('x-toast--show');
-    div.classList.add('x-toast--hide');
-    clearTimeout(timer);
-    setTimeout(remove, 200);
+    div.classList.remove('x-toast--show')
+    div.classList.add('x-toast--hide')
+    clearTimeout(timer)
+    setTimeout(remove, 200)
   }
-};
+}
 
 const remove = () => {
   if (div && div.parentNode) {
-    unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
-    div = null;
+    unmountComponentAtNode(div)
+    div.parentNode.removeChild(div)
+    div = null
   }
-};
+}
 
-type IToast = ((text: string, duration?: number) => [() => void, void]) & { hide: () => void };
+type IToast = ((text: string, duration?: number) => [() => void, void]) & { hide: () => void }
 
 const Toast: IToast = (text, duration = 2000) => {
-  remove();
+  remove()
 
-  div = document.createElement('div');
-  div.classList.add('x-toast', 'x-toast--show');
-  div.id = 'j-x-toast';
-  document.body.appendChild(div);
+  div = document.createElement('div')
+  div.classList.add('x-toast', 'x-toast--show')
+  div.id = 'j-x-toast'
+  document.body.appendChild(div)
 
   render(
     createPortal(
@@ -40,16 +40,16 @@ const Toast: IToast = (text, duration = 2000) => {
       div,
     ),
     div,
-  );
+  )
 
-  clearTimeout(timer);
+  clearTimeout(timer)
   timer = setTimeout(() => {
-    close();
-  }, Math.max(duration, 500));
+    close()
+  }, Math.max(duration, 500))
 
-  return [close, undefined];
-};
+  return [close, void 0]
+}
 
-Toast.hide = close;
+Toast.hide = close
 
-export default Toast;
+export default Toast

@@ -1,16 +1,16 @@
-import cn from 'classnames';
-import * as React from 'react';
-import './style.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import './style.scss'
 
 interface IItemProps {
-  value: string | number;
-  className?: string;
-  children: React.ReactNode;
-  [otherProps: string]: any;
+  value: string | number
+  className?: string
+  children: React.ReactNode
+  [otherProps: string]: any
 }
 
 const TabsItem: React.FC<IItemProps> = props => {
-  const { active, value, className, onClick, children, ...otherProps } = props;
+  const { active, value, className, onClick, children, ...otherProps } = props
 
   const composeClassName = cn(
     'x-tabs__item',
@@ -18,48 +18,43 @@ const TabsItem: React.FC<IItemProps> = props => {
       'x-tabs--active': !!active,
     },
     className,
-  );
+  )
 
   const onAClick = () => {
-    onClick(value);
-  };
+    onClick(value)
+  }
 
   return (
     <button {...otherProps} className={composeClassName} onClick={onAClick}>
       {children}
     </button>
-  );
-};
+  )
+}
 
 interface ITabsProps {
-  className?: string;
-  active: string | number;
-  onClick: (value: string | number) => void;
-  borderType?: 'border' | 'none';
-  [otherProps: string]: any;
+  className?: string
+  active: string | number
+  onClick: (value: string | number) => void
+  [otherProps: string]: any
 }
 
 const Tabs: React.FC<ITabsProps> & { Item: React.FC<IItemProps> } = props => {
-  const { className, children, active, onClick, borderType = 'border', ...otherProps } = props;
-  const composeClassName = cn(
-    'x-tabs',
-    className,
-    borderType && borderType !== 'none' ? `x-tabs--bottom-${borderType}` : undefined,
-  );
+  const { className, children, active, onClick, ...otherProps } = props
+  const composeClassName = cn('x-tabs', className)
 
-  let activeOffset = -2;
+  let activeOffset = -2
 
-  let composeChildren: any[] = [];
+  let composeChildren: any[] = []
   if (Array.isArray(children)) {
-    composeChildren.push(...children);
+    composeChildren.push(...children)
   } else {
-    composeChildren.push(children);
+    composeChildren.push(children)
   }
 
   composeChildren = composeChildren.map((res, index) => {
-    const act = props.hasOwnProperty('active') && res.props.value === props.active;
+    const act = props.hasOwnProperty('active') && res.props.value === props.active
     if (act) {
-      activeOffset = index;
+      activeOffset = index
     }
     return React.cloneElement(res, {
       active: act,
@@ -67,25 +62,39 @@ const Tabs: React.FC<ITabsProps> & { Item: React.FC<IItemProps> } = props => {
       value: res.props.value,
       onClick: props.onClick,
       children: res.props.children,
-    });
-  });
+    })
+  })
 
-  const len = composeChildren.length;
+  const [cls, setCls] = React.useState('x-tabs__line')
+  const [first, setFirst] = React.useState(true)
+
+  React.useEffect(() => {
+    if (!first) {
+      setCls('x-tabs__line x-tabs__line--ani')
+    } else {
+      setFirst(false)
+    }
+  }, [activeOffset])
+
+  const onTransEnd = () => {
+    setCls('x-tabs__line')
+  }
 
   return (
     <div {...otherProps} className={composeClassName}>
       <sub
-        className="x-tabs__line"
+        className={cls}
         style={{
-          width: `${100 / len}%`,
-          WebkitTransform: `translate(${activeOffset * 100}%,0)`,
+          width: `${100 / composeChildren.length}%`,
+          WebkitTransform: `translate(${activeOffset * 100}%, 0)`,
         }}
+        onTransitionEnd={onTransEnd}
       />
       {composeChildren}
     </div>
-  );
-};
+  )
+}
 
-Tabs.Item = TabsItem;
+Tabs.Item = TabsItem
 
-export default Tabs;
+export default Tabs

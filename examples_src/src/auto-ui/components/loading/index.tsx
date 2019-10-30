@@ -1,27 +1,27 @@
-import * as React from 'react';
-import Spin from '../spin/index';
-import { createPortal, render, unmountComponentAtNode } from 'react-dom';
-import './style.scss';
+import * as React from 'react'
+import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import Spin from '../spin/index'
+import './style.scss'
 
-let div: HTMLDivElement | null;
+let div: HTMLDivElement | null
 
 const close = (): void => {
   if (div && div.parentNode) {
-    unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
-    div = null;
+    unmountComponentAtNode(div)
+    div.parentNode.removeChild(div)
+    div = null
   }
-};
+}
 
-type ILoading = ((text?: string) => [() => void, void]) & { hide: () => void };
+type ILoading = ((text?: string) => [() => void, void]) & { hide: () => void }
 
 const Loading: ILoading = text => {
   // 防止多次调用先 close 检查下
-  close();
+  close()
 
-  div = document.createElement('div');
-  div.classList.add('x-loading', 'x-loading--show');
-  document.body.appendChild(div);
+  div = document.createElement('div')
+  div.classList.add('x-loading', 'x-loading--show')
+  document.body.appendChild(div)
 
   render(
     createPortal(
@@ -29,14 +29,14 @@ const Loading: ILoading = text => {
         <Spin />
         {!!text && <p>{text}</p>}
       </div>,
-      div
+      div,
     ),
-    div
-  );
+    div,
+  )
 
-  return [close, undefined];
-};
+  return [close, void 0]
+}
 
-Loading.hide = close;
+Loading.hide = close
 
-export default Loading;
+export default Loading

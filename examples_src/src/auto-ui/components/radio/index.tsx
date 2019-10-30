@@ -4,18 +4,18 @@ import IconCheck from '../icon/check'
 import './style.scss'
 
 interface IProps {
-  checked: boolean;
-  disabled?: boolean;
-  border?: boolean;
-  className?: string;
-  text?: string;
-  children?: null;
-  onChange?: (checked: boolean) => void;
-  [otherProps: string]: any;
+  checked: boolean
+  disabled?: boolean
+  border?: boolean
+  className?: string
+  text?: string
+  children?: null
+  onChange?: (checked: boolean) => void
+  [otherProps: string]: any
 }
 
 const Radio: React.FC<IProps> = props => {
-  const { checked, disabled, className, text, onChange, border, ...otherProps } = props;
+  const { checked, disabled, className, text, onChange, border, ...otherProps } = props
 
   const composeClassName = cn(
     'x-radio',
@@ -24,17 +24,17 @@ const Radio: React.FC<IProps> = props => {
       'x-radio--disabled': disabled,
       'x-radio--border': border,
     },
-    className
-  );
+    className,
+  )
 
   const onClick = () => {
     if (disabled) {
-      return;
+      return
     }
     if (onChange) {
-      onChange(!checked);
+      onChange(!checked)
     }
-  };
+  }
   if (onChange) {
     return (
       <button {...otherProps} className={composeClassName} onClick={onClick}>
@@ -43,7 +43,7 @@ const Radio: React.FC<IProps> = props => {
         </i>
         {!!text && <span className="x-radio__text">{text}</span>}
       </button>
-    );
+    )
   }
   return (
     <span {...otherProps} className={composeClassName} onClick={onClick}>
@@ -52,7 +52,7 @@ const Radio: React.FC<IProps> = props => {
       </i>
       {!!text && <span className="x-radio__text">{text}</span>}
     </span>
-  );
-};
+  )
+}
 
-export default Radio;
+export default Radio

@@ -5,44 +5,42 @@ import Modal from '../modal/index'
 import './style.scss'
 
 interface IProps {
-  className?: string;
-  local?: boolean;
-  top?: boolean;
-  height?: number | string;
-  visible?: boolean;
-  smoothBorder?: boolean;
-  children: React.ReactNode;
-  onMaskClick?: () => void;
-  noPadding?: boolean;
-  [otherProps: string]: any;
+  className?: string
+  local?: boolean
+  top?: boolean
+  height?: number | string
+  visible?: boolean
+  smoothBorder?: boolean
+  children: React.ReactNode
+  onMaskClick?: () => void
+  noPadding?: boolean
+  [otherProps: string]: any
 }
 
-interface IState {}
-
-class Popup extends React.PureComponent<IProps, IState> {
-  public static Scroller: React.FC<IScrollerProps>;
-  private div: Element | undefined = undefined;
+class Popup extends React.PureComponent<IProps> {
+  static Scroller: React.FC<IScrollerProps>
+  private div: Element | undefined = void 0
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
 
     // 在当前节点中展示
     if (props.local) {
-      return;
+      return
     }
 
-    this.div = document.createElement('div');
-    this.div.classList.add('_x_popup_');
-    document.body.appendChild(this.div);
+    this.div = document.createElement('div')
+    this.div.classList.add('_x_popup_')
+    document.body.appendChild(this.div)
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     if (this.div) {
-      document.body.removeChild(this.div);
+      document.body.removeChild(this.div)
     }
   }
 
-  public content() {
+  content() {
     const {
       className,
       top,
@@ -53,72 +51,78 @@ class Popup extends React.PureComponent<IProps, IState> {
       smoothBorder,
       children,
       ...otherProps
-    } = this.props;
+    } = this.props
     const composeClassName = cn(
       'x-popup',
       {
         'x-popup--top': top,
         'x-popup--smooth-border': smoothBorder,
       },
-      className
-    );
+      className,
+    )
 
-    const composeChildren: any[] = [];
+    const composeChildren: any[] = []
     if (Array.isArray(children)) {
-      composeChildren.push(...children);
+      composeChildren.push(...children)
     } else {
-      composeChildren.push(children);
+      composeChildren.push(children)
     }
 
-    let hasScrollChildren = false;
+    let hasScrollChildren = false
     composeChildren.forEach(res => {
       if (res.type === Scroller && !hasScrollChildren) {
-        hasScrollChildren = true;
+        hasScrollChildren = true
       }
-    });
+    })
 
     const innercss = cn('x-popup__inner', {
       'x-popup--no-scroll': hasScrollChildren,
       'x-popup--no-padding': noPadding,
-    });
+    })
 
     // DOM没有local这个属性，需要删除
-    delete otherProps.local;
+    delete otherProps.local
 
     return (
-      <Modal {...otherProps} visible={visible} height={height} onMaskClick={onMaskClick} className={composeClassName}>
+      <Modal
+        {...otherProps}
+        visible={visible}
+        height={height}
+        onMaskClick={onMaskClick}
+        className={composeClassName}
+      >
         <div className={innercss}>{children}</div>
       </Modal>
-    );
+    )
   }
 
-  public render() {
+  render() {
     if (this.div) {
-      return createPortal(this.content(), this.div);
+      return createPortal(this.content(), this.div)
     }
     if (this.props.local) {
-      return this.content();
+      return this.content()
     }
-    return null;
+    return null
   }
 }
 
 interface IScrollerProps {
-  className?: string;
-  [otherProps: string]: any;
+  className?: string
+  [otherProps: string]: any
 }
 
 const Scroller: React.FC<IScrollerProps> = props => {
-  const { className, children, ...otherProps } = props;
-  const composeClassName = cn('x-popup__scroller', className);
+  const { className, children, ...otherProps } = props
+  const composeClassName = cn('x-popup__scroller', className)
 
   return (
     <div {...otherProps} className={composeClassName}>
       <div className="x-popup__inscroller">{children}</div>
     </div>
-  );
-};
+  )
+}
 
-Popup.Scroller = Scroller;
+Popup.Scroller = Scroller
 
-export default Popup;
+export default Popup

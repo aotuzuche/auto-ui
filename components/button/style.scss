@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   cursor: pointer;
   width: 100%;
   height: px(90);
@@ -46,10 +47,24 @@
     }
   }
   &--primary {
-    background: $primaryColor;
+    background: linear-gradient(to left, $primaryColor, $primaryColor2);
     color: #fff;
     &:active {
-      background: mix($primaryColor, #000, 92%);
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: px($buttonRadius);
+      }
+    }
+    &.x-button--shadow {
+      box-shadow: 0 20px 30px -20px rgba(0, 210, 147, 0.8);
     }
     &.x-button--hollow {
       border: px(1) solid $primaryColor; /*no*/
@@ -66,10 +81,24 @@
     }
   }
   &--danger {
-    background: $dangerColor;
+    background: linear-gradient(to left, $dangerColor, $dangerColor2);
     color: #fff;
     &:active {
-      background: mix($dangerColor, #000, 92%);
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: px($buttonRadius);
+      }
+    }
+    &.x-button--shadow {
+      box-shadow: 0 20px 30px -20px rgba(255, 77, 77, 0.8);
     }
     &.x-button--hollow {
       border: px(1) solid $dangerColor; /*no*/
@@ -86,8 +115,8 @@
     }
   }
   &--mini {
-    height: px(70);
-    font-size: px(28);
+    height: px(60);
+    font-size: px(26);
     .x-button__loading {
       .x-loading__spin {
         width: px(20);
@@ -96,7 +125,7 @@
     }
   }
   &--disabled {
-    opacity: 0.6;
+    opacity: 0.3;
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -107,7 +136,10 @@
   }
   &--shrink {
     width: auto;
-    padding: 0 px(30);
+    padding: 0 px(60);
+    &.x-button--mini {
+      padding: 0 px(30);
+    }
     display: inline-flex;
   }
 }

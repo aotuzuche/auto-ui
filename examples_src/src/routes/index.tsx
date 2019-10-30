@@ -14,8 +14,10 @@ import PageButton from '../pages/button'
 import PageButtonDisabled from '../pages/button_disabled'
 import PageButtonLoading from '../pages/button_loading'
 import PageButtonMini from '../pages/button_mini'
+import PageButtonShadow from '../pages/button_shadow'
 import PageButtonShrink from '../pages/button_shrink'
 import PageButtonType from '../pages/button_type'
+import PageCard from '../pages/card'
 import PageCell from '../pages/cell'
 import PageCellArrow from '../pages/cell_arrow'
 import PageCellClick from '../pages/cell_click'
@@ -73,6 +75,7 @@ const routes: any[] = [
   ['button_mini', PageButtonMini],
   ['button_shrink', PageButtonShrink],
   ['button_type', PageButtonType],
+  ['button_shadow', PageButtonShadow],
   ['button_loading', PageButtonLoading],
   ['button_disabled', PageButtonDisabled],
   ['input', PageInput],
@@ -86,6 +89,7 @@ const routes: any[] = [
   ['alert_close', PageAlertClose],
   ['alert_title_desc', PageAlertTitleDesc],
   ['alert_confirm', PageAlertConfirm],
+  ['card', PageCard],
   ['cell', PageCell],
   ['cell_arrow', PageCellArrow],
   ['cell_click', PageCellClick],
@@ -136,17 +140,17 @@ const routes: any[] = [
   ['nav-bar', PageNavBar],
   ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom],
   ['at-calendar', PageAtCalendar],
-];
+]
 
 export default (history: any) => {
   return (
     <Router history={history}>
       <Switch>
         {routes.map(r => {
-          return <Route key={r[0]} exact={true} path={`/${r[0]}`} component={r[1]} />;
+          return <Route key={r[0]} exact={true} path={`/${r[0]}`} component={r[1]} />
         })}
         <Redirect from="*" to="/button" />
       </Switch>
     </Router>
-  );
-};
+  )
+}

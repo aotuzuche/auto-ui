@@ -75,15 +75,27 @@
     }
   }
 
-  &--border:not(.x-radio--checked) {
+  &--border {
     .x-radio__icon {
       background: #fff;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.13) inset; /*no*/
+      svg {
+        width: px(16);
+        height: px(16);
+      }
     }
     &:active {
       opacity: 1;
       .x-radio__icon {
-        background: rgb(240, 240, 240);
+        background: rgba(mix($primaryColor, #000, 92%), 0.1);
+      }
+    }
+    &.x-radio--checked {
+      .x-radio__icon {
+        box-shadow: 0 0 0 1px $primaryColor inset; /*no*/
+      }
+      path {
+        fill: $primaryColor;
       }
     }
   }

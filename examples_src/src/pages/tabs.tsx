@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Layout, Tabs } from '../auto-ui';
+import * as React from 'react'
+import { Layout, Tabs } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { active: 1 };
+  state = { active: 1 }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Tabs active={this.state.active} onClick={this.onClick}>
@@ -18,14 +18,14 @@ class Demo extends React.PureComponent {
           {this.state.active === 3 && <p>content of Tab 3</p>}
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onClick = (value: any) => {
     this.setState({
       active: value,
-    });
+    })
   }
 }
 
-export default Demo;
+export default Demo

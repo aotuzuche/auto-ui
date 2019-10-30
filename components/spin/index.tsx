@@ -1,16 +1,16 @@
-import * as React from 'react';
-import cn from 'classnames';
-import './style.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import './style.scss'
 
 interface IProps {
-  className?: string;
-  text?: string;
-  children?: null;
-  [otherProps: string]: any;
+  className?: string
+  text?: string
+  children?: null
+  [otherProps: string]: any
 }
 
 const Spin: React.FC<IProps> = props => {
-  const { className, text, ...otherProps } = props;
+  const { className, text, ...otherProps } = props
 
   const loadingSpin = (
     <div className="x-loading__spin">
@@ -26,16 +26,16 @@ const Spin: React.FC<IProps> = props => {
         />
       </svg>
     </div>
-  );
+  )
 
-  const composeClassName = cn('x-spin', className);
+  const composeClassName = cn('x-spin', className)
 
   return (
     <div {...otherProps} className={composeClassName}>
       {loadingSpin}
       {!!text && <p className="x-spin__text">{text}</p>}
     </div>
-  );
-};
+  )
+}
 
-export default Spin;
+export default Spin

@@ -17,7 +17,8 @@
     color: #333;
     position: relative;
     border-bottom: px(1) solid $borderColor; /*no*/
-    &--indent-line, &--end-indent-line {
+    &--indent-line,
+    &--end-indent-line {
       border-bottom: none;
       &::after {
         content: '';
@@ -61,7 +62,7 @@
         transform: translate(0, -50%);
       }
     }
-    &--activeable {
+    &--activable {
       &:active {
         opacity: 1;
         background: #fafafa;

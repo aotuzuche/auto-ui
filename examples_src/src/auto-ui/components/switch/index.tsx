@@ -1,23 +1,23 @@
-import * as React from 'react';
-import cn from 'classnames';
-import IconCheck from '../icon/check';
-import IconClose from '../icon/close';
-import './style.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import IconCheck from '../icon/check'
+import IconClose from '../icon/close'
+import './style.scss'
 
 interface IProps {
-  i?: string;
-  o?: string;
-  active: boolean;
-  icon?: boolean;
-  disabled?: boolean;
-  className?: string;
-  children?: null;
-  onChange: (checked: boolean) => void;
-  [otherProps: string]: any;
+  i?: string
+  o?: string
+  active: boolean
+  icon?: boolean
+  disabled?: boolean
+  className?: string
+  children?: null
+  onChange: (checked: boolean) => void
+  [otherProps: string]: any
 }
 
 const Switch: React.FC<IProps> = props => {
-  const { i, o, active, icon, disabled, className, onChange, ...otherProps } = props;
+  const { i, o, active, icon, disabled, className, onChange, ...otherProps } = props
 
   const composeClassName = cn(
     'x-switch',
@@ -27,16 +27,16 @@ const Switch: React.FC<IProps> = props => {
       'x-switch--disabled': disabled,
     },
     className,
-  );
+  )
 
-  const hasIO: boolean = !!i && !!o;
+  const hasIO: boolean = !!i && !!o
 
   const onClick = () => {
     if (disabled || !onChange) {
-      return;
+      return
     }
-    onChange(!active);
-  };
+    onChange(!active)
+  }
 
   return (
     <button {...otherProps} className={composeClassName} onClick={onClick}>
@@ -47,7 +47,7 @@ const Switch: React.FC<IProps> = props => {
         {icon && active && <IconCheck />}
       </em>
     </button>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch
