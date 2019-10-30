@@ -1,44 +1,38 @@
-import * as React from 'react';
-import Aside from '../containers/aside';
-import Loadable from 'react-loadable';
-import Main from '../containers/main';
-import { Redirect, Route, Router, Switch } from 'dva/router';
+import { Redirect, Route, Router, Switch } from 'dva/router'
+import * as React from 'react'
+import Aside from '../containers/aside'
+import Main from '../containers/main'
 
-const Load = (loader: any) => {
-  return Loadable({
-    loader: () => loader,
-    loading: () => <div />,
-  });
-};
-
-const PageLayout = Load(import('../pages/layout'));
-const PageButton = Load(import('../pages/button'));
-const PageInput = Load(import('../pages/input'));
-const PageCell = Load(import('../pages/cell'));
-const PageAlert = Load(import('../pages/alert'));
-const PageDialog = Load(import('../pages/dialog'));
-const PagePopup = Load(import('../pages/popup'));
-const PageRadio = Load(import('../pages/radio'));
-const PageSwitch = Load(import('../pages/switch'));
-const PageToast = Load(import('../pages/toast'));
-const PageLoading = Load(import('../pages/loading'));
-const PageSpin = Load(import('../pages/spin'));
-const PageActionSheet = Load(import('../pages/action-sheet'));
-const PageTabs = Load(import('../pages/tabs'));
-const PageSpace = Load(import('../pages/space'));
-const PageNavBar = Load(import('../pages/nav-bar'));
-const PageTimePicker = Load(import('../pages/time-picker'));
+const PageLayout = React.lazy(() => import('../pages/layout'));
+const PageButton = React.lazy(() => import('../pages/button'));
+const PageInput = React.lazy(() => import('../pages/input'));
+const PageCard = React.lazy(() => import('../pages/card'));
+const PageCell = React.lazy(() => import('../pages/cell'));
+const PageAlert = React.lazy(() => import('../pages/alert'));
+const PageDialog = React.lazy(() => import('../pages/dialog'));
+const PagePopup = React.lazy(() => import('../pages/popup'));
+const PageRadio = React.lazy(() => import('../pages/radio'));
+const PageSwitch = React.lazy(() => import('../pages/switch'));
+const PageToast = React.lazy(() => import('../pages/toast'));
+const PageLoading = React.lazy(() => import('../pages/loading'));
+const PageSpin = React.lazy(() => import('../pages/spin'));
+const PageActionSheet = React.lazy(() => import('../pages/action-sheet'));
+const PageTabs = React.lazy(() => import('../pages/tabs'));
+const PageSpace = React.lazy(() => import('../pages/space'));
+const PageNavBar = React.lazy(() => import('../pages/nav-bar'));
+const PageTimePicker = React.lazy(() => import('../pages/time-picker'));
 
 export default (history: any) => {
   return (
     <Router history={history}>
-      <div>
+      <React.Suspense fallback={() => <div />}>
         <Route component={Aside} />
         <Main>
           <Switch>
             <Route exact={true} path="/layout" component={PageLayout} />
             <Route exact={true} path="/button" component={PageButton} />
             <Route exact={true} path="/input" component={PageInput} />
+            <Route exact={true} path="/card" component={PageCard} />
             <Route exact={true} path="/cell" component={PageCell} />
             <Route exact={true} path="/alert" component={PageAlert} />
             <Route exact={true} path="/dialog" component={PageDialog} />
@@ -57,7 +51,7 @@ export default (history: any) => {
             <Redirect from="*" to="/button" />
           </Switch>
         </Main>
-      </div>
+      </React.Suspense>
     </Router>
   );
 };
