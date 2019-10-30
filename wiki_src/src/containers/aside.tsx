@@ -1,13 +1,14 @@
-import * as React from 'react';
-import cn from 'classnames';
-import v from '../version.json';
-import './aside.scss';
+import cn from 'classnames'
+import * as React from 'react'
+import v from '../version.json'
+import './aside.scss'
 
 const Aside: React.FC<any> = props => {
   const componentList = [
     'Layout,布局',
     'Button,按钮',
     'Input,文本输入',
+    'Card,卡片',
     'Cell,单元格',
     'Alert,提示框',
     'Dialog,对话框',
