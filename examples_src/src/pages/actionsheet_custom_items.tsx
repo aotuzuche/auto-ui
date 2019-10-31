@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { ActionSheet, Button, Input, Layout, Space, Toast } from '../auto-ui';
+import * as React from 'react'
+import { ActionSheet, Button, Input, Layout, Space, Toast } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false, value: '' };
+  state = { visible: false, value: '' }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -22,7 +22,7 @@ class Demo extends React.PureComponent {
           />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private renderCustomerItem = () => {
@@ -30,38 +30,43 @@ class Demo extends React.PureComponent {
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <p>其他</p>
         <Space size={2} />
-        <Input mini={true} style={{ flex: '1' }} value={this.state.value} onChange={this.onChange} />
+        <Input
+          mini={true}
+          style={{ flex: '1' }}
+          value={this.state.value}
+          onChange={this.onChange}
+        />
         <Space size={2} />
         <Button mini={true} onClick={this.onCustomClick}>
           确定
         </Button>
       </div>
-    );
+    )
   }
 
   private onClick = () => {
-    this.setState({ visible: !this.state.visible });
+    this.setState({ visible: !this.state.visible })
   }
 
   private onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: evt.target.value.trim() });
+    this.setState({ value: evt.target.value.trim() })
   }
 
   private onItemClick = (value: any) => {
     if (value !== '3') {
-      Toast(value);
-      this.setState({ visible: false });
+      Toast(value)
+      this.setState({ visible: false })
     }
   }
 
   private onCustomClick = () => {
     if (this.state.value === '') {
-      Toast('不能为空');
-      return;
+      Toast('不能为空')
+      return
     }
-    Toast(this.state.value);
-    this.setState({ visible: false });
+    Toast(this.state.value)
+    this.setState({ visible: false })
   }
 }
 
-export default Demo;
+export default Demo
