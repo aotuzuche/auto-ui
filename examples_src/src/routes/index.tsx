@@ -40,11 +40,10 @@ import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
 import PageLayoutHeadline from '../pages/layout_headline'
 import PageLayoutLoading from '../pages/layout_loading'
 import PageLayoutReachBottom from '../pages/layout_reach_bottom'
+import PageLayoutTabs from '../pages/layout_tabs'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
 import PageLoadingText from '../pages/loading_text'
-import PageNavBar from '../pages/nav-bar'
-import PageNavBarWidthAddonBottom from '../pages/nav-bar-width-addonBottom'
 import PagePopup from '../pages/popup'
 import PagePopupFromParent from '../pages/popup_from_parent'
 import PagePopupHeight from '../pages/popup_height'
@@ -136,9 +135,8 @@ const routes: any[] = [
   ['layout_header', PageLayoutHeader],
   ['layout_header_homepage', PageLayoutHeaderHomepage],
   ['layout_loading', PageLayoutLoading],
+  ['layout_tabs', PageLayoutTabs],
   ['layout_reach_bottom', PageLayoutReachBottom],
-  ['nav-bar', PageNavBar],
-  ['nav-bar-width-addonBottom', PageNavBarWidthAddonBottom],
   ['at-calendar', PageAtCalendar],
 ]
 

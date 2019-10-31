@@ -26,6 +26,10 @@ code=[mask click](popup_mask_click)
 
 code=[no padding](popup_no_padding)
 
+## 平滑边角，即圆角
+
+code=[smoothBorder](popup_smooth_border)
+
 ## 从父容器的位置弹出
 
 code=[from parent](popup_from_parent)

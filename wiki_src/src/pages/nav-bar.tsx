@@ -4,22 +4,14 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/nav-bar',
+    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#',
   }
 
   public render() {
     return (
       <div>
         <div className="markdown-content">
-<h1>NavBar 导航栏</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/nav-bar') })} onClick={this.onCodeClick.bind(null, '/nav-bar')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> NavBar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>NavBar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>基本使用<span class="token punctuation">"</span></span> <span class="token attr-name">dark</span> <span class="token attr-name">leftBtn</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span> <span class="token attr-name">rightBtn</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>查看规则<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token plain-text">;
-
-export default Demo;
-</span>`}} /></pre></div></div><p><strong>由于其所有功能都能在Layout.Header中实现，所以之后将不维护该组件，请及时替换</strong></p>
+<h1>NavBar 导航栏</h1><h2>基本使用</h2><p><strong>由于其所有功能都能在Layout.Header中实现，所以之后将不维护该组件，请及时替换</strong></p>
 <h2>支持属性</h2><table>
 <thead>
 <tr>

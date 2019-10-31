@@ -28,6 +28,10 @@ code=[ghost header](layout_ghost)
 
 code=[headline header](layout_headline)
 
+## tabs
+
+code=[header tabs](layout_tabs)
+
 ## Loading
 
 code=[loading](layout_loading)
@@ -55,22 +59,22 @@ code=[onReachBottom](layout_reach_bottom)
 
 ## Layout.Header 支持属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 标题 | String | - |
-| ghost | 透明模式，一般用在个人主页之类的顶部 | Boolean | false |
-| leading | 大字标题模式，即标题非常大的那种 | Boolean | false |
-| addonBefore | 左侧挂载 | Component | - |
-| onBackClick | 返回事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back() | Function/Boolean | - |
-| onCloseClick | 关闭事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back() | Function/Boolean | - |
-| addonAfter | 右侧挂载 | Component | - |
-| addonBottom | 下方挂载 | Component | - |
-| homepage | 首页按钮，若值为 true，点击到达/m/index 页面，若为 string 类型，则认为该 string 是个 url 进行跳转，若为 function 类型，则调用该方法 | Function/String/Boolean | - |
-| hideInApp | 在 app 中隐藏自身 | Boolean | false |
-| hideInAlipay | 在 支付宝(网页和小程序) 中隐藏自身 | Boolean | false |
-| hideInAlipayMP | 在 支付宝小程序 中隐藏自身 | Boolean | false |
-| borderType | 头部下方是使用阴影、线或是没有 | border、shadow、none | none |
-| useSafeArea | 是否使用安全区域，默认是在 Layout 中使用，可以在 Layout 中关闭，在 Header 中使用，特殊情况下可以这么做，比如有吸顶 banner 图的时候 | Boolean | false |
+| 属性           | 说明                                                                                                                                | 类型                    | 默认值 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------ |
+| title          | 标题                                                                                                                                | String                  | -      |
+| ghost          | 透明模式，一般用在个人主页之类的顶部                                                                                                | Boolean                 | false  |
+| leading        | 大字标题模式，即标题非常大的那种                                                                                                    | Boolean                 | false  |
+| addonBefore    | 左侧挂载                                                                                                                            | Component               | -      |
+| onBackClick    | 返回事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back()                                                             | Function/Boolean        | -      |
+| onCloseClick   | 关闭事件，基于左侧挂载的封装，若值为 true，则调用 window.history.back()                                                             | Function/Boolean        | -      |
+| addonAfter     | 右侧挂载                                                                                                                            | Component               | -      |
+| addonBottom    | 下方挂载                                                                                                                            | Component               | -      |
+| homepage       | 首页按钮，若值为 true，点击到达/m/index 页面，若为 string 类型，则认为该 string 是个 url 进行跳转，若为 function 类型，则调用该方法 | Function/String/Boolean | -      |
+| hideInApp      | 在 app 中隐藏自身                                                                                                                   | Boolean                 | false  |
+| hideInAlipay   | 在 支付宝(网页和小程序) 中隐藏自身                                                                                                  | Boolean                 | false  |
+| hideInAlipayMP | 在 支付宝小程序 中隐藏自身                                                                                                          | Boolean                 | false  |
+| borderType     | 头部下方是使用阴影、线或是没有                                                                                                      | border、shadow、none    | none   |
+| useSafeArea    | 是否使用安全区域，默认是在 Layout 中使用，可以在 Layout 中关闭，在 Header 中使用，特殊情况下可以这么做，比如有吸顶 banner 图的时候  | Boolean                 | false  |
 
 ## Layout.Body 支持属性
 
