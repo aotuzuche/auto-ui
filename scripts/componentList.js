@@ -13,12 +13,13 @@ const componentList = [
   'Loading',
   'Spin',
   'ActionSheet',
-  'ATCalendar',
+  'AtCalendar',
   'Tabs',
   'Space',
   'TimePicker',
   'Card',
   'NavBar',
+  'AtNav',
 ];
 
 module.exports = componentList;

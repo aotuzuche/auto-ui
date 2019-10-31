@@ -70,6 +70,7 @@ code=[onReachBottom](layout_reach_bottom)
 | addonAfter     | 右侧挂载                                                                                                                            | Component               | -      |
 | addonBottom    | 下方挂载                                                                                                                            | Component               | -      |
 | homepage       | 首页按钮，若值为 true，点击到达/m/index 页面，若为 string 类型，则认为该 string 是个 url 进行跳转，若为 function 类型，则调用该方法 | Function/String/Boolean | -      |
+| tabs           | Tabs 组件，位于 header 下方                                                                                                         | Component               | -      |
 | hideInApp      | 在 app 中隐藏自身                                                                                                                   | Boolean                 | false  |
 | hideInAlipay   | 在 支付宝(网页和小程序) 中隐藏自身                                                                                                  | Boolean                 | false  |
 | hideInAlipayMP | 在 支付宝小程序 中隐藏自身                                                                                                          | Boolean                 | false  |

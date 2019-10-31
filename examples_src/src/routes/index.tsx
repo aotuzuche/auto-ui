@@ -10,6 +10,7 @@ import PageAlertClose from '../pages/alert_close'
 import PageAlertConfirm from '../pages/alert_confirm'
 import PageAlertTitleDesc from '../pages/alert_title_desc'
 import PageAtCalendar from '../pages/at_calendar'
+import PageAtNav from '../pages/at_nav'
 import PageButton from '../pages/button'
 import PageButtonDisabled from '../pages/button_disabled'
 import PageButtonLoading from '../pages/button_loading'
@@ -138,6 +139,7 @@ const routes: any[] = [
   ['layout_tabs', PageLayoutTabs],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['at-calendar', PageAtCalendar],
+  ['at-nav', PageAtNav],
 ]
 
 export default (history: any) => {

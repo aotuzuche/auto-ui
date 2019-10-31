@@ -337,6 +337,12 @@ export default Demo
 <td>-</td>
 </tr>
 <tr>
+<td>tabs</td>
+<td>Tabs 组件，位于 header 下方</td>
+<td>Component</td>
+<td>-</td>
+</tr>
+<tr>
 <td>hideInApp</td>
 <td>在 app 中隐藏自身</td>
 <td>Boolean</td>

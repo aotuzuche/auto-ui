@@ -43,7 +43,7 @@
   &-figure {
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: px(4);
     &--activable {
       &:active > img {
         opacity: 0.7;

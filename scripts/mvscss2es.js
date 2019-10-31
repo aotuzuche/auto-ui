@@ -25,6 +25,16 @@ componentList.forEach(component => {
     fs.copyFileSync('components/at-calendar/icon-date-part.png', 'es/at-calendar/icon-date-part.png');
     fs.copyFileSync('components/at-calendar/icon-range.png', 'es/at-calendar/icon-range.png');
   }
+  if (name === 'at-nav') {
+    fs.copyFileSync('components/at-nav/icon-collection.png', 'es/at-nav/icon-collection.png');
+    fs.copyFileSync('components/at-nav/icon-home.png', 'es/at-nav/icon-home.png');
+    fs.copyFileSync('components/at-nav/icon-order.png', 'es/at-nav/icon-order.png');
+    fs.copyFileSync('components/at-nav/icon-user.png', 'es/at-nav/icon-user.png');
+    fs.copyFileSync('components/at-nav/icon-collection-active.png', 'es/at-nav/icon-collection-active.png');
+    fs.copyFileSync('components/at-nav/icon-home-active.png', 'es/at-nav/icon-home-active.png');
+    fs.copyFileSync('components/at-nav/icon-order-active.png', 'es/at-nav/icon-order-active.png');
+    fs.copyFileSync('components/at-nav/icon-user-active.png', 'es/at-nav/icon-user-active.png');
+  }
 });
 
 const theme = 'components/theme.scss';
