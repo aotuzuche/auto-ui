@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Button, Dialog, Layout } from '../auto-ui';
+import * as React from 'react'
+import { Button, Dialog, Layout } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false, height: 40 };
+  state = { visible: false, height: 40 }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -19,19 +19,19 @@ class Demo extends React.PureComponent {
           </Dialog>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onBtnClick = () => {
     this.setState({
       visible: !this.state.visible,
       height: this.state.visible ? this.state.height : this.getNextHeight(),
-    });
+    })
   }
 
   private getNextHeight = () => {
-    return this.state.height < 90 ? this.state.height + 10 : 30;
+    return this.state.height < 90 ? this.state.height + 10 : 30
   }
 }
 
-export default Demo;
+export default Demo

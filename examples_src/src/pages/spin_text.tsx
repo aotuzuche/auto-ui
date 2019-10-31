@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Cell, Layout, Spin } from '../auto-ui';
+import * as React from 'react'
+import { Cell, Layout, Spin } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
@@ -16,7 +16,7 @@ const Demo: React.FC<any> = () => {
         <Spin text="加载中..." />
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

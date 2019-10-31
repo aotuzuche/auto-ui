@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Layout, Button } from '../auto-ui';
+import * as React from 'react'
+import { Button, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
@@ -10,13 +10,17 @@ const Demo: React.FC<any> = () => {
         onBackClick={() => {}}
         onCloseClick={() => {}}
         borderType="shadow"
-        addonAfter={<Button shrink mini onClick={() => {}}>右侧挂载</Button>}
+        addonAfter={
+          <Button shrink mini onClick={() => {}}>
+            右侧挂载
+          </Button>
+        }
         homepageButton={true}
         addonBottom={<p>下方挂载</p>}
       />
       <Layout.Body>body</Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

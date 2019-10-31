@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Input, Layout } from '../auto-ui';
+import * as React from 'react'
+import { Input, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
-  const onChange = () => {};
+  const onChange = () => {}
 
   return (
     <Layout>
@@ -14,7 +14,7 @@ const Demo: React.FC<any> = () => {
         <Input value="" onChange={onChange} addonAfter={<button>获取验证码</button>} />
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

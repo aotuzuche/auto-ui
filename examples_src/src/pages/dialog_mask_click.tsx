@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Button, Dialog, Layout } from '../auto-ui';
+import * as React from 'react'
+import { Button, Dialog, Layout } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false };
+  state = { visible: false }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -14,16 +14,16 @@ class Demo extends React.PureComponent {
           </Dialog>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onBtnClick = () => {
-    this.setState({ visible: true });
+    this.setState({ visible: true })
   }
 
   private onMaskClick = () => {
-    this.setState({ visible: false });
+    this.setState({ visible: false })
   }
 }
 
-export default Demo;
+export default Demo

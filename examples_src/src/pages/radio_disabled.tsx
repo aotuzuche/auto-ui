@@ -1,16 +1,20 @@
-import * as React from 'react';
-import { Cell, Layout, Radio } from '../auto-ui';
+import * as React from 'react'
+import { Cell, Layout, Radio } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { checked: true, disabled: false };
+  state = { checked: true, disabled: false }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
           <Cell>
             <Cell.Row title="通过我设置disabled">
-              <Radio checked={this.state.disabled} onChange={this.onDisabledChange} style={{ marginLeft: 'auto' }} />
+              <Radio
+                checked={this.state.disabled}
+                onChange={this.onDisabledChange}
+                style={{ marginLeft: 'auto' }}
+              />
             </Cell.Row>
           </Cell>
           <br />
@@ -22,20 +26,20 @@ class Demo extends React.PureComponent {
           />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onDisabledChange = () => {
     this.setState({
       disabled: !this.state.disabled,
-    });
+    })
   }
 
   private onChange = () => {
     this.setState({
       checked: !this.state.checked,
-    });
+    })
   }
 }
 
-export default Demo;
+export default Demo

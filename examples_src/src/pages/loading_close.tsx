@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Button, Layout, Loading } from '../auto-ui';
+import * as React from 'react'
+import { Button, Layout, Loading } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    Loading('加载中...');
-    setTimeout(Loading.hide, 2000);
-  };
+    Loading('加载中...')
+    setTimeout(Loading.hide, 2000)
+  }
 
   return (
     <Layout>
@@ -13,7 +13,7 @@ const Demo: React.FC<any> = () => {
         <Button onClick={onClick}>点击加载</Button>
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

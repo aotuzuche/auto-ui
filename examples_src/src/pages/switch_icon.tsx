@@ -1,22 +1,22 @@
-import * as React from 'react';
-import { Layout, Switch } from '../auto-ui';
+import * as React from 'react'
+import { Layout, Switch } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { active: true };
+  state = { active: true }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
           <Switch o="开" i="关" icon={true} active={this.state.active} onChange={this.onChange} />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onChange = (active: boolean) => {
-    this.setState({ active });
+    this.setState({ active })
   }
 }
 
-export default Demo;
+export default Demo

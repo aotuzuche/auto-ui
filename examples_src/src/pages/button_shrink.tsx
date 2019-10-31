@@ -1,16 +1,20 @@
-import * as React from 'react';
-import { Button, Cell, Layout, Switch } from '../auto-ui';
+import * as React from 'react'
+import { Button, Cell, Layout, Switch } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { shrink: false };
+  state = { shrink: false }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
           <Cell>
             <Cell.Row title="设置shrink">
-              <Switch active={this.state.shrink} onChange={this.onClick} style={{ marginLeft: 'auto' }} />
+              <Switch
+                active={this.state.shrink}
+                onChange={this.onClick}
+                style={{ marginLeft: 'auto' }}
+              />
             </Cell.Row>
           </Cell>
           <br />
@@ -38,12 +42,12 @@ class Demo extends React.PureComponent {
           </Cell>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onClick = () => {
-    this.setState({ shrink: !this.state.shrink });
+    this.setState({ shrink: !this.state.shrink })
   }
 }
 
-export default Demo;
+export default Demo

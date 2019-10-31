@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Alert, Button, Layout, Toast } from '../auto-ui';
+import * as React from 'react'
+import { Alert, Button, Layout, Toast } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClickA = () => {
@@ -12,28 +12,31 @@ const Demo: React.FC<any> = () => {
           type: 'primary',
           hollow: true,
           onClick: () => {
-            Toast('点击了');
+            Toast('点击了')
           },
         },
       ],
-    });
-  };
+    })
+  }
 
   const onClickB = () => {
     Alert({
       title: '我是一个提示框',
       desc: '描述文字描述文字描述文字',
       btns: [{ name: '取消', type: 'default' }, { name: '删除', type: 'danger' }],
-    });
-  };
+    })
+  }
 
   const onClickC = () => {
     Alert({
       title: '我是一个提示框',
       desc: '描述文字描述文字描述文字',
-      btns: [{ name: '取消', type: 'default', mini: true }, { name: '完成', type: 'primary', mini: true }],
-    });
-  };
+      btns: [
+        { name: '取消', type: 'default', mini: true },
+        { name: '完成', type: 'primary', mini: true },
+      ],
+    })
+  }
 
   return (
     <Layout>
@@ -45,7 +48,7 @@ const Demo: React.FC<any> = () => {
         <Button onClick={onClickC}>小按钮</Button>
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

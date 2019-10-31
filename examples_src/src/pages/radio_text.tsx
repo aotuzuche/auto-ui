@@ -1,31 +1,40 @@
-import * as React from 'react';
-import { Cell, Layout, Radio } from '../auto-ui';
+import * as React from 'react'
+import { Cell, Layout, Radio } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { checked: true };
+  state = { checked: true }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
           <Cell>
             <Cell.Row>
-              <Radio checked={this.state.checked} onChange={this.onChange} text="同意什么什么协议" />
+              <Radio
+                checked={this.state.checked}
+                onChange={this.onChange}
+                text="同意什么什么协议"
+              />
             </Cell.Row>
             <Cell.Row>
-              <Radio border={true} checked={this.state.checked} onChange={this.onChange} text="另一个什么什么协议" />
+              <Radio
+                border={true}
+                checked={this.state.checked}
+                onChange={this.onChange}
+                text="另一个什么什么协议"
+              />
             </Cell.Row>
           </Cell>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onChange = () => {
     this.setState({
       checked: !this.state.checked,
-    });
+    })
   }
 }
 
-export default Demo;
+export default Demo

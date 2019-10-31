@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Button, Layout, TimePicker, Toast } from '../auto-ui'
+import { Layout, TimePicker, Toast } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false };
+  state = { visible: false }
 
-  public render() {
+  render() {
     const data = [
       {
         day: new Date(2018, 4, 1),
@@ -18,7 +18,7 @@ class Demo extends React.PureComponent {
         day: new Date(2018, 4, 3),
         times: [['0000', '0015'], ['0145', '1200']],
       },
-    ];
+    ]
     return (
       <Layout>
         <Layout.Body>
@@ -31,12 +31,12 @@ class Demo extends React.PureComponent {
           />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private showTime = (value: Date) => {
-    Toast(value.toString());
-  };
+    Toast(value.toString())
+  }
 }
 
-export default Demo;
+export default Demo

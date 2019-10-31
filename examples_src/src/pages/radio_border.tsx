@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Layout, Radio } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { checked: true };
+  state = { checked: true }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body style={{ background: '#fff' }}>
@@ -12,14 +12,14 @@ class Demo extends React.PureComponent {
           <Radio border={true} checked={!this.state.checked} onChange={this.onChange} />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onChange = () => {
     this.setState({
       checked: !this.state.checked,
-    });
-  };
+    })
+  }
 }
 
-export default Demo;
+export default Demo

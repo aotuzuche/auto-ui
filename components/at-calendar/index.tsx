@@ -157,6 +157,13 @@ class AtCalendar extends Controller {
     const min = this.props.minHours || 0
     const times = this.state.timePickerTimes
     const chooseOk = times[0] !== null && times[1] !== null
+    let tips = '请选择租期'
+    if (min >= 24) {
+      tips = `${Math.round((min / 24) * 100) / 100}天起租`
+    } else if (min > 0) {
+      tips = `${min}小时起租`
+    }
+
     return (
       <Layout.Footer className="footer">
         <div className="tips">
@@ -176,13 +183,7 @@ class AtCalendar extends Controller {
                 共计<strong>{offsetDays(times[0]!, times[1]!)}</strong>
               </p>
             ) : (
-              <p>
-                {min >= 24
-                  ? `${Math.round((min / 24) * 100) / 100}天起租`
-                  : min > 0
-                    ? `${min}小时起租`
-                    : '请选择租期'}
-              </p>
+              <p>{tips}</p>
             )}
             <Button className="submit" onClick={this.onSubmit}>
               确定

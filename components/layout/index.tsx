@@ -217,6 +217,7 @@ interface IHeaderProps {
   hideInAlipay?: boolean
   hideInAlipayMP?: boolean
   hideInApp?: boolean
+  tabs?: React.ReactNode
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean
   useSafeArea?: boolean
   [otherProps: string]: any
@@ -240,12 +241,13 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     hideInApp,
     homepage,
     useSafeArea,
+    tabs,
     ...otherProps
   } = props
 
   // headline模式下，如果标题上方没有内容，去掉上方的空隙
   let fixPaddingTop = false
-  if (headline && !addonBefore && !onBackClick && !onCloseClick && !addonAfter) {
+  if (headline && !addonBefore && !onBackClick && !onCloseClick) {
     fixPaddingTop = true
   }
 
@@ -253,6 +255,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     'x-app-header',
     {
       'x-app-header--ghost': ghost,
+      'x-app-header--has-tabs': !!tabs,
       'x-app-header--headline': headline,
       'x-app-header--headline-fix-padding': fixPaddingTop,
     },
@@ -342,6 +345,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
         )}
       </div>
       {!!addonBottom && <div className="x-app-header__addon-bottom">{props.addonBottom}</div>}
+      {!!tabs && tabs}
     </header>
   )
 }

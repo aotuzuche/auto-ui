@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Button, Layout, Space } from '../auto-ui';
+import * as React from 'react'
+import { Button, Layout, Space } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
@@ -26,7 +26,7 @@ const Demo: React.FC<any> = () => {
         </Button>
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

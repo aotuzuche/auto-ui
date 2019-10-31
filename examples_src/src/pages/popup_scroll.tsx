@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Button, Layout, Popup } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false };
+  state = { visible: false }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -36,12 +36,12 @@ class Demo extends React.PureComponent {
           </Popup>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onBtnClick = () => {
-    this.setState({ visible: !this.state.visible });
-  };
+    this.setState({ visible: !this.state.visible })
+  }
 }
 
-export default Demo;
+export default Demo

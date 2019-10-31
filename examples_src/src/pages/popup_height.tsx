@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Button, Layout, Popup } from '../auto-ui';
+import * as React from 'react'
+import { Button, Layout, Popup } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { visible: false, height: 30 };
+  state = { visible: false, height: 30 }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -19,12 +19,12 @@ class Demo extends React.PureComponent {
           </Popup>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onBtnClick = (height: number) => {
-    this.setState({ visible: !this.state.visible, height });
+    this.setState({ visible: !this.state.visible, height })
   }
 }
 
-export default Demo;
+export default Demo

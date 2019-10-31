@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Layout } from '../auto-ui';
+import * as React from 'react'
+import { Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
@@ -8,7 +8,7 @@ const Demo: React.FC<any> = () => {
       <Layout.Body>body</Layout.Body>
       <Layout.Footer>footer</Layout.Footer>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

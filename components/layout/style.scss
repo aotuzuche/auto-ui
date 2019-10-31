@@ -43,6 +43,18 @@ button {
   &.x-app-header--bottom-border {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); /*no*/
   }
+  &.x-app-header--has-tabs {
+    > .x-tabs {
+      margin-top: px(-20);
+      position: relative;
+      z-index: 4;
+    }
+    &.x-app-header--headline {
+      > .x-tabs {
+        margin-top: px(-40);
+      }
+    }
+  }
   &:after {
     content: '';
     display: block;
@@ -63,7 +75,7 @@ button {
     min-height: px(110);
     a:not([class]),
     button:not([class]) {
-      color: #666;
+      color: #8a8a9c;
     }
   }
   &__title {
@@ -72,7 +84,7 @@ button {
     width: 100%;
     padding: 0 px(100);
     font-size: px(36);
-    color: #333;
+    color: #3e3d57;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -109,7 +121,7 @@ button {
   }
   &__addon-bottom {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     > .x-tabs {
       margin-top: px(-30);
     }
@@ -183,26 +195,30 @@ button {
   .x-app-header {
     &__addon-before,
     &__addon-after {
-      height: 110px;
+      height: px(110);
     }
     &__inner {
       min-height: 0;
-      padding: 100px 0 60px 0;
+      padding: px(100) 0 px(40) 0;
     }
     &__title {
       text-align: left;
-      padding: 0 40px;
-      font-size: 48px;
+      padding: 0 px(40);
+      font-size: px(55);
       font-weight: bold;
     }
     &__addon-bottom {
-      margin-top: -35px;
-      padding: 0 40px 40px 40px;
+      margin-top: px(-35);
+      padding: 0 px(40) px(40) px(40);
+      color: #8a8a9c;
     }
   }
   &-fix-padding {
     .x-app-header__inner {
-      padding-top: 50px;
+      padding-top: px(40);
+    }
+    .x-app-header__addon-after {
+      height: px(155);
     }
   }
 }

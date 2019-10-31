@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { Cell, Layout } from '../auto-ui';
+import * as React from 'react'
+import { Cell, Layout } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], disabled: false };
+  state = { list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], disabled: false }
 
-  public render() {
+  render() {
     const reachObj = {
       disabled: this.state.disabled,
       content: '点击加载更多',
       handler: this.onLoadMore,
-    };
+    }
     return (
       <Layout>
         <Layout.Header title="很长的列表" borderType="shadow" />
@@ -21,20 +21,20 @@ class Demo extends React.PureComponent {
           </Cell>
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onLoadMore = () => {
     return new Promise(resolve => {
       setTimeout(() => {
-        const newList: number[] = [...this.state.list];
+        const newList: number[] = [...this.state.list]
         for (let i = 0; i < 10; i++) {
-          newList.push(newList.length + 1);
+          newList.push(newList.length + 1)
         }
-        this.setState({ list: newList }, resolve);
-      }, 2000);
-    });
+        this.setState({ list: newList }, resolve)
+      }, 2000)
+    })
   }
 }
 
-export default Demo;
+export default Demo

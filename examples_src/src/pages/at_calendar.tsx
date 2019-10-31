@@ -2,7 +2,7 @@ import * as React from 'react'
 import { AtCalendar } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public render() {
+  render() {
     return (
       <AtCalendar
         title="title"
@@ -31,24 +31,24 @@ class Demo extends React.PureComponent {
         onSubmit={this.onSubmit}
         onDayClick={this.onDayClick}
       />
-    );
+    )
   }
 
-  private onClose = () => {};
+  private onClose = () => {}
 
-  private onSubmit = () => {};
+  private onSubmit = () => {}
 
   private onDayClick = async (day: Date, type: string) => {
-    console.log(day, type);
+    console.log(day, type)
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
           '201906020115': '草',
           '201906020130': '草草草',
-        });
-      }, 100);
-    });
-  };
+        })
+      }, 100)
+    })
+  }
 }
 
-export default Demo;
+export default Demo

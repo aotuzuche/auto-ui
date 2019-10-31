@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Alert, Button, Layout } from '../auto-ui';
+import * as React from 'react'
+import { Alert, Button, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    const [close] = Alert('我会在2秒后关闭');
-    setTimeout(close, 2000);
-  };
+    const [close] = Alert('我会在2秒后关闭')
+    setTimeout(close, 2000)
+  }
 
   return (
     <Layout>
@@ -13,7 +13,7 @@ const Demo: React.FC<any> = () => {
         <Button onClick={onClick}>点击打开</Button>
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

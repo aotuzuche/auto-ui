@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Cell, Layout, Toast } from '../auto-ui';
+import * as React from 'react'
+import { Cell, Layout, Toast } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = (value: string) => {
-    Toast('点击了：' + value);
-  };
+    Toast('点击了：' + value)
+  }
 
   return (
     <Layout>
@@ -18,7 +18,7 @@ const Demo: React.FC<any> = () => {
         </Cell>
       </Layout.Body>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

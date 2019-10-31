@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Layout, Space, Switch } from '../auto-ui';
+import * as React from 'react'
+import { Layout, Space, Switch } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  public state = { active: true };
+  state = { active: true }
 
-  public render() {
+  render() {
     return (
       <Layout>
         <Layout.Body>
@@ -13,12 +13,12 @@ class Demo extends React.PureComponent {
           <Switch o="O" i="I" active={!this.state.active} onChange={this.onChange} />
         </Layout.Body>
       </Layout>
-    );
+    )
   }
 
   private onChange = () => {
-    this.setState({ active: !this.state.active });
+    this.setState({ active: !this.state.active })
   }
 }
 
-export default Demo;
+export default Demo
