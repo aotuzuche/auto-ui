@@ -38,7 +38,7 @@
     justify-content: center;
     height: px(100);
     width: 100%;
-    color: #333;
+    color: rgb(60, 60, 90);
     font-size: px(30);
     &:active {
       background: #fafafa;
@@ -51,14 +51,14 @@
     align-items: center;
     justify-content: center;
     background: #fff;
-    color: #999;
+    color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
     width: 100%;
     height: px(100);
     border-top: px(1) solid $borderColor; /*no*/
     font-size: px(30);
     &:active {
       background: #fafafa;
-      color: #888;
+      color: rgb(157, 157, 172); // rgb(60, 60, 90) x 0.5alpha
     }
   }
   &.x-modal--enter {

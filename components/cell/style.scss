@@ -14,7 +14,7 @@
     padding: px(20) px(40);
     min-height: px(100);
     font-size: px(30);
-    color: #333;
+    color: rgb(60, 60, 90);
     position: relative;
     border-bottom: px(1) solid $borderColor; /*no*/
     &--indent-line,
@@ -76,7 +76,7 @@
     > h2 {
       font-size: px(30);
       font-weight: normal;
-      color: #666;
+      color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
       line-height: px(60);
     }
   }

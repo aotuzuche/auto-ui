@@ -11,7 +11,8 @@
   background: #fff;
   overflow: hidden;
   &:focus-within {
-    border: px(1) solid #999; /*no*/
+    // rgb(196, 196, 205) = rgb(60, 60, 90) x 0.3alpha
+    border: px(1) solid rgb(196, 196, 205); /*no*/
   }
   &--mini {
     height: px(70);
@@ -26,7 +27,7 @@
     width: 100%;
     height: 100%;
     line-height: 1.5;
-    color: #333;
+    color: rgb(60, 60, 90);
     padding: px(20);
     border: none;
     font-weight: normal;
