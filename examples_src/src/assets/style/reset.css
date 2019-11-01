@@ -149,7 +149,7 @@ td {
 /* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
 body {
   font-size: 0.3rem;
-  color: #333;
+  color: rgb(60, 60, 90);
   line-height: 1.5;
 }
 

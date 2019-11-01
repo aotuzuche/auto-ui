@@ -40,7 +40,7 @@
   &__text {
     display: block;
     font-size: px(26);
-    color: #888;
+    color: rgb(157, 157, 172); // rgb(60, 60, 90) x 0.5alpha
     margin-left: px(10);
     user-select: none;
   }
@@ -59,7 +59,7 @@
       }
     }
     .x-radio__text {
-      color: #333;
+      color: rgb(60, 60, 90);
     }
   }
 

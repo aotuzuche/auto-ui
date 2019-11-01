@@ -9,6 +9,10 @@ body,
   overflow: hidden;
 }
 
+* {
+  color: rgb(60, 60, 90);
+}
+
 a,
 button {
   color: $primaryColor;

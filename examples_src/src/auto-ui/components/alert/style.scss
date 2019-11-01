@@ -30,15 +30,15 @@
       font-size: px(34);
       line-height: 1.5;
       margin-top: px(-10);
-      color: #333;
+      color: rgb(60, 60, 90);
       text-align: center;
     }
     > .desc {
       font-size: px(28);
       line-height: 1.5;
-      color: #999;
+      color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
       &.no-title {
-        color: #333;
+        color: rgb(60, 60, 90);
       }
     }
   }

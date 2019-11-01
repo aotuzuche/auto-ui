@@ -9,6 +9,10 @@ body,
   overflow: hidden;
 }
 
+* {
+  color: rgb(60, 60, 90);
+}
+
 a,
 button {
   color: $primaryColor;
@@ -152,7 +156,7 @@ button {
       height: px(36);
     }
     path {
-      fill: #333;
+      fill: rgb(60, 60, 90);
     }
     margin-left: px(-25);
     &:active {
@@ -171,7 +175,7 @@ button {
       height: px(36);
     }
     path {
-      fill: #333;
+      fill: rgb(60, 60, 90);
     }
     &:active {
       opacity: 0.7;
@@ -287,7 +291,7 @@ button {
   &__bottom {
     margin-top: px(20);
     text-align: center;
-    color: #999;
+    color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
     &-inner {
       height: px(80);
       line-height: px(80);
