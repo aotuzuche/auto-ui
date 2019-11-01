@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   &__text {
-    color: nth($primaryColor, 1);
+    color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
     font-size: px(28);
     margin-left: px(10);
   }

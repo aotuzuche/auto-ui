@@ -41,8 +41,7 @@
     color: rgb(60, 60, 90);
     font-size: px(30);
     &:active {
-      background: #fafafa;
-      color: #222;
+      background: #f9f9fa;
     }
   }
   &__closebtn {
@@ -57,7 +56,7 @@
     border-top: px(1) solid $borderColor; /*no*/
     font-size: px(30);
     &:active {
-      background: #fafafa;
+      background: #f9f9fa;
       color: rgb(157, 157, 172); // rgb(60, 60, 90) x 0.5alpha
     }
   }
