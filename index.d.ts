@@ -29,6 +29,7 @@ export {
   AtNav,
   AtCalendar,
   Button,
+  Card,
   Cell,
   Dialog,
   Emitter,
