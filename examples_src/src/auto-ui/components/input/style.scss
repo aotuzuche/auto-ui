@@ -6,7 +6,7 @@
   height: px(90);
   width: 100%;
   border: px(1) solid $borderColor; /*no*/
-  border-radius: px(8);
+  border-radius: px($buttonRadius);
   transition: all 0.1s ease-out;
   background: #fff;
   overflow: hidden;

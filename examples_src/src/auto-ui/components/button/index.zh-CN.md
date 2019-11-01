@@ -35,6 +35,7 @@ code=[disabled](button_disabled)
 | type     | 按钮的种类，primary / danger / default | String   | primary                           |
 | onClick  | 点击事件                               | Function | -                                 |
 | mini     | 是否使用小按钮                         | Boolean  | false                             |
+| capsule  | 是否使用胶囊按钮，即两头圆角的样式     | Boolean  | false                             |
 | loading  | 是否为加载中状态                       | Boolean  | false                             |
 | disabled | 是否不可用                             | Boolean  | false                             |
 | shrink   | 是否收缩到文字显示范围                 | Boolean  | false(mini 为 true 是该值为 true) |

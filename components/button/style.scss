@@ -17,6 +17,9 @@
   &:active {
     opacity: 1;
   }
+  &--capsule {
+    border-radius: px(45);
+  }
   .x-button__loading {
     width: px(25);
     height: px(25);
@@ -27,22 +30,22 @@
     }
   }
   &--default {
-    background: rgb(240, 240, 240);
-    color: rgb(170, 170, 170);
+    background: rgb(235, 235, 238);
+    color: rgb(170, 170, 176);
     &:active {
-      background: rgb(230, 230, 230);
-      color: rgb(165, 165, 165);
+      background: rgb(225, 225, 228);
+      color: rgb(165, 165, 170);
       opacity: 1;
     }
     .x-loading__spin_path {
-      stroke: rgb(170, 170, 170) !important;
+      stroke: rgb(170, 170, 176) !important;
     }
     &.x-button--hollow {
       border: px(1) solid $borderColor; /*no*/
       background: #fff;
       &:active {
         border: px(1) solid mix($borderColor, #000, 92%); /*no*/
-        background: rgb(245, 245, 245);
+        background: rgb(235, 235, 238);
       }
     }
   }

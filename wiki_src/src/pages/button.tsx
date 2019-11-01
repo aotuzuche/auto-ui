@@ -316,6 +316,12 @@ export default Demo
 <td>false</td>
 </tr>
 <tr>
+<td>capsule</td>
+<td>是否使用胶囊按钮，即两头圆角的样式</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>loading</td>
 <td>是否为加载中状态</td>
 <td>Boolean</td>

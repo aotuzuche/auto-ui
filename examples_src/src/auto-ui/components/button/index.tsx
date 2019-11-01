@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: 'primary' | 'danger' | 'default'
   disabled?: boolean
   hollow?: boolean
+  capsule?: boolean
   mini?: boolean
   shrink?: boolean
   shadow?: boolean
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = props => {
     type,
     disabled,
     shrink,
+    capsule,
     mini,
     hollow,
     shadow,
@@ -38,6 +40,7 @@ const Button: React.FC<ButtonProps> = props => {
       'x-button--disabled': disabled,
       'x-button--loading': loading,
       'x-button--mini': mini,
+      'x-button--capsule': capsule,
       'x-button--hollow': hollow,
       'x-button--shrink': shrink !== void 0 ? shrink : !!mini,
       'x-button--shadow': (type === 'primary' || type === 'danger') && !hollow && shadow,

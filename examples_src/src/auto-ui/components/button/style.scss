@@ -17,6 +17,9 @@
   &:active {
     opacity: 1;
   }
+  &--capsule {
+    border-radius: px(45);
+  }
   .x-button__loading {
     width: px(25);
     height: px(25);
