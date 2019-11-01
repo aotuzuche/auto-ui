@@ -4,17 +4,19 @@
 .x-card {
   border-radius: px(20);
   background: #fff;
-  min-height: px(100);
   overflow: hidden;
-  position: relative;
-  &-inner {
-    position: absolute;
-    z-index: 2;
+  &__inner {
     display: flex;
-    height: 100%;
-    overflow: hidden;
   }
-  &-ar {
+  &--ar {
+    position: relative;
+    .x-card__inner {
+      position: absolute;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+  &__ar {
     pointer-events: none;
     width: 100%;
   }
@@ -40,10 +42,11 @@
       opacity: 0.8;
     }
   }
-  &-figure {
+  &__figure {
     position: relative;
     overflow: hidden;
     border-radius: px(4);
+    flex: none;
     &--activable {
       &:active > img {
         opacity: 0.7;
