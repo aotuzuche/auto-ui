@@ -116,7 +116,7 @@ export default class View extends React.PureComponent {
 <td>aspectRatio</td>
 <td>宽高比</td>
 <td>number</td>
-<td>1</td>
+<td>-</td>
 </tr>
 <tr>
 <td>shadow</td>

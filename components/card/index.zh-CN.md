@@ -10,7 +10,7 @@ code=[基本使用](card)
 | ----------- | ------------ | ------------------------------------- | ------ |
 | direction   | 内容排列顺序 | row/column/row-reverse/column-reverse | row    |
 | onClick     | 点击事件     | Function                              | -      |
-| aspectRatio | 宽高比       | number                                | 1      |
+| aspectRatio | 宽高比       | number                                | -      |
 | shadow      | 是否有外阴影 | Boolean                               | false  |
 
 ## Card.Figure 支持属性
