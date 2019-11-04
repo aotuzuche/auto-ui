@@ -52,7 +52,7 @@ const Card: React.FC<ICardProps> & {
     <div {...otherProps} className={cls} onClick={onClick}>
       <div className={`x-card__inner x-card--${direction || 'column'}`}>{children}</div>
       {aspectRatio && aspectRatio > 0 ? (
-        <div className="x-card__ar" style={{ marginTop: `${aspectRatio * 100}%` }} />
+        <div className="x-card__ar" style={{ marginTop: `${(1 / aspectRatio) * 100}%` }} />
       ) : null}
     </div>
   )

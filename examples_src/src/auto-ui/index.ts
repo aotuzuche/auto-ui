@@ -1,5 +1,6 @@
 import ActionSheet from './components/action-sheet'
 import Alert from './components/alert'
+import AspectRatio from './components/aspect-ratio'
 import AtCalendar from './components/at-calendar'
 import AtNav from './components/at-nav'
 import Button from './components/button'
@@ -24,6 +25,7 @@ export {
   Alert,
   AtCalendar,
   AtNav,
+  AspectRatio,
   Button,
   Card,
   Cell,

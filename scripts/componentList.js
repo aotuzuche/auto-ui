@@ -2,6 +2,7 @@
 const componentList = [
   'Layout',
   'Button',
+  'AspectRatio',
   'Input',
   'Cell',
   'Alert',

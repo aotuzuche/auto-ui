@@ -1,6 +1,7 @@
 import A from './es/a'
 import ActionSheet from './es/action-sheet'
 import Alert from './es/alert'
+import AspectRatio from './es/aspect-ratio'
 import AtCalendar from './es/at-calendar'
 import AtNav from './es/at-nav'
 import Button from './es/button'
@@ -28,6 +29,7 @@ export {
   Alert,
   AtNav,
   AtCalendar,
+  AspectRatio,
   Button,
   Card,
   Cell,

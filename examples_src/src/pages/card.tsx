@@ -56,8 +56,8 @@ class Demo extends React.PureComponent {
             </p>
           </Card>
 
-          <Cell.Title text="左右排列，3:8比例，图片占50%宽度" />
-          <Card shadow aspectRatio={3 / 8} direction="row">
+          <Cell.Title text="左右排列，16/9表示宽占16份，高占9份，图片占50%宽度" />
+          <Card shadow aspectRatio={16 / 9} direction="row">
             <Card.Figure
               style={{ width: '50%' }}
               onClick={this.onClick}
