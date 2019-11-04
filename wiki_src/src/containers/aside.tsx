@@ -21,6 +21,7 @@ const Aside: React.FC<any> = props => {
     'ActionSheet,动作框',
     'Tabs,标签页',
     'Space,空格占位',
+    'AspectRatio,宽高比',
     'TimePicker,时间选择',
   ];
   const renderComponentMenu = () => {
