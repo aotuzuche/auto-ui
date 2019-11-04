@@ -21,6 +21,7 @@ const PageTabs = React.lazy(() => import('../pages/tabs'));
 const PageSpace = React.lazy(() => import('../pages/space'));
 const PageNavBar = React.lazy(() => import('../pages/nav-bar'));
 const PageTimePicker = React.lazy(() => import('../pages/time-picker'));
+const PageAspectRatio = React.lazy(() => import('../pages/aspect-ratio'));
 
 export default (history: any) => {
   return (
@@ -47,6 +48,7 @@ export default (history: any) => {
             <Route exact={true} path="/space" component={PageSpace} />
             <Route exact={true} path="/navbar" component={PageNavBar} />
             <Route exact={true} path="/timepicker" component={PageTimePicker} />
+            <Route exact={true} path="/aspectratio" component={PageAspectRatio} />
             <Redirect from="*" to="/layout" />
             <Redirect from="*" to="/button" />
           </Switch>
