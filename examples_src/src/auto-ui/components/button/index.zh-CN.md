@@ -33,7 +33,9 @@ code=[disabled](button_disabled)
 | 属性     | 说明                                   | 类型     | 默认值                            |
 | -------- | -------------------------------------- | -------- | --------------------------------- |
 | type     | 按钮的种类，primary / danger / default | String   | primary                           |
-| onClick  | 点击事件                               | Function | -                                 |
+| onClick  | 点击事件(按钮类型为 button)            | Function | -                                 |
+| to       | 跳转路由(按钮类型为 Link)              | String   | -                                 |
+| href     | 跳转 url(按钮类型为 a 标签)            | String   | -                                 |
 | mini     | 是否使用小按钮                         | Boolean  | false                             |
 | capsule  | 是否使用胶囊按钮，即两头圆角的样式     | Boolean  | false                             |
 | loading  | 是否为加载中状态                       | Boolean  | false                             |

@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import Spin from '../spin/index'
 import './style.scss'
 
@@ -11,7 +12,9 @@ interface ButtonProps {
   mini?: boolean
   shrink?: boolean
   shadow?: boolean
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  to?: string
+  href?: string
   loading?: boolean
   className?: string
   children: React.ReactNode
@@ -31,6 +34,8 @@ const Button: React.FC<ButtonProps> = props => {
     className,
     children,
     onClick,
+    to,
+    href,
     ...otherProps
   } = props
 
@@ -49,18 +54,40 @@ const Button: React.FC<ButtonProps> = props => {
     className,
   )
 
-  const clickHandle: React.MouseEventHandler<HTMLButtonElement> = evt => {
-    if (disabled || loading) {
-      return
+  const content = () => (
+    <>
+      {!!loading && <Spin className="x-button__loading" />}
+      {children}
+    </>
+  )
+
+  if (onClick) {
+    const clickHandle: React.MouseEventHandler<HTMLButtonElement> = evt => {
+      if (disabled || loading || !onClick) {
+        return
+      }
+      onClick(evt)
     }
-    onClick(evt)
+
+    return (
+      <button {...otherProps} className={composeClassName} onClick={clickHandle}>
+        {content()}
+      </button>
+    )
+  }
+
+  if (to) {
+    return (
+      <Link {...otherProps} className={composeClassName} to={to}>
+        {content()}
+      </Link>
+    )
   }
 
   return (
-    <button {...otherProps} className={composeClassName} onClick={clickHandle}>
-      {!!loading && <Spin className="x-button__loading" />}
-      {children}
-    </button>
+    <a {...otherProps} className={composeClassName} href={href || '#'}>
+      {content()}
+    </a>
   )
 }
 

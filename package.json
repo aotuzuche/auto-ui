@@ -1,6 +1,6 @@
 {
   "name": "auto-ui",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "auto ui components",
   "main": "es/index",
   "typings": "es/index",
@@ -41,5 +41,8 @@
     "prismjs": "^1.15.0",
     "typescript": "^3.2.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  }
 }
