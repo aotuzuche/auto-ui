@@ -12,6 +12,7 @@
     position: relative;
     .x-card__inner {
       position: absolute;
+      width: 100%;
       height: 100%;
       overflow: hidden;
     }
@@ -56,6 +57,11 @@
       display: block;
       width: 100%;
       height: 100%;
+    }
+    .x-card__figure-abs-img {
+      position: absolute;
+      left: 0;
+      top: 0;
     }
     &-content {
       position: absolute;

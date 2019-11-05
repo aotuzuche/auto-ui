@@ -15,8 +15,9 @@ code=[基本使用](card)
 
 ## Card.Figure 支持属性
 
-| 属性    | 说明                  | 类型     | 默认值 |
-| ------- | --------------------- | -------- | ------ |
-| image   | 图片访问地址          | String   | -      |
-| title   | 图片标题，即 alt 属性 | String   | -      |
-| onClick | 点击事件              | Function | -      |
+| 属性        | 说明                                 | 类型     | 默认值 |
+| ----------- | ------------------------------------ | -------- | ------ |
+| image       | 图片访问地址                         | String   | -      |
+| aspectRatio | 宽高比，在 Card 横向布局时暂时不支持 | number   | -      |
+| title       | 图片标题，即 alt 属性                | String   | -      |
+| onClick     | 点击事件                             | Function | -      |

@@ -3,6 +3,7 @@
 
 .x-aspect-ratio {
   position: relative;
+  overflow: hidden;
   &__inner {
     position: absolute;
     left: 0;
