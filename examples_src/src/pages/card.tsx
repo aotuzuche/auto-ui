@@ -12,10 +12,10 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          <Cell.Title text="不固定宽高比的card，高度随着内容的多少而变化" />
+          <Cell.Title text="不固定宽高比的card，高度随着内容的多少而变化，图片1:1显示" />
           <Card shadow style={{ width: '50%' }}>
             <Card.Figure
-              style={{ height: '50%' }}
+              aspectRatio={1}
               onClick={this.onClick}
               image="https://carphoto.aotuzuche.com/car/19/07/687221426/1562663319417_1.jpg"
             >
@@ -34,10 +34,10 @@ class Demo extends React.PureComponent {
             </p>
           </Card>
 
-          <Cell.Title text="固定宽高比的card，此处宽高比为1:1，图片占用50%高度，超出文字部分将隐藏" />
+          <Cell.Title text="固定宽高比的card，此处宽高比为1:1，图片16:9，超出文字部分将隐藏" />
           <Card shadow aspectRatio={1} style={{ width: '50%' }}>
             <Card.Figure
-              style={{ height: '50%' }}
+              aspectRatio={16 / 9}
               onClick={this.onClick}
               image="https://carphoto.aotuzuche.com/car/19/07/687221426/1562663319417_1.jpg"
             >

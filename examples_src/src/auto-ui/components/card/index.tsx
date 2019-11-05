@@ -7,18 +7,34 @@ interface IFigureProps {
   title?: string
   onClick?: () => void
   className?: string
+  aspectRatio?: number
   [otherProps: string]: any
 }
 
 const CardFigure: React.FC<IFigureProps> = props => {
-  const { image, title, children, onClick, className, ...otherProps } = props
+  const { image, title, children, onClick, className, aspectRatio, ...otherProps } = props
 
-  const cls = cn('x-card__figure', { 'x-card__figure--activable': !!onClick }, className)
+  const cls = cn(
+    'x-card__figure',
+    {
+      'x-card__figure--activable': !!onClick,
+      'x-card__figure--ar': aspectRatio && aspectRatio > 0,
+    },
+    className,
+  )
 
   return (
     <figure {...otherProps} className={cls} onClick={onClick}>
       <div className="x-card__figure-content">{children}</div>
-      <img src={image} alt={title} title={title} />
+      <img
+        className={aspectRatio && aspectRatio > 0 ? 'x-card__figure-abs-img' : ''}
+        src={image}
+        alt={title}
+        title={title}
+      />
+      {aspectRatio && aspectRatio > 0 ? (
+        <div className="x-card__ar" style={{ marginTop: `${(1 / aspectRatio) * 100}%` }} />
+      ) : null}
     </figure>
   )
 }
