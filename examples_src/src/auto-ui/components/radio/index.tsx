@@ -6,7 +6,7 @@ import './style.scss'
 interface IProps {
   checked: boolean
   disabled?: boolean
-  border?: boolean
+  hollow?: boolean
   className?: string
   text?: string
   children?: null
@@ -15,14 +15,14 @@ interface IProps {
 }
 
 const Radio: React.FC<IProps> = props => {
-  const { checked, disabled, className, text, onChange, border, ...otherProps } = props
+  const { checked, disabled, className, text, onChange, hollow, ...otherProps } = props
 
   const composeClassName = cn(
     'x-radio',
     {
       'x-radio--checked': checked,
       'x-radio--disabled': disabled,
-      'x-radio--border': border,
+      'x-radio--hollow': hollow,
     },
     className,
   )

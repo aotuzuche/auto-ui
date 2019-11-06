@@ -4,11 +4,11 @@
 
 code=[基本使用](radio)
 
-## Border 形式
+## Hollow 形式
 
-当 radio 没有选中时，是以 border 的形式表示
+将 radio 样式改为空心样式
 
-code=[border](radio_border)
+code=[hollow](radio_hollow)
 
 ## 带文字
 

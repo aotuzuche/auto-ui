@@ -8,8 +8,8 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body style={{ background: '#fff' }}>
-          <Radio border={true} checked={this.state.checked} onChange={this.onChange} />
-          <Radio border={true} checked={!this.state.checked} onChange={this.onChange} />
+          <Radio hollow={true} checked={this.state.checked} onChange={this.onChange} />
+          <Radio hollow={true} checked={!this.state.checked} onChange={this.onChange} />
         </Layout.Body>
       </Layout>
     )
