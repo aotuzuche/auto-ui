@@ -1,11 +1,14 @@
 import cn from 'classnames'
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import './style.scss'
 
 interface IRowProps {
   value?: any
   arrow?: boolean
   onClick?: (value?: any) => void
+  href?: string
+  to?: string
   activable?: boolean
   className?: string
   children: React.ReactNode
@@ -20,6 +23,8 @@ const CellRow: React.FC<IRowProps> = props => {
     value,
     arrow,
     onClick,
+    href,
+    to,
     activable,
     className,
     children,
@@ -30,21 +35,48 @@ const CellRow: React.FC<IRowProps> = props => {
   } = props
 
   const composeClassName = cn('x-cell__row', className, {
-    'x-cell__row--activable': onClick || activable,
+    'x-cell__row--activable': onClick || to || href || activable,
     'x-cell__row--arrow': arrow,
     'x-cell__row--indent-line': indentLine,
     'x-cell__row--end-indent-line': endIndentLine,
   })
 
-  let onClickHandle
+  const content = () => (
+    <>
+      {title && <label>{title}</label>}
+      {children}
+    </>
+  )
+
   if (onClick) {
-    onClickHandle = () => onClick(value)
+    const onClickHandle = () => onClick(value)
+
+    return (
+      <div {...otherProps} className={composeClassName} onClick={onClickHandle}>
+        {content()}
+      </div>
+    )
+  }
+
+  if (to) {
+    return (
+      <Link {...otherProps} className={composeClassName} to={to}>
+        {content()}
+      </Link>
+    )
+  }
+
+  if (href) {
+    return (
+      <a {...otherProps} className={composeClassName} href={href}>
+        {content()}
+      </a>
+    )
   }
 
   return (
-    <div {...otherProps} className={composeClassName} onClick={onClickHandle}>
-      {title && <label>{title}</label>}
-      {children}
+    <div {...otherProps} className={composeClassName}>
+      {content()}
     </div>
   )
 }
@@ -95,8 +127,9 @@ const Cell: React.FC<ICellProps> & {
         if (children && children.type === CellRow) {
           return React.cloneElement(children, {
             key: index,
-            arrow: arrow || children.props.arrow,
-            onClick: onClick || children.props.onClick,
+            arrow: children.props.arrow === false ? false : arrow || children.props.arrow,
+            onClick:
+              children.props.href || children.props.to ? void 0 : onClick || children.props.onClick,
             indentLine: indentLine,
             endIndentLine: endIndentLine,
           })

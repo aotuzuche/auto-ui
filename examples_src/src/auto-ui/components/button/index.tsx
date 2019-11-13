@@ -84,10 +84,18 @@ const Button: React.FC<ButtonProps> = props => {
     )
   }
 
+  if (href) {
+    return (
+      <a {...otherProps} className={composeClassName} href={href}>
+        {content()}
+      </a>
+    )
+  }
+
   return (
-    <a {...otherProps} className={composeClassName} href={href || '#'}>
+    <button {...otherProps} className={composeClassName}>
       {content()}
-    </a>
+    </button>
   )
 }
 
