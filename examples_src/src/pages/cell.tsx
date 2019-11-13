@@ -11,6 +11,7 @@ const Demo: React.FC<any> = () => {
           <Cell.Row>cell 2</Cell.Row>
           <Cell.Row>cell 3</Cell.Row>
           <Cell.Row>cell 4</Cell.Row>
+          <Cell.Row>cell 5</Cell.Row>
         </Cell>
       </Layout.Body>
     </Layout>
