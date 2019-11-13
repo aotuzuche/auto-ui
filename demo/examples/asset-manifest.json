@@ -1,11 +1,11 @@
 {
-  "main.css": "/auto-ui/examples/css/main.d0f36b04.chunk.css",
-  "main.js": "/auto-ui/examples/js/main.57452fd0.chunk.js",
-  "main.js.map": "/auto-ui/examples/js/main.57452fd0.chunk.js.map",
+  "main.css": "/auto-ui/examples/css/main.d02e6152.chunk.css",
+  "main.js": "/auto-ui/examples/js/main.aeaa7158.chunk.js",
+  "main.js.map": "/auto-ui/examples/js/main.aeaa7158.chunk.js.map",
   "runtime~main.js": "/auto-ui/examples/js/runtime~main.c2c09c6e.js",
   "runtime~main.js.map": "/auto-ui/examples/js/runtime~main.c2c09c6e.js.map",
-  "vendor.js": "/auto-ui/examples/js/vendor.b3e8dc0b.chunk.js",
-  "vendor.js.map": "/auto-ui/examples/js/vendor.b3e8dc0b.chunk.js.map",
-  "css/main.d0f36b04.chunk.css.map": "/auto-ui/examples/css/main.d0f36b04.chunk.css.map",
+  "vendor.js": "/auto-ui/examples/js/vendor.9ce14c7c.chunk.js",
+  "vendor.js.map": "/auto-ui/examples/js/vendor.9ce14c7c.chunk.js.map",
+  "css/main.d02e6152.chunk.css.map": "/auto-ui/examples/css/main.d02e6152.chunk.css.map",
   "index.html": "/auto-ui/examples/index.html"
 }
