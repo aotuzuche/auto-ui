@@ -37,6 +37,8 @@ code=[arrow](cell_arrow)
 
 | 属性    | 说明                        | 类型     | 默认值 |
 | ------- | --------------------------- | -------- | ------ |
-| onClick | Cell 会覆盖掉               | Function | -      |
+| onClick | 点击事件(按钮类型为 button) | Function | -      |
+| to      | 跳转路由(按钮类型为 Link)   | String   | -      |
+| href    | 跳转 url(按钮类型为 a 标签) | String   | -      |
 | arrow   | 使右侧带箭头符号            | Boolean  | -      |
 | value   | Row 想要传递给 onClick 的值 | Boolean  | false  |
