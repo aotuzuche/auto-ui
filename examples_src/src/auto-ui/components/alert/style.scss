@@ -15,7 +15,7 @@
   opacity: 0;
   transition: opacity 0.2s ease-out;
   &__inner {
-    width: px(580);
+    width: px(670);
     background: #fff;
     box-shadow: 0 0 px(16) rgba(0, 39, 61, 0.05);
     border-radius: px($alertRadius);
@@ -23,33 +23,45 @@
     transform-origin: 50%;
   }
   &__body {
-    padding: px(60) px(40) px(20) px(40);
+    padding: px(60) px(60) px(20) px(60);
     > h1 {
       display: block;
       margin-bottom: px(15);
-      font-size: px(34);
+      font-size: px(32);
       line-height: 1.5;
       margin-top: px(-10);
       color: rgb(60, 60, 90);
       text-align: center;
     }
     > .desc {
-      font-size: px(28);
+      font-size: px(26);
       line-height: 1.5;
       color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
+      display: flex;
+      justify-content: center;
       &.no-title {
         color: rgb(60, 60, 90);
+        font-size: px(32);
       }
     }
   }
   &__btns {
     display: flex;
-    padding: px(40);
+    padding: px(40) px(60) px(60) px(60);
     justify-content: flex-end;
     .x-button {
       font-size: px(28);
       &:not(:last-child) {
         margin-right: px(20);
+      }
+    }
+    &.x-alert__btns--column {
+      flex-direction: column;
+      .x-button {
+        margin-right: 0;
+        &:not(:last-child) {
+          margin-bottom: px(20);
+        }
       }
     }
   }

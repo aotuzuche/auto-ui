@@ -30,13 +30,14 @@ code=[async](alert_async)
 
 ## 支持属性
 
-| 属性      | 说明                                            | 类型                | 默认值   |
-| --------- | ----------------------------------------------- | ------------------- | -------- |
-| title     | 标题                                            | String/ReactElement | -        |
-| desc      | 内容正文                                        | String/ReactElement | empty    |
-| className | 样式名                                          | String              | -        |
-| btns      | 按钮集合                                        | Array<Button 组件>  | 确定按钮 |
-| callback  | 按钮点击的回调用，该方法返回 btns 的 value 属性 | Function            | -        |
+| 属性         | 说明                                            | 类型                | 默认值   |
+| ------------ | ----------------------------------------------- | ------------------- | -------- |
+| title        | 标题                                            | String/ReactElement | -        |
+| desc         | 内容正文                                        | String/ReactElement | empty    |
+| className    | 样式名                                          | String              | -        |
+| btns         | 按钮集合                                        | Array<Button 组件>  | 确定按钮 |
+| btnDirection | 按钮的排列方向, row: 横向排列 column: 纵向排列  | row / column        | row      |
+| callback     | 按钮点击的回调用，该方法返回 btns 的 value 属性 | Function            | -        |
 
 ## 方法
 

@@ -148,19 +148,19 @@ export default Demo
 </thead>
 <tbody><tr>
 <td>onClick</td>
-<td>点击事件(按钮类型为 button)</td>
+<td>点击事件(类型为 button)</td>
 <td>Function</td>
 <td>-</td>
 </tr>
 <tr>
 <td>to</td>
-<td>跳转路由(按钮类型为 Link)</td>
+<td>跳转路由(类型为 Link)</td>
 <td>String</td>
 <td>-</td>
 </tr>
 <tr>
 <td>href</td>
-<td>跳转 url(按钮类型为 a 标签)</td>
+<td>跳转 url(类型为 a 标签)</td>
 <td>String</td>
 <td>-</td>
 </tr>

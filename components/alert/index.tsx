@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
 import Button from '../button/index'
@@ -13,15 +14,16 @@ interface IBtn {
 }
 
 interface IProps {
-  title: string | React.ReactElement<any>
+  title?: string | React.ReactElement<any>
   desc?: string | React.ReactElement<any>
   className?: string
   btns?: IBtn[]
+  btnDirection?: 'row' | 'column'
   onClose: (btn: IBtn) => void
 }
 
 const AlertComponent: React.FC<IProps> = props => {
-  const { title, desc, onClose } = props
+  const { title, desc, onClose, btnDirection } = props
   let { btns } = props
 
   const onBtnClick = (onClick: () => void = () => {}, btn: IBtn) => {
@@ -33,7 +35,7 @@ const AlertComponent: React.FC<IProps> = props => {
 
   const renderBtns = () => {
     if (!btns || btns.length === 0) {
-      btns = [{ name: '确定' }]
+      btns = [{ name: '确定', capsule: true }]
     }
     const onlyBtn = btns.length <= 1
     return btns.map((btn, index) => {
@@ -52,6 +54,7 @@ const AlertComponent: React.FC<IProps> = props => {
           className={className}
           type={btnType}
           key={index}
+          capsule={true}
           onClick={onBtnClick(onClick, btn)}
         >
           {name}
@@ -66,7 +69,13 @@ const AlertComponent: React.FC<IProps> = props => {
         {!!title && <h1>{title}</h1>}
         <div className={title ? 'desc' : 'desc no-title'}>{desc}</div>
       </div>
-      <div className="x-alert__btns">{renderBtns()}</div>
+      <div
+        className={cn('x-alert__btns', {
+          'x-alert__btns--column': btnDirection === 'column',
+        })}
+      >
+        {renderBtns()}
+      </div>
     </div>
   )
 }
@@ -76,6 +85,7 @@ interface IAlertParams {
   desc?: string | React.ReactElement<any>
   className?: string
   btns?: IBtn[]
+  btnDirection?: 'row' | 'column'
 }
 
 type IAsyncAlert = (params: IAlertParams | string) => Promise<string | number | boolean | undefined>
@@ -107,13 +117,14 @@ const Alert: IAlert = (params, callback) => {
   }
 
   if (typeof params === 'string') {
-    render(createPortal(<AlertComponent title={params} onClose={close} />, div), div)
+    render(createPortal(<AlertComponent desc={params} onClose={close} />, div), div)
   } else {
     render(
       createPortal(
         <AlertComponent
           {...params}
           btns={params.btns}
+          btnDirection={params.btnDirection}
           title={params.title || ''}
           onClose={close}
         />,

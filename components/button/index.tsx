@@ -101,6 +101,7 @@ const Button: React.FC<ButtonProps> = props => {
 
 Button.defaultProps = {
   type: 'primary',
+  capsule: true,
 }
 
 export default Button

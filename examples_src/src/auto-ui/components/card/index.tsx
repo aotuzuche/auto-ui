@@ -25,7 +25,7 @@ const CardFigure: React.FC<IFigureProps> = props => {
 
   return (
     <figure {...otherProps} className={cls} onClick={onClick}>
-      <div className="x-card__figure-content">{children}</div>
+      {children && <div className="x-card__figure-content">{children}</div>}
       <img
         className={aspectRatio && aspectRatio > 0 ? 'x-card__figure-abs-img' : ''}
         src={image}

@@ -97,48 +97,27 @@ export default Demo
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClickA</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     <span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      title<span class="token punctuation">:</span> <span class="token string">'我是一个提示框'</span><span class="token punctuation">,</span>
-      desc<span class="token punctuation">:</span> <span class="token string">'描述文字描述文字描述文字'</span><span class="token punctuation">,</span>
-      btns<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          name<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
-          type<span class="token punctuation">:</span> <span class="token string">'primary'</span><span class="token punctuation">,</span>
-          hollow<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          onClick<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-            <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'点击了'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token string">'您确定要删除此项吗？'</span><span class="token punctuation">,</span>
+      desc<span class="token punctuation">:</span> <span class="token string">'您确定要删除此项吗？您确定要删除此项吗？您确定要删除此项吗？'</span><span class="token punctuation">,</span>
+      btns<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'primary'</span><span class="token punctuation">,</span> hollow<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'删除'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'primary'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">const</span> <span class="token function-variable function">onClickB</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     <span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      title<span class="token punctuation">:</span> <span class="token string">'我是一个提示框'</span><span class="token punctuation">,</span>
-      desc<span class="token punctuation">:</span> <span class="token string">'描述文字描述文字描述文字'</span><span class="token punctuation">,</span>
-      btns<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'default'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'删除'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'danger'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">const</span> <span class="token function-variable function">onClickC</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      title<span class="token punctuation">:</span> <span class="token string">'我是一个提示框'</span><span class="token punctuation">,</span>
-      desc<span class="token punctuation">:</span> <span class="token string">'描述文字描述文字描述文字'</span><span class="token punctuation">,</span>
-      btns<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'default'</span><span class="token punctuation">,</span> mini<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'完成'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'primary'</span><span class="token punctuation">,</span> mini<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token string">'您确定要删除此项吗？'</span><span class="token punctuation">,</span>
+      desc<span class="token punctuation">:</span> <span class="token string">'您确定要删除此项吗？您确定要删除此项吗？您确定要删除此项吗？'</span><span class="token punctuation">,</span>
+      btnDirection<span class="token punctuation">:</span> <span class="token string">'column'</span><span class="token punctuation">,</span>
+      btns<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'primary'</span><span class="token punctuation">,</span> hollow<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'删除'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'primary'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span><span class="token punctuation">></span></span><span class="token plain-text">
       </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout.Body</span><span class="token punctuation">></span></span><span class="token plain-text">
-        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClickA<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">单个按钮</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClickA<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">横向按钮</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span><span class="token plain-text">
         </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token plain-text">
-        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClickB<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">多个按钮</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span><span class="token plain-text">
-        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token plain-text">
-        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClickC<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">小按钮</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClickB<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">纵向按钮</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">></span></span><span class="token plain-text">
       </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Layout.Body</span><span class="token punctuation">></span></span><span class="token plain-text">
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Layout</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span>
@@ -199,6 +178,12 @@ export default Demo
 <td>按钮集合</td>
 <td>Array&lt;Button 组件&gt;</td>
 <td>确定按钮</td>
+</tr>
+<tr>
+<td>btnDirection</td>
+<td>按钮的排列方向, row: 横向排列 column: 纵向排列</td>
+<td>row / column</td>
+<td>row</td>
 </tr>
 <tr>
 <td>callback</td>
