@@ -17,6 +17,10 @@
 
 Android 4.4+, iOS 8+
 
+## 开发
+
+请在 dev 分支上面切分支开发，开发完成之后合并到 dev 分支并测试
+
 ## 如何本地测试
 
 - cd examples_src
@@ -35,3 +39,16 @@ Android 4.4+, iOS 8+
 会自动生成相应的文件到 components、es、libs 中
 
 ## 如何发布
+
+```bash
+  git add .
+  npm run commit
+  git push
+  git checkout dev
+  git merge/rebase xxxx
+  git push
+  // test
+  git checkout master
+  git push
+  npm run np
+```
