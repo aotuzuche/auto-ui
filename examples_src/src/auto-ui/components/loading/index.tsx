@@ -13,9 +13,9 @@ const close = (): void => {
   }
 }
 
-type ILoading = ((text?: string) => [() => void, void]) & { hide: () => void }
+type ILoading = (() => [() => void, void]) & { hide: () => void }
 
-const Loading: ILoading = text => {
+const Loading: ILoading = () => {
   // 防止多次调用先 close 检查下
   close()
 
@@ -27,7 +27,6 @@ const Loading: ILoading = text => {
     createPortal(
       <div className="x-loading__inner">
         <Spin />
-        {!!text && <p>{text}</p>}
       </div>,
       div,
     ),

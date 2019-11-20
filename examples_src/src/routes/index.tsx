@@ -44,7 +44,6 @@ import PageLayoutReachBottom from '../pages/layout_reach_bottom'
 import PageLayoutTabs from '../pages/layout_tabs'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
-import PageLoadingText from '../pages/loading_text'
 import PagePopup from '../pages/popup'
 import PagePopupFromParent from '../pages/popup_from_parent'
 import PagePopupHeight from '../pages/popup_height'
@@ -102,7 +101,6 @@ const routes: any[] = [
   ['toast_close', PageToastClose],
   ['toast_duration', PageToastDuartion],
   ['loading', PageLoading],
-  ['loading_text', PageLoadingText],
   ['loading_close', PageLoadingClose],
   ['spin', PageSpin],
   ['spin_text', PageSpinText],

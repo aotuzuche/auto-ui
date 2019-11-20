@@ -5,60 +5,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  &__text {
-    color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
-    font-size: px(28);
-    margin-left: px(10);
-  }
 }
 
 .x-loading__spin {
-  width: px(30);
-  height: px(30);
   overflow: hidden;
   position: relative;
-  &_circular {
-    animation: __x_loading_rotate 2s linear infinite;
-    height: 100%;
-    transform-origin: center center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: px(30);
+  width: px(82);
+  span {
+    width: px(12);
+    height: px(12);
+    display: block;
+    border-radius: 50%;
+    background: rgb(0, 207, 151);
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  &_path {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-    stroke: nth($primaryColor, 1);
-    stroke-width: px(4); /*no*/
-    animation: __x_loading_dash 1.5s ease-in-out infinite;
-    stroke-linecap: round;
-  }
-}
-
-@keyframes __x_loading_rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    top: px(8);
+    &:nth-child(1) {
+      left: px(0);
+      animation: '__x_loading_bounce' 0.75s linear 0s infinite;
+    }
+    &:nth-child(2) {
+      left: px(28);
+      animation: '__x_loading_bounce' 0.75s linear 0.3s infinite;
+    }
+    &:nth-child(3) {
+      left: px(56);
+      animation: '__x_loading_bounce' 0.75s linear 0.5s infinite;
+    }
   }
 }
 
-@keyframes __x_loading_dash {
+@keyframes __x_loading_bounce {
   0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
+    transform: translateY(0);
   }
   50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: px(-35); /*no*/
+    transform: translateY(-8px);
   }
   100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: px(-124); /*no*/
+    transform: translateY(0);
   }
 }

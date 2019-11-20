@@ -3,7 +3,7 @@ import { Button, Layout, Loading } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    Loading('加载中...')
+    Loading()
     setTimeout(Loading.hide, 2000)
   }
 

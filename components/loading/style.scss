@@ -12,32 +12,4 @@
   height: 100%;
   z-index: 99995;
   background: rgba(255, 255, 255, 0.5);
-
-  .x-loading__spin {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: px(60);
-    height: px(60);
-    margin: px(-30) 0 0 px(-30);
-    &_path {
-      stroke-width: px(2); /*no*/
-    }
-  }
-
-  .x-loading__inner {
-    opacity: 0;
-    transition: opacity 0.2s ease-out;
-    padding-top: px(100);
-    p {
-      font-size: px(24);
-      color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
-    }
-  }
-
-  &--show {
-    .x-loading__inner {
-      opacity: 1;
-    }
-  }
 }

@@ -7,7 +7,8 @@
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "docs": "gh-pages -d demo",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "np": "np --yolo --no-yarn"
   },
   "repository": "git@github.com:aotuzuche/auto-ui.git",
   "author": "shaodahong <337097324@qq.com>",
@@ -38,6 +39,7 @@
     "git-cz": "^1.8.0",
     "husky": "^1.3.1",
     "marked": "^0.6.0",
+    "np": "^5.1.3",
     "prismjs": "^1.15.0",
     "typescript": "^3.2.4"
   },

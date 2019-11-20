@@ -103,7 +103,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
         )}
         {!!this.state.bottomLoading && (
           <div className="x-app-body__bottom-inner">
-            <Spin text="加载中..." />
+            <Spin />
           </div>
         )}
       </div>

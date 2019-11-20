@@ -16,3 +16,22 @@
 ## 浏览器支持
 
 Android 4.4+, iOS 8+
+
+## 如何本地测试
+
+- cd examples_src
+- yarn start
+- 进入 auto-ui，修改相应的组件
+- 进入 pages 页面，调用修改的组件即可
+
+## 如何生成编译
+
+在根目录下面执行：
+
+```
+  make es6
+```
+
+会自动生成相应的文件到 components、es、libs 中
+
+## 如何发布

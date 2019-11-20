@@ -15,14 +15,16 @@
   pointer-events: none;
   &__inner {
     background: rgba(60, 60, 90, 0.8);
-    padding: px(30) px(36);
-    border-radius: px($alertRadius);
+    padding: px(18) px(50);
+    border-radius: px(36);
     opacity: 0;
     transform-origin: 50%;
     max-width: 80%;
     p {
+      text-align: center;
       color: #fff;
-      font-size: px(28);
+      font-size: px(24);
+      line-height: px(36);
     }
   }
   &--show {

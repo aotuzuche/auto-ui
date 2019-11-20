@@ -42,7 +42,7 @@ export default Demo
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'我是一个显示5秒的轻提示'</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span>
+    <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'我是一个显示5秒提示'</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">return</span> <span class="token punctuation">(</span>

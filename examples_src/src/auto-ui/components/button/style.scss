@@ -20,15 +20,15 @@
   &--capsule {
     border-radius: px(45);
   }
-  .x-button__loading {
-    width: px(25);
-    height: px(25);
-    margin-right: px(10);
-    .x-loading__spin_path {
-      stroke: #fff;
-      stroke-width: px(5); /*no*/
-    }
-  }
+  // .x-button__loading {
+  //   width: px(25);
+  //   height: px(25);
+  //   margin-right: px(10);
+  //   .x-loading__spin_path {
+  //     stroke: #fff;
+  //     stroke-width: px(5); /*no*/
+  //   }
+  // }
   &--default {
     background: rgb(235, 235, 238);
     color: rgb(170, 170, 176);
@@ -37,8 +37,8 @@
       color: rgb(165, 165, 170);
       opacity: 1;
     }
-    .x-loading__spin_path {
-      stroke: rgb(170, 170, 176) !important;
+    .x-loading__spin span {
+      background: $primaryColor;
     }
     &.x-button--hollow {
       border: px(1) solid $borderColor; /*no*/
@@ -46,6 +46,9 @@
       &:active {
         border: px(1) solid mix($borderColor, #000, 92%); /*no*/
         background: rgb(235, 235, 238);
+      }
+      .x-loading__spin span {
+        background: $primaryColor;
       }
     }
   }
@@ -69,6 +72,9 @@
     &.x-button--shadow {
       box-shadow: 0 20px 30px -20px rgba(0, 210, 147, 0.8);
     }
+    .x-loading__spin span {
+      background: #fff;
+    }
     &.x-button--hollow {
       border: px(1) solid $primaryColor; /*no*/
       background: #fff;
@@ -78,8 +84,8 @@
         color: mix($primaryColor, #000, 92%);
         background: rgba(mix($primaryColor, #000, 92%), 0.1);
       }
-      .x-loading__spin_path {
-        stroke: $primaryColor;
+      .x-loading__spin span {
+        background: $primaryColor;
       }
     }
   }
@@ -100,6 +106,9 @@
         border-radius: inherit;
       }
     }
+    .x-loading__spin span {
+      background: #fff;
+    }
     &.x-button--shadow {
       box-shadow: 0 20px 30px -20px rgba(255, 77, 77, 0.8);
     }
@@ -112,8 +121,8 @@
         color: mix($dangerColor, #000, 92%);
         background: rgba(mix($dangerColor, #000, 92%), 0.1);
       }
-      .x-loading__spin_path {
-        stroke: $dangerColor;
+      .x-loading__spin span {
+        background: $dangerColor;
       }
     }
   }
@@ -122,8 +131,8 @@
     font-size: px(26);
     .x-button__loading {
       .x-loading__spin {
-        width: px(20);
-        height: px(20);
+        transform: scale(0.75);
+        min-width: px(62);
       }
     }
   }

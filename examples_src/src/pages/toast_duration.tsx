@@ -3,7 +3,7 @@ import { Button, Layout, Toast } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    Toast('我是一个显示5秒的轻提示', 5000)
+    Toast('我是一个显示5秒提示', 5000)
   }
 
   return (
