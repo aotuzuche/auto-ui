@@ -252,16 +252,7 @@ button {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: px(60);
-      height: px(60);
-      margin: px(-30) 0 0 px(-30);
-    }
-    .x-loading__spin {
-      width: 100%;
-      height: 100%;
-    }
-    .x-loading__spin_path {
-      stroke-width: px(2); /*no*/
+      margin: px(-15) 0 0 px(-41);
     }
   }
   &--error {
