@@ -69,7 +69,7 @@ const markdown = marked.setOptions({
 // 循环生成组件页面
 componentList.forEach(component => {
   const name = fo.toLowerLine(component);
-  const file = fs.readFileSync(`components/${name}/index.zh-CN.md`, 'utf-8');
+  const file = fs.readFileSync(`examples_src/src/auto-ui/components/${name}/index.zh-CN.md`, 'utf-8');
   let fileStr = file.toString();
   // 把例子中的代码贴到md中
   const reg = /code=\[(.+)\]\((.+)\)/g;

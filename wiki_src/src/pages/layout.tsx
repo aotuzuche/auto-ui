@@ -241,7 +241,9 @@ export default Demo
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo
-`}} /></pre></div></div><h2>骨架屏</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/layout_skeleton') })} onClick={this.onCodeClick.bind(null, '/layout_skeleton')}><header>onReachBottom</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+`}} /></pre></div></div><h2>骨架屏</h2><p>骨架屏：<a href="https://github.com/danilowoz/react-content-loader">https://github.com/danilowoz/react-content-loader</a>
+编辑地址：<a href="http://danilowoz.com/create-content-loader/">http://danilowoz.com/create-content-loader/</a></p>
+<div className={C('code-box', { active: this.state.previewUrl.endsWith('/layout_skeleton') })} onClick={this.onCodeClick.bind(null, '/layout_skeleton')}><header>skeleton</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Layout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 <span class="token keyword">import</span> ContentLoader <span class="token keyword">from</span> <span class="token string">'react-content-loader'</span>
 
