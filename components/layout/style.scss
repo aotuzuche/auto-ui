@@ -236,7 +236,11 @@ button {
   position: relative;
   padding: px(40);
   z-index: 1;
-
+  &__skeleton {
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
   &__inner {
     > .x-cell {
       margin-left: px(-40);
