@@ -51,7 +51,9 @@ code=[onReachBottom](layout_reach_bottom)
 ## 骨架屏
 
 骨架屏：https://github.com/danilowoz/react-content-loader
+
 编辑地址：http://danilowoz.com/create-content-loader/
+
 code=[skeleton](layout_skeleton)
 
 ## Layout 支持属性
