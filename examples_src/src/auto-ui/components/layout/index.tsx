@@ -47,6 +47,8 @@ interface IBodyProps {
   errorInfo?: string
   className?: string
   onScroll?: (event: React.UIEvent<HTMLDivElement>) => void
+  skeleton?: React.ReactChild
+  skeletonRepeat?: number
   onReachBottom?: {
     disabled: boolean
     content?: React.ReactChild
@@ -70,7 +72,16 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   render() {
-    const { loading, errorInfo, className, onScroll, onReachBottom, ...otherProps } = this.props
+    const {
+      loading,
+      errorInfo,
+      className,
+      onScroll,
+      onReachBottom,
+      skeleton,
+      skeletonRepeat,
+      ...otherProps
+    } = this.props
 
     const composeClassName = cn('x-app-body', className, {
       'x-app-body--loading': loading,
@@ -111,8 +122,20 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   private renderContent() {
-    const { loading, errorInfo, children } = this.props
+    const { loading, errorInfo, children, skeleton, skeletonRepeat = 1 } = this.props
     if (loading) {
+      if (skeleton) {
+        return (
+          <div className="x-app-body__skeleton">
+            {'*'
+              .repeat(skeletonRepeat)
+              .split('')
+              .map((_, key) => {
+                return <div key={key}>{skeleton}</div>
+              })}
+          </div>
+        )
+      }
       return <Spin className="x-app__loading" />
     }
     if (errorInfo) {

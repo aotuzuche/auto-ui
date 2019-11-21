@@ -40,6 +40,7 @@ import PageLayoutHeader from '../pages/layout_header'
 import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
 import PageLayoutHeadline from '../pages/layout_headline'
 import PageLayoutLoading from '../pages/layout_loading'
+import PageLayoutSkeleton from '../pages/layout_skeleton'
 import PageLayoutReachBottom from '../pages/layout_reach_bottom'
 import PageLayoutTabs from '../pages/layout_tabs'
 import PageLoading from '../pages/loading'
@@ -134,6 +135,7 @@ const routes: any[] = [
   ['layout_header', PageLayoutHeader],
   ['layout_header_homepage', PageLayoutHeaderHomepage],
   ['layout_loading', PageLayoutLoading],
+  ['layout_skeleton', PageLayoutSkeleton],
   ['layout_tabs', PageLayoutTabs],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['at-calendar', PageAtCalendar],
