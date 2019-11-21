@@ -15,7 +15,7 @@
   opacity: 0;
   transition: opacity 0.2s ease-out;
   &__inner {
-    width: px(670);
+    width: px(580);
     background: #fff;
     box-shadow: 0 0 px(16) rgba(0, 39, 61, 0.05);
     border-radius: px($alertRadius);
@@ -23,7 +23,7 @@
     transform-origin: 50%;
   }
   &__body {
-    padding: px(60) px(60) px(20) px(60);
+    padding: px(50) px(40) px(20) px(40);
     > h1 {
       display: block;
       margin-bottom: px(15);
@@ -47,10 +47,11 @@
   }
   &__btns {
     display: flex;
-    padding: px(40) px(60) px(60) px(60);
+    padding: px(20) px(40) px(50) px(40);
     justify-content: flex-end;
     .x-button {
       font-size: px(28);
+      height: px(80);
       &:not(:last-child) {
         margin-right: px(20);
       }

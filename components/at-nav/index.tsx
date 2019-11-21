@@ -23,17 +23,6 @@ const AtNav: React.FC<IProps> = props => {
           <small>首页</small>
         </a>
       )}
-      {active === 'collection' ? (
-        <p className="x-at-navitem x-at-navitem__collection">
-          <i />
-          <small>收藏</small>
-        </p>
-      ) : (
-        <a className="x-at-navitem x-at-navitem__collection" href="/m/user/collection">
-          <i />
-          <small>收藏</small>
-        </a>
-      )}
       {active === 'order' ? (
         <p className="x-at-navitem x-at-navitem__order">
           <i />
@@ -43,6 +32,17 @@ const AtNav: React.FC<IProps> = props => {
         <a className="x-at-navitem x-at-navitem__order" href="/m/order">
           <i />
           <small>行程</small>
+        </a>
+      )}
+      {active === 'collection' ? (
+        <p className="x-at-navitem x-at-navitem__collection">
+          <i />
+          <small>收藏</small>
+        </p>
+      ) : (
+        <a className="x-at-navitem x-at-navitem__collection" href="/m/user/collection">
+          <i />
+          <small>收藏</small>
         </a>
       )}
       {active === 'user' ? (
