@@ -7,22 +7,17 @@ class Demo extends React.PureComponent {
       <AtCalendar
         title="title"
         onClose={this.onClose}
-        months={[new Date(2019, 5), new Date(2019, 8)]}
+        monthRange={[new Date(2019, 5), new Date(2019, 8)]}
         data={{
           [new Date(2019, 5, 2).valueOf()]: {
-            isHoliday: false,
-            price: 333,
             rent: ['0000', '1200'],
             revert: ['0030', '1100'],
           },
           [new Date(2019, 5, 3).valueOf()]: {
-            isHoliday: false,
-            price: 333,
             rent: ['0000', '1200'],
             revert: ['0030', '1100'],
           },
           [new Date(2019, 5, 4).valueOf()]: {
-            isHoliday: false,
             price: 333,
             rent: ['0000', '1200'],
             revert: ['0030', '1100'],

@@ -16,6 +16,9 @@
         color: rgb(60, 60, 90);
         &.active {
           color: $primaryColor;
+          > p {
+            color: $primaryColor;
+          }
         }
         h6 {
           color: inherit;
@@ -53,9 +56,10 @@
     }
     > .list {
       overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
     }
     .month-day {
-      float: left;
       width: 14.285%; // 7分之1
       margin-bottom: px(60);
 
