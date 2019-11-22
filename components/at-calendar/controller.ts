@@ -5,8 +5,8 @@ import Loading from '../loading'
 import Toast from '../toast'
 
 interface IData {
-  isHoliday: boolean
-  price: number
+  isHoliday?: boolean
+  price?: number
   rent: string[] | string[][]
   revert: string[] | string[][]
   disabled?: 'ALL' | 'PART' | 'DISABLED' // 全天不可租 = ALL 或斜线的样式， 部分不可租 = PART, DISABLED 置灰
@@ -17,7 +17,7 @@ interface IProps {
   title?: string
   onClose: () => void
   disabledBefore?: Date
-  months: [Date, Date]
+  monthRange: [Date, Date]
   chooseRange?: [Date, Date]
   onSubmit: (start: Date, end: Date) => void
   onDayClick?: (day: Date, type: 'rent' | 'revert') => any
@@ -60,12 +60,12 @@ class Controller extends React.PureComponent<IProps, IState> {
       }
     })
 
-    // 验证months数据，两个时间必须是00:00的整点时间
-    if (!this.props.months[0] || !this.isZeroTime(this.props.months[0])) {
-      throw new Error('months数据错误')
+    // 验证monthRange数据，两个时间必须是00:00的整点时间
+    if (!this.props.monthRange[0] || !this.isZeroTime(this.props.monthRange[0])) {
+      throw new Error('monthRange数据错误')
     }
-    if (!this.props.months[1] || !this.isZeroTime(this.props.months[1])) {
-      throw new Error('months数据错误')
+    if (!this.props.monthRange[1] || !this.isZeroTime(this.props.monthRange[1])) {
+      throw new Error('monthRange数据错误')
     }
 
     // 初始化state
@@ -134,8 +134,8 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 根据months获取一个月份列表
   protected getMonthList(): Date[] {
-    const first = this.props.months[0]
-    const last = this.props.months[1]
+    const first = this.props.monthRange[0]
+    const last = this.props.monthRange[1]
     let fy = first.getFullYear()
     let fm = first.getMonth()
     const ly = last.getFullYear()
