@@ -34,65 +34,151 @@ const TabsItem: React.FC<IItemProps> = props => {
 interface ITabsProps {
   className?: string
   active: string | number
+  shrink?: boolean
   onClick: (value: string | number) => void
   [otherProps: string]: any
 }
 
-const Tabs: React.FC<ITabsProps> & { Item: React.FC<IItemProps> } = props => {
-  const { className, children, active, onClick, ...otherProps } = props
-  const composeClassName = cn('x-tabs', className)
+class Tabs extends React.PureComponent<ITabsProps> {
+  static Item: any
 
-  let activeOffset = -2
+  ref: React.RefObject<any> = React.createRef()
 
-  let composeChildren: any[] = []
-  if (Array.isArray(children)) {
-    composeChildren.push(...children)
-  } else {
-    composeChildren.push(children)
+  animTimer: any = 0
+
+  state = {
+    currentActive: -2,
+    runAnim: false,
   }
 
-  composeChildren = composeChildren.map((res, index) => {
-    const act = props.hasOwnProperty('active') && res.props.value === props.active
-    if (act) {
-      activeOffset = index
+  componentDidMount() {
+    if (this.ref && this.ref.current) {
+      const dom = this.ref.current
+      for (let i = 0; i < dom.children.length; i++) {
+        if (dom.children[i].classList.contains('x-tabs--active')) {
+          dom.children[i].classList.add('x-tabs--line')
+          this.setState({
+            currentActive: i,
+          })
+          break
+        }
+      }
     }
-    return React.cloneElement(res, {
-      active: act,
-      key: index,
-      value: res.props.value,
-      onClick: props.onClick,
-      children: res.props.children,
-    })
-  })
+  }
 
-  const [cls, setCls] = React.useState('x-tabs__line')
-  const [first, setFirst] = React.useState(true)
+  componentDidUpdate() {
+    if (this.state.runAnim) {
+      return
+    }
+    if (this.ref && this.ref.current) {
+      const dom = this.ref.current
+      const line = dom.querySelector('.x-tabs__line')
 
-  React.useEffect(() => {
-    if (!first) {
-      setCls('x-tabs__line x-tabs__line--ani')
+      let currentX = 0
+      let targetX = 0
+
+      const moveLine = () => {
+        let duration = 0.3
+        if (Math.abs(targetX - currentX) < 90) {
+          duration = 0.15
+        }
+        line.style.transform = `translate(${targetX}px, 0)`
+        line.style.transition = `transform ${duration}s ease-out`
+        line.style.animation = `__x_tabs_line_scale ${duration}s ease-out`
+      }
+
+      for (let item of dom.children) {
+        if (item.classList.contains('x-tabs--active')) {
+          const cur = dom.children[this.state.currentActive]
+          currentX = cur ? cur.offsetLeft + cur.clientWidth / 2 : -300
+          targetX = item.offsetLeft + item.clientWidth / 2
+          if (currentX !== targetX && line) {
+            line.style.transform = `translate(${currentX}px, 0)`
+            line.style.transition = 'none'
+            line.style.animation = 'none'
+            line.style.display = 'block'
+            ;(this.setState as any)({
+              runAnim: true,
+            })
+            clearTimeout(this.animTimer)
+            this.animTimer = setTimeout(this.onTransitionEnd, 400)
+            setTimeout(moveLine, 10)
+          }
+          break
+        }
+      }
+    }
+  }
+
+  onTransitionEnd = () => {
+    clearTimeout(this.animTimer)
+    if (this.ref && this.ref.current) {
+      const dom = this.ref.current
+      const line = dom.querySelector('.x-tabs__line')
+
+      for (let i = 0; i < dom.children.length; i++) {
+        if (dom.children[i].classList.contains('x-tabs--active')) {
+          dom.children[i].classList.add('x-tabs--line')
+          this.setState({
+            currentActive: i,
+          })
+          break
+        }
+      }
+      if (line) {
+        line.style.display = 'none'
+      }
+      this.setState({
+        runAnim: false,
+      })
+    }
+  }
+
+  render() {
+    const { className, children, active, onClick, shrink, ...otherProps } = this.props
+    const composeClassName = cn(
+      'x-tabs',
+      {
+        'x-tabs--shrink': shrink,
+      },
+      className,
+    )
+
+    let composeChildren: any[] = []
+    if (Array.isArray(children)) {
+      composeChildren.push(...children)
     } else {
-      setFirst(false)
+      composeChildren.push(children)
     }
-  }, [activeOffset])
 
-  const onTransEnd = () => {
-    setCls('x-tabs__line')
+    composeChildren = composeChildren.map((res, index) => {
+      const act = this.props.hasOwnProperty('active') && res.props.value === active
+      return React.cloneElement(res, {
+        active: act,
+        key: index,
+        value: res.props.value,
+        onClick: (value: any) => {
+          if (this.state.runAnim) {
+            return
+          }
+          console.log(this.state.runAnim)
+          onClick(value)
+        },
+        children: res.props.children,
+      })
+    })
+
+    return (
+      <div {...otherProps} className={composeClassName} ref={this.ref}>
+        <sub
+          className="x-tabs__line"
+          style={{ display: 'none' }}
+          onTransitionEnd={this.onTransitionEnd}
+        />
+        {composeChildren}
+      </div>
+    )
   }
-
-  return (
-    <div {...otherProps} className={composeClassName}>
-      <sub
-        className={cls}
-        style={{
-          width: `${100 / composeChildren.length}%`,
-          WebkitTransform: `translate(${activeOffset * 100}%, 0)`,
-        }}
-        onTransitionEnd={onTransEnd}
-      />
-      {composeChildren}
-    </div>
-  )
 }
 
 Tabs.Item = TabsItem

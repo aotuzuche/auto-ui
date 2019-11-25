@@ -20,7 +20,7 @@ class Demo extends React.PureComponent {
           [new Date(2019, 5, 4).valueOf()]: {
             price: 333,
             rent: ['0000', '1200'],
-            revert: ['0030', '1100'],
+            revert: [['0030', '1100'], ['1300', '2000']],
           },
         }}
         onSubmit={this.onSubmit}
