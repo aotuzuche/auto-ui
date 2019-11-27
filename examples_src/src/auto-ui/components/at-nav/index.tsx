@@ -18,7 +18,7 @@ const AtNav: React.FC<IProps> = props => {
           <small>首页</small>
         </p>
       ) : (
-        <a className="x-at-navitem x-at-navitem__index" href="/m/user/index">
+        <a className="x-at-navitem x-at-navitem__index" href="/m/index">
           <i />
           <small>首页</small>
         </a>
