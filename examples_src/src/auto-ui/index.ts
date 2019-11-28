@@ -10,6 +10,7 @@ import Dialog from './components/dialog'
 import Input from './components/input'
 import Layout from './components/layout'
 import Loading from './components/loading'
+import Message from './components/message'
 import NavBar from './components/nav-bar'
 import Popup from './components/popup'
 import Radio from './components/radio'
@@ -42,4 +43,5 @@ export {
   Toast,
   TimePicker,
   NavBar,
+  Message,
 }

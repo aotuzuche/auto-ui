@@ -20,6 +20,7 @@ import Switch from './es/switch';
 import Tabs from './es/tabs';
 import TimePicker from './es/time-picker';
 import Toast from './es/toast';
+import Message from './es/message';
 
 export {
   ActionSheet,
@@ -42,6 +43,7 @@ export {
   Switch,
   Tabs,
   Toast,
+  Message,
   TimePicker,
   NavBar,
 };

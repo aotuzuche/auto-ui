@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { Button, Layout, Toast } from '../auto-ui'
+import { Button, Layout, Message } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    Toast('我是一个会显示很久的轻提示', 10000000)
+    Message('提示消息')
   }
 
   const onClose = () => {
-    Toast.close()
+    Message.close()
   }
 
   return (

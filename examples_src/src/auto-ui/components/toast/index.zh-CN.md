@@ -8,8 +8,6 @@ code=[基本使用](toast)
 
 code=[duration](toast_duration)
 
-## 主动关闭
-
-`Toast` 会返回一个 `close` 方法
+## 手动关闭
 
 code=[close](toast_close)

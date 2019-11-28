@@ -22,7 +22,7 @@ const remove = () => {
   }
 }
 
-type IToast = ((text: string, duration?: number) => [() => void, void]) & { hide: () => void }
+type IToast = ((text: string, duration?: number) => void) & { close: () => void }
 
 const Toast: IToast = (text, duration = 2000) => {
   remove()
@@ -46,10 +46,8 @@ const Toast: IToast = (text, duration = 2000) => {
   timer = setTimeout(() => {
     close()
   }, Math.max(duration, 500))
-
-  return [close, void 0]
 }
 
-Toast.hide = close
+Toast.close = close
 
 export default Toast
