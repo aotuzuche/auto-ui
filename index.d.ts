@@ -12,6 +12,7 @@ import Emitter from './es/emitter'
 import Input from './es/input'
 import Layout from './es/layout'
 import Loading from './es/loading'
+import Message from './es/message'
 import NavBar from './es/nav-bar'
 import Popup from './es/popup'
 import Radio from './es/radio'
@@ -46,6 +47,7 @@ export {
   Switch,
   Tabs,
   Toast,
+  Message,
   TimePicker,
   NavBar,
 };
