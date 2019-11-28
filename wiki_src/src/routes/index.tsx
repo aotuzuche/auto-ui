@@ -5,6 +5,7 @@ import Main from '../containers/main'
 
 const PageLayout = React.lazy(() => import('../pages/layout'));
 const PageButton = React.lazy(() => import('../pages/button'));
+const PageMessage = React.lazy(() => import('../pages/message'));
 const PageInput = React.lazy(() => import('../pages/input'));
 const PageCard = React.lazy(() => import('../pages/card'));
 const PageCell = React.lazy(() => import('../pages/cell'));
@@ -36,6 +37,7 @@ export default (history: any) => {
             <Route exact={true} path="/card" component={PageCard} />
             <Route exact={true} path="/cell" component={PageCell} />
             <Route exact={true} path="/alert" component={PageAlert} />
+            <Route exact={true} path="/message" component={PageMessage} />
             <Route exact={true} path="/dialog" component={PageDialog} />
             <Route exact={true} path="/popup" component={PagePopup} />
             <Route exact={true} path="/radio" component={PageRadio} />
