@@ -20,15 +20,6 @@
   &--capsule {
     border-radius: px(45);
   }
-  // .x-button__loading {
-  //   width: px(25);
-  //   height: px(25);
-  //   margin-right: px(10);
-  //   .x-loading__spin_path {
-  //     stroke: #fff;
-  //     stroke-width: px(5); /*no*/
-  //   }
-  // }
   &--default {
     background: rgb(235, 235, 238);
     color: rgb(170, 170, 176);
@@ -45,7 +36,7 @@
       background: #fff;
       &:active {
         border: px(1) solid mix($borderColor, #000, 92%); /*no*/
-        background: rgb(235, 235, 238);
+        color: rgb(151, 151, 156);
       }
       .x-loading__spin span {
         background: $primaryColor;
@@ -65,7 +56,7 @@
         right: 0;
         bottom: 0;
         pointer-events: none;
-        background: rgba(0, 0, 0, 0.04);
+        background: rgba(60, 60, 90, 0.1);
         border-radius: inherit;
       }
     }
@@ -80,9 +71,12 @@
       background: #fff;
       color: $primaryColor;
       &:active {
-        border: px(1) solid mix($primaryColor, #000, 92%); /*no*/
-        color: mix($primaryColor, #000, 92%);
-        background: rgba(mix($primaryColor, #000, 92%), 0.1);
+        border: px(1) solid $primaryColor3; /*no*/
+        color: $primaryColor3;
+        background: #fff;
+        &::after {
+          display: none;
+        }
       }
       .x-loading__spin span {
         background: $primaryColor;
@@ -102,7 +96,7 @@
         right: 0;
         bottom: 0;
         pointer-events: none;
-        background: rgba(0, 0, 0, 0.04);
+        background: rgba(60, 60, 90, 0.1);
         border-radius: inherit;
       }
     }
@@ -117,9 +111,12 @@
       background: #fff;
       color: $dangerColor;
       &:active {
-        border: px(1) solid mix($dangerColor, #000, 92%); /*no*/
-        color: mix($dangerColor, #000, 92%);
-        background: rgba(mix($dangerColor, #000, 92%), 0.1);
+        border: px(1) solid $dangerColor2; /*no*/
+        color: $dangerColor2;
+        background: #fff;
+        &::after {
+          display: none;
+        }
       }
       .x-loading__spin span {
         background: $dangerColor;
@@ -145,6 +142,9 @@
     opacity: 0.8;
     pointer-events: none;
     cursor: not-allowed;
+    .x-spin {
+      transform: scale(0.828268);
+    }
   }
   &--shrink {
     width: auto;

@@ -1,6 +1,7 @@
-$primaryColor: #00cf97 !default; // 主色调与主色调:active的颜色
-$primaryColor2: #14d78a !default; // 主色调2，用于渐变
-$dangerColor: #ff5949 !default; // 警告色与警告色:active的颜色
+$primaryColor: rgb(0, 207, 151) !default; // 主色调与主色调:active的颜色
+$primaryColor2: rgb(20, 215, 138) !default; // 主色调2，用于渐变
+$primaryColor3: rgb(0, 191, 140) !default; // 主色调3，用户hollow下press状态
+$dangerColor: rgb(255, 89, 73) !default; // 警告色与警告色:active的颜色
 $dangerColor2: rgb(255, 77, 77) !default; // 警告色2，用于渐变
 $buttonRadius: 6 !default; // input、button的圆角
 $alertRadius: 20 !default; // alert、dialog的圆角
