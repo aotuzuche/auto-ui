@@ -16,8 +16,8 @@
   height: px(30);
   width: px(82);
   span {
-    width: px(12);
-    height: px(12);
+    width: px(14);
+    height: px(14);
     display: block;
     border-radius: 50%;
     background: rgb(0, 207, 151);
@@ -28,11 +28,11 @@
       animation: '__x_loading_bounce' 0.75s linear 0s infinite;
     }
     &:nth-child(2) {
-      left: px(28);
+      left: px(34);
       animation: '__x_loading_bounce' 0.75s linear 0.3s infinite;
     }
     &:nth-child(3) {
-      left: px(56);
+      left: px(68);
       animation: '__x_loading_bounce' 0.75s linear 0.5s infinite;
     }
   }
