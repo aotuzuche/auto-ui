@@ -40,11 +40,15 @@ import PageLayoutHeader from '../pages/layout_header'
 import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
 import PageLayoutHeadline from '../pages/layout_headline'
 import PageLayoutLoading from '../pages/layout_loading'
-import PageLayoutSkeleton from '../pages/layout_skeleton'
 import PageLayoutReachBottom from '../pages/layout_reach_bottom'
+import PageLayoutSkeleton from '../pages/layout_skeleton'
 import PageLayoutTabs from '../pages/layout_tabs'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
+import PageMessage from '../pages/message'
+import PageMessageClose from '../pages/message_close'
+import PageMessageParams from '../pages/message_params'
+import PageMessageTimeout from '../pages/message_timeout'
 import PagePopup from '../pages/popup'
 import PagePopupFromParent from '../pages/popup_from_parent'
 import PagePopupHeight from '../pages/popup_height'
@@ -138,6 +142,10 @@ const routes: any[] = [
   ['layout_skeleton', PageLayoutSkeleton],
   ['layout_tabs', PageLayoutTabs],
   ['layout_reach_bottom', PageLayoutReachBottom],
+  ['message', PageMessage],
+  ['message_params', PageMessageParams],
+  ['message_timeout', PageMessageTimeout],
+  ['message_close', PageMessageClose],
   ['at-calendar', PageAtCalendar],
   ['at-nav', PageAtNav],
 ]

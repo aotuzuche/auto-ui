@@ -11,6 +11,7 @@ const Aside: React.FC<any> = props => {
     'Card,卡片',
     'Cell,单元格',
     'Alert,提示框',
+    'Message,消息框',
     'Dialog,对话框',
     'Popup,弹出层',
     'Radio,勾选框',
@@ -55,9 +56,6 @@ const Aside: React.FC<any> = props => {
         Auto UI<sup>V {v.version}</sup>
       </h1>
       <ul>
-        <li>
-          <a>更新日志</a>
-        </li>
         <li>
           <a>组件</a>
         </li>
