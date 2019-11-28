@@ -54,7 +54,8 @@ export default Demo
 <span class="token punctuation">}</span><span class="token plain-text">
 
 export default Demo
-</span>`}} /></pre></div></div><h2>定时自动关闭</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/message_timeout') })} onClick={this.onCodeClick.bind(null, '/message_timeout')}><header>定时自动关闭</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+</span>`}} /></pre></div></div><h2>定时自动关闭</h2><p>不设置的话默认 2 秒关闭</p>
+<div className={C('code-box', { active: this.state.previewUrl.endsWith('/message_timeout') })} onClick={this.onCodeClick.bind(null, '/message_timeout')}><header>定时自动关闭</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Message <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
