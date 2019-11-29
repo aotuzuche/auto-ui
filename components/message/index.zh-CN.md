@@ -10,6 +10,8 @@ code=[多个参数](message_params)
 
 ## 定时自动关闭
 
+不设置的话默认 2 秒关闭
+
 code=[定时自动关闭](message_timeout)
 
 ## 手动关闭

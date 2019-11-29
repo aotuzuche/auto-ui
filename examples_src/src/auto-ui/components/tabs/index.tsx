@@ -42,13 +42,14 @@ interface ITabsProps {
 class Tabs extends React.PureComponent<ITabsProps> {
   static Item: any
 
-  ref: React.RefObject<any> = React.createRef()
+  ref: React.RefObject<HTMLDivElement> = React.createRef()
 
   animTimer: any = 0
 
+  animIsRunning: boolean = false
+
   state = {
     currentActive: -2,
-    runAnim: false,
   }
 
   componentDidMount() {
@@ -67,12 +68,12 @@ class Tabs extends React.PureComponent<ITabsProps> {
   }
 
   componentDidUpdate() {
-    if (this.state.runAnim) {
+    if (this.animIsRunning) {
       return
     }
     if (this.ref && this.ref.current) {
       const dom = this.ref.current
-      const line = dom.querySelector('.x-tabs__line')
+      const line = dom.querySelector('.x-tabs__line')!
 
       let currentX = 0
       let targetX = 0
@@ -82,24 +83,29 @@ class Tabs extends React.PureComponent<ITabsProps> {
         if (Math.abs(targetX - currentX) < 90) {
           duration = 0.15
         }
-        line.style.transform = `translate(${targetX}px, 0)`
-        line.style.transition = `transform ${duration}s ease-out`
-        line.style.animation = `__x_tabs_line_scale ${duration}s ease-out`
+        line.setAttribute(
+          'style',
+          `transform: translate(${targetX}px, 0); transition: transform ${duration}s ease-out;`,
+        )
+        if (line.firstChild) {
+          ;(line.firstChild as any).setAttribute(
+            'style',
+            `animation: __x_tabs_line_scale ${duration}s ease-out`,
+          )
+        }
       }
 
-      for (let item of dom.children) {
+      for (let item of dom.children as any) {
         if (item.classList.contains('x-tabs--active')) {
           const cur = dom.children[this.state.currentActive]
-          currentX = cur ? cur.offsetLeft + cur.clientWidth / 2 : -300
-          targetX = item.offsetLeft + item.clientWidth / 2
+          currentX = cur
+            ? cur.getBoundingClientRect().left + cur.getBoundingClientRect().width / 2
+            : -300
+          targetX = item.getBoundingClientRect().left + item.getBoundingClientRect().width / 2
           if (currentX !== targetX && line) {
-            line.style.transform = `translate(${currentX}px, 0)`
-            line.style.transition = 'none'
-            line.style.animation = 'none'
-            line.style.display = 'block'
-            ;(this.setState as any)({
-              runAnim: true,
-            })
+            this.animIsRunning = true
+            line.setAttribute('style', `transform: translate(${currentX}px, 0);`)
+
             clearTimeout(this.animTimer)
             this.animTimer = setTimeout(this.onTransitionEnd, 400)
             setTimeout(moveLine, 10)
@@ -126,11 +132,9 @@ class Tabs extends React.PureComponent<ITabsProps> {
         }
       }
       if (line) {
-        line.style.display = 'none'
+        line.setAttribute('style', 'display: none;')
       }
-      this.setState({
-        runAnim: false,
-      })
+      this.animIsRunning = false
     }
   }
 
@@ -158,15 +162,33 @@ class Tabs extends React.PureComponent<ITabsProps> {
         key: index,
         value: res.props.value,
         onClick: (value: any) => {
-          if (this.state.runAnim) {
+          if (this.animIsRunning) {
             return
           }
-          console.log(this.state.runAnim)
           onClick(value)
         },
         children: res.props.children,
       })
     })
+
+    if (shrink) {
+      return (
+        <div {...otherProps} className={composeClassName}>
+          <div className="x-tabs--scroller">
+            <div className="x-tabs__inner" ref={this.ref}>
+              <sub
+                className="x-tabs__line"
+                style={{ display: 'none' }}
+                onTransitionEnd={this.onTransitionEnd}
+              >
+                <i />
+              </sub>
+              {composeChildren}
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div {...otherProps} className={composeClassName} ref={this.ref}>
@@ -174,7 +196,9 @@ class Tabs extends React.PureComponent<ITabsProps> {
           className="x-tabs__line"
           style={{ display: 'none' }}
           onTransitionEnd={this.onTransitionEnd}
-        />
+        >
+          <i />
+        </sub>
         {composeChildren}
       </div>
     )

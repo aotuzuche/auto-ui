@@ -27,7 +27,7 @@ type IMessage = ((params: IMessageParams | string, duration?: number) => void) &
   close: () => void
 }
 
-const Message: IMessage = (params, duration) => {
+const Message: IMessage = (params, duration = 2000) => {
   const divs = document.querySelectorAll('.x-message.x-message--show')
   if (divs.length) {
     Message.close()
@@ -74,9 +74,7 @@ const Message: IMessage = (params, duration) => {
     div,
   )
 
-  if (duration && duration > 0) {
-    setTimeout(close, Math.max(duration, 500), id)
-  }
+  setTimeout(close, Math.max(duration, 500), id)
 }
 // 清除全部message
 Message.close = () => {
