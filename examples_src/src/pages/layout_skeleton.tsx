@@ -23,6 +23,7 @@ const Demo: React.FC<any> = () => {
       <Layout.Header title="加载中..." borderType="shadow" />
       <Layout.Body loading={skeleton} skeleton={<SkeletonOrderItem />} skeletonRepeat={20}>
         body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>
       </Layout.Body>
     </Layout>
   )

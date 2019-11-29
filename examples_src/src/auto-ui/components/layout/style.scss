@@ -242,13 +242,13 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 999;
     pointer-events: none;
     overflow: hidden;
     background: #fff;
     padding: px(40);
     &.skeletonHide {
-      transition: all 1s ease;
+      transition: all 1.5s ease-out;
       opacity: 0;
     }
   }
