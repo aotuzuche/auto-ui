@@ -59,15 +59,30 @@ interface IBodyProps {
 
 interface IBodyState {
   bottomLoading: boolean
+  // loading: boolean
+  // skeleton: boolean
 }
 
 class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
+  // static getDerivedStateFromProps(nextProps: IBodyProps, prevState: IBodyState) {
+  //   const { loading } = nextProps
+  //   if (loading !== prevState.loading && loading) {
+  //     return {
+  //       loading,
+  //       skeleton: !loading,
+  //     }
+  //   }
+  //   // 否则，对于state不进行任何操作
+  //   return null
+  // }
   private timer: any = 0
 
   constructor(props: IBodyProps) {
     super(props)
     this.state = {
       bottomLoading: false,
+      // loading: false,
+      // skeleton: false,
     }
   }
 
@@ -123,21 +138,10 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
 
   private renderContent() {
     const { loading, errorInfo, children, skeleton, skeletonRepeat = 1 } = this.props
-    if (loading) {
-      if (skeleton) {
-        return (
-          <div className="x-app-body__skeleton">
-            {'*'
-              .repeat(skeletonRepeat)
-              .split('')
-              .map((_, key) => {
-                return <div key={key}>{skeleton}</div>
-              })}
-          </div>
-        )
-      }
+    if (loading && !skeleton) {
       return <Spin className="x-app__loading" />
     }
+
     if (errorInfo) {
       return (
         <p className="x-app__error-info">
@@ -146,7 +150,27 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
         </p>
       )
     }
-    return <div className="x-app-body__inner">{children}</div>
+
+    const className = cn('x-app-body__skeleton', {
+      skeletonHide: !loading,
+    })
+
+    return (
+      <>
+        {skeleton && (
+          <div className={className}>
+            {'*'
+              .repeat(skeletonRepeat)
+              .split('')
+              .map((_, key) => {
+                return <div key={key}>{skeleton}</div>
+              })}
+          </div>
+        )}
+
+        <div className="x-app-body__inner">{children}</div>
+      </>
+    )
   }
 
   private scroll = (e: React.UIEvent<HTMLDivElement>) => {

@@ -238,8 +238,19 @@ button {
   z-index: 1;
   &__skeleton {
     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
     pointer-events: none;
     overflow: hidden;
+    background: #fff;
+    padding: px(40);
+    &.skeletonHide {
+      transition: all 1s ease;
+      opacity: 0;
+    }
   }
   &__inner {
     > .x-cell {
