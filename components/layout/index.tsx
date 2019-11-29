@@ -59,30 +59,15 @@ interface IBodyProps {
 
 interface IBodyState {
   bottomLoading: boolean
-  // loading: boolean
-  // skeleton: boolean
 }
 
 class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
-  // static getDerivedStateFromProps(nextProps: IBodyProps, prevState: IBodyState) {
-  //   const { loading } = nextProps
-  //   if (loading !== prevState.loading && loading) {
-  //     return {
-  //       loading,
-  //       skeleton: !loading,
-  //     }
-  //   }
-  //   // 否则，对于state不进行任何操作
-  //   return null
-  // }
   private timer: any = 0
 
   constructor(props: IBodyProps) {
     super(props)
     this.state = {
       bottomLoading: false,
-      // loading: false,
-      // skeleton: false,
     }
   }
 
@@ -94,7 +79,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       onScroll,
       onReachBottom,
       skeleton,
-      skeletonRepeat,
+      skeletonRepeat = 1,
       ...otherProps
     } = this.props
 
@@ -102,6 +87,33 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       'x-app-body--loading': loading,
       'x-app-body--error': errorInfo,
     })
+
+    const skelotonClassName = cn('x-app-skeletonwrapper__skeleton', {
+      skeletonHide: !loading,
+    })
+
+    if (skeleton) {
+      return (
+        <div className="x-app-skeletonwrapper">
+          <div className={skelotonClassName}>
+            {'*'
+              .repeat(skeletonRepeat)
+              .split('')
+              .map((_, key) => {
+                return <div key={key}>{skeleton}</div>
+              })}
+          </div>
+          <div
+            {...otherProps}
+            className={composeClassName}
+            onScroll={onReachBottom ? this.scroll : onScroll}
+          >
+            {this.renderContent()}
+            {this.renderReachBottom()}
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div
@@ -137,7 +149,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   private renderContent() {
-    const { loading, errorInfo, children, skeleton, skeletonRepeat = 1 } = this.props
+    const { loading, errorInfo, children, skeleton } = this.props
     if (loading && !skeleton) {
       return <Spin className="x-app__loading" />
     }
@@ -151,26 +163,28 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       )
     }
 
-    const className = cn('x-app-body__skeleton', {
-      skeletonHide: !loading,
-    })
+    // const className = cn('x-app-body__skeleton', {
+    //   skeletonHide: !loading,
+    // })
 
-    return (
-      <>
-        {skeleton && (
-          <div className={className}>
-            {'*'
-              .repeat(skeletonRepeat)
-              .split('')
-              .map((_, key) => {
-                return <div key={key}>{skeleton}</div>
-              })}
-          </div>
-        )}
+    // return (
+    //   <>
+    //     {skeleton && (
+    //       <div className={className}>
+    //         {'*'
+    //           .repeat(skeletonRepeat)
+    //           .split('')
+    //           .map((_, key) => {
+    //             return <div key={key}>{skeleton}</div>
+    //           })}
+    //       </div>
+    //     )}
 
-        <div className="x-app-body__inner">{children}</div>
-      </>
-    )
+    //     <div className="x-app-body__inner">{children}</div>
+    //   </>
+    // )
+
+    return <div className="x-app-body__inner">{children}</div>
   }
 
   private scroll = (e: React.UIEvent<HTMLDivElement>) => {

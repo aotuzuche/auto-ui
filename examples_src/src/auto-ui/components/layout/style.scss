@@ -34,6 +34,42 @@ button {
   display: flex;
   flex-direction: column;
   background: $background;
+
+  &-skeletonwrapper {
+    flex: 1;
+    position: relative;
+    z-index: 999;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &__skeleton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      padding: px(40);
+      width: 100%;
+      height: 100%;
+      background: #fff;
+
+      &.skeletonHide {
+        animation: skeleton 1s ease-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .x-app-header {
@@ -229,29 +265,13 @@ button {
 
 .x-app-body {
   width: 100%;
-  // height: 100%;
   flex: 1;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
   padding: px(40);
   z-index: 1;
-  &__skeleton {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    pointer-events: none;
-    overflow: hidden;
-    background: #fff;
-    padding: px(40);
-    &.skeletonHide {
-      transition: all 1.5s ease-out;
-      opacity: 0;
-    }
-  }
+
   &__inner {
     > .x-cell {
       margin-left: px(-40);

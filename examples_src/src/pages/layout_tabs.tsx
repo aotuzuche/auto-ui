@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Layout, Tabs } from '../auto-ui'
-
 const Demo: React.FC<any> = () => {
   const [val, setVal] = React.useState(1)
 
