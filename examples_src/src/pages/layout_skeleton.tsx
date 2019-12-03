@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Layout } from '../auto-ui'
+import { Layout, Toast } from '../auto-ui'
 import ContentLoader from 'react-content-loader'
 
 const SkeletonOrderItem = () => (
@@ -21,7 +21,12 @@ const Demo: React.FC<any> = () => {
   return (
     <Layout>
       <Layout.Header title="加载中..." borderType="shadow" />
-      <Layout.Body loading={skeleton} skeleton={<SkeletonOrderItem />} skeletonRepeat={20}>
+      <Layout.Body
+        loading={skeleton}
+        onSkeletonFinish={() => Toast('骨架屏消失')}
+        skeleton={<SkeletonOrderItem />}
+        skeletonRepeat={20}
+      >
         body
         <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>
         body

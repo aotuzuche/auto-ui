@@ -49,7 +49,7 @@ interface IBodyProps {
   onScroll?: (event: React.UIEvent<HTMLDivElement>) => void
   skeleton?: React.ReactChild
   skeletonRepeat?: number
-  onSkeletonHide?: () => void
+  onSkeletonFinish?: () => void
   onReachBottom?: {
     disabled: boolean
     content?: React.ReactChild
@@ -83,7 +83,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       onReachBottom,
       skeleton,
       skeletonRepeat,
-      onSkeletonHide,
+      onSkeletonFinish,
       ...otherProps
     } = this.props
 
@@ -130,7 +130,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       {
         skeletonAnimationEnd: true,
       },
-      this.props.onSkeletonHide,
+      this.props.onSkeletonFinish,
     )
   }
 

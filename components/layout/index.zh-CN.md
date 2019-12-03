@@ -98,6 +98,7 @@ code=[skeleton](layout_skeleton)
 | onScroll               | 滚动回调函数                                              | Function   | -        |
 | skeleton               | 骨架屏占位                                                | ReactChild | -        |
 | skeletonRepeat         | 骨架屏显示次数                                            | number     | 1        |
+| onSkeletonFinish       | 骨架屏动画消失完成                                        | Function   | -        |
 
 ## Layout.Footer 支持属性
 

@@ -243,7 +243,7 @@ export default Demo
 `}} /></pre></div></div><h2>骨架屏</h2><p>骨架屏：<a href="https://github.com/danilowoz/react-content-loader">https://github.com/danilowoz/react-content-loader</a></p>
 <p>编辑地址：<a href="http://danilowoz.com/create-content-loader/">http://danilowoz.com/create-content-loader/</a></p>
 <div className={C('code-box', { active: this.state.previewUrl.endsWith('/layout_skeleton') })} onClick={this.onCodeClick.bind(null, '/layout_skeleton')}><header>skeleton</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 <span class="token keyword">import</span> ContentLoader <span class="token keyword">from</span> <span class="token string">'react-content-loader'</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">SkeletonOrderItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
@@ -265,7 +265,12 @@ export default Demo
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span><span class="token punctuation">></span></span><span class="token plain-text">
       </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout.Header</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>加载中...<span class="token punctuation">"</span></span> <span class="token attr-name">borderType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shadow<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
-      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout.Body</span> <span class="token attr-name">loading</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>skeleton<span class="token punctuation">}</span></span> <span class="token attr-name">skeleton</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SkeletonOrderItem</span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span></span> <span class="token attr-name">skeletonRepeat</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">20</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout.Body</span>
+        <span class="token attr-name">loading</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>skeleton<span class="token punctuation">}</span></span>
+        <span class="token attr-name">onSkeletonFinish</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">Toast</span><span class="token punctuation">(</span><span class="token string">'骨架屏消失'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">skeleton</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SkeletonOrderItem</span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">skeletonRepeat</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">20</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">></span></span><span class="token plain-text">
         body
         </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> background<span class="token punctuation">:</span> <span class="token string">'#f00'</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">'200px'</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token string">'200px'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
         body
@@ -524,6 +529,12 @@ export default Demo
 <td>骨架屏显示次数</td>
 <td>number</td>
 <td>1</td>
+</tr>
+<tr>
+<td>onSkeletonFinish</td>
+<td>骨架屏动画消失完成</td>
+<td>Function</td>
+<td>-</td>
 </tr>
 </tbody></table>
 <h2>Layout.Footer 支持属性</h2><table>
