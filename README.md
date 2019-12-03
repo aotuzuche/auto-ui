@@ -38,6 +38,12 @@ Android 4.4+, iOS 8+
 
 会自动生成相应的文件到 components、es、libs 中
 
+将文档发布到 GitHub
+
+```
+  make ghpages
+```
+
 ## 如何发布
 
 ```bash
