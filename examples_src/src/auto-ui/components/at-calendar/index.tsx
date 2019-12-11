@@ -146,6 +146,7 @@ class AtCalendar extends Controller {
       <div className={css} key={key} onClick={onClick}>
         <p>
           <em>{date.getDate()}</em>
+          {data.badge ? <i>{data.badge}</i> : null}
         </p>
         {data.price && <span>￥{data.price}</span>}
       </div>

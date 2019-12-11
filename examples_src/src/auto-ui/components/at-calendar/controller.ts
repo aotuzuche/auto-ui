@@ -10,6 +10,7 @@ interface IData {
   rent: string[] | string[][]
   revert: string[] | string[][]
   disabled?: 'ALL' | 'PART' | 'DISABLED' // 全天不可租 = ALL 或斜线的样式， 部分不可租 = PART, DISABLED 置灰
+  badge?: string // 标记，位于时间圆的右上角
 }
 
 interface IProps {
