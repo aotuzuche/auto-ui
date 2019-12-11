@@ -135,6 +135,25 @@
         border-radius: 50%;
       }
 
+      i {
+        position: absolute;
+        right: 12px;
+        top: 0;
+        z-index: 2;
+        font-style: normal;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 50%;
+        color: #666;
+        width: 30px;
+        height: 30px;
+        line-height: 1;
+        border: 1px solid #f2f2f2; /*no*/
+      }
+
       span {
         font-size: px(20);
         color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
