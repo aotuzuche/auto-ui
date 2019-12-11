@@ -34,14 +34,50 @@ export default class View extends React.PureComponent {
 </tr>
 <tr>
 <td>monthRange</td>
-<td>月份范围，一般这样写：[new Date(2019, 3), new Date(2019, 6)]，注意只要到月份就行</td>
+<td>月份范围，一般这样写：[new Date(2019, 3), new Date(2019, 6)]，只要到月份就行</td>
 <td>[Date, Date]</td>
 <td>-</td>
 </tr>
 <tr>
 <td>data</td>
-<td>数据</td>
+<td>数据对象，key 为到日(时分秒为 0)的时间戳，value 如下</td>
 <td>Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.rent</td>
+<td>租车时间范围，[&#39;0000&#39;, &#39;1200&#39;]表示 0 点到 12 点，[[&#39;0000&#39;, &#39;1200&#39;], [&#39;1500&#39;, &#39;2215&#39;]] 表示 0 点到 12 点和 15 点到 22 点 15 分</td>
+<td>Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.revert</td>
+<td>还车时间范围，如租车</td>
+<td>Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.badge</td>
+<td>日期右上角的标记，限一个字</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.isHoliday</td>
+<td>是否为假期，如果为 true，价格会以红色表示</td>
+<td>Boolean</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.price</td>
+<td>价格</td>
+<td>Number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>data.disabled</td>
+<td>ALL: 全天不可租 斜删除线表示 PART: 部分不可租, DISABLED: 全天不可租 置灰表示</td>
+<td>String</td>
 <td>-</td>
 </tr>
 <tr>
