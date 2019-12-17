@@ -213,7 +213,9 @@ class TimePicker extends React.PureComponent<IProps, IState> {
 
     return (
       <div {...otherProps} className={css}>
-        <span className="x-time-picker__tips">{this.state.currentTips}</span>
+        {this.state.currentTips && (
+          <pre className="x-time-picker__tips">{this.state.currentTips}</pre>
+        )}
         <sup className="x-time-picker__mask-t" />
         <sup className="x-time-picker__mask-b" />
         {this.renderDayList()}
