@@ -45,35 +45,32 @@
       color: $primaryColor;
       opacity: 1;
     }
-    &.x-tabs--line {
-      &:after {
-        content: '';
-        display: block;
-        background: linear-gradient(to left, #ffd100, rgba(#ffd100, 0));
-        width: px(60);
-        height: px(6);
-        position: absolute;
-        left: 50%;
-        bottom: 10px;
-        margin-left: px(-30);
-        border-radius: px(3);
-      }
-    }
   }
   &__line {
-    width: px(60);
     height: px(6);
     position: absolute;
     left: 0;
+    right: 0;
     bottom: 10px;
     z-index: 99;
-    margin-left: px(-30);
-    border-radius: px(3);
-    i {
-      background: linear-gradient(to left, #ffd100, rgba(#ffd100, 0));
-      display: block;
-      width: px(60);
-      height: px(6);
+    background: #f00;
+    sup {
+      position: absolute;
+      left: -100%;
+      top: -1px;
+      bottom: -1px;
+      width: 100%;
+      background: #fff;
+      margin-left: -30px;
+    }
+    sub {
+      position: absolute;
+      left: 0;
+      top: -1px;
+      bottom: -1px;
+      width: 100%;
+      background: #fff;
+      margin-left: 30px;
     }
   }
 }
