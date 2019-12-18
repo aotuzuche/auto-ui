@@ -20,12 +20,12 @@ const TabsItem: React.FC<IItemProps> = props => {
     className,
   )
 
-  const onAClick = () => {
+  const onTabClick = () => {
     onClick(value)
   }
 
   return (
-    <button {...otherProps} className={composeClassName} onClick={onAClick}>
+    <button {...otherProps} className={composeClassName} onClick={onTabClick}>
       {children}
     </button>
   )
@@ -39,102 +39,102 @@ interface ITabsProps {
   [otherProps: string]: any
 }
 
-class Tabs extends React.PureComponent<ITabsProps> {
+interface ITabsState {
+  currentActiveIndex: number
+  direction: string
+}
+
+class Tabs extends React.PureComponent<ITabsProps, ITabsState> {
   static Item: any
 
+  static getDerivedStateFromProps(props: ITabsProps, state: ITabsState) {
+    let children: any = props.children || []
+    if (!Array.isArray(children)) {
+      children = [children]
+    }
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].props && children[i].props.value === props.active) {
+        return {
+          currentActiveIndex: i,
+          direction: state.currentActiveIndex > i ? 'L' : state.currentActiveIndex < i ? 'R' : '',
+        }
+      }
+    }
+    return {
+      currentActiveIndex: -2,
+      direction: '',
+    }
+  }
+
+  preIndex: number = -2
   ref: React.RefObject<HTMLDivElement> = React.createRef()
-
-  animTimer: any = 0
-
-  animIsRunning: boolean = false
+  lineRef: React.RefObject<HTMLDivElement> = React.createRef()
+  targetTabItem: any = null
+  initTimer: any = null
 
   state = {
-    currentActive: -2,
+    currentActiveIndex: -2,
+    direction: '',
   }
 
   componentDidMount() {
-    if (this.ref && this.ref.current) {
-      const dom = this.ref.current
-      for (let i = 0; i < dom.children.length; i++) {
-        if (dom.children[i].classList.contains('x-tabs--active')) {
-          dom.children[i].classList.add('x-tabs--line')
-          this.setState({
-            currentActive: i,
-          })
-          break
-        }
+    if (this.ref.current) {
+      const tab = this.ref.current.querySelector('.x-tabs--active')
+      if (!tab) {
+        return
       }
+      tab.classList.add('x-tabs--active-l')
+      this.initTimer = setTimeout(this.animLine, 1000, false)
     }
   }
 
-  componentDidUpdate() {
-    if (this.animIsRunning) {
+  animLine = (anim: boolean = true) => {
+    this.targetTabItem = null
+    clearTimeout(this.initTimer)
+    if (this.preIndex === this.state.currentActiveIndex) {
       return
     }
-    if (this.ref && this.ref.current) {
-      const dom = this.ref.current
-      const line = dom.querySelector('.x-tabs__line')!
+    if (this.lineRef.current && this.ref.current) {
+      const d = this.state.direction
+      const index = this.state.currentActiveIndex
+      this.targetTabItem = this.ref.current.querySelectorAll('.x-tabs__item')[index]
+      if (!this.targetTabItem) {
+        return
+      }
+      const targetRect = this.targetTabItem.getBoundingClientRect()
+      const parentRect = this.ref.current.getBoundingClientRect()
+      const targetCenter = targetRect.left + targetRect.width / 2 - parentRect.left
+      const process = (targetCenter / parentRect.width) * 100
 
-      let currentX = 0
-      let targetX = 0
-
-      const moveLine = () => {
-        let duration = 0.3
-        if (Math.abs(targetX - currentX) < 90) {
-          duration = 0.15
-        }
-        line.setAttribute(
-          'style',
-          `transform: translate(${targetX}px, 0); transition: transform ${duration}s ease-out;`,
-        )
-        if (line.firstChild) {
-          ;(line.firstChild as any).setAttribute(
-            'style',
-            `animation: __x_tabs_line_scale ${duration}s ease-out`,
-          )
-        }
+      const supT = `transform: translateX(${process}%)`
+      const subT = `transform: translateX(${process}%)`
+      let supA = `transition: transform 0.25s ${
+        d === 'L' ? 'cubic-bezier(0,0,0.5,1)' : d === 'R' ? 'cubic-bezier(0.5,0,1,1)' : 'linear'
+      }`
+      let subA = `transition: transform 0.25s ${
+        d === 'L' ? 'cubic-bezier(0.5,0,1,1)' : d === 'R' ? 'cubic-bezier(0,0,0.5,1)' : 'linear'
+      }`
+      if (!anim) {
+        supA = ''
+        subA = ''
       }
 
-      for (let item of dom.children as any) {
-        if (item.classList.contains('x-tabs--active')) {
-          const cur = dom.children[this.state.currentActive]
-          currentX = cur
-            ? cur.getBoundingClientRect().left + cur.getBoundingClientRect().width / 2
-            : -300
-          targetX = item.getBoundingClientRect().left + item.getBoundingClientRect().width / 2
-          if (currentX !== targetX && line) {
-            this.animIsRunning = true
-            line.setAttribute('style', `transform: translate(${currentX}px, 0);`)
-
-            clearTimeout(this.animTimer)
-            this.animTimer = setTimeout(this.onTransitionEnd, 400)
-            setTimeout(moveLine, 10)
-          }
-          break
-        }
+      this.lineRef.current.setAttribute('style', 'opacity: 1;')
+      this.lineRef.current.children[1].setAttribute('style', `${subT};${subA}`)
+      this.lineRef.current.children[0].setAttribute('style', `${supT};${supA}`)
+      this.preIndex = this.state.currentActiveIndex
+      if (!anim) {
+        this.onAnimEnd()
       }
     }
   }
 
-  onTransitionEnd = () => {
-    clearTimeout(this.animTimer)
-    if (this.ref && this.ref.current) {
-      const dom = this.ref.current
-      const line = dom.querySelector('.x-tabs__line')
-
-      for (let i = 0; i < dom.children.length; i++) {
-        if (dom.children[i].classList.contains('x-tabs--active')) {
-          dom.children[i].classList.add('x-tabs--line')
-          this.setState({
-            currentActive: i,
-          })
-          break
-        }
-      }
-      if (line) {
-        line.setAttribute('style', 'display: none;')
-      }
-      this.animIsRunning = false
+  onAnimEnd = () => {
+    if (this.lineRef.current) {
+      this.lineRef.current.removeAttribute('style')
+    }
+    if (this.targetTabItem) {
+      this.targetTabItem.classList.add('x-tabs--active-l')
     }
   }
 
@@ -161,29 +161,23 @@ class Tabs extends React.PureComponent<ITabsProps> {
         active: act,
         key: index,
         value: res.props.value,
-        onClick: (value: any) => {
-          if (this.animIsRunning) {
-            return
-          }
-          onClick(value)
-        },
+        onClick: this.props.onClick,
         children: res.props.children,
       })
     })
 
+    this.animLine() // 初始化并不执行
+
     if (shrink) {
       return (
         <div {...otherProps} className={composeClassName}>
-          <div className="x-tabs--scroller">
+          <div className="x-tabs__scroller">
             <div className="x-tabs__inner" ref={this.ref}>
-              <sub
-                className="x-tabs__line"
-                style={{ display: 'none' }}
-                onTransitionEnd={this.onTransitionEnd}
-              >
-                <i />
-              </sub>
               {composeChildren}
+              <div className="x-tabs__line" ref={this.lineRef}>
+                <sup onTransitionEnd={this.onAnimEnd} />
+                <sub />
+              </div>
             </div>
           </div>
         </div>
@@ -192,14 +186,11 @@ class Tabs extends React.PureComponent<ITabsProps> {
 
     return (
       <div {...otherProps} className={composeClassName} ref={this.ref}>
-        <sub
-          className="x-tabs__line"
-          style={{ display: 'none' }}
-          onTransitionEnd={this.onTransitionEnd}
-        >
-          <i />
-        </sub>
         {composeChildren}
+        <div className="x-tabs__line" ref={this.lineRef}>
+          <sup onTransitionEnd={this.onAnimEnd} />
+          <sub />
+        </div>
       </div>
     )
   }
