@@ -2,15 +2,19 @@ import * as React from 'react'
 import { Layout, Tabs } from '../auto-ui'
 
 class Demo extends React.PureComponent {
-  state = { active: 1 }
+  state = { active: 3 }
 
   render() {
     return (
       <Layout>
-        <Tabs active={this.state.active} onClick={this.onClick} shrink={false}>
+        <Tabs active={this.state.active} onClick={this.onClick} shrink={true}>
           <Tabs.Item value={1}>标签一</Tabs.Item>
           <Tabs.Item value={2}>标签二</Tabs.Item>
           <Tabs.Item value={3}>标签三</Tabs.Item>
+          <Tabs.Item value={4}>标签三</Tabs.Item>
+          <Tabs.Item value={5}>标签三</Tabs.Item>
+          <Tabs.Item value={6}>标签三</Tabs.Item>
+          <Tabs.Item value={7}>标签三</Tabs.Item>
         </Tabs>
         <Layout.Body>
           {this.state.active === 1 && <p>content of Tab 1</p>}
