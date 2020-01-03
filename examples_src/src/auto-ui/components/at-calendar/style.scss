@@ -137,19 +137,19 @@
 
       i {
         position: absolute;
-        right: 12px;
+        right: px(12);
         top: 0;
         z-index: 2;
         font-style: normal;
-        font-size: 18px;
+        font-size: px(18);
         display: flex;
         align-items: center;
         justify-content: center;
         background: #fff;
         border-radius: 50%;
         color: #666;
-        width: 30px;
-        height: 30px;
+        width: px(30);
+        height: px(30);
         line-height: 1;
         border: 1px solid #f2f2f2; /*no*/
       }
