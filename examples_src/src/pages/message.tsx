@@ -11,6 +11,7 @@ const Demo: React.FC<any> = () => {
       <Layout.Body>
         <Button onClick={onClick}>点击打开</Button>
       </Layout.Body>
+      <Layout.Footer border />
     </Layout>
   )
 }

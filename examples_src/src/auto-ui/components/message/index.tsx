@@ -34,11 +34,10 @@ const Message: IMessage = (params, duration = 2000) => {
   }
   const div = document.createElement('div')
   div.classList.add('x-message', 'x-message--show')
-  const id = `j-x-message--${new Date().valueOf()}-${Math.random() * 999999}`
+  const id = `j-x-message--${new Date().valueOf()}-${Math.floor(Math.random() * 999999)}`
   div.id = id
   const layoutFooter = document.querySelector('.x-app > .x-app-footer')
   if (layoutFooter && layoutFooter.clientHeight > 0) {
-    div.style.paddingBottom = layoutFooter.clientHeight + 'px'
     div.classList.add('x-message--behind-footer')
     layoutFooter.before(div)
   } else {
