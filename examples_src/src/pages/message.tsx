@@ -3,7 +3,7 @@ import { Button, Layout, Message } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   const onClick = () => {
-    Message('我是一个消息框')
+    Message('我是一个消息框', 200000)
   }
 
   return (

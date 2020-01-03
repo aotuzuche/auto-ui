@@ -133,8 +133,8 @@ class Tabs extends React.PureComponent<ITabsProps, ITabsState> {
     if (this.lineRef.current) {
       this.lineRef.current.removeAttribute('style')
     }
-    const index = this.state.currentActiveIndex
     if (this.ref.current) {
+      const index = this.state.currentActiveIndex
       this.targetTabItem = this.ref.current.querySelectorAll('.x-tabs__item')[index]
       if (this.targetTabItem) {
         this.targetTabItem.classList.add('x-tabs--active-l')

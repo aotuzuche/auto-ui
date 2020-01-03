@@ -15,7 +15,8 @@
   pointer-events: none;
   &__inner {
     background: #fff;
-    padding: px(60) px(40) px(90) px(40);
+    padding: px(40);
+    min-height: px(160);
     width: 100%;
     display: flex;
     border-top-left-radius: px($alertRadius);
@@ -25,6 +26,9 @@
     pointer-events: auto;
     .info {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     h6 {
       font-size: 30px;
