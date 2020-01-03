@@ -71,6 +71,7 @@
   }
   &--behind-footer {
     z-index: 5;
-    position: absolute;
+    position: relative;
+    height: 0;
   }
 }
