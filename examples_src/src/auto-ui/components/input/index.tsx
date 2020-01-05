@@ -60,7 +60,6 @@ export default class Input extends React.PureComponent<IProps, IState> {
 
   // 模拟onChange变化，将e.target.value赋值为空，外部接收的是ChangeEventHandler
   onInputClear: React.EventHandler<any> = e => {
-    console.log(2)
     const { onChange } = this.props
     e.target = { value: '' }
     onChange && onChange(e)
