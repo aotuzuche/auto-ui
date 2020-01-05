@@ -39,9 +39,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      &:focus-within {
-        display: flex;
-      }
+
       &:active {
         span {
           opacity: 0.75;

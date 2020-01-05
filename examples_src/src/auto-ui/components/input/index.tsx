@@ -21,46 +21,35 @@ interface IProps {
   [otherProps: string]: any
 }
 
-const Input: React.FC<IProps> = props => {
-  const {
-    type,
-    className,
-    addonBefore,
-    addonAfter,
-    error,
-    multi,
-    disabled,
-    value,
-    onChange,
-    onReset,
-    placeholder,
-    mini,
-    inputProps,
-    textareaProps,
-    allowClear,
-    ...otherProps
-  } = props
+interface IState {
+  isFocus: boolean
+}
 
-  const composeClassName = cn(
-    'x-input',
-    {
-      'x-input--error': error,
-      'x-input--multi': multi,
-      'x-input--disabled': disabled,
-      'x-input--mini': mini,
-      'x-input--clear': allowClear,
-    },
-    className,
-  )
+export default class Input extends React.PureComponent<IProps, IState> {
+  constructor(props: IProps) {
+    super(props)
+
+    this.state = {
+      isFocus: false,
+    }
+  }
 
   // 劫持onBlur事件，解决input失去焦点时页面卡在半当中的情况
-  const onBlur: React.FocusEventHandler<any> = evt => {
+  onBlur: React.FocusEventHandler<any> = evt => {
+    const { multi, inputProps, textareaProps } = this.props
     evt.persist()
     if (multi && textareaProps && textareaProps.onBlur) {
       textareaProps.onBlur(evt)
     } else if (inputProps && inputProps.onBlur) {
       inputProps.onBlur(evt)
     }
+
+    setTimeout(() => {
+      this.setState({
+        isFocus: false,
+      })
+    }, 0)
+
     setTimeout(() => {
       const ele = evt.target
       if (ele) {
@@ -70,26 +59,101 @@ const Input: React.FC<IProps> = props => {
   }
 
   // 模拟onChange变化，将e.target.value赋值为空，外部接收的是ChangeEventHandler
-  const onInputClear: React.EventHandler<any> = e => {
+  onInputClear: React.EventHandler<any> = e => {
+    console.log(2)
+    const { onChange } = this.props
     e.target = { value: '' }
     onChange && onChange(e)
   }
 
-  if (multi) {
+  // 劫持onFocus事件，当focus时，标记focus用于显示clear按钮
+  onFocus: React.FocusEventHandler<any> = e => {
+    const { multi, inputProps, textareaProps } = this.props
+
+    e.persist()
+    if (multi && textareaProps && textareaProps.onFocus) {
+      textareaProps.onFocus(e)
+    } else if (inputProps && inputProps.onFocus) {
+      inputProps.onFocus(e)
+    }
+
+    this.setState({
+      isFocus: true,
+    })
+  }
+
+  render() {
+    const {
+      type,
+      className,
+      addonBefore,
+      addonAfter,
+      error,
+      multi,
+      disabled,
+      value,
+      onChange,
+      onReset,
+      placeholder,
+      mini,
+      inputProps,
+      textareaProps,
+      allowClear,
+      ...otherProps
+    } = this.props
+
+    const composeClassName = cn(
+      'x-input',
+      {
+        'x-input--error': error,
+        'x-input--multi': multi,
+        'x-input--disabled': disabled,
+        'x-input--mini': mini,
+        'x-input--clear': allowClear,
+      },
+      className,
+    )
+
+    if (multi) {
+      return (
+        <div {...otherProps} className={composeClassName}>
+          {!!addonBefore && <div className="x-input__addon-before">{addonBefore}</div>}
+          <textarea
+            disabled={disabled}
+            className="x-input__ipt"
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange as any}
+            {...textareaProps}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
+          />
+          {allowClear && value && this.state.isFocus && (
+            <div className="x-input__iconclear" onClick={this.onInputClear}>
+              <span />
+            </div>
+          )}
+          {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
+        </div>
+      )
+    }
+
     return (
       <div {...otherProps} className={composeClassName}>
         {!!addonBefore && <div className="x-input__addon-before">{addonBefore}</div>}
-        <textarea
+        <input
           disabled={disabled}
           className="x-input__ipt"
           value={value}
           placeholder={placeholder}
-          onChange={onChange as any}
-          {...textareaProps}
-          onBlur={onBlur}
+          onChange={onChange}
+          type={type || 'text'}
+          {...inputProps}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
         />
-        {allowClear && value && (
-          <div className="x-input__iconclear" onClick={onInputClear}>
+        {allowClear && value && this.state.isFocus && (
+          <div className="x-input__iconclear" onClick={this.onInputClear}>
             <span />
           </div>
         )}
@@ -97,28 +161,4 @@ const Input: React.FC<IProps> = props => {
       </div>
     )
   }
-
-  return (
-    <div {...otherProps} className={composeClassName}>
-      {!!addonBefore && <div className="x-input__addon-before">{addonBefore}</div>}
-      <input
-        disabled={disabled}
-        className="x-input__ipt"
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-        type={type || 'text'}
-        {...inputProps}
-        onBlur={onBlur}
-      />
-      {allowClear && value && (
-        <div className="x-input__iconclear" onClick={onInputClear}>
-          <span />
-        </div>
-      )}
-      {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
-    </div>
-  )
 }
-
-export default Input
