@@ -31,6 +31,7 @@ import PageInput from '../pages/input'
 import PageInputAddon from '../pages/input_addon'
 import PageInputDisabled from '../pages/input_disabled'
 import PageInputError from '../pages/input_error'
+import PageInputClear from '../pages/input_clear'
 import PageInputMultiLine from '../pages/input_multi_line'
 import PageLayout from '../pages/layout'
 import PageLayoutBorderType from '../pages/layout_border_type'
@@ -87,6 +88,7 @@ const routes: any[] = [
   ['input_disabled', PageInputDisabled],
   ['input_error', PageInputError],
   ['input_multi_line', PageInputMultiLine],
+  ['input_clear', PageInputClear],
   ['alert', PageAlert],
   ['alert_async', PageAlertAsync],
   ['alert_callback', PageAlertCallback],

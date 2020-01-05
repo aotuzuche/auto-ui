@@ -12,6 +12,7 @@ interface IProps {
   disabled?: boolean
   mini?: boolean
   value: string
+  allowClear?: boolean
   children?: null
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
@@ -31,10 +32,12 @@ const Input: React.FC<IProps> = props => {
     disabled,
     value,
     onChange,
+    onReset,
     placeholder,
     mini,
     inputProps,
     textareaProps,
+    allowClear,
     ...otherProps
   } = props
 
@@ -45,6 +48,7 @@ const Input: React.FC<IProps> = props => {
       'x-input--multi': multi,
       'x-input--disabled': disabled,
       'x-input--mini': mini,
+      'x-input--clear': allowClear,
     },
     className,
   )
@@ -65,6 +69,12 @@ const Input: React.FC<IProps> = props => {
     }, 300)
   }
 
+  // 模拟onChange变化，将e.target.value赋值为空，外部接收的是ChangeEventHandler
+  const onInputClear: React.EventHandler<any> = e => {
+    e.target = { value: '' }
+    onChange && onChange(e)
+  }
+
   if (multi) {
     return (
       <div {...otherProps} className={composeClassName}>
@@ -78,6 +88,11 @@ const Input: React.FC<IProps> = props => {
           {...textareaProps}
           onBlur={onBlur}
         />
+        {allowClear && value && (
+          <div className="x-input__iconclear" onClick={onInputClear}>
+            <span />
+          </div>
+        )}
         {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
       </div>
     )
@@ -96,6 +111,11 @@ const Input: React.FC<IProps> = props => {
         {...inputProps}
         onBlur={onBlur}
       />
+      {allowClear && value && (
+        <div className="x-input__iconclear" onClick={onInputClear}>
+          <span />
+        </div>
+      )}
       {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
     </div>
   )

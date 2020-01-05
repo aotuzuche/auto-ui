@@ -20,6 +20,10 @@ code=[addonBefore、addonAfter](input_addon)
 
 code=[multi](input_multi_line)
 
+## 显示删除按钮
+
+code=[multi](input_clear)
+
 ## 支持属性
 
 | 属性        | 说明                           | 类型      | 默认值 |
@@ -30,3 +34,4 @@ code=[multi](input_multi_line)
 | addonAfter  | 右侧挂载，比如发送验证码按钮   | Component | -      |
 | multi       | 多行文本                       | Boolean   | false  |
 | type        | 文本类型                       | String    | text   |
+| allowClear  | 是否显示删除按钮               | Boolean   | false  |
