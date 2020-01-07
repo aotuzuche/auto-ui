@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import './style.scss'
+import CloseIcon from '../icon/close'
 
 interface IProps {
   type?: string
@@ -60,9 +61,9 @@ export default class Input extends React.PureComponent<IProps, IState> {
 
   // 模拟onChange变化，将e.target.value赋值为空，外部接收的是ChangeEventHandler
   onInputClear: React.EventHandler<any> = e => {
-    console.log(2)
-    const { onChange } = this.props
-    e.target = { value: '' }
+    const { onChange, inputProps, textareaProps, multi } = this.props
+    const props = multi ? textareaProps : inputProps
+    e.target = { value: '', ...props }
     onChange && onChange(e)
   }
 
@@ -130,7 +131,9 @@ export default class Input extends React.PureComponent<IProps, IState> {
           />
           {allowClear && value && this.state.isFocus && (
             <div className="x-input__iconclear" onClick={this.onInputClear}>
-              <span />
+              <span>
+                <CloseIcon />
+              </span>
             </div>
           )}
           {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
@@ -154,7 +157,9 @@ export default class Input extends React.PureComponent<IProps, IState> {
         />
         {allowClear && value && this.state.isFocus && (
           <div className="x-input__iconclear" onClick={this.onInputClear}>
-            <span />
+            <span>
+              <CloseIcon />
+            </span>
           </div>
         )}
         {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}

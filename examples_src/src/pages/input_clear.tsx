@@ -12,6 +12,7 @@ class Demo extends React.PureComponent {
             value={this.state.value}
             placeholder="请输入..."
             allowClear
+            inputProps={{ id: 'value' }}
             onChange={this.onChange}
           />
 
@@ -20,7 +21,8 @@ class Demo extends React.PureComponent {
             placeholder="请输入..."
             allowClear
             multi
-            onChange={this.onChange1}
+            textareaProps={{ id: 'value1' }}
+            onChange={this.onChange}
           />
         </Layout.Body>
       </Layout>
@@ -28,14 +30,10 @@ class Demo extends React.PureComponent {
   }
 
   private onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = evt.target
+    console.log(evt.target)
     this.setState({
-      value: evt.target.value,
-    })
-  }
-
-  private onChange1 = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      value1: evt.target.value,
+      [id]: value,
     })
   }
 }
