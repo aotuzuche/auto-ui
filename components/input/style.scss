@@ -10,6 +10,7 @@
   transition: all 0.1s ease-out;
   background: #fff;
   overflow: hidden;
+  position: relative;
   &:focus-within {
     // rgb(196, 196, 205) = rgb(60, 60, 90) x 0.3alpha
     border: px(1) solid rgb(196, 196, 205); /*no*/
@@ -19,6 +20,50 @@
   }
   &--multi {
     height: 30 * 1.5 * 3 + 40 + px; // 默认3行
+  }
+  &--clear {
+    &.x-input--multi {
+      padding-right: 70px;
+      .x-input__iconclear {
+        position: absolute;
+        top: -3px;
+        right: 0;
+      }
+    }
+    .x-input__ipt {
+      padding-right: 0 !important;
+    }
+    .x-input__iconclear {
+      width: px(90);
+      height: px(90);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:active {
+        span {
+          opacity: 0.75;
+        }
+      }
+      span {
+        width: px(30);
+        height: px(30);
+        display: flex;
+        background-color: $primaryColor;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        svg {
+          display: block;
+          overflow: hidden;
+          width: px(14);
+          height: px(14);
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
   }
   .x-input__ipt {
     font-size: px(30);

@@ -1,6 +1,6 @@
 {
   "name": "auto-ui",
-  "version": "2.1.55",
+  "version": "2.1.70",
   "description": "auto ui components",
   "main": "es/index",
   "typings": "es/index",

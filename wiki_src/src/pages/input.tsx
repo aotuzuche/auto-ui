@@ -157,6 +157,47 @@ export default Demo
 }
 
 export default Demo
+</span>`}} /></pre></div></div><h2>显示删除按钮</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/input_clear') })} onClick={this.onCodeClick.bind(null, '/input_clear')}><header>multi</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Input<span class="token punctuation">,</span> Layout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> value1<span class="token punctuation">:</span> <span class="token string">''</span> <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout.Body</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Input</span>
+            <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+            <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>请输入...<span class="token punctuation">"</span></span>
+            <span class="token attr-name">allowClear</span>
+            <span class="token attr-name">inputProps</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token string">'value'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+            <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChange<span class="token punctuation">}</span></span>
+          <span class="token punctuation">/></span></span><span class="token plain-text">
+
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Input</span>
+            <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value1<span class="token punctuation">}</span></span>
+            <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>请输入...<span class="token punctuation">"</span></span>
+            <span class="token attr-name">allowClear</span>
+            <span class="token attr-name">multi</span>
+            <span class="token attr-name">textareaProps</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token string">'value1'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+            <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChange<span class="token punctuation">}</span></span>
+          <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Layout.Body</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Layout</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> onChange <span class="token operator">=</span> <span class="token punctuation">(</span>evt<span class="token punctuation">:</span> React<span class="token punctuation">.</span>ChangeEvent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>HTMLInputElement</span><span class="token punctuation">></span></span><span class="token plain-text">) => </span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> id<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token operator">=</span> evt<span class="token punctuation">.</span>target
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">:</span> value<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token plain-text">
+}
+
+export default Demo
 </span>`}} /></pre></div></div><h2>支持属性</h2><table>
 <thead>
 <tr>
@@ -201,6 +242,12 @@ export default Demo
 <td>文本类型</td>
 <td>String</td>
 <td>text</td>
+</tr>
+<tr>
+<td>allowClear</td>
+<td>是否显示删除按钮</td>
+<td>Boolean</td>
+<td>false</td>
 </tr>
 </tbody></table>
 

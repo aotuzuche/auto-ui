@@ -3,7 +3,7 @@
 
 .x-at-nav {
   display: flex;
-  height: px(120);
+  height: px(130);
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05); /*no*/
   background: #fff;
   > .x-at-navitem {
@@ -12,15 +12,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: px(120);
+    height: px(130);
     > i {
       display: block;
       width: px(50);
       height: px(50);
       background-repeat: no-repeat;
       background-position: center;
-      background-size: px(50);
-      margin-bottom: px(6);
+      background-size: px(60);
+      margin-bottom: px(8);
     }
     > small {
       color: #5a5a6e;

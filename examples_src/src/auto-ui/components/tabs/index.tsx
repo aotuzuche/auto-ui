@@ -109,11 +109,11 @@ class Tabs extends React.PureComponent<ITabsProps, ITabsState> {
       const supT = `transform: translateX(${process}%)`
       const subT = `transform: translateX(${process}%)`
       let supA = `transition: transform 0.25s ${
-        d === 'L' ? 'cubic-bezier(0,0,0.5,1)' : d === 'R' ? 'cubic-bezier(0.5,0,1,1)' : 'linear'
-      }`
+        d === 'L' ? 'ease-out' : d === 'R' ? 'ease-in' : 'linear'
+      } 0.2s`
       let subA = `transition: transform 0.25s ${
-        d === 'L' ? 'cubic-bezier(0.5,0,1,1)' : d === 'R' ? 'cubic-bezier(0,0,0.5,1)' : 'linear'
-      }`
+        d === 'L' ? 'ease-in' : d === 'R' ? 'ease-out' : 'linear'
+      } 0.2s`
       if (!anim) {
         supA = ''
         subA = ''
