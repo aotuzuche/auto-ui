@@ -8,7 +8,9 @@ interface IProps {
   className?: string
   local?: boolean
   top?: boolean
+  direction?: 'top' | 'left' | 'right' | 'bottom'
   height?: number | string
+  width?: number | string
   visible?: boolean
   smoothBorder?: boolean
   children: React.ReactNode
@@ -41,23 +43,31 @@ class Popup extends React.PureComponent<IProps> {
   }
 
   content() {
-    const {
+    let {
       className,
       top,
+      direction = 'top',
       onMaskClick,
       height,
+      width,
       visible,
       noPadding,
       smoothBorder,
       children,
       ...otherProps
     } = this.props
+
+    if (top) {
+      console.warn('auto-ui: Popup组件的top属性请使用direction属性来代替')
+      direction = 'bottom'
+    }
+
     const composeClassName = cn(
       'x-popup',
       {
-        'x-popup--top': top,
         'x-popup--smooth-border': smoothBorder,
       },
+      `x-popup--${direction}`,
       className,
     )
 
@@ -88,6 +98,7 @@ class Popup extends React.PureComponent<IProps> {
         {...otherProps}
         visible={visible}
         height={height}
+        width={width}
         onMaskClick={onMaskClick}
         className={composeClassName}
       >

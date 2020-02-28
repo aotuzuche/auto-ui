@@ -7,6 +7,7 @@ interface IProps {
   className?: string
   onMaskClick?: () => void
   height?: number | string
+  width?: number | string
 }
 
 interface IState {
@@ -39,7 +40,7 @@ class Modal extends React.PureComponent<IProps, IState> {
   }
 
   render() {
-    const { onMaskClick, height, visible, className, ...otherProps } = this.props
+    const { onMaskClick, height, width, visible, className, ...otherProps } = this.props
 
     const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, className)
 
@@ -49,6 +50,15 @@ class Modal extends React.PureComponent<IProps, IState> {
         heightVal = `${String(height)}%`
       } else {
         heightVal = height
+      }
+    }
+
+    let widthVal = ''
+    if (width) {
+      if (typeof width === 'number') {
+        widthVal = `${String(width)}%`
+      } else {
+        widthVal = width
       }
     }
 
@@ -63,7 +73,7 @@ class Modal extends React.PureComponent<IProps, IState> {
         <div className="x-modal__mask" onClick={onMaskClick} />
         <div
           className="x-modal__inner"
-          style={{ height: heightVal }}
+          style={{ height: heightVal, width: widthVal }}
           onAnimationEnd={this.onAnimationEnd}
         >
           {this.props.children}

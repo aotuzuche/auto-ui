@@ -12,9 +12,13 @@ code=[基本使用](popup)
 
 code=[height](popup_height)
 
-## 位于顶部
+## 自定义宽度
 
-code=[top](popup_top)
+同高度，略有不同的是，宽度不定义时为100%宽，而高度不定义时，为内容的高度(但最小不小于50%)
+
+## 弹出方向
+
+code=[popup direction](popup_direction)
 
 ## 蒙层点击
 
@@ -47,7 +51,8 @@ code=[scroll](popup_scroll)
 | visible      | 是否显示                    | Boolean       | false  |
 | onBgClick    | 蒙层点击事件                | Function      | -      |
 | height       | 高度                        | Number/String | 50     |
+| width       | 宽度                        | Number/String | 100     |
 | smoothBorder | 平滑边角，即圆角            | Boolean       | false  |
-| top          | 是否从顶部滑入              | Boolean       | false  |
+| direction          | 弹出方向              | top / left / right / bottom       | top  |
 | noPadding    | 是否需要内 padding          | Boolean       | false  |
 | local        | 从当前 Popup 的父容器中弹出 | Boolean       | false  |
