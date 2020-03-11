@@ -42,3 +42,4 @@ code=[arrow](cell_arrow)
 | href    | 跳转 url(类型为 a 标签)     | String   | -      |
 | arrow   | 使右侧带箭头符号            | Boolean  | -      |
 | value   | Row 想要传递给 onClick 的值 | Boolean  | false  |
+| addonAfter   | 右侧的挂载内容 | Component  | -  |

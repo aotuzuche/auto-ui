@@ -11,8 +11,9 @@ interface IRowProps {
   to?: string
   activable?: boolean
   className?: string
-  children: React.ReactNode
+  children?: React.ReactNode
   title?: string
+  addonAfter?: React.ReactNode
   indentLine?: boolean
   endIndentLine?: boolean
   [otherProps: string]: any
@@ -31,6 +32,7 @@ const CellRow: React.FC<IRowProps> = props => {
     title,
     indentLine,
     endIndentLine,
+    addonAfter,
     ...otherProps
   } = props
 
@@ -45,6 +47,7 @@ const CellRow: React.FC<IRowProps> = props => {
     <>
       {title && <label>{title}</label>}
       {children}
+      {addonAfter && <span className="x-cell__addon-after">{addonAfter}</span>}
     </>
   )
 

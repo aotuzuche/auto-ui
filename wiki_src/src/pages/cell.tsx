@@ -176,6 +176,12 @@ export default Demo
 <td>Boolean</td>
 <td>false</td>
 </tr>
+<tr>
+<td>addonAfter</td>
+<td>右侧的挂载内容</td>
+<td>Component</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
         </div>
