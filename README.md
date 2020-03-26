@@ -36,7 +36,20 @@ Android 4.4+, iOS 8+
   make es6
 ```
 
-会自动生成相应的文件到 components、es、libs 中
+会自动生成相应的文件到 components、es 中
+
+```
+  make commonjs
+```
+
+会自动生成相应的文件到 components、lib 中
+
+```
+  make build
+```
+
+会自动生成相应的文件到 components、lib、es 中
+
 
 将文档发布到 GitHub
 
