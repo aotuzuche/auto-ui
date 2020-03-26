@@ -24,3 +24,19 @@ ghpages:
 	@git commit -am 'update: gh-pages'
 	@git pull && git push
 	@git subtree push --prefix=demo origin gh-pages
+
+#从components中生成commonjs版本的js代码到lib目录下
+commonjs:
+	@rm -rf components
+	@rm -rf lib
+	@cp -ri examples_src/src/auto-ui/components components
+	@node scripts/createWiki.js
+	@tsc -p tsconfig.json --outDir lib --module commonjs
+	@node scripts/mvscss2es.js --styleDir=lib
+	@gulp
+
+#同时打包es和commonjs
+build:
+	@make es6
+	@make commonjs
+	@make ghpages
