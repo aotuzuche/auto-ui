@@ -39,4 +39,3 @@ commonjs:
 build:
 	@make es6
 	@make commonjs
-	@make ghpages
