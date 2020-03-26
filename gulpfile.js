@@ -4,6 +4,7 @@ let px2rem = require('gulp-px2rem');
 let removeScss = require('./scripts/gulp-remove.js');
 
 const px2remOptions = {
+  rootValue: 100,
   replace: true,
   minPx: 2,
 };
