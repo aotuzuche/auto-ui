@@ -266,6 +266,7 @@ interface IHeaderProps {
   tabs?: React.ReactNode
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean
   useSafeArea?: boolean
+  ua?: string
   [otherProps: string]: any
 }
 
@@ -288,6 +289,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     homepage,
     useSafeArea,
     tabs,
+    ua, // 支持从外部传入ua，用于服务端渲染
     ...otherProps
   } = props
 
@@ -310,26 +312,26 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
   )
 
   // 在app中隐藏
-  if (hideInApp && /atzuche/gi.test(navigator.userAgent)) {
+  if (hideInApp && /atzuche/gi.test(ua || navigator.userAgent)) {
     return null
   }
 
   // 在支付宝中隐藏，包括扫一扫进入的网页和小程序
-  if (hideInAlipay && /AlipayClient/gi.test(navigator.userAgent)) {
+  if (hideInAlipay && /AlipayClient/gi.test(ua || navigator.userAgent)) {
     return null
   }
 
-  // 在支付宝小程序中隐藏
-  let isInAlipayMP = false
-  if ((window as any).my && (window as any).my.getEnv) {
-    ;(window as any).my.getEnv((res: any) => {
-      isInAlipayMP = !!res.miniprogram
-    })
-  }
+  // // 在支付宝小程序中隐藏
+  // let isInAlipayMP = false
+  // if ((window as any).my && (window as any).my.getEnv) {
+  //   ;(window as any).my.getEnv((res: any) => {
+  //     isInAlipayMP = !!res.miniprogram
+  //   })
+  // }
 
-  if (hideInAlipayMP && isInAlipayMP) {
-    return null
-  } // TODO: 异步获取是否在支付宝中的flag，所以这段代码有bug
+  // if (hideInAlipayMP && isInAlipayMP) {
+  //   return null
+  // } // TODO: 异步获取是否在支付宝中的flag，所以这段代码有bug
 
   const gotoHomepage = (evt: any) => {
     if (!homepage) return
