@@ -1,4 +1,3 @@
-import A from './es/a';
 import ActionSheet from './es/action-sheet';
 import Alert from './es/alert';
 import AspectRatio from './es/aspect-ratio';
@@ -8,7 +7,6 @@ import Button from './es/button';
 import Card from './es/card';
 import Cell from './es/cell';
 import Dialog from './es/dialog';
-import Emitter from './es/emitter';
 import Input from './es/input';
 import Layout from './es/layout';
 import Loading from './es/loading';
@@ -26,7 +24,6 @@ import Toast from './es/toast';
 import Provider from './es/provider';
 
 export {
-  A,
   ActionSheet,
   Alert,
   AtNav,
@@ -36,7 +33,6 @@ export {
   Card,
   Cell,
   Dialog,
-  Emitter,
   Input,
   Layout,
   Loading,
