@@ -365,7 +365,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 
   return (
     <header {...otherProps} className={composeClassName}>
-      {useSafeArea && <SafeArea inset="top" color="transparent" />}
+      {useSafeArea && <SafeArea userAgent={ua} inset="top" color="transparent" />}
       <div className="x-app-header__inner">
         {(addonBefore || onBackClick || onCloseClick) && (
           <div className="x-app-header__addon-before">
