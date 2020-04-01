@@ -8,23 +8,21 @@ class Demo extends React.PureComponent {
         title="title"
         onClose={this.onClose}
         monthRange={[new Date(2019, 5), new Date(2019, 8)]}
+        chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
         data={{
-          [new Date(2019, 5, 2).valueOf()]: {
-            rent: ['0000', '1200'],
-            revert: ['0030', '1100'],
-            badge: '限',
-          },
-          [new Date(2019, 5, 3).valueOf()]: {
-            rent: ['0000', '1200'],
-            revert: ['0030', '1100'],
-            badge: '限',
-          },
-          [new Date(2019, 5, 4).valueOf()]: {
-            price: 333,
-            rent: ['0000', '1200'],
-            revert: [['0030', '1100'], ['1300', '2000']],
-            badge: '限',
-          },
+          [new Date(2019, 5, 2).valueOf()]: {},
+          [new Date(2019, 5, 3).valueOf()]: {},
+          [new Date(2019, 5, 4).valueOf()]: {},
+          [new Date(2019, 5, 5).valueOf()]: {},
+          [new Date(2019, 5, 6).valueOf()]: {},
+          [new Date(2019, 5, 7).valueOf()]: {},
+          [new Date(2019, 5, 8).valueOf()]: {},
+          // [new Date(2019, 5, 4).valueOf()]: {
+          //   price: 333,
+          //   rent: ['0000', '1200'],
+          //   revert: [['0030', '1100'], ['1300', '2000']],
+          //   badge: '限',
+          // },
         }}
         onSubmit={this.onSubmit}
         onDayClick={this.onDayClick}

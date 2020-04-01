@@ -7,8 +7,8 @@ import Toast from '../toast'
 interface IData {
   isHoliday?: boolean
   price?: number
-  rent: string[] | string[][]
-  revert: string[] | string[][]
+  rent?: string[] | string[][]
+  revert?: string[] | string[][]
   disabled?: 'ALL' | 'PART' | 'DISABLED' // 全天不可租 = ALL 或斜线的样式， 部分不可租 = PART, DISABLED 置灰
   badge?: string // 标记，位于时间圆的右上角
 }
@@ -22,11 +22,9 @@ interface IProps {
   chooseRange?: [Date, Date]
   onSubmit: (start: Date, end: Date) => void
   onDayClick?: (day: Date, type: 'rent' | 'revert') => any
-  lock?: 'start' | 'end'
-  localCheckTimeRange?: boolean // 本地验证租期范围
-  data?: {
-    [time: number]: IData
-  }
+  lockStartTime?: boolean
+  needCheckTimeRange?: boolean // 本地验证租期范围
+  data?: { [time: number]: IData }
   minHours?: number
   maxHours?: number
   extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
@@ -75,7 +73,7 @@ class Controller extends React.PureComponent<IProps, IState> {
     if (cr1 && cr2 && cr1.valueOf() >= cr2.valueOf()) {
       throw new Error('chooseRange数据错误')
     }
-    if (this.props.lock && (!cr1 || !cr2)) {
+    if (this.props.lockStartTime && (!cr1 || !cr2)) {
       throw new Error('chooseRange不能为空')
     }
     if (cr1 !== null) {
@@ -182,7 +180,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
     let type: 'rent' | 'revert' = 'rent'
 
-    if (this.props.lock === 'start') {
+    if (this.props.lockStartTime) {
       if (range[0]!.valueOf() > day.valueOf()) {
         Toast('取车时间不可修改')
         return
@@ -190,14 +188,6 @@ class Controller extends React.PureComponent<IProps, IState> {
       range[1] = day
       times[1] = null
       type = 'revert'
-    } else if (this.props.lock === 'end') {
-      if (range[1]!.valueOf() < day.valueOf()) {
-        Toast('还车时间不可修改')
-        return
-      }
-      range[0] = day
-      times[0] = null
-      type = 'rent'
     } else {
       if (range[0] && range[1]) {
         // 处理extend
@@ -244,8 +234,8 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
 
     if (
-      (type === 'rent' && data.rent.length) === 0 ||
-      (type === 'revert' && data.revert.length === 0)
+      (type === 'rent' && data.rent && data.rent.length) === 0 ||
+      (type === 'revert' && data.revert && data.revert.length === 0)
     ) {
       Toast('该天没有可选的时间')
       return
@@ -280,8 +270,20 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 清空选择的日期
   protected clearChooseRange = () => {
-    if (this.props.lock) {
-      Toast('当前租期不可清空')
+    if (this.props.lockStartTime) {
+      const pr = this.props.chooseRange
+      if (pr) {
+        const cr1 = new Date(pr[0].getFullYear(), pr[0].getMonth(), pr[0].getDate())
+        const cr2 = new Date(pr[1].getFullYear(), pr[1].getMonth(), pr[1].getDate())
+        this.setState({
+          chooseRange: [cr1, cr2],
+          preChooseRange: [cr1, cr2],
+          timePickerTimes: [pr[0], pr[1]],
+          preTimePickerTimes: [pr[0], pr[1]],
+        })
+      } else {
+        Toast('当前租期不可清空')
+      }
       return
     }
     this.setState({
@@ -321,7 +323,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       times[1] = this.timePickerRef.current.getTime()
     }
     // 如果需要本地验证租期范围的话
-    if (this.props.localCheckTimeRange && times[0] && times[1]) {
+    if (this.props.needCheckTimeRange && times[0] && times[1]) {
       const offset = offsetHours(times[0], times[1])
       if (offset <= 0 || offset < min || offset > max) {
         let tips = ''
@@ -423,7 +425,7 @@ class Controller extends React.PureComponent<IProps, IState> {
     let current = range[0]
     const target = range[1].valueOf()
     while (current.valueOf() <= target) {
-      // 如果在该天已经选中了，则不做数据检查，直接认为该天是可用的
+      // 如果该天已经选中了，则不做数据检查，直接认为该天是可用的
       if (!this.isBtweenRange(current, ignore as any)) {
         if (!data[current.valueOf()] || data[current.valueOf()].disabled) {
           return false
