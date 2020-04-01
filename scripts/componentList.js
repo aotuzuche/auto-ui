@@ -22,6 +22,7 @@ const componentList = [
   'Card',
   'NavBar',
   'AtNav',
+  'Provider',
 ];
 
 module.exports = componentList;
