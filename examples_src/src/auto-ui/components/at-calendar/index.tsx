@@ -26,32 +26,46 @@ class AtCalendar extends Controller {
     const d2 = this.state.chooseRange[1]
     const t1 = this.state.timePickerTimes[0]
     const t2 = this.state.timePickerTimes[1]
+    const pt2 = this.props.chooseRange ? this.props.chooseRange[1] : null
 
     return (
       <Layout.Header
         className="header"
-        borderType="border"
         onCloseClick={this.props.onClose}
         title={this.props.title}
         addonAfter={
           !this.props.readonly && (
-            <a className="clear" onClick={this.clearChooseRange}>
-              清空
+            <a
+              className={cn('clear', {
+                disabled:
+                  (!t1 && !t2) ||
+                  (this.props.lockStartTime && pt2 && t2 && pt2.valueOf() === t2.valueOf()),
+              })}
+              onClick={this.clearChooseRange}
+            >
+              {this.props.lockStartTime ? '复原' : '清空'}
             </a>
           )
         }
         addonBottom={
           <>
             {!this.props.readonly && (
-              <div className="time-range">
-                <div className={cn('date', 'from', { active: !!d1 })}>
+              <div
+                className={cn('time-range', {
+                  'choose-from': !t1,
+                  'choose-to': (!!t1 && !t2) || this.props.lockStartTime,
+                  'choose-finished': !!t1 && !!t2 && !this.props.lockStartTime,
+                })}
+              >
+                <div className="date from">
                   <h6>{d1 ? dateFormat(d1, 'M月d日 周wk') : '取车时间'}</h6>
                   <p>{t1 ? dateFormat(t1, 'hh:mm') : '请设置'}</p>
                 </div>
-                <div className={cn('date', 'to', { active: !!d2 })}>
+                <div className="date to">
                   <h6>{d2 ? dateFormat(d2, 'M月d日 周wk') : '还车时间'}</h6>
                   <p>{t2 ? dateFormat(t2, 'hh:mm') : '请设置'}</p>
                 </div>
+                <i className="point" />
               </div>
             )}
             <ul className="weeks">
@@ -146,7 +160,7 @@ class AtCalendar extends Controller {
       <div className={css} key={key} onClick={onClick}>
         <p>
           <em>{date.getDate()}</em>
-          {data.badge ? <i>{data.badge}</i> : null}
+          {data.badge ? <i className="badge">{data.badge}</i> : null}
         </p>
         {data.price && <span>￥{data.price}</span>}
       </div>
