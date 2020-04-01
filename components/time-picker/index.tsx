@@ -56,13 +56,13 @@ class TimePicker extends React.PureComponent<IProps, IState> {
 
   private dayId: string
   private iScrollDay: any
-  private iScrollDayY: number = 0
+  private iScrollDayY = 0
   private HHId: string
   private iScrollHH: any
-  private iScrollHHY: number = 0
+  private iScrollHHY = 0
   private MMId: string
   private iScrollMM: any
-  private iScrollMMY: number = 0
+  private iScrollMMY = 0
   private realScrollRowHeight: number
   private needCalcList: Record<string, boolean> = {}
 
