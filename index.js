@@ -21,6 +21,7 @@ import Tabs from './es/tabs';
 import TimePicker from './es/time-picker';
 import Toast from './es/toast';
 import Message from './es/message';
+import Provider from './es/provider';
 
 export {
   ActionSheet,
@@ -46,4 +47,5 @@ export {
   Message,
   TimePicker,
   NavBar,
+  Provider,
 };
