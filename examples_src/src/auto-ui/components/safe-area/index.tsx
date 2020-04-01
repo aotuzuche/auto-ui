@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import './style.scss'
+import CustomProvider from '../provider'
 
 interface IProps {
   inset: 'top' | 'bottom'
@@ -9,17 +10,20 @@ interface IProps {
   children?: null
 }
 
-const isiOS = () => {
-  return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+const isiOS = (context: any) => {
+  const userAgent = context.userAgent || window.navigator.userAgent
+  return userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
 }
 
-const isApp = () => {
-  return navigator.userAgent.indexOf('atzuche') > -1
+const isApp = (context: any) => {
+  const userAgent = context.userAgent || window.navigator.userAgent
+  return userAgent.indexOf('atzuche') > -1
 }
 
 const SafeArea: React.FC<IProps> = props => {
+  const context = React.useContext(CustomProvider) || {}
   let composeClassName = cn(`x-safe-area-inset-${props.inset}`, props.className)
-  if (props.inset === 'top' && isiOS() && isApp()) {
+  if (props.inset === 'top' && isiOS(context) && isApp(context)) {
     composeClassName += ' x-safe-area-ios-app'
   }
   return <div className={composeClassName} style={{ backgroundColor: props.color }} />
