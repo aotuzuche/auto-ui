@@ -9,6 +9,8 @@ import './style.scss'
 
 import CustomProvider from '../provider'
 
+const isBroswer = typeof self === 'object' && self.self === self && self
+
 interface ILayoutProps {
   className?: string
   useTopSafeArea?: boolean
@@ -35,11 +37,19 @@ const Layout: React.FC<ILayoutProps> & ILayout = props => {
     ...otherProps
   } = props
   const composeClassName = cn('x-app', className)
+
+  // 兼容服务端渲染，使其node环境可以获取到window
+  // 客户端渲染请忽略,
+  const context = React.useContext(CustomProvider) || {}
   return (
     <div {...otherProps} className={composeClassName} onTouchStart={() => {}}>
-      {useTopSafeArea && <SafeArea inset="top" color={topSafeAreaColor} />}
+      {useTopSafeArea && (
+        <SafeArea userAgent={context.userAgent} inset="top" color={topSafeAreaColor} />
+      )}
       {children}
-      {useBottomSafeArea && <SafeArea inset="bottom" color={bottomSafeAreaColor} />}
+      {useBottomSafeArea && (
+        <SafeArea userAgent={context.userAgent} inset="bottom" color={bottomSafeAreaColor} />
+      )}
     </div>
   )
 }
@@ -312,7 +322,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     borderType && borderType !== 'none' ? `x-app-header--bottom-${borderType}` : void 0,
   )
 
-  const ua = context.userAgent || window.navigator.userAgent
+  const ua = context.userAgent || (isBroswer ? window.navigator.userAgent : '')
 
   // 在app中隐藏
   if (hideInApp && /atzuche/gi.test(ua)) {
@@ -355,7 +365,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 
   return (
     <header {...otherProps} className={composeClassName}>
-      {useSafeArea && <SafeArea inset="top" color="transparent" />}
+      {useSafeArea && <SafeArea userAgent={ua} inset="top" color="transparent" />}
       <div className="x-app-header__inner">
         {(addonBefore || onBackClick || onCloseClick) && (
           <div className="x-app-header__addon-before">

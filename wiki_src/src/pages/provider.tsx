@@ -11,7 +11,7 @@ export default class View extends React.PureComponent {
     return (
       <div>
         <div className="markdown-content">
-<h2>Provider</h2><p>用于服务端渲染时，把window等浏览器全局变量传给服务端</p>
+<h2>Provider</h2><p>用于服务端渲染时，把 window 等浏览器全局变量传给服务端</p>
 
         </div>
         <MobilePreview link={this.state.previewUrl} />
