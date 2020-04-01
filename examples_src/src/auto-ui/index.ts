@@ -20,6 +20,7 @@ import Switch from './components/switch'
 import Tabs from './components/tabs'
 import TimePicker from './components/time-picker'
 import Toast from './components/toast'
+import Provider from './components/provider'
 
 export {
   ActionSheet,
@@ -44,4 +45,5 @@ export {
   TimePicker,
   NavBar,
   Message,
+  Provider,
 }
