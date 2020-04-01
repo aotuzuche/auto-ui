@@ -440,7 +440,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
 ;(Controller as any).defaultProps = {
   maxHours: 99999,
-  localCheckTimeRange: true,
+  needCheckTimeRange: true,
 }
 
 export default Controller
