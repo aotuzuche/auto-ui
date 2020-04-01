@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../theme.scss';
 
 .x-time-picker {
@@ -9,10 +10,12 @@
   padding: px(20) px(60);
   flex-wrap: nowrap;
   position: relative;
+
   > div ul {
     padding: px(140) 0;
     overflow: hidden;
     touch-action: none;
+
     li {
       height: px(70);
       line-height: px(70);
@@ -22,6 +25,7 @@
       display: block;
     }
   }
+
   &__tips {
     position: absolute;
     left: 0;
@@ -33,6 +37,7 @@
     font-size: 22px;
     pointer-events: none;
   }
+
   &__mask-t,
   &__mask-b {
     position: absolute;
@@ -40,35 +45,41 @@
     top: 0;
     width: 100%;
     height: px(160);
-    background-image: -webkit-gradient(
-      linear,
-      0 0,
-      0 bottom,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.7))
-    );
+    background-image:
+      -webkit-gradient(
+        linear,
+        0 0,
+        0 bottom,
+        from(#fff),
+        to(rgba(255, 255, 255, 0.8))
+      );
     pointer-events: none;
     z-index: 9;
   }
+
   &__mask-b {
     top: auto;
     bottom: 0;
-    background-image: -webkit-gradient(
-      linear,
-      0 bottom,
-      0 0,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.7))
-    );
+    background-image:
+      -webkit-gradient(
+        linear,
+        0 bottom,
+        0 0,
+        from(#fff),
+        to(rgba(255, 255, 255, 0.7))
+      );
   }
+
   &__day-list {
     flex-grow: 1;
     overflow: hidden;
   }
+
   &__hh-list {
     flex-grow: 1;
     overflow: hidden;
   }
+
   &__mm-list {
     flex-grow: 1;
     overflow: hidden;
