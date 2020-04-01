@@ -7,6 +7,8 @@ import SafeArea from '../safe-area'
 import Spin from '../spin/index'
 import './style.scss'
 
+import CustomProvider from '../provider'
+
 interface ILayoutProps {
   className?: string
   useTopSafeArea?: boolean
@@ -65,7 +67,6 @@ interface IBodyState {
 
 class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   private timer: any = 0
-
   constructor(props: IBodyProps) {
     super(props)
     this.state = {
@@ -266,11 +267,12 @@ interface IHeaderProps {
   tabs?: React.ReactNode
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean
   useSafeArea?: boolean
-  ua?: string
   [otherProps: string]: any
 }
 
 const LayoutHeader: React.FC<IHeaderProps> = props => {
+  const context = React.useContext(CustomProvider) || {}
+
   const {
     className,
     children,
@@ -289,7 +291,6 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     homepage,
     useSafeArea,
     tabs,
-    ua, // 支持从外部传入ua，用于服务端渲染
     ...otherProps
   } = props
 
@@ -311,27 +312,17 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     borderType && borderType !== 'none' ? `x-app-header--bottom-${borderType}` : void 0,
   )
 
+  const ua = context.userAgent || window.navigator.userAgent
+
   // 在app中隐藏
-  if (hideInApp && /atzuche/gi.test(ua || navigator.userAgent)) {
+  if (hideInApp && /atzuche/gi.test(ua)) {
     return null
   }
 
   // 在支付宝中隐藏，包括扫一扫进入的网页和小程序
-  if (hideInAlipay && /AlipayClient/gi.test(ua || navigator.userAgent)) {
+  if (hideInAlipay && /AlipayClient/gi.test(ua)) {
     return null
   }
-
-  // // 在支付宝小程序中隐藏
-  // let isInAlipayMP = false
-  // if ((window as any).my && (window as any).my.getEnv) {
-  //   ;(window as any).my.getEnv((res: any) => {
-  //     isInAlipayMP = !!res.miniprogram
-  //   })
-  // }
-
-  // if (hideInAlipayMP && isInAlipayMP) {
-  //   return null
-  // } // TODO: 异步获取是否在支付宝中的flag，所以这段代码有bug
 
   const gotoHomepage = (evt: any) => {
     if (!homepage) return
@@ -401,5 +392,4 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 Layout.Header = LayoutHeader
 Layout.Body = LayoutBody
 Layout.Footer = LayoutFooter
-
 export default Layout
