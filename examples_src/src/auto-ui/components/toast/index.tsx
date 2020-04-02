@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
-import './style.scss'
+import './style/index.scss'
 
 let timer: any = 0
 let div: HTMLDivElement | null

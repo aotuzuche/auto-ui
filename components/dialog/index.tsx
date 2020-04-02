@@ -2,7 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import Modal from '../modal/index'
-import './style.scss'
+import './style/index.scss'
 
 interface IProps {
   className?: string

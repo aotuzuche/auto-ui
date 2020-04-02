@@ -5,7 +5,7 @@ import IconClose from '../icon/close_s'
 import IconError from '../icon/error'
 import SafeArea from '../safe-area'
 import Spin from '../spin/index'
-import './style.scss'
+import './style/index.scss'
 
 import CustomProvider from '../provider'
 

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import * as React from 'react'
-import './style.scss'
+import './style/index.scss'
 import CustomProvider from '../provider'
 
 const isBroswer = typeof self === 'object' && self.self === self && self

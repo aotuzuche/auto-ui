@@ -2,7 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
 import Button from '../button/index'
-import './style.scss'
+import './style/index.scss'
 
 interface IBtn {
   name: string

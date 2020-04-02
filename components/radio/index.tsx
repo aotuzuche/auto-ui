@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import IconCheck from '../icon/check'
-import './style.scss'
+import './style/index.scss'
 
 interface IProps {
   checked: boolean

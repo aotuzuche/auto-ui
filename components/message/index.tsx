@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
-import './style.scss'
+import './style/index.scss'
 
 const close = (id: string) => {
   const div = document.getElementById(id)

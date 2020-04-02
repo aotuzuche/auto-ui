@@ -1,0 +1,22 @@
+@charset "utf-8";
+@import '../../theme.scss';
+
+.x-safe-area-inset-top {
+  position: relative;
+  z-index: 99;
+  height: constant(safe-area-inset-top);
+  height: env(safe-area-inset-top);
+  overflow: hidden;
+}
+
+.x-safe-area-inset-bottom {
+  position: relative;
+  z-index: 99;
+  height: constant(safe-area-inset-bottom);
+  height: env(safe-area-inset-bottom);
+  overflow: hidden;
+}
+
+.x-safe-area-ios-app {
+  min-height: 20px; /*no*/
+}

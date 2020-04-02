@@ -1,0 +1,51 @@
+@charset "utf-8";
+@import '../../theme.scss';
+
+.x-spin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.x-loading__spin {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: px(34);
+  width: px(82);
+  span {
+    width: px(14);
+    height: px(14);
+    display: block;
+    border-radius: 50%;
+    background: rgb(0, 207, 151);
+    position: absolute;
+    top: px(10);
+    &:nth-child(1) {
+      left: px(0);
+      animation: __x_loading_bounce 0.8s linear infinite;
+    }
+    &:nth-child(2) {
+      left: px(34);
+      animation: __x_loading_bounce 0.8s linear 0.2s infinite;
+    }
+    &:nth-child(3) {
+      left: px(68);
+      animation: __x_loading_bounce 0.8s linear 0.4s infinite;
+    }
+  }
+}
+
+@keyframes __x_loading_bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -6,7 +6,7 @@ import Layout from '../layout'
 import Popup from '../popup'
 import TimePicker from '../time-picker'
 import Controller from './controller'
-import './style.scss'
+import './style/index.scss'
 
 class AtCalendar extends Controller {
   render() {

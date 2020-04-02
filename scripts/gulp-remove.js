@@ -17,7 +17,7 @@ module.exports = function(options) {
     }
 
     var contents = file.contents.toString();
-    contents = contents.replace(/require\(\"\.\/style.scss\"\);|import '\.\/style\.scss';/gi, '');
+    contents = contents.replace(/require\(\"\.\/style\/index.scss\"\);|import '\.\/style\/index.scss';/gi, '');
     file.contents = new Buffer(contents);
     cb(null, file);
   }

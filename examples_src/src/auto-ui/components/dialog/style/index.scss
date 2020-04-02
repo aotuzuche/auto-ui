@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import '../../theme.scss';
+
+.x-dialog {
+  z-index: 10001;
+  &__inner {
+    padding: px(40);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__scroller {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  &__inscroller {
+    flex: 1;
+    overflow: auto;
+    margin: 0 px(-30) 0 0;
+    padding: 0 px(30) 0 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .x-modal__inner {
+    display: block;
+    background: #fff;
+    transform-origin: 50%;
+    border-radius: px($alertRadius);
+    width: 85%;
+    height: auto;
+  }
+  &.x-modal--enter {
+    .x-modal__mask {
+      opacity: 1;
+    }
+    .x-modal__inner {
+      animation: __x_dialog_enter 0.2s ease-out;
+    }
+  }
+  &.x-modal--leave {
+    .x-modal__mask {
+      opacity: 0;
+    }
+    .x-modal__inner {
+      animation: __x_dialog_leave 0.1s ease-out;
+    }
+  }
+}
+
+@keyframes __x_dialog_enter {
+  0% {
+    transform: scale(1.4, 1.4);
+    opacity: 0;
+  }
+  75% {
+    transform: scale(0.95, 0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes __x_dialog_leave {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95, 0.95);
+    opacity: 0;
+  }
+}

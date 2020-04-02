@@ -2,7 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import IconCheck from '../icon/check'
 import IconClose from '../icon/close'
-import './style.scss'
+import './style/index.scss'
 
 interface IProps {
   i?: string

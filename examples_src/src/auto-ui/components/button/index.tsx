@@ -2,7 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import Spin from '../spin/index'
-import './style.scss'
+import './style/index.scss'
 
 interface ButtonProps {
   type?: 'primary' | 'danger' | 'default'
