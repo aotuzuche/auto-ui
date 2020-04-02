@@ -1,5 +1,6 @@
 import { Redirect, Route, Router, Switch } from 'dva/router'
 import * as React from 'react'
+import PageIndex from '../pages/index'
 import PageActionsheet from '../pages/actionsheet'
 import PageActionsheetCloseButton from '../pages/actionsheet_close_button'
 import PageActionsheetCustomItems from '../pages/actionsheet_custom_items'
@@ -76,6 +77,7 @@ import PageToastClose from '../pages/toast_close'
 import PageToastDuartion from '../pages/toast_duration'
 
 const routes: any[] = [
+  ['', PageIndex],
   ['button', PageButton],
   ['button_mini', PageButtonMini],
   ['button_shrink', PageButtonShrink],
@@ -159,7 +161,7 @@ export default (history: any) => {
         {routes.map(r => {
           return <Route key={r[0]} exact={true} path={`/${r[0]}`} component={r[1]} />
         })}
-        <Redirect from="*" to="/button" />
+        <Redirect from="*" to="/" />
       </Switch>
     </Router>
   )

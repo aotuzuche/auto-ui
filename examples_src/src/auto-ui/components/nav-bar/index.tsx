@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import IconBackS from '../icon/back_s'
 import React, { MouseEventHandler, ReactNode } from 'react'
-import './style.scss'
+import './style/index.scss'
 
 export interface NavBarProps {
   title?: ReactNode

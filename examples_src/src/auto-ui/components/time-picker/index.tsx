@@ -3,7 +3,7 @@ import IScroll from 'iscroll/build/iscroll-lite'
 import * as React from 'react'
 import dateFormat from './dateFormat'
 import model, { TimeData, Times } from './model'
-import './style.scss'
+import './style/index.scss'
 
 let ID = 0
 

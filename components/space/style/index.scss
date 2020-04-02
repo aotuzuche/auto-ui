@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import '../../theme.scss';
+
+.x-space {
+  display: inline-block;
+  min-height: px(1); /*no*/
+  height: inherit;
+  visibility: hidden;
+  &--1 {
+    width: px(10) !important;
+    flex: 0 1 px(10) !important;
+  }
+  &--2 {
+    width: px(20) !important;
+    flex: 0 1 px(20) !important;
+  }
+  &--3 {
+    width: px(30) !important;
+    flex: 0 1 px(30) !important;
+  }
+  &--4 {
+    width: px(40) !important;
+    flex: 0 1 px(40) !important;
+  }
+  &--5 {
+    width: px(50) !important;
+    flex: 0 1 px(50) !important;
+  }
+}

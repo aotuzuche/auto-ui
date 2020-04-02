@@ -1872,6 +1872,11 @@ gulp-px2rem@^1.1.2:
     plugin-error "^1.0.1"
     through2 "^3.0.1"
 
+gulp-rename@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/gulp-rename/-/gulp-rename-2.0.0.tgz#9bbc3962b0c0f52fc67cd5eaff6c223ec5b9cf6c"
+  integrity sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==
+
 gulp-sass@3.2.1:
   version "3.2.1"
   resolved "https://registry.npmjs.org/gulp-sass/-/gulp-sass-3.2.1.tgz#2e3688a96fd8be1c0c01340750c191b2e79fab94"
@@ -1882,6 +1887,13 @@ gulp-sass@3.2.1:
     node-sass "^4.8.3"
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
+
+gulp-sequence@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/gulp-sequence/-/gulp-sequence-1.0.0.tgz#862f93e6503e67c350a42948fa666953cf88ba67"
+  integrity sha512-c+p+EcyBl1UCpbfFA/vUD6MuC7uxoY6Y4g2lq9lLtzOHh9o1wijAQ4o0TIRQ14C7cG6zR6Zi+bpA0cW78CFt6g==
+  dependencies:
+    thunks "^4.9.0"
 
 gulp-util@^3.0, gulp-util@^3.0.0:
   version "3.0.8"
@@ -4961,6 +4973,11 @@ through@2, "through@>=2.2.7 <3", through@^2.3.6, through@^2.3.8:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+
+thunks@^4.9.0:
+  version "4.9.6"
+  resolved "https://registry.npmjs.org/thunks/-/thunks-4.9.6.tgz#08f268ab32ad12b8e1838d2b819dbd7d9b3262a0"
+  integrity sha512-ulXG17ZokTO8j0rTx/23YHsBuz6KAK1xdBPLH4zB1FRDUkttCQeli3DxGhhYtrrsRwzacSG+ZIebjSgLseluMw==
 
 tildify@^1.0.0:
   version "1.2.0"
