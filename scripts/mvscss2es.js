@@ -9,11 +9,11 @@ componentList.push('SafeArea');
 
 componentList.forEach(component => {
   const name = fo.toLowerLine(component);
-  const path = `components/${name}/style.scss`;
+  const path = `components/${name}/style/index.scss`;
 
   if (fs.existsSync(path)) {
     const file = fs.readFileSync(path, 'utf-8');
-    fs.writeFileSync(`${styleDir}/${name}/style.scss`, file.toString());
+    fs.writeFileSync(`${styleDir}/${name}/style/index.scss`, file.toString());
   }
 
   // timepicker有个iscroll.js需要拷贝过去
