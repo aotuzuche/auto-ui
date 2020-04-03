@@ -9,12 +9,15 @@ const Demo: React.FC<any> = () => {
   return (
     <Layout>
       <Layout.Body>
-        <Cell.Title text="分隔线缩进" />
-        <Cell onClick={onClick} arrow={true} indentLine={true} endIndentLine={true}>
+        <Cell.Title text="分隔线缩进: 左侧缩进" />
+        <Cell onClick={onClick} arrow={true} dividerIndent="left">
           <Cell.Row value="1">cell 1</Cell.Row>
           <Cell.Row value="2">cell 2</Cell.Row>
-          <Cell.Row value="3">cell 3</Cell.Row>
-          <Cell.Row value="4">cell 4</Cell.Row>
+        </Cell>
+        <Cell.Title text="分隔线缩进: 两头缩进" />
+        <Cell onClick={onClick} arrow={true} dividerIndent="both">
+          <Cell.Row value="1">cell 1</Cell.Row>
+          <Cell.Row value="2">cell 2</Cell.Row>
         </Cell>
       </Layout.Body>
     </Layout>

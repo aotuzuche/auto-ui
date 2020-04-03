@@ -1,5 +1,6 @@
+import { Link } from 'dva/router'
 import * as React from 'react'
-import { Layout, Cell } from '../auto-ui'
+import { Cell, Layout } from '../auto-ui'
 
 const routes = [
   'button',
@@ -25,7 +26,7 @@ const routes = [
   'cell',
   'cell_arrow',
   'cell_click',
-  'cell_indent_line',
+  'cell_divider_indent',
   'switch',
   'switch_disabled',
   'switch_icon',
@@ -83,23 +84,13 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          {routes.map((item, index) => {
-            return (
-              <Cell key={index}>
-                <a
-                  href={`/#/${item}`}
-                  style={{
-                    width: '100%',
-                    display: 'block',
-                    textAlign: 'center',
-                    lineHeight: '50px',
-                  }}
-                >
-                  {item}
-                </a>
-              </Cell>
-            )
-          })}
+          <Cell arrow={true}>
+            {routes.map((item, index) => {
+              return (
+                <Cell.Row key={index} title={item} href={`/#/${item}`} />
+              )
+            })}
+          </Cell>
         </Layout.Body>
       </Layout>
     )

@@ -14,9 +14,9 @@ code=[cell 的 onClick](cell_click)
 
 ## 分隔线缩进
 
-使每行的分隔线左侧不顶到头，很多列表菜单使用这种样式
+分隔线进行缩进，很多列表菜单使用这种样式
 
-code=[indentLine 和 endIndentLine](cell_indent_line)
+code=[cell 的 dividerIndent](cell_divider_indent)
 
 ## 带箭头
 
@@ -29,17 +29,17 @@ code=[arrow](cell_arrow)
 | 属性          | 说明                                                 | 类型     | 默认值 |
 | ------------- | ---------------------------------------------------- | -------- | ------ |
 | onClick       | 会覆盖掉 Cell.Row 的 onClick                         | Function | -      |
-| indentLine    | 使每行的分隔线左侧不顶到头，很多列表菜单使用这种样式 | Boolean  | false  |
-| endIndentLine | 使每行的分隔线右侧不顶到头                           | Boolean  | false  |
+| dividerIndent    | 内部所有Cell.Row的分隔线缩进样式，可选样式有左侧缩进或两头缩进 | left/both  | false  |
 | arrow         | 使每行的右侧带箭头符号                               | Boolean  | false  |
 
 ## Cell.Row 支持属性
 
-| 属性    | 说明                        | 类型     | 默认值 |
-| ------- | --------------------------- | -------- | ------ |
-| onClick | 点击事件(类型为 button)     | Function | -      |
-| to      | 跳转路由(类型为 Link)       | String   | -      |
-| href    | 跳转 url(类型为 a 标签)     | String   | -      |
-| arrow   | 使右侧带箭头符号            | Boolean  | -      |
-| value   | Row 想要传递给 onClick 的值 | Boolean  | false  |
-| addonAfter   | 右侧的挂载内容 | Component  | -  |
+| 属性       | 说明                                                              | 类型      | 默认值 |
+| ---------- | ----------------------------------------------------------------- | --------- | ------ |
+| onClick    | 点击事件(类型为 button)                                           | Function  | -      |
+| link       | 跳转路由组件，默认为 react-router-dom 的 Link，可换成 dva 的 Link | link/dva  | -      |
+| to         | 跳转路由(类型为 Link)                                             | String    | -      |
+| href       | 跳转 url(类型为 a 标签)                                           | String    | -      |
+| arrow      | 使右侧带箭头符号                                                  | Boolean   | -      |
+| value      | Row 想要传递给 onClick 的值                                       | Boolean   | false  |
+| addonAfter | 右侧的挂载内容                                                    | Component | -      |

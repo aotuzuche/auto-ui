@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { Link as DvaLink } from 'dva/router'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './style/index.scss'
@@ -8,14 +9,14 @@ interface IRowProps {
   arrow?: boolean
   onClick?: (value?: any) => void
   href?: string
+  link?: 'link' | 'dva'
   to?: string
   activable?: boolean
   className?: string
   children?: React.ReactNode
   title?: string
   addonAfter?: React.ReactNode
-  indentLine?: boolean
-  endIndentLine?: boolean
+  dividerIndent?: 'left' | 'both'
   [otherProps: string]: any
 }
 
@@ -25,22 +26,40 @@ const CellRow: React.FC<IRowProps> = props => {
     arrow,
     onClick,
     href,
+    link,
     to,
     activable,
     className,
     children,
     title,
+    dividerIndent,
     indentLine,
     endIndentLine,
     addonAfter,
     ...otherProps
   } = props
 
+  if (indentLine || endIndentLine) {
+    // TODO: 需要废弃这两个属性
+    console.warn('indentLine与endIndentLine将被废弃，请使用dividerIndent代替')
+  }
+
+  // 兼容老的属性
+  // TODO: indentLine 和 endIndentLine 废弃后，该部分代码需要一起删除
+  let finalDividerIndent = dividerIndent
+  if (!finalDividerIndent && (indentLine || endIndentLine)) {
+    if (indentLine && !endIndentLine) {
+      finalDividerIndent = 'left'
+    } else {
+      finalDividerIndent = 'both'
+    }
+  }
+
   const composeClassName = cn('x-cell__row', className, {
     'x-cell__row--activable': onClick || to || href || activable,
     'x-cell__row--arrow': arrow,
-    'x-cell__row--indent-line': indentLine,
-    'x-cell__row--end-indent-line': endIndentLine,
+    'x-cell__row--divider-indent-left': finalDividerIndent === 'left',
+    'x-cell__row--divider-indent-both': finalDividerIndent === 'both',
   })
 
   const content = () => (
@@ -62,6 +81,13 @@ const CellRow: React.FC<IRowProps> = props => {
   }
 
   if (to) {
+    if (link === 'dva') {
+      return (
+        <DvaLink {...otherProps} className={composeClassName} to={to}>
+          {content()}
+        </DvaLink>
+      )
+    }
     return (
       <Link {...otherProps} className={composeClassName} to={to}>
         {content()}
@@ -101,8 +127,7 @@ const CellTitle: React.FC<ITitleProps> = props => {
 
 interface ICellProps {
   arrow?: boolean
-  indentLine?: boolean
-  endIndentLine?: boolean
+  dividerIndent?: 'left' | 'both'
   onClick?: (value?: any) => void
   className?: string
   children: React.ReactNode
@@ -113,31 +138,41 @@ const Cell: React.FC<ICellProps> & {
   Row: React.FC<IRowProps>
   Title: React.FC<ITitleProps>
 } = props => {
-  const { arrow, indentLine, endIndentLine, className, children, onClick, ...otherProps } = props
+  const { arrow, indentLine, endIndentLine, dividerIndent, className, children, onClick, ...otherProps } = props
+
+  if (indentLine || endIndentLine) {
+    // TODO: 需要废弃这两个属性
+    console.warn('indentLine与endIndentLine将被废弃，请使用dividerIndent代替')
+  }
+
+  // 兼容老的属性
+  // TODO: indentLine 和 endIndentLine 废弃后，该部分代码需要一起删除
+  let finalDividerIndent = dividerIndent
+  if (!finalDividerIndent && (indentLine || endIndentLine)) {
+    if (indentLine && !endIndentLine) {
+      finalDividerIndent = 'left'
+    } else {
+      finalDividerIndent = 'both'
+    }
+  }
 
   const composeClassName = cn('x-cell', className)
 
-  const composeChildren: any[] = []
-  if (Array.isArray(children)) {
-    composeChildren.push(...children)
-  } else {
-    composeChildren.push(children)
-  }
+  const composeChildren: any[] = React.Children.toArray(children)
 
   return (
     <section {...otherProps} className={composeClassName}>
-      {composeChildren.map((children, index) => {
-        if (children && children.type === CellRow) {
-          return React.cloneElement(children, {
+      {composeChildren.map((child, index) => {
+        if (child && child.type === CellRow) {
+          return React.cloneElement(child, {
             key: index,
-            arrow: children.props.arrow === false ? false : arrow || children.props.arrow,
+            arrow: child.props.arrow === false ? false : arrow || child.props.arrow,
             onClick:
-              children.props.href || children.props.to ? void 0 : onClick || children.props.onClick,
-            indentLine: indentLine,
-            endIndentLine: endIndentLine,
+              child.props.href || child.props.to ? void 0 : onClick || child.props.onClick,
+            dividerIndent: finalDividerIndent,
           })
         }
-        return children
+        return child
       })}
     </section>
   )

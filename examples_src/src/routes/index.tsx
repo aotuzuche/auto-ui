@@ -1,6 +1,5 @@
 import { Redirect, Route, Router, Switch } from 'dva/router'
 import * as React from 'react'
-import PageIndex from '../pages/index'
 import PageActionsheet from '../pages/actionsheet'
 import PageActionsheetCloseButton from '../pages/actionsheet_close_button'
 import PageActionsheetCustomItems from '../pages/actionsheet_custom_items'
@@ -23,11 +22,12 @@ import PageCard from '../pages/card'
 import PageCell from '../pages/cell'
 import PageCellArrow from '../pages/cell_arrow'
 import PageCellClick from '../pages/cell_click'
-import PageCellIndentLine from '../pages/cell_indent_line'
+import PageCellDividerIndent from '../pages/cell_divider_indent'
 import PageDialog from '../pages/dialog'
 import PageDialogHeight from '../pages/dialog_height'
 import PageDialogMaskClick from '../pages/dialog_mask_click'
 import PageDialogScroll from '../pages/dialog_scroll'
+import PageIndex from '../pages/index'
 import PageInput from '../pages/input'
 import PageInputAddon from '../pages/input_addon'
 import PageInputClear from '../pages/input_clear'
@@ -101,7 +101,7 @@ const routes: any[] = [
   ['cell', PageCell],
   ['cell_arrow', PageCellArrow],
   ['cell_click', PageCellClick],
-  ['cell_indent_line', PageCellIndentLine],
+  ['cell_divider_indent', PageCellDividerIndent],
   ['switch', PageSwitch],
   ['switch_disabled', PageSwitchDisabled],
   ['switch_icon', PageSwitchIcon],
