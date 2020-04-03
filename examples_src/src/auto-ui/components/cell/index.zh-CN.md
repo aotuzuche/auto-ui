@@ -37,7 +37,6 @@ code=[arrow](cell_arrow)
 | 属性       | 说明                                                              | 类型      | 默认值 |
 | ---------- | ----------------------------------------------------------------- | --------- | ------ |
 | onClick    | 点击事件(类型为 button)                                           | Function  | -      |
-| link       | 跳转路由组件，默认为 react-router-dom 的 Link，可换成 dva 的 Link | link/dva  | -      |
 | to         | 跳转路由(类型为 Link)                                             | String    | -      |
 | href       | 跳转 url(类型为 a 标签)                                           | String    | -      |
 | arrow      | 使右侧带箭头符号                                                  | Boolean   | -      |
