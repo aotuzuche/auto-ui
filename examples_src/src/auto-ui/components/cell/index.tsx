@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import { Link as DvaLink } from 'dva/router'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './style/index.scss'
@@ -9,7 +8,6 @@ interface IRowProps {
   arrow?: boolean
   onClick?: (value?: any) => void
   href?: string
-  link?: 'link' | 'dva'
   to?: string
   activable?: boolean
   className?: string
@@ -26,7 +24,6 @@ const CellRow: React.FC<IRowProps> = props => {
     arrow,
     onClick,
     href,
-    link,
     to,
     activable,
     className,
@@ -81,13 +78,6 @@ const CellRow: React.FC<IRowProps> = props => {
   }
 
   if (to) {
-    if (link === 'dva') {
-      return (
-        <DvaLink {...otherProps} className={composeClassName} to={to}>
-          {content()}
-        </DvaLink>
-      )
-    }
     return (
       <Link {...otherProps} className={composeClassName} to={to}>
         {content()}
