@@ -19,11 +19,12 @@
     color: rgb(60, 60, 90);
     position: relative;
     border-bottom: px(1) solid $borderColor; /* no */
+
     .x-cell__addon-after {
       display: block;
       margin-left: auto;
       color: #999;
-      font-size: 26px;
+      font-size: px(26);
     }
 
     &--divider-indent-left,

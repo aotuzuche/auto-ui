@@ -3,11 +3,11 @@ import * as React from 'react'
 import IconBack from '../icon/back_s'
 import IconClose from '../icon/close_s'
 import IconError from '../icon/error'
+import CustomProvider from '../provider'
 import SafeArea from '../safe-area'
 import Spin from '../spin/index'
 import './style/index.scss'
 
-import CustomProvider from '../provider'
 
 const isBroswer = typeof self === 'object' && self.self === self && self
 
@@ -238,12 +238,13 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
 interface IFooterProps {
   className?: string
   visible?: boolean
+  borderType?: 'border' | 'shadow' | 'none'
   [otherProps: string]: any
 }
 
 const LayoutFooter: React.FC<IFooterProps> = props => {
-  const { className, visible, children, ...otherProps } = props
-  const composeClassName = cn('x-app-footer', className)
+  const { className, visible, children, borderType, ...otherProps } = props
+  const composeClassName = cn('x-app-footer', className, borderType && borderType !== 'none' ? `x-app-footer--top-${borderType}` : void 0,)
 
   if (!visible) {
     return null
