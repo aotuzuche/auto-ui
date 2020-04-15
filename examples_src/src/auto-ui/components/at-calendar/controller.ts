@@ -27,6 +27,8 @@ interface IProps {
   data?: { [time: number]: IData }
   minHours?: number
   maxHours?: number
+  defaultRentTime?: string
+  defaultRevertTime?: string
   extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
 }
 
@@ -65,6 +67,14 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
     if (!this.props.monthRange[1] || !this.isZeroTime(this.props.monthRange[1])) {
       throw new Error('monthRange数据错误')
+    }
+
+    const { defaultRentTime, defaultRevertTime } = this.props
+    if (defaultRentTime && !/^\d{2}:\d{2}$/.test(defaultRentTime)) {
+      throw new Error('defaultRentTime数据错误')
+    }
+    if (defaultRevertTime && !/^\d{2}:\d{2}$/.test(defaultRevertTime)) {
+      throw new Error('defaultRevertTime数据错误')
     }
 
     // 初始化state

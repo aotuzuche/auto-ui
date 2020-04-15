@@ -9,6 +9,8 @@ class Demo extends React.PureComponent {
         onClose={this.onClose}
         monthRange={[new Date(2019, 5), new Date(2019, 8)]}
         chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
+        defaultRentTime="10:30"
+        defaultRevertTime="05:10"
         data={{
           [new Date(2019, 5, 2).valueOf()]: {},
           [new Date(2019, 5, 3).valueOf()]: {},
@@ -35,7 +37,6 @@ class Demo extends React.PureComponent {
   private onSubmit = () => {}
 
   private onDayClick = async (day: Date, type: string) => {
-    console.log(day, type)
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
