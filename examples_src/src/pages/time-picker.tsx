@@ -27,6 +27,7 @@ class Demo extends React.PureComponent {
             format={['MM月dd日 周wk', 'h点', 'm分']}
             interval={66}
             defaultDay={new Date(2018, 4, 3, 2, 0)}
+            defaultTime="04:00"
             onChange={this.showTime}
           />
         </Layout.Body>
