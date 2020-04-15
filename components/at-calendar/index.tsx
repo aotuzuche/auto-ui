@@ -211,6 +211,8 @@ class AtCalendar extends Controller {
 
   // 时间选择器
   private renderTimePicker() {
+    const { defaultRentTime, defaultRevertTime } = this.props
+    const { chooseType } = this.state
     let def = new Date(2000, 1, 1)
     if (this.state.chooseType === 'rent' && this.state.chooseRange[0]) {
       def = this.state.chooseRange[0]
@@ -230,7 +232,7 @@ class AtCalendar extends Controller {
     ) {
       def = this.state.preTimePickerTimes[1]!
     }
-
+    const defaultTime = chooseType === 'revert' ? defaultRevertTime : defaultRentTime
     return (
       <Popup
         visible={this.state.timePickerVisible}
@@ -252,6 +254,7 @@ class AtCalendar extends Controller {
           format={['MM月dd日 周wk', 'h点', 'm分']}
           interval={15}
           defaultDay={def}
+          defaultTime={defaultTime}
           onChange={this.onTimeChange}
           ref={this.timePickerRef}
         />
