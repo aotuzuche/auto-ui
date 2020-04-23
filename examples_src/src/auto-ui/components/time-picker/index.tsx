@@ -213,6 +213,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       format,
       interval,
       defaultDay,
+      defaultTime,
       onChange,
       className,
       tips,
