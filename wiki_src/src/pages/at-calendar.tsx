@@ -39,6 +39,18 @@ export default class View extends React.PureComponent {
 <td>-</td>
 </tr>
 <tr>
+<td>defaultRentTime</td>
+<td>默认取车时间，格式为&quot;08:00&quot;</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>defaultRevertTime</td>
+<td>默认还车时间，格式为&quot;08:00&quot;</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
 <td>data</td>
 <td>数据对象，key 为到日(时分秒为 0)的时间戳，value 如下</td>
 <td>Array</td>
@@ -46,13 +58,13 @@ export default class View extends React.PureComponent {
 </tr>
 <tr>
 <td>data.rent</td>
-<td>租车时间范围，[&#39;0000&#39;, &#39;1200&#39;]表示 0 点到 12 点，[[&#39;0000&#39;, &#39;1200&#39;], [&#39;1500&#39;, &#39;2215&#39;]] 表示 0 点到 12 点和 15 点到 22 点 15 分</td>
+<td>租车时间范围</td>
 <td>Array</td>
 <td>-</td>
 </tr>
 <tr>
 <td>data.revert</td>
-<td>还车时间范围，如租车</td>
+<td>还车时间范围</td>
 <td>Array</td>
 <td>-</td>
 </tr>
@@ -93,12 +105,45 @@ export default class View extends React.PureComponent {
 <td>-</td>
 </tr>
 <tr>
+<td>minHours</td>
+<td>最短租期</td>
+<td>Number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>maxHours</td>
+<td>最长租期</td>
+<td>Number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>footerTips</td>
+<td>自定义页脚的提示</td>
+<td>(Date, Date) =&gt; String</td>
+<td>自带</td>
+</tr>
+<tr>
+<td>lockRentTime</td>
+<td>锁定取车时间，这种情况下需要默认有选择租期</td>
+<td>Boolean</td>
+<td>False</td>
+</tr>
+<tr>
+<td>checkTimeRange</td>
+<td>验证租期范围，为true时，使用系统自带验证；为false时，不验证；自定义方法时，根据返回值确定是否要显示提示框，返回React.ReactDom时，提示返回内容，返回null时，不提示</td>
+<td>Boolean/(Date, Date) =&gt; React.ReactDom</td>
+<td>True</td>
+</tr>
+<tr>
 <td>onSubmit</td>
 <td>提交事件</td>
 <td>Function(Date, Date)</td>
 <td>-</td>
 </tr>
 </tbody></table>
+<ul>
+<li>租车时间范围/还车时间范围： [&#39;0000&#39;, &#39;1200&#39;]表示 0 点到 12 点，[[&#39;0000&#39;, &#39;1200&#39;], [&#39;1500&#39;, &#39;2215&#39;]] 表示 0 点到 12 点和 15 点到 22 点 15 分</li>
+</ul>
 <h2>data 数组数据</h2>
         </div>
         <MobilePreview link={this.state.previewUrl} />
