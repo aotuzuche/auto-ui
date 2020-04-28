@@ -14,6 +14,7 @@ interface IProps {
   interval?: number
   defaultDay: Date
   onChange: (data: Date) => void
+  defaultTime?: string
   className?: string
 }
 
@@ -40,7 +41,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       const days = model.getDayList(props.data, props.format)
 
       // 时间数据
-      const times = model.getStateByTime(props.defaultDay, props.data)
+      const times = model.getStateByTime(props.defaultDay, props.data, props.defaultTime)
 
       return {
         days, // 天的列表
@@ -134,7 +135,11 @@ class TimePicker extends React.PureComponent<IProps, IState> {
     const days = model.getDayList(this.props.data, this.props.format)
 
     // 时间数据
-    const state = model.getStateByTime(this.props.defaultDay, this.props.data)
+    const state = model.getStateByTime(
+      this.props.defaultDay,
+      this.props.data,
+      this.props.defaultTime,
+    )
 
     this.setState(
       {
@@ -170,7 +175,11 @@ class TimePicker extends React.PureComponent<IProps, IState> {
 
   // 恢复默认时间
   reset() {
-    const state = model.getStateByTime(this.props.defaultDay, this.props.data)
+    const state = model.getStateByTime(
+      this.props.defaultDay,
+      this.props.data,
+      this.props.defaultTime,
+    )
     this.setState(
       {
         ...state,
@@ -189,7 +198,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
 
   // 设置时间
   setTime(time: Date) {
-    const state = model.getStateByTime(time, this.props.data)
+    const state = model.getStateByTime(time, this.props.data, this.props.defaultTime)
     this.setState(
       {
         ...state,
@@ -204,6 +213,7 @@ class TimePicker extends React.PureComponent<IProps, IState> {
       format,
       interval,
       defaultDay,
+      defaultTime,
       onChange,
       className,
       tips,

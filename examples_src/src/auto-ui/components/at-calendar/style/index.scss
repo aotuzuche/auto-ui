@@ -171,7 +171,6 @@
     }
 
     > .list {
-      overflow: hidden;
       display: flex;
       flex-wrap: wrap;
     }
@@ -179,6 +178,7 @@
     .month-day {
       width: 14.285%; // 7分之1
       margin-bottom: px(60);
+      position: relative;
 
       &.disabled {
         p {
@@ -221,6 +221,39 @@
         p em {
           background: url('../date-part.png');
           background-size: 100% 100%;
+        }
+      }
+
+      .choose-tips {
+        position: absolute;
+        left: 50%;
+        top: -90px;
+        transform: translateX(-50%);
+        z-index: 999;
+        height: 72px;
+        background-color: #eefcf7;
+        border: 1px solid #b7f2dd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #00cf97;
+        border-radius: 36px;
+        padding: 0 26px;
+        white-space: nowrap;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 14px;
+          height: 14px;
+          background-color: #eefcf7;
+          position: absolute;
+          bottom: -1px;
+          left: 50%;
+          transform: translate(-50%, 50%) rotate(45deg);
+          border-right: 1px solid #b7f2dd;
+          border-bottom: 1px solid #b7f2dd;
         }
       }
 
@@ -416,7 +449,13 @@
       align-items: center;
       padding: px(20) px(40);
       border-top: px(1) solid #f2f2f2; /* no */
-      > p {
+
+      > .footer-tips {
+        display: block;
+        flex: 1;
+      }
+
+      > .def-tips-txt {
         display: block;
         flex: 1;
         font-size: px(28);
@@ -428,7 +467,7 @@
         }
       }
 
-      .submit {
+      > .submit {
         width: px(240);
         flex: none;
       }

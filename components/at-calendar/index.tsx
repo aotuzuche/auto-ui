@@ -26,7 +26,7 @@ class AtCalendar extends Controller {
     const d2 = this.state.chooseRange[1]
     const t1 = this.state.timePickerTimes[0]
     const t2 = this.state.timePickerTimes[1]
-    const pt2 = this.props.chooseRange ? this.props.chooseRange[1] : null
+    const pt2 = this.props.chooseRange ? this.props.chooseRange[1] : void 0
 
     return (
       <Layout.Header
@@ -39,11 +39,11 @@ class AtCalendar extends Controller {
               className={cn('clear', {
                 disabled:
                   (!t1 && !t2) ||
-                  (this.props.lockStartTime && pt2 && t2 && pt2.valueOf() === t2.valueOf()),
+                  (this.props.lockRentTime && pt2 && t2 && pt2.valueOf() === t2.valueOf()),
               })}
               onClick={this.clearChooseRange}
             >
-              {this.props.lockStartTime ? '复原' : '清空'}
+              {this.props.lockRentTime ? '复原' : '清空'}
             </a>
           )
         }
@@ -53,8 +53,8 @@ class AtCalendar extends Controller {
               <div
                 className={cn('time-range', {
                   'choose-from': !t1,
-                  'choose-to': (!!t1 && !t2) || this.props.lockStartTime,
-                  'choose-finished': !!t1 && !!t2 && !this.props.lockStartTime,
+                  'choose-to': (!!t1 && !t2) || this.props.lockRentTime,
+                  'choose-finished': !!t1 && !!t2 && !this.props.lockRentTime,
                 })}
               >
                 <div className="date from">
@@ -156,8 +156,19 @@ class AtCalendar extends Controller {
       }
       this.onDayClick(date, data)
     }
+
+    // 如果提示的年月日是这天，在这天添加提示内容
+    let tipsData: any = null
+    if (this.state.chooseTipsVisible) {
+      const d = this.state.chooseTipsData[0]
+      if (d.getFullYear() === date.getFullYear() && d.getMonth() === date.getMonth() && d.getDate() === date.getDate()) {
+        tipsData = this.state.chooseTipsData[1]
+      }
+    }
+
     return (
       <div className={css} key={key} onClick={onClick}>
+        {tipsData && <div className="choose-tips">{tipsData}</div>}
         <p>
           <em>{date.getDate()}</em>
           {data.badge ? <i className="badge">{data.badge}</i> : null}
@@ -167,17 +178,32 @@ class AtCalendar extends Controller {
     )
   }
 
-  // 页脚
-  private renderFooter() {
+  // 页脚的提示
+  private renderFooterTips() {
     const min = this.props.minHours || 0
     const times = this.state.timePickerTimes
-    const chooseOk = times[0] !== null && times[1] !== null
+    const chooseOk = times[0] !== void 0 && times[1] !== void 0
     let tips = '请选择租期'
     if (min >= 24) {
       tips = `${Math.round((min / 24) * 100) / 100}天起租`
     } else if (min > 0) {
       tips = `${min}小时起租`
     }
+
+    if (chooseOk) {
+      return (
+        <p className="def-tips-txt">
+          共计<strong>{offsetDays(times[0]!, times[1]!)}</strong>
+        </p>
+      )
+    } else {
+      return <p className="def-tips-txt">{tips}</p>
+    }
+  }
+
+  // 页脚
+  private renderFooter() {
+    const times = this.state.timePickerTimes
 
     return (
       <Layout.Footer className="footer">
@@ -193,13 +219,9 @@ class AtCalendar extends Controller {
         </div>
         {!this.props.readonly && (
           <div className="bottom">
-            {chooseOk ? (
-              <p>
-                共计<strong>{offsetDays(times[0]!, times[1]!)}</strong>
-              </p>
-            ) : (
-              <p>{tips}</p>
-            )}
+            <div className="footer-tips">
+              {this.props.footerTips ? this.props.footerTips(times[0], times[1]) : this.renderFooterTips()}
+            </div>
             <Button className="submit" onClick={this.onSubmit}>
               确定
             </Button>
@@ -211,6 +233,8 @@ class AtCalendar extends Controller {
 
   // 时间选择器
   private renderTimePicker() {
+    const { defaultRentTime, defaultRevertTime } = this.props
+    const { chooseType } = this.state
     let def = new Date(2000, 1, 1)
     if (this.state.chooseType === 'rent' && this.state.chooseRange[0]) {
       def = this.state.chooseRange[0]
@@ -230,7 +254,7 @@ class AtCalendar extends Controller {
     ) {
       def = this.state.preTimePickerTimes[1]!
     }
-
+    const defaultTime = chooseType === 'revert' ? defaultRevertTime : defaultRentTime
     return (
       <Popup
         visible={this.state.timePickerVisible}
@@ -252,6 +276,7 @@ class AtCalendar extends Controller {
           format={['MM月dd日 周wk', 'h点', 'm分']}
           interval={15}
           defaultDay={def}
+          defaultTime={defaultTime}
           onChange={this.onTimeChange}
           ref={this.timePickerRef}
         />

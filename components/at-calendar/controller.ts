@@ -18,30 +18,36 @@ interface IProps {
   title?: string
   onClose: () => void
   disabledBefore?: Date
-  monthRange: [Date, Date]
+  monthRange?: [Date, Date]
   chooseRange?: [Date, Date]
   onSubmit: (start: Date, end: Date) => void
   onDayClick?: (day: Date, type: 'rent' | 'revert') => any
-  lockStartTime?: boolean
-  needCheckTimeRange?: boolean // 本地验证租期范围
+  lockRentTime?: boolean
+  checkTimeRange?: boolean | ((t1: Date, t2: Date) => React.ReactNode) // 若为true时，系统验证租期，否则自定义验证租期范围的提示
+  footerTips?: (t1: Date | undefined, t2: Date | undefined) => string // 自定义页脚的提示信息
   data?: { [time: number]: IData }
   minHours?: number
   maxHours?: number
+  defaultRentTime?: string
+  defaultRevertTime?: string
+  chooseTips?: (t1: Date) => [Date, String] // 当用户选择完成第一天时，可设置在另一天提示相关内容
   extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
 }
 
 interface IState {
-  chooseRange: [Date | null, Date | null]
-  preChooseRange: [Date | null, Date | null]
+  chooseRange: [Date | undefined, Date | undefined]
+  preChooseRange: [Date | undefined, Date | undefined]
   timePickerVisible: boolean
-  timePickerTimes: [Date | null, Date | null]
+  timePickerTimes: [Date | undefined, Date | undefined]
   timePickerTips: Record<string, string>
-  preTimePickerTimes: [Date | null, Date | null]
+  preTimePickerTimes: [Date | undefined, Date | undefined]
   timePickerData: {
     day: Date
     times?: string[] | string[][]
   }
   chooseType: string
+  chooseTipsData: [Date, String]
+  chooseTipsVisible: boolean
 }
 
 class Controller extends React.PureComponent<IProps, IState> {
@@ -60,30 +66,40 @@ class Controller extends React.PureComponent<IProps, IState> {
     })
 
     // 验证monthRange数据，两个时间必须是00:00的整点时间
-    if (!this.props.monthRange[0] || !this.isZeroTime(this.props.monthRange[0])) {
-      throw new Error('monthRange数据错误')
+    if (this.props.monthRange) {
+      if (!this.isZeroTime(this.props.monthRange[0])) {
+        throw new Error('monthRange数据错误')
+      }
+      if (!this.isZeroTime(this.props.monthRange[1])) {
+        throw new Error('monthRange数据错误')
+      }
     }
-    if (!this.props.monthRange[1] || !this.isZeroTime(this.props.monthRange[1])) {
-      throw new Error('monthRange数据错误')
+
+    const { defaultRentTime, defaultRevertTime } = this.props
+    if (defaultRentTime && !/^\d{2}:\d{2}$/.test(defaultRentTime)) {
+      throw new Error('defaultRentTime数据错误')
+    }
+    if (defaultRevertTime && !/^\d{2}:\d{2}$/.test(defaultRevertTime)) {
+      throw new Error('defaultRevertTime数据错误')
     }
 
     // 初始化state
-    let cr1 = props.chooseRange ? props.chooseRange[0] : null
-    let cr2 = props.chooseRange ? props.chooseRange[1] : null
+    let cr1 = props.chooseRange ? props.chooseRange[0] : void 0
+    let cr2 = props.chooseRange ? props.chooseRange[1] : void 0
     if (cr1 && cr2 && cr1.valueOf() >= cr2.valueOf()) {
       throw new Error('chooseRange数据错误')
     }
-    if (this.props.lockStartTime && (!cr1 || !cr2)) {
+    if (this.props.lockRentTime && (!cr1 || !cr2)) {
       throw new Error('chooseRange不能为空')
     }
-    if (cr1 !== null) {
+    if (cr1 !== void 0) {
       cr1 = new Date(cr1.getFullYear(), cr1.getMonth(), cr1.getDate())
     }
-    if (cr2 !== null) {
+    if (cr2 !== void 0) {
       cr2 = new Date(cr2.getFullYear(), cr2.getMonth(), cr2.getDate())
     }
-    const tr1 = props.chooseRange ? props.chooseRange[0] : null
-    const tr2 = props.chooseRange ? props.chooseRange[1] : null
+    const tr1 = props.chooseRange ? props.chooseRange[0] : void 0
+    const tr2 = props.chooseRange ? props.chooseRange[1] : void 0
     this.state = {
       chooseRange: [cr1, cr2],
       preChooseRange: [cr1, cr2],
@@ -93,6 +109,8 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
       chooseType: '',
+      chooseTipsData: [new Date(2000, 1, 1), ''],
+      chooseTipsVisible: false,
     }
 
     // 验证参数
@@ -115,6 +133,13 @@ class Controller extends React.PureComponent<IProps, IState> {
         document.querySelector('#x-calendar-body')!.scrollTop = top - height / 3
       }, 1)
     }
+    if (this.props.lockRentTime && this.props.chooseTips && this.state.chooseRange[0]) {
+      const data = this.props.chooseTips(this.state.chooseRange[0])
+      this.setState({
+        chooseTipsVisible: !!data[1],
+        chooseTipsData: data,
+      })
+    }
   }
 
   // 公开方法，替换范围
@@ -133,8 +158,19 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 根据months获取一个月份列表
   protected getMonthList(): Date[] {
-    const first = this.props.monthRange[0]
-    const last = this.props.monthRange[1]
+    let first: any = null
+    let last: any = null
+    if (this.props.monthRange) {
+      first = this.props.monthRange[0]
+      last = this.props.monthRange[1]
+    } else {
+      if (!this.props.data) {
+        throw new Error('monthRange和data数据必须要有其一')
+      }
+      const days = Object.keys(this.props.data).sort()
+      first = new Date(parseInt(days[0], 10))
+      last = new Date(parseInt(days[days.length - 1], 10))
+    }
     let fy = first.getFullYear()
     let fm = first.getMonth()
     const ly = last.getFullYear()
@@ -160,8 +196,8 @@ class Controller extends React.PureComponent<IProps, IState> {
   }
 
   // 判断一个日期是否在一个范围内
-  protected isBtweenRange(date: Date, range: [Date | null, Date | null]): boolean {
-    if (range[0] === null || range[1] === null) {
+  protected isBtweenRange(date: Date, range: [Date | undefined, Date | undefined]): boolean {
+    if (range[0] === void 0 || range[1] === void 0) {
       return false
     }
     if (date < range[0] || date > range[1]) {
@@ -172,21 +208,21 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 日期点击
   protected async onDayClick(day: Date, data: IData) {
-    const range: [Date | null, Date | null] = [this.state.chooseRange[0], this.state.chooseRange[1]]
-    const times: [Date | null, Date | null] = [
+    const range: [Date | undefined, Date | undefined] = [this.state.chooseRange[0], this.state.chooseRange[1]]
+    const times: [Date | undefined, Date | undefined] = [
       this.state.timePickerTimes[0],
       this.state.timePickerTimes[1],
     ]
 
     let type: 'rent' | 'revert' = 'rent'
 
-    if (this.props.lockStartTime) {
+    if (this.props.lockRentTime) {
       if (range[0]!.valueOf() > day.valueOf()) {
         Toast('取车时间不可修改')
         return
       }
       range[1] = day
-      times[1] = null
+      times[1] = void 0
       type = 'revert'
     } else {
       if (range[0] && range[1]) {
@@ -196,39 +232,39 @@ class Controller extends React.PureComponent<IProps, IState> {
           range[0].valueOf() > day.valueOf()
         ) {
           range[0] = day
-          times[0] = null
+          times[0] = void 0
           type = 'rent'
         } else if (
           (this.props.extend === 'after' || this.props.extend === 'both') &&
           range[1].valueOf() < day.valueOf()
         ) {
           range[1] = day
-          times[1] = null
+          times[1] = void 0
           type = 'revert'
         } else {
           range[0] = day
-          range[1] = null
-          times[0] = null
-          times[1] = null
+          range[1] = void 0
+          times[0] = void 0
+          times[1] = void 0
           type = 'rent'
         }
-      } else if (range[0] && range[1] === null) {
+      } else if (range[0] && range[1] === void 0) {
         if (range[0] > day) {
           range[0] = day
-          range[1] = null
-          times[0] = null
-          times[1] = null
+          range[1] = void 0
+          times[0] = void 0
+          times[1] = void 0
           type = 'rent'
         } else {
           range[1] = day
-          times[1] = null
+          times[1] = void 0
           type = 'revert'
         }
       } else {
         range[0] = day
-        range[1] = null
-        times[0] = null
-        times[1] = null
+        range[1] = void 0
+        times[0] = void 0
+        times[1] = void 0
         type = 'rent'
       }
     }
@@ -270,7 +306,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 清空选择的日期
   protected clearChooseRange = () => {
-    if (this.props.lockStartTime) {
+    if (this.props.lockRentTime) {
       const pr = this.props.chooseRange
       if (pr) {
         const cr1 = new Date(pr[0].getFullYear(), pr[0].getMonth(), pr[0].getDate())
@@ -287,10 +323,11 @@ class Controller extends React.PureComponent<IProps, IState> {
       return
     }
     this.setState({
-      chooseRange: [null, null],
-      preChooseRange: [null, null],
-      timePickerTimes: [null, null],
-      preTimePickerTimes: [null, null],
+      chooseRange: [void 0, void 0],
+      preChooseRange: [void 0, void 0],
+      timePickerTimes: [void 0, void 0],
+      preTimePickerTimes: [void 0, void 0],
+      chooseTipsVisible: false,
     })
   }
 
@@ -310,53 +347,71 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
     const max = this.props.maxHours || 99999
     const min = this.props.minHours || 0
-    const times: [Date | null, Date | null] = [
+    const times: [Date | undefined, Date | undefined] = [
       this.state.timePickerTimes[0],
       this.state.timePickerTimes[1],
     ]
     if (this.state.chooseType === 'rent') {
       times[0] = this.timePickerRef.current.getTime()
       if (this.props.extend !== 'before' && this.props.extend !== 'both') {
-        times[1] = null
+        times[1] = void 0
+      }
+      if (this.props.chooseTips && times[0]) {
+        const data = this.props.chooseTips(times[0])
+        this.setState({
+          chooseTipsData: data,
+          chooseTipsVisible: !!data[1],
+        })
       }
     } else {
       times[1] = this.timePickerRef.current.getTime()
     }
     // 如果需要本地验证租期范围的话
-    if (this.props.needCheckTimeRange && times[0] && times[1]) {
-      const offset = offsetHours(times[0], times[1])
-      if (offset <= 0 || offset < min || offset > max) {
-        let tips = ''
+    if (times[0] && times[1]) {
+      let tips: any = null
 
-        // 最短租期提示
-        if (min <= 0) {
-          tips = '租期选择错误'
-        } else {
-          if (min % 24 === 0) {
-            tips = `${min / 24}天起租`
-          } else if (min) {
-            tips = `${min}小时起租`
+      // 该值为true时，系统提示验证结果
+      if (this.props.checkTimeRange === true) {
+        const offset = offsetHours(times[0], times[1])
+        if (offset <= 0 || offset < min || offset > max) {
+          let tipsText = ''
+          // 最短租期提示
+          if (min <= 0) {
+            tipsText = '租期选择错误'
+          } else {
+            if (min % 24 === 0) {
+              tipsText = `${min / 24}天起租`
+            } else if (min) {
+              tipsText = `${min}小时起租`
+            }
           }
-        }
 
-        // 最长租期提示
-        if (max !== 99999) {
-          // max默认值为99999
-          if (max % 24 === 0) {
-            tips += `，最长可租${max / 24}天`
-          } else if (max) {
-            tips += `，最长可租${max}小时`
+          // 最长租期提示
+          if (max !== 99999) {
+            // max默认值为99999
+            if (max % 24 === 0) {
+              tipsText += `，最长可租${max / 24}天`
+            } else if (max) {
+              tipsText += `，最长可租${max}小时`
+            }
           }
-        }
 
-        // 提示用户
-        const resetTime = await Alert.async({
-          title: '租期限制',
-          desc: React.createElement('p', null, [
-            tips,
+          tips = React.createElement('p', null, [
+            tipsText,
             React.createElement('br', { key: 'br' }),
             '请重新设置还车时间',
-          ]),
+          ])
+        }
+      } else if (typeof this.props.checkTimeRange === 'function' && times[0] && times[1]) {
+        // 如果checkTimeRange是function，调用
+        tips = this.props.checkTimeRange(times[0], times[1])
+      }
+
+      // 提示用户
+      if (tips) {
+        const resetTime = await Alert.async({
+          title: '租期限制',
+          desc: tips,
           btns: [
             { name: '取消', type: 'default', value: false },
             { name: '设置还车时间', value: true },
@@ -376,6 +431,9 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTimes: times,
       timePickerVisible: false,
     })
+    if (this.state.chooseType === 'revert' && this.state.chooseTipsVisible) {
+      this.setState({ chooseTipsVisible: false })
+    }
   }
 
   // 时间改变
@@ -384,11 +442,11 @@ class Controller extends React.PureComponent<IProps, IState> {
   // 确认提交
   protected onSubmit = () => {
     const times = this.state.timePickerTimes
-    if (times[0] === null) {
+    if (times[0] === void 0) {
       Toast('请选择取车时间')
       return
     }
-    if (times[1] === null) {
+    if (times[1] === void 0) {
       Toast('请选择还车时间')
       return
     }
@@ -396,7 +454,7 @@ class Controller extends React.PureComponent<IProps, IState> {
   }
 
   // 判断是否为整点时间
-  private isZeroTime(date?: Date | null) {
+  private isZeroTime(date?: Date | undefined) {
     if (!date) {
       return true
     }
@@ -405,8 +463,8 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 判断时间范围内是否都为可用
   private checkTimeRangeCanUsed(
-    range: [Date | null, Date | null],
-    ignoreRange: [Date | null, Date | null],
+    range: [Date | undefined, Date | undefined],
+    ignoreRange: [Date | undefined, Date | undefined],
   ) {
     const ignore = [...ignoreRange]
     if (ignore[0] && !ignore[1]) {
@@ -440,7 +498,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
 ;(Controller as any).defaultProps = {
   maxHours: 99999,
-  needCheckTimeRange: true,
+  checkTimeRange: true,
 }
 
 export default Controller

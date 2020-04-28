@@ -57,7 +57,7 @@ class Model {
   }
 
   // 根据时间转换出state需要的数据
-  getStateByTime: (time: Date, data: TimeData[]) => TimeState = (time, data) => {
+  getStateByTime = (time: Date, data: TimeData[], defaultTime?: string): TimeState => {
     let defDay: Date
     let defHH: string
     let defMM: string
@@ -85,12 +85,22 @@ class Model {
       }
     }
 
+    const [dfHour, dfMinu] = (defaultTime || '').split(':')
     // 小时
     const timeList = this.getTimeList(data[currentDayIndex])
     const times = this.transTimeList(timeList)
     let currentHHIndex = 0
     let currentHHValue = times.HHList[0]
-    if (hasMatchDay && defHH) {
+    let hasMatchDfHour = false
+    if (dfHour) {
+      const index = times.HHList.findIndex(hhItem => hhItem === dfHour)
+      if (index >= 0) {
+        currentHHIndex = index
+        currentHHValue = dfHour
+        hasMatchDfHour = true
+      }
+    }
+    if (!hasMatchDfHour && hasMatchDay && defHH) {
       times.HHList.forEach((i, index) => {
         if (i !== 'HHList' && i === defHH) {
           currentHHIndex = index
@@ -103,7 +113,17 @@ class Model {
     let currentMMIndex = 0
     const mmList = times.MMList[times.HHList[currentHHIndex]]
     let currentMMValue = mmList ? mmList[0] : '00'
-    if (hasMatchDay && defMM) {
+
+    let hasMatchDfMinu = false
+    if (dfMinu) {
+      const index = mmList.findIndex(mmItem => mmItem === dfMinu)
+      if (index >= 0) {
+        currentMMIndex = index
+        currentMMValue = dfMinu
+        hasMatchDfMinu = true
+      }
+    }
+    if (!hasMatchDfMinu && hasMatchDay && defMM) {
       for (let i = 0; i < times.MMList[times.HHList[currentHHIndex]].length; i++) {
         const d = times.MMList[times.HHList[currentHHIndex]][i]
         if (d === defMM) {
