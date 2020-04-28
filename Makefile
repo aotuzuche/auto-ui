@@ -23,7 +23,7 @@ ghpages:
 	@git add .
 	@git commit -am 'update: gh-pages'
 	@git pull && git push
-	@git subtree pull && git subtree push --prefix=demo origin gh-pages
+	@git subtree push --prefix=demo origin gh-pages
 
 #从components中生成commonjs版本的js代码到lib目录下
 commonjs:
