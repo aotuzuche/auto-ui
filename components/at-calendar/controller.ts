@@ -167,7 +167,10 @@ class Controller extends React.PureComponent<IProps, IState> {
       if (!this.props.data) {
         throw new Error('monthRange和data数据必须要有其一')
       }
-      const days = Object.keys(this.props.data).sort()
+      let days = Object.keys(this.props.data).sort()
+      if (!days.length) {
+        days = ['1577808000000']
+      }
       first = new Date(parseInt(days[0], 10))
       last = new Date(parseInt(days[days.length - 1], 10))
     }
