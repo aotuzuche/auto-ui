@@ -23,6 +23,9 @@ const PageSpace = React.lazy(() => import('../pages/space'));
 const PageNavBar = React.lazy(() => import('../pages/nav-bar'));
 const PageTimePicker = React.lazy(() => import('../pages/time-picker'));
 const PageAspectRatio = React.lazy(() => import('../pages/aspect-ratio'));
+const PageAtCalendar = React.lazy(() => import('../pages/at-calendar'));
+const PageAtNav = React.lazy(() => import('../pages/at-nav'));
+const PageAtCitySelector = React.lazy(() => import('../pages/at-city-selector'));
 
 export default (history: any) => {
   return (
@@ -51,8 +54,10 @@ export default (history: any) => {
             <Route exact={true} path="/navbar" component={PageNavBar} />
             <Route exact={true} path="/timepicker" component={PageTimePicker} />
             <Route exact={true} path="/aspectratio" component={PageAspectRatio} />
+            <Route exact={true} path="/atcalendar" component={PageAtCalendar} />
+            <Route exact={true} path="/atnav" component={PageAtNav} />
+            <Route exact={true} path="/atcityselector" component={PageAtCitySelector} />
             <Redirect from="*" to="/layout" />
-            <Redirect from="*" to="/button" />
           </Switch>
         </Main>
       </React.Suspense>

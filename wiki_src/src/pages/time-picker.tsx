@@ -4,14 +4,14 @@ import MobilePreview from '../components/mobilePreview';
 
 export default class View extends React.PureComponent {
   public state = {
-    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/time-picker',
+    previewUrl: 'https://aotuzuche.github.io/auto-ui/examples/#/time_picker',
   }
 
   public render() {
     return (
       <div>
         <div className="markdown-content">
-<h1>TimePicker</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/time-picker') })} onClick={this.onCodeClick.bind(null, '/time-picker')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<h1>TimePicker</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/time_picker') })} onClick={this.onCodeClick.bind(null, '/time_picker')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> TimePicker<span class="token punctuation">,</span> Toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>

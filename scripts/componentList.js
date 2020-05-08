@@ -15,13 +15,14 @@ const componentList = [
   'Loading',
   'Spin',
   'ActionSheet',
-  'AtCalendar',
   'Tabs',
   'Space',
   'TimePicker',
   'Card',
   'NavBar',
+  'AtCalendar',
   'AtNav',
+  'AtCitySelector',
   'Provider',
 ];
 

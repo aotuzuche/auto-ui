@@ -10,6 +10,7 @@ import PageAlertClose from '../pages/alert_close'
 import PageAlertConfirm from '../pages/alert_confirm'
 import PageAlertTitleDesc from '../pages/alert_title_desc'
 import PageAtCalendar from '../pages/at_calendar'
+import PageAtCitySelector from '../pages/at_city_selector'
 import PageAtNav from '../pages/at_nav'
 import PageButton from '../pages/button'
 import PageButtonDisabled from '../pages/button_disabled'
@@ -71,7 +72,7 @@ import PageSwitchDisabled from '../pages/switch_disabled'
 import PageSwitchIcon from '../pages/switch_icon'
 import PageSwitchIO from '../pages/switch_io'
 import PageTabs from '../pages/tabs'
-import PageTimePicker from '../pages/time-picker'
+import PageTimePicker from '../pages/time_picker'
 import PageToast from '../pages/toast'
 import PageToastClose from '../pages/toast_close'
 import PageToastDuartion from '../pages/toast_duration'
@@ -114,7 +115,7 @@ const routes: any[] = [
   ['spin', PageSpin],
   ['spin_text', PageSpinText],
   ['tabs', PageTabs],
-  ['time-picker', PageTimePicker],
+  ['time_picker', PageTimePicker],
   ['radio', PageRadio],
   ['radio_hollow', PageRadioHollow],
   ['radio_disabled', PageRadioDisabled],
@@ -150,8 +151,9 @@ const routes: any[] = [
   ['message_params', PageMessageParams],
   ['message_timeout', PageMessageTimeout],
   ['message_close', PageMessageClose],
-  ['at-calendar', PageAtCalendar],
-  ['at-nav', PageAtNav],
+  ['at_calendar', PageAtCalendar],
+  ['at_city_selector', PageAtCitySelector],
+  ['at_nav', PageAtNav],
 ]
 
 export default (history: any) => {
