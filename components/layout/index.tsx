@@ -320,7 +320,7 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
       'x-app-header--headline-fix-padding': fixPaddingTop,
     },
     className,
-    borderType && borderType !== 'none' ? `x-app-header--bottom-${borderType}` : void 0,
+    borderType && borderType !== 'none' && !ghost ? `x-app-header--bottom-${borderType}` : void 0,
   )
 
   const ua = context.userAgent || (isBroswer ? window.navigator.userAgent : '')
