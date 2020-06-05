@@ -10,6 +10,7 @@ import Cell from './components/cell'
 import Dialog from './components/dialog'
 import Input from './components/input'
 import Layout from './components/layout'
+import LazyImg from './components/lazy-img'
 import Loading from './components/loading'
 import Message from './components/message'
 import NavBar from './components/nav-bar'
@@ -37,6 +38,7 @@ export {
   Dialog,
   Input,
   Layout,
+  LazyImg,
   Loading,
   Popup,
   Radio,

@@ -75,6 +75,7 @@ const routes = [
   'message_params',
   'message_timeout',
   'message_close',
+  'lazy_img',
   'at_calendar',
   'at_nav',
   'at_city_selector',

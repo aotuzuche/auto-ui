@@ -10,6 +10,7 @@ import Cell from './es/cell'
 import Dialog from './es/dialog'
 import Input from './es/input'
 import Layout from './es/layout'
+import LazyImg from './es/lazy-img'
 import Loading from './es/loading'
 import Message from './es/message'
 import NavBar from './es/nav-bar'
@@ -38,6 +39,7 @@ export {
   Input,
   Layout,
   Loading,
+  LazyImg,
   Popup,
   Radio,
   SafeArea,

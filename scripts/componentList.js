@@ -20,6 +20,7 @@ const componentList = [
   'TimePicker',
   'Card',
   'NavBar',
+  'LazyImg',
   'AtCalendar',
   'AtNav',
   'AtCitySelector',

@@ -46,6 +46,7 @@ import PageLayoutLoading from '../pages/layout_loading'
 import PageLayoutReachBottom from '../pages/layout_reach_bottom'
 import PageLayoutSkeleton from '../pages/layout_skeleton'
 import PageLayoutTabs from '../pages/layout_tabs'
+import PageLazyImg from '../pages/lazy_img'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
 import PageMessage from '../pages/message'
@@ -146,6 +147,7 @@ const routes: any[] = [
   ['layout_loading', PageLayoutLoading],
   ['layout_skeleton', PageLayoutSkeleton],
   ['layout_tabs', PageLayoutTabs],
+  ['lazy_img', PageLazyImg],
   ['layout_reach_bottom', PageLayoutReachBottom],
   ['message', PageMessage],
   ['message_params', PageMessageParams],
