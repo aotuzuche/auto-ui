@@ -11,7 +11,7 @@ export default class View extends React.PureComponent {
     return (
       <div>
         <div className="markdown-content">
-<div className={C('code-box', { active: this.state.previewUrl.endsWith('/at_nav') })} onClick={this.onCodeClick.bind(null, '/at_nav')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<div className={C('code-box', { active: this.state.previewUrl.endsWith('/at_nav') })} onClick={this.onCodeClick.bind(null, '/at_nav')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> AtNav<span class="token punctuation">,</span> Layout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>

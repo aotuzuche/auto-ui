@@ -10,6 +10,9 @@ es6:
 	@tsc -p tsconfig.json
 	@node scripts/mvscss2es.js
 
+wiki:
+	@node scripts/createWiki.js
+
 #发布gh-pages分之的内容
 ghpages:
 	@node scripts/createWiki.js

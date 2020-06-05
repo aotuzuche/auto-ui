@@ -8,6 +8,7 @@ const Aside: React.FC<any> = props => {
     'Layout,布局',
     'Button,按钮',
     'Input,文本输入',
+    'LazyImg,图片懒加载',
     'Card,卡片',
     'Cell,单元格',
     'Alert,提示框',

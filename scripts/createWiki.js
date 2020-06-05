@@ -49,7 +49,7 @@ renderer.heading = (text, level) => {
   if (level === 6 && reg.test(text)) {
     const match = text.match(reg);
     const css = `C('code-box', { active: this.state.previewUrl.endsWith('${match[2]}') })`;
-    return `<div className={${css}} onClick={this.onCodeClick.bind(null, '${match[2]}')}><header>${match[1]}</header>`;
+    return `<div className={${css}} onClick={this.onCodeClick.bind(null, '${match[2]}')}>`;
   }
   return `<h${level}>${text}</h${level}>`;
 };

@@ -8,6 +8,7 @@ const PageButton = React.lazy(() => import('../pages/button'));
 const PageMessage = React.lazy(() => import('../pages/message'));
 const PageInput = React.lazy(() => import('../pages/input'));
 const PageCard = React.lazy(() => import('../pages/card'));
+const PageLazyImg = React.lazy(() => import('../pages/lazy-img'));
 const PageCell = React.lazy(() => import('../pages/cell'));
 const PageAlert = React.lazy(() => import('../pages/alert'));
 const PageDialog = React.lazy(() => import('../pages/dialog'));
@@ -38,6 +39,7 @@ export default (history: any) => {
             <Route exact={true} path="/button" component={PageButton} />
             <Route exact={true} path="/input" component={PageInput} />
             <Route exact={true} path="/card" component={PageCard} />
+            <Route exact={true} path="/lazyimg" component={PageLazyImg} />
             <Route exact={true} path="/cell" component={PageCell} />
             <Route exact={true} path="/alert" component={PageAlert} />
             <Route exact={true} path="/message" component={PageMessage} />

@@ -11,7 +11,7 @@ export default class View extends React.PureComponent {
     return (
       <div>
         <div className="markdown-content">
-<h1>Radio 勾选框</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio') })} onClick={this.onCodeClick.bind(null, '/radio')}><header>基本使用</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<h1>Radio 勾选框</h1><h2>基本使用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio') })} onClick={this.onCodeClick.bind(null, '/radio')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
@@ -41,7 +41,7 @@ export default class View extends React.PureComponent {
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo
 `}} /></pre></div></div><h2>Hollow 形式</h2><p>将 radio 样式改为空心样式</p>
-<div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_hollow') })} onClick={this.onCodeClick.bind(null, '/radio_hollow')}><header>hollow</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_hollow') })} onClick={this.onCodeClick.bind(null, '/radio_hollow')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
@@ -66,7 +66,7 @@ export default class View extends React.PureComponent {
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo
-`}} /></pre></div></div><h2>带文字</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_text') })} onClick={this.onCodeClick.bind(null, '/radio_text')}><header>text</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+`}} /></pre></div></div><h2>带文字</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_text') })} onClick={this.onCodeClick.bind(null, '/radio_text')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
@@ -106,7 +106,7 @@ export default class View extends React.PureComponent {
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo
-`}} /></pre></div></div><h2>禁用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_disabled') })} onClick={this.onCodeClick.bind(null, '/radio_disabled')}><header>disabled</header><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+`}} /></pre></div></div><h2>禁用</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/radio_disabled') })} onClick={this.onCodeClick.bind(null, '/radio_disabled')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Cell<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Radio <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
