@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import * as React from 'react'
+import LazyImg from '../lazy-img'
 import './style/index.scss'
 
 interface IFigureProps {
@@ -26,7 +27,7 @@ const CardFigure: React.FC<IFigureProps> = props => {
   return (
     <figure {...otherProps} className={cls} onClick={onClick}>
       {children && <div className="x-card__figure-content">{children}</div>}
-      <img
+      <LazyImg
         className={aspectRatio && aspectRatio > 0 ? 'x-card__figure-abs-img' : ''}
         src={image}
         alt={title}
