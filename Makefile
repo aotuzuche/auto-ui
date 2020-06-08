@@ -9,6 +9,7 @@ es6:
 	@node scripts/createWiki.js
 	@tsc -p tsconfig.json
 	@node scripts/mvscss2es.js
+	@gulp es
 
 wiki:
 	@node scripts/createWiki.js

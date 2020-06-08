@@ -16,7 +16,7 @@ const postCssOptions = {
   map: true,
 };
 
-gulp.task('compileScss', function() {
+gulp.task('compileScss', function () {
   return gulp
     .src('examples_src/src/auto-ui/components/**/*.scss')
     .pipe(scss({ outputStyle: 'expanded' }))
@@ -24,29 +24,36 @@ gulp.task('compileScss', function() {
     .pipe(gulp.dest('lib'));
 });
 
-gulp.task('removeScssRequire', function() {
-  return gulp
-    .src(['lib/**/*.js', 'lib/**/*.d.ts'])
-    .pipe(removeScss())
-    .pipe(gulp.dest('lib/'));
+gulp.task('removeScssRequire', function () {
+  return gulp.src(['lib/**/*.js', 'lib/**/*.d.ts']).pipe(removeScss()).pipe(gulp.dest('lib/'));
 });
 
-gulp.task('renameScssRequire', function() {
-  return gulp
-    .src(['lib/**/style/*.js', 'lib/**/style/*.d.ts'])
-    .pipe(renameScssRequire())
-    .pipe(gulp.dest('lib/'));
+gulp.task('renameScssRequire', function () {
+  return gulp.src(['lib/**/style/*.js', 'lib/**/style/*.d.ts']).pipe(renameScssRequire()).pipe(gulp.dest('lib/'));
 });
 
-gulp.task('renameIndexToCss', function() {
+gulp.task('renameIndexToCss', function () {
   return gulp
     .src('lib/**/style/index.js')
     .pipe(
-      rename(function(path) {
+      rename(function (path) {
         path.basename = 'css';
       })
     )
     .pipe(gulp.dest('lib/'));
 });
 
-gulp.task('default', gulpSequence('compileScss', ['removeScssRequire', 'renameScssRequire'], 'renameIndexToCss'));
+gulp.task('renameESIndexToCss', function () {
+  return gulp
+    .src('es/**/style/index.js')
+    .pipe(
+      rename(function (path) {
+        path.basename = 'css';
+      })
+    )
+    .pipe(gulp.dest('es/'));
+});
+
+gulp.task('default', gulp.series('compileScss', 'removeScssRequire', 'renameScssRequire', 'renameIndexToCss'));
+
+gulp.task('es', gulp.series('renameESIndexToCss'));
