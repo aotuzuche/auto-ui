@@ -9,6 +9,7 @@ es6:
 	@node scripts/createWiki.js
 	@tsc -p tsconfig.json
 	@node scripts/mvscss2es.js
+	@gulp es
 
 #发布gh-pages分之的内容
 ghpages:
