@@ -3,9 +3,9 @@
 @import '../../theme.scss';
 
 .x-cell {
-  border-top: px(1) solid $borderColor; /* no */
-  border-bottom: px(1) solid $borderColor; /* no */
-  background: #fff;
+  border-top: px(1) solid var(--border-color);
+  border-bottom: px(1) solid var(--border-color);
+  background: var(--bg-color-lighter);
   overflow: hidden;
   min-height: px(100);
 
@@ -16,14 +16,14 @@
     padding: px(20) px(40);
     min-height: px(100);
     font-size: px(30);
-    color: rgb(60, 60, 90);
+    color: var(--text-color);
     position: relative;
-    border-bottom: px(1) solid $borderColor; /* no */
+    border-bottom: px(1) solid var(--border-color);
 
     .x-cell__addon-after {
       display: block;
       margin-left: auto;
-      color: #999;
+      color: var(--text-color-o60);
       font-size: px(26);
     }
 
@@ -34,8 +34,8 @@
       &::after {
         content: '';
         display: block;
-        height: px(1); /* no */
-        background: $borderColor;
+        height: px(1);
+        background: var(--border-color);
         position: absolute;
         left: 0;
         right: 0;
@@ -85,7 +85,7 @@
     &--activable {
       &:active {
         opacity: 1;
-        background: #f9f9fa;
+        background: calc(var(--bg-color) - 100);
       }
     }
   }
@@ -98,7 +98,7 @@
     > h2 {
       font-size: px(30);
       font-weight: normal;
-      color: rgb(138, 138, 156); // rgb(60, 60, 90) x 0.6alpha
+      color: var(--text-color-o90);
       line-height: px(60);
     }
   }

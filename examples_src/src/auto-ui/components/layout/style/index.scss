@@ -11,12 +11,12 @@ body,
 }
 
 * {
-  color: rgb(60, 60, 90);
+  color: var(--text-color);
 }
 
 a,
 button {
-  color: $primaryColor;
+  color: var(--text-color);
   border: none;
   background: transparent;
   outline: none;
@@ -35,13 +35,13 @@ button {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background: $background;
+  background: var(--bg-color);
 
   &-skeletonwrapper {
     position: absolute;
     z-index: 99;
     overflow: hidden;
-    background: #fff;
+    background: var(--bg-color-lighter);
     width: 100%;
     height: 100%;
     top: 0;
@@ -80,7 +80,7 @@ button {
   }
 
   &.x-app-header--bottom-border {
-    box-shadow: 0 px(1) 0 rgba(0, 0, 0, 0.05); /* no */
+    box-shadow: 0 px(1) 0 rgba(0, 0, 0, 0.05);
   }
 
   &.x-app-header--has-tabs {
@@ -105,7 +105,7 @@ button {
     top: 0;
     right: 0;
     bottom: 0;
-    background: #fff;
+    background: var(--bg-color-lighter);
     transition: opacity 0.3s ease-out;
   }
 
@@ -119,7 +119,7 @@ button {
 
     a:not([class]),
     button:not([class]) {
-      color: #8a8a9c;
+      color: #8a8a9c; // todo
     }
   }
 
@@ -129,7 +129,7 @@ button {
     width: 100%;
     padding: 0 px(100);
     font-size: px(36);
-    color: #3e3d57;
+    color: var(--text-color);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -211,7 +211,7 @@ button {
     }
 
     path {
-      fill: rgb(60, 60, 90);
+      fill: var(--text-color);
     }
 
     margin-left: px(-25);
@@ -235,7 +235,7 @@ button {
     }
 
     path {
-      fill: rgb(60, 60, 90);
+      fill: var(--text-color);
     }
 
     &:active {
@@ -333,9 +333,10 @@ button {
       left: 0;
       top: 40%;
       transform: translate(0, -50%);
-      color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
+      color: var(--text-color);
       font-size: px(26);
       padding: 0 px(100);
+      opacity: 0.6;
 
       svg {
         width: px(80);
@@ -344,7 +345,7 @@ button {
       }
 
       path {
-        fill: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
+        fill: var(--text-color);
       }
     }
   }
@@ -375,7 +376,7 @@ button {
 }
 
 .x-app-footer {
-  background: #fff;
+  background: var(--bg-color-lighter);
   min-height: px(90);
   position: relative;
   z-index: 6;
@@ -385,6 +386,6 @@ button {
   }
 
   &.x-app-footer--top-border {
-    box-shadow: 0 px(-1) 0 rgba(0, 0, 0, 0.05); /* no */
+    box-shadow: 0 px(-1) 0 rgba(0, 0, 0, 0.05);
   }
 }
