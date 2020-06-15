@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout supportDarkMode={true}>
+    <Layout>
       <Layout.Body>
         <br />
         <Button shadow={true} onClick={onClick}>
