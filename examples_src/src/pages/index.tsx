@@ -1,4 +1,3 @@
-import { Link } from 'dva/router'
 import * as React from 'react'
 import { Cell, Layout } from '../auto-ui'
 
