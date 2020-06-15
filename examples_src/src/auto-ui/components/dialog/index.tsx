@@ -8,7 +8,6 @@ interface IProps {
   className?: string
   height?: number | string
   visible?: boolean
-  children: React.ReactNode
   onMaskClick?: () => void
   [otherProps: string]: any
 }

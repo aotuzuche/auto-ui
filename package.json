@@ -1,6 +1,6 @@
 {
   "name": "auto-ui",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "auto ui components",
   "main": "es/index",
   "typings": "es/index",
@@ -11,7 +11,7 @@
     "np": "np --yolo --no-yarn"
   },
   "repository": "git@github.com:aotuzuche/auto-ui.git",
-  "author": "shaodahong <337097324@qq.com>",
+  "author": "atzuche",
   "license": "MIT",
   "files": [
     "es",
