@@ -1,3 +1,59 @@
+:root {
+  --primary-color: #00c286;
+  --primary-color-gradient-from: #1dcd82;
+  --primary-color-gradient-to: #00c286;
+  --danger-color: rgb(255, 89, 73);
+  --danger-color-gradient-from: rgb(255, 89, 73);
+  --danger-color-gradient-to: rgb(255, 77, 77);
+  --default-button-bg-color: rgb(235, 235, 238);
+  --default-button-border-color: rgb(235, 235, 238);
+  --panel-bg-color: #fff;
+  --switch-bg-color: rgb(211, 211, 211);
+  --border-radius-small: 6;
+  --border-radius-big: 20;
+  --border-color: rgb(235, 235, 238);
+  --bg-color-lighter: #fff;
+  --bg-color: #f2f2f2;
+  --mask-color: rgba(0, 0, 0, 0.7);
+  --text-color: rgb(60, 60, 90);
+  --text-color-o90: rgba(60, 60, 90, 0.9);
+  --text-color-o80: rgba(60, 60, 90, 0.8);
+  --text-color-o70: rgba(60, 60, 90, 0.7);
+  --text-color-o60: rgba(60, 60, 90, 0.6);
+  --text-color-o50: rgba(60, 60, 90, 0.5);
+  --text-color-o40: rgba(60, 60, 90, 0.4);
+  --text-color-o30: rgba(60, 60, 90, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #00c286;
+    --primary-color-gradient-from: #1dcd82;
+    --primary-color-gradient-to: #00c286;
+    --danger-color: rgb(255, 89, 73);
+    --danger-color-gradient-from: rgb(255, 89, 73);
+    --danger-color-gradient-to: rgb(255, 77, 77);
+    --default-button-bg-color: #2a2b2f;
+    --default-button-border-color: #535356;
+    --panel-bg-color: #2a2b2f;
+    --switch-bg-color: #343438;
+    --border-radius-small: 6;
+    --border-radius-big: 20;
+    --border-color: #18181c;
+    --bg-color-lighter: #1f1f23;
+    --bg-color: #18181c;
+    --mask-color: rgba(0, 0, 0, 0.7);
+    --text-color: rgb(211, 211, 211);
+    --text-color-o90: rgba(211, 211, 211, 0.9);
+    --text-color-o80: rgba(211, 211, 211, 0.8);
+    --text-color-o70: rgba(211, 211, 211, 0.7);
+    --text-color-o60: rgba(211, 211, 211, 0.6);
+    --text-color-o50: rgba(211, 211, 211, 0.5);
+    --text-color-o40: rgba(211, 211, 211, 0.4);
+    --text-color-o30: rgba(211, 211, 211, 0.3);
+  }
+}
+
 $primaryColor: rgb(0, 207, 151) !default; // 主色调与主色调:active的颜色
 $primaryColor2: rgb(20, 215, 138) !default; // 主色调2，用于渐变
 $primaryColor3: rgb(0, 191, 140) !default; // 主色调3，用户hollow下press状态

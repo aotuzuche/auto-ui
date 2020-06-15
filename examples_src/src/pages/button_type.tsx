@@ -8,7 +8,7 @@ const Demo: React.FC<any> = () => {
 
   return (
     <Layout>
-      <Layout.Body style={{ backgroundColor: '#fff' }}>
+      <Layout.Body>
         <br />
         <Button onClick={onClick}>主按钮</Button>
         <br />

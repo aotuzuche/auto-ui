@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-button {
@@ -14,118 +15,159 @@
   white-space: nowrap;
   transition: all 0.15s ease-out;
   user-select: none;
+
   &:active {
     opacity: 1;
   }
+
   &--capsule {
     border-radius: px(45);
   }
+
   &--default {
-    background: rgb(235, 235, 238);
+    background: var(--default-button-bg-color);
     color: rgb(170, 170, 176);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 0.2s ease-out;
+    }
+
     &:active {
-      background: rgb(225, 225, 228);
-      color: rgb(165, 165, 170);
-      opacity: 1;
-    }
-    .x-loading__spin span {
-      background: $primaryColor;
-    }
-    &.x-button--hollow {
-      border: px(1) solid $borderColor; /*no*/
-      background: #fff;
-      &:active {
-        border: px(1) solid mix($borderColor, #000, 92%); /*no*/
-        color: rgb(151, 151, 156);
+      &::after {
+        opacity: 0.1;
       }
+    }
+
+    .x-loading__spin span {
+      background: var(--primary-color);
+    }
+
+    &.x-button--hollow {
+      border: px(1) solid var(--default-button-border-color);
+      background: none;
+      color: rgb(170, 170, 176);
+
+      &::after {
+        background: var(--text-color-o30);
+      }
+
       .x-loading__spin span {
-        background: $primaryColor;
+        background: rgb(170, 170, 176);
       }
     }
   }
+
   &--primary {
-    background: linear-gradient(to left, $primaryColor, $primaryColor2);
+    background: linear-gradient(to right, var(--primary-color-gradient-from), var(--primary-color-gradient-to));
     color: #fff;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 0.2s ease-out;
+    }
+
     &:active {
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-        background: rgba(60, 60, 90, 0.1);
-        border-radius: inherit;
+      &::after {
+        opacity: 0.2;
       }
     }
+
     &.x-button--shadow {
       box-shadow: 0 20px 30px -20px rgba(0, 210, 147, 0.8);
     }
+
     .x-loading__spin span {
       background: #fff;
     }
+
     &.x-button--hollow {
-      border: px(1) solid $primaryColor; /*no*/
-      background: #fff;
-      color: $primaryColor;
-      &:active {
-        border: px(1) solid $primaryColor3; /*no*/
-        color: $primaryColor3;
-        background: #fff;
-        &::after {
-          display: none;
-        }
+      border: px(1) solid var(--primary-color);
+      background: none;
+      color: var(--primary-color);
+
+      &::after {
+        background: var(--primary-color);
       }
+
       .x-loading__spin span {
-        background: $primaryColor;
+        background: var(--primary-color);
       }
     }
   }
+
   &--danger {
-    background: linear-gradient(to left, $dangerColor, $dangerColor2);
+    background: linear-gradient(to right, var(--danger-color-gradient-from), var(--danger-color-gradient-to));
     color: #fff;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 0.2s ease-out;
+    }
+
     &:active {
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-        background: rgba(60, 60, 90, 0.1);
-        border-radius: inherit;
+      &::after {
+        opacity: 0.2;
       }
     }
+
     .x-loading__spin span {
       background: #fff;
     }
+
     &.x-button--shadow {
       box-shadow: 0 20px 30px -20px rgba(255, 77, 77, 0.8);
     }
+
     &.x-button--hollow {
-      border: px(1) solid $dangerColor; /*no*/
-      background: #fff;
-      color: $dangerColor;
-      &:active {
-        border: px(1) solid $dangerColor2; /*no*/
-        color: $dangerColor2;
-        background: #fff;
-        &::after {
-          display: none;
-        }
+      border: px(1) solid var(--danger-color);
+      background: none;
+      color: var(--danger-color);
+
+      &::after {
+        background: var(--danger-color);
       }
+
       .x-loading__spin span {
-        background: $dangerColor;
+        background: var(--danger-color);
       }
     }
   }
+
   &--mini {
     height: px(60);
     font-size: px(26);
+
     .x-button__loading {
       .x-loading__spin {
         transform: scale(0.75);
@@ -133,25 +175,31 @@
       }
     }
   }
+
   &--disabled {
     opacity: 0.3;
     pointer-events: none;
     cursor: not-allowed;
   }
+
   &--loading {
     opacity: 0.8;
     pointer-events: none;
     cursor: not-allowed;
+
     .x-spin {
       transform: scale(0.828268);
     }
   }
+
   &--shrink {
     width: auto;
     padding: 0 px(60);
+
     &.x-button--mini {
       padding: 0 px(30);
     }
+
     display: inline-flex;
   }
 }
