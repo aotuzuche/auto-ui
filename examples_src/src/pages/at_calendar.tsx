@@ -5,7 +5,7 @@ class Demo extends React.PureComponent {
   render() {
     return (
       <AtCalendar
-        title="title"
+        title="查看可租用时间"
         onClose={this.onClose}
         chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
         defaultRentTime="10:30"
@@ -14,12 +14,12 @@ class Demo extends React.PureComponent {
         chooseTips={() => [new Date(2019, 5, 9), '起止30天']}
         footerTips={(t1, t2) => {
           if (!t1) {
-            return "取车"
+            return '取车'
           }
           if (!t2) {
-            return "还车"
+            return '还车'
           }
-          return "选好了"
+          return '选好了'
         }}
         checkTimeRange={(t1, t2) => {
           return null
@@ -33,12 +33,12 @@ class Demo extends React.PureComponent {
           [new Date(2019, 5, 7).valueOf()]: {},
           [new Date(2019, 6, 8).valueOf()]: {},
           [new Date(2019, 5, 9).valueOf()]: {},
-          // [new Date(2019, 5, 4).valueOf()]: {
-          //   price: 333,
-          //   rent: ['0000', '1200'],
-          //   revert: [['0030', '1100'], ['1300', '2000']],
-          //   badge: '限',
-          // },
+          [new Date(2019, 5, 10).valueOf()]: {
+            price: 333,
+            rent: ['0000', '1200'],
+            revert: [['0030', '1100'], ['1300', '2000']],
+            badge: '限',
+          },
         }}
         onSubmit={this.onSubmit}
         onDayClick={this.onDayClick}

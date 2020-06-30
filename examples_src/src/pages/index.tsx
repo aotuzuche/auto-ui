@@ -1,4 +1,3 @@
-import { Link } from 'dva/router'
 import * as React from 'react'
 import { Cell, Layout } from '../auto-ui'
 
@@ -88,9 +87,7 @@ class Demo extends React.PureComponent {
         <Layout.Body>
           <Cell arrow={true}>
             {routes.map((item, index) => {
-              return (
-                <Cell.Row key={index} title={item} href={`/#/${item}`} />
-              )
+              return <Cell.Row key={index} title={item} href={`/#/${item}`} />
             })}
           </Cell>
         </Layout.Body>

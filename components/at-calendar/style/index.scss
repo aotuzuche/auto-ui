@@ -10,7 +10,11 @@
     background-color: #fff;
   }
 
-  .header {
+  .x-app-header__addon-bottom {
+    padding: 0;
+    position: relative;
+    z-index: 7;
+
     .time-range {
       position: relative;
       z-index: 3;
@@ -151,6 +155,28 @@
       height: px(66);
       font-size: px(24);
       background: #f7f8f9;
+
+      li {
+        height: px(66);
+        line-height: px(66);
+      }
+
+      .active {
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          width: px(8);
+          height: px(8);
+          background-color: #00cf97;
+          position: absolute;
+          left: 50%;
+          bottom: px(5);
+          margin-left: px(-4);
+          border-radius: 50%;
+        }
+      }
     }
   }
 

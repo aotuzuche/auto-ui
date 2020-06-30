@@ -28,11 +28,19 @@ class AtCalendar extends Controller {
     const t2 = this.state.timePickerTimes[1]
     const pt2 = this.props.chooseRange ? this.props.chooseRange[1] : void 0
 
+    // 周n，(0~6)
+    let week = new Date().getDay() - 1
+    if (week === -1) {
+      week = 6
+    }
+    const weeks = '一二三四五六日'
+
     return (
       <Layout.Header
         className="header"
         onCloseClick={this.props.onClose}
         title={this.props.title}
+        headline={this.props.readonly}
         addonAfter={
           !this.props.readonly && (
             <a
@@ -48,7 +56,7 @@ class AtCalendar extends Controller {
           )
         }
         addonBottom={
-          <>
+          <div className="addon-bottom">
             {!this.props.readonly && (
               <div
                 className={cn('time-range', {
@@ -69,15 +77,13 @@ class AtCalendar extends Controller {
               </div>
             )}
             <ul className="weeks">
-              <li>一</li>
-              <li>二</li>
-              <li>三</li>
-              <li>四</li>
-              <li>五</li>
-              <li>六</li>
-              <li>日</li>
+              {weeks.split('').map((w, i) => (
+                <li key={w} className={cn({ active: this.props.readonly && i === week })}>
+                  {w}
+                </li>
+              ))}
             </ul>
-          </>
+          </div>
         }
       />
     )
@@ -161,7 +167,11 @@ class AtCalendar extends Controller {
     let tipsData: any = null
     if (this.state.chooseTipsVisible) {
       const d = this.state.chooseTipsData[0]
-      if (d.getFullYear() === date.getFullYear() && d.getMonth() === date.getMonth() && d.getDate() === date.getDate()) {
+      if (
+        d.getFullYear() === date.getFullYear() &&
+        d.getMonth() === date.getMonth() &&
+        d.getDate() === date.getDate()
+      ) {
         tipsData = this.state.chooseTipsData[1]
       }
     }
@@ -220,7 +230,9 @@ class AtCalendar extends Controller {
         {!this.props.readonly && (
           <div className="bottom">
             <div className="footer-tips">
-              {this.props.footerTips ? this.props.footerTips(times[0], times[1]) : this.renderFooterTips()}
+              {this.props.footerTips
+                ? this.props.footerTips(times[0], times[1])
+                : this.renderFooterTips()}
             </div>
             <Button className="submit" onClick={this.onSubmit}>
               确定
