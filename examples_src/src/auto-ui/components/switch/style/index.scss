@@ -6,7 +6,7 @@
   display: inline-flex;
   width: px(100);
   height: px(54);
-  background-color: var(--switch-bg-color);
+  background-color: var(--x-switch-bg-color);
   border-radius: px(27);
   transition: all 0.3s ease-out;
   position: relative;
@@ -36,12 +36,12 @@
 
   &.x-switch--active {
     path {
-      fill: var(--primary-color);
+      fill: var(--x-primary-color);
     }
   }
 
   &--active {
-    background-color: var(--primary-color);
+    background-color: var(--x-primary-color);
 
     em {
       transform: translate(px(46), 0);

@@ -21,31 +21,31 @@
 
   &--smooth-border {
     .x-modal__inner {
-      border-top-left-radius: px($alertRadius);
-      border-top-right-radius: px($alertRadius);
+      border-top-left-radius: px($bigRadius);
+      border-top-right-radius: px($bigRadius);
     }
 
     &.x-popup--bottom {
       .x-modal__inner {
         border-radius: 0;
-        border-bottom-left-radius: px($alertRadius);
-        border-bottom-right-radius: px($alertRadius);
+        border-bottom-left-radius: px($bigRadius);
+        border-bottom-right-radius: px($bigRadius);
       }
     }
 
     &.x-popup--left {
       .x-modal__inner {
         border-radius: 0;
-        border-top-left-radius: px($alertRadius);
-        border-bottom-left-radius: px($alertRadius);
+        border-top-left-radius: px($bigRadius);
+        border-bottom-left-radius: px($bigRadius);
       }
     }
 
     &.x-popup--right {
       .x-modal__inner {
         border-radius: 0;
-        border-top-right-radius: px($alertRadius);
-        border-bottom-right-radius: px($alertRadius);
+        border-top-right-radius: px($bigRadius);
+        border-bottom-right-radius: px($bigRadius);
       }
     }
   }
@@ -84,7 +84,7 @@
     height: 50%;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--x-panel-bg-color);
   }
 
   &.x-modal--enter {
