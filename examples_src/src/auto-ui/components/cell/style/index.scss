@@ -114,3 +114,11 @@
     }
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .x-cell {
+    border-top: px(1) solid var(--x-cell-bg-color);
+    border-bottom: px(1) solid var(--x-cell-bg-color);
+    background: var(--x-cell-bg-color);
+  }
+}

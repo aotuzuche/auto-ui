@@ -144,9 +144,14 @@
 }
 
 @media (prefers-color-scheme: dark) {
+<<<<<<< HEAD
   .x-app--support-dark-mode {
     .x-input {
       background-color: transparent;
     }
+=======
+  .x-input {
+    background-color: transparent;
+>>>>>>> 优化暗黑skin
   }
 }

@@ -37,8 +37,40 @@ button {
   flex-direction: column;
   background: var(--x-bg-color);
 
+<<<<<<< HEAD
   &--white-background {
     background: var(--x-bg-color-lighter);
+=======
+  &-skeletonwrapper {
+    position: absolute;
+    z-index: 99;
+    overflow: hidden;
+    background: var(--x-bg-color-lighter);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    padding: px(40);
+
+    &.skeleton-animation-start {
+      animation: skeleton 1s ease-out forwards;
+    }
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+>>>>>>> 优化暗黑skin
   }
 }
 
