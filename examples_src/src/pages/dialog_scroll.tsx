@@ -32,7 +32,7 @@ class Demo extends React.PureComponent {
               <p>滚动区</p>
             </Dialog.Scroller>
             <p>底部，不会滚动</p>
-            <Button mini={true} onClick={this.onBtnClick}>
+            <Button onClick={this.onBtnClick}>
               关闭
             </Button>
           </Dialog>

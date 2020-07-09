@@ -11,7 +11,7 @@
   width: 100%;
   height: px(90);
   font-size: px(30);
-  border-radius: px($buttonRadius);
+  border-radius: px($smallRadius);
   white-space: nowrap;
   transition: all 0.15s ease-out;
   user-select: none;
@@ -25,7 +25,7 @@
   }
 
   &--default {
-    background: var(--default-button-bg-color);
+    background: var(--x-default-button-bg-color);
     color: rgb(170, 170, 176);
 
     &::after {
@@ -50,16 +50,16 @@
     }
 
     .x-loading__spin span {
-      background: var(--primary-color);
+      background: var(--x-primary-color);
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--default-button-border-color);
+      border: px(1) solid var(--x-default-button-border-color);
       background: none;
       color: rgb(170, 170, 176);
 
       &::after {
-        background: var(--text-color-o30);
+        background: var(--x-text-color-o30);
       }
 
       .x-loading__spin span {
@@ -69,7 +69,7 @@
   }
 
   &--primary {
-    background: linear-gradient(to right, var(--primary-color-gradient-from), var(--primary-color-gradient-to));
+    background: linear-gradient(to right, var(--x-primary-color-from), var(--x-primary-color-to));
     color: #fff;
 
     &::after {
@@ -102,22 +102,22 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--primary-color);
+      border: px(1) solid var(--x-primary-color);
       background: none;
-      color: var(--primary-color);
+      color: var(--x-primary-color);
 
       &::after {
-        background: var(--primary-color);
+        background: var(--x-primary-color);
       }
 
       .x-loading__spin span {
-        background: var(--primary-color);
+        background: var(--x-primary-color);
       }
     }
   }
 
   &--danger {
-    background: linear-gradient(to right, var(--danger-color-gradient-from), var(--danger-color-gradient-to));
+    background: linear-gradient(to right, var(--x-danger-color-from), var(--x-danger-color-to));
     color: #fff;
 
     &::after {
@@ -150,16 +150,16 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--danger-color);
+      border: px(1) solid var(--x-danger-color);
       background: none;
-      color: var(--danger-color);
+      color: var(--x-danger-color);
 
       &::after {
-        background: var(--danger-color);
+        background: var(--x-danger-color);
       }
 
       .x-loading__spin span {
-        background: var(--danger-color);
+        background: var(--x-danger-color);
       }
     }
   }
