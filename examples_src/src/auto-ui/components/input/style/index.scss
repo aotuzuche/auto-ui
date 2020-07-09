@@ -1,38 +1,45 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-input {
   display: flex;
   height: px(90);
   width: 100%;
-  border: px(1) solid $borderColor; /*no*/
-  border-radius: px($buttonRadius);
+  border: px(1) solid var(--x-input-border-color);
+  border-radius: px($smallRadius);
+  background-color: #fff;
   transition: all 0.1s ease-out;
-  background: #fff;
   overflow: hidden;
   position: relative;
+
   &:focus-within {
-    // rgb(196, 196, 205) = rgb(60, 60, 90) x 0.3alpha
-    border: px(1) solid rgb(196, 196, 205); /*no*/
+    border: px(1) solid var(--x-input-border-focus-color);
   }
+
   &--mini {
     height: px(70);
   }
+
   &--multi {
     height: 30 * 1.5 * 3 + 40 + px; // 默认3行
   }
+
   &--clear {
     &.x-input--multi {
       padding-right: 70px;
+
       .x-input__iconclear {
         position: absolute;
         top: -3px;
         right: 0;
       }
     }
+
     .x-input__ipt {
       padding-right: 0 !important;
     }
+
     .x-input__iconclear {
       width: px(90);
       height: px(90);
@@ -45,6 +52,7 @@
           opacity: 0.75;
         }
       }
+
       span {
         width: px(30);
         height: px(30);
@@ -53,11 +61,13 @@
         border-radius: 50%;
         justify-content: center;
         align-items: center;
+
         svg {
           display: block;
           overflow: hidden;
           width: px(14);
           height: px(14);
+
           path {
             fill: #fff;
           }
@@ -65,6 +75,7 @@
       }
     }
   }
+
   .x-input__ipt {
     font-size: px(30);
     display: block;
@@ -72,32 +83,39 @@
     width: 100%;
     height: 100%;
     line-height: 1.5;
-    color: rgb(60, 60, 90);
+    color: var(--x-text-color);
     padding: px(20);
     border: none;
     font-weight: normal;
     resize: none;
+    background-color: transparent;
+
     &::-webkit-input-placeholder {
-      color: #b4b4b4;
+      color: var(--x-text-color-o30);
     }
   }
+
   &--disabled {
     .x-input__ipt {
-      color: rgb(180, 180, 180) !important;
+      opacity: 0.5;
     }
   }
+
   &.x-input--error {
-    border: px(1) solid $dangerColor; /*no*/
+    border: px(1) solid var(--x-danger-color);
+
     .x-input__ipt {
-      color: $dangerColor !important;
+      color: var(--x-danger-color) !important;
     }
   }
+
   &__addon-before,
   &__addon-after {
     display: flex;
     align-items: center;
     height: 100%;
     font-size: px(30);
+
     > * {
       height: 100%;
       display: flex;
@@ -109,15 +127,24 @@
   [type='date']::-webkit-clear-button {
     display: none;
   }
+
   [type='date']::-webkit-inner-spin-button {
     display: none;
   }
+
   [type='date']::-webkit-datetime-edit-text {
     color: #ddd;
   }
+
   [type='date']::-webkit-calendar-picker-indicator {
     background: rgba(0, 0, 0, 0);
-    color: $dangerColor;
+    color: var(--x-danger-color);
     height: 0.5em;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .x-input {
+    background-color: transparent;
   }
 }

@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-toast {
@@ -13,13 +14,15 @@
   z-index: 99997;
   background: rgba(0, 0, 0, 0);
   pointer-events: none;
+
   &__inner {
     background: rgba(60, 60, 90, 0.8);
     padding: px(18) px(50);
-    border-radius: px($alertRadius);
+    border-radius: px($bigRadius);
     opacity: 0;
     transform-origin: 50%;
     max-width: 80%;
+
     p {
       text-align: center;
       color: #fff;
@@ -27,22 +30,26 @@
       line-height: px(36);
     }
   }
+
   &--show {
     .x-toast__inner {
       transform: scale(1, 1);
       opacity: 1;
       animation: ___x_toast_show 0.2s ease-out;
     }
+
     @at-root {
       @keyframes ___x_toast_show {
         0% {
           transform: scale(1.4, 1.4);
           opacity: 0;
         }
+
         75% {
           transform: scale(0.95, 0.95);
           opacity: 1;
         }
+
         100% {
           transform: scale(1, 1);
           opacity: 1;
@@ -50,10 +57,12 @@
       }
     }
   }
+
   &--hide {
     opacity: 0;
     transition: opacity 0.15s ease-out;
     pointer-events: none;
+
     .x-toast__inner {
       transform: scale(0.95, 0.95);
       transition: all 0.15s ease-out;

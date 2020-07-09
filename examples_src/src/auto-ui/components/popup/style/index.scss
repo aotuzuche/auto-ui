@@ -1,59 +1,71 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-popup {
   align-items: flex-end !important;
+
   &--bottom {
     align-items: flex-start !important;
   }
+
   &--right {
     justify-content: flex-start !important;
     align-items: center !important;
   }
+
   &--left {
     justify-content: flex-end !important;
     align-items: center !important;
   }
+
   &--smooth-border {
     .x-modal__inner {
-      border-top-left-radius: px($alertRadius);
-      border-top-right-radius: px($alertRadius);
+      border-top-left-radius: px($bigRadius);
+      border-top-right-radius: px($bigRadius);
     }
+
     &.x-popup--bottom {
       .x-modal__inner {
         border-radius: 0;
-        border-bottom-left-radius: px($alertRadius);
-        border-bottom-right-radius: px($alertRadius);
+        border-bottom-left-radius: px($bigRadius);
+        border-bottom-right-radius: px($bigRadius);
       }
     }
+
     &.x-popup--left {
       .x-modal__inner {
         border-radius: 0;
-        border-top-left-radius: px($alertRadius);
-        border-bottom-left-radius: px($alertRadius);
+        border-top-left-radius: px($bigRadius);
+        border-bottom-left-radius: px($bigRadius);
       }
     }
+
     &.x-popup--right {
       .x-modal__inner {
         border-radius: 0;
-        border-top-right-radius: px($alertRadius);
-        border-bottom-right-radius: px($alertRadius);
+        border-top-right-radius: px($bigRadius);
+        border-bottom-right-radius: px($bigRadius);
       }
     }
   }
+
   &__inner {
     overflow: auto;
     padding: px(40);
     flex: 1;
   }
+
   &--no-padding {
     padding: 0;
   }
+
   &__scroller {
     flex: 1;
     display: flex;
     overflow: hidden;
   }
+
   &__inscroller {
     flex: 1;
     margin: 0 px(-40) 0 0;
@@ -61,51 +73,61 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
+
   &--no-scroll {
     overflow: hidden;
     display: flex;
     flex-direction: column;
   }
+
   .x-modal__inner {
     height: 50%;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--x-panel-bg-color);
   }
+
   &.x-modal--enter {
     .x-modal__inner {
       animation: __x_popup_bottom_enter cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
     }
+
     &.x-popup--top {
       .x-modal__inner {
         animation: __x_popup_top_enter cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
       }
     }
+
     &.x-popup--left {
       .x-modal__inner {
         animation: __x_popup_left_enter cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
       }
     }
+
     &.x-popup--right {
       .x-modal__inner {
         animation: __x_popup_right_enter cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
       }
     }
   }
+
   &.x-modal--leave {
     .x-modal__inner {
       animation: __x_popup_bottom_leave cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
     }
+
     &.x-popup--top {
       .x-modal__inner {
         animation: __x_popup_top_leave cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
       }
     }
+
     &.x-popup--left {
       .x-modal__inner {
         animation: __x_popup_left_leave cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
       }
     }
+
     &.x-popup--right {
       .x-modal__inner {
         animation: __x_popup_right_leave cubic-bezier(0.5, 0, 0.3, 1) 0.3s;
@@ -118,6 +140,7 @@
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -127,6 +150,7 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(100%);
   }
@@ -136,6 +160,7 @@
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -145,6 +170,7 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-100%);
   }
@@ -154,6 +180,7 @@
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -163,6 +190,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -172,6 +200,7 @@
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -181,6 +210,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(100%);
   }

@@ -162,7 +162,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     }
 
     const skelotonClassName = cn('x-app-skeletonwrapper', {
-      skeletonAnimationStart: !loading,
+      'skeleton-animation-start': !loading,
     })
 
     if (skeleton && !this.state.skeletonAnimationEnd) {
