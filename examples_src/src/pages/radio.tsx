@@ -6,7 +6,11 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
+<<<<<<< HEAD
       <Layout whiteBackground={true} supportDarkMode={true}>
+=======
+      <Layout whiteBackground={true}>
+>>>>>>> coding...
         <Layout.Body>
           <Radio checked={this.state.checked} onChange={this.onChange} />
           <Radio checked={!this.state.checked} onChange={this.onChange} />

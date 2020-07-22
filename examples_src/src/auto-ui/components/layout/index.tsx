@@ -153,6 +153,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     const skelotonClassName = cn('x-app-skeletonwrapper', {
       'skeleton-animation-start': !loading,
@@ -174,6 +175,8 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     }
 
 >>>>>>> 优化暗黑skin
+=======
+>>>>>>> coding...
     return <div className="x-app-body__inner">{children}</div>
   }
 

@@ -7,6 +7,7 @@
   --x-danger-color-to: rgb(255, 77, 77);
   --x-default-button-bg-color: rgb(235, 235, 238);
 <<<<<<< HEAD
+<<<<<<< HEAD
   --x-default-button-border-color: rgb(211, 211, 216);
   --x-calendar-day-bg-color: #f2f2f2;
   --x-panel-bg-color: #fff;
@@ -16,10 +17,18 @@
   --x-radio-border-color: rgba(0, 0, 0, 0.15);
 =======
   --x-default-button-border-color: rgb(211, 211, 211);
+=======
+  --x-default-button-border-color: rgb(211, 211, 216);
+>>>>>>> coding...
   --x-panel-bg-color: #fff;
-  --x-switch-bg-color: rgb(211, 211, 211);
+  --x-switch-bg-color: rgb(211, 211, 216);
+  --x-radio-bg-color: rgb(230, 230, 235);
   --x-border-color: rgb(235, 235, 238);
+<<<<<<< HEAD
 >>>>>>> 优化暗黑skin
+=======
+  --x-radio-border-color: rgba(0, 0, 0, 0.15);
+>>>>>>> coding...
   --x-input-border-color: #ebebee;
   --x-input-border-focus-color: rgb(196, 196, 205);
   --x-bg-color-lighter: #fff;
@@ -50,8 +59,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
+<<<<<<< HEAD
   :root {
 >>>>>>> 优化暗黑skin
+=======
+  .x-app--support-dark-mode {
+>>>>>>> coding...
     --x-primary-color: #00c286;
     --x-primary-color-from: #1dcd82;
     --x-primary-color-to: #00c286;
@@ -69,9 +82,14 @@
     --x-radio-border-color: rgba(255, 255, 255, 0.2);
 =======
     --x-panel-bg-color: rgb(47, 47, 51);
-    --x-switch-bg-color: #343438;
+    --x-switch-bg-color: rgba(255, 255, 255, 0.1);
     --x-border-color: #1e1f23;
+<<<<<<< HEAD
 >>>>>>> 优化暗黑skin
+=======
+    --x-radio-bg-color: rgba(255, 255, 255, 0.1);
+    --x-radio-border-color: rgba(255, 255, 255, 0.2);
+>>>>>>> coding...
     --x-input-border-color: rgba(255, 255, 255, 0.2);
     --x-input-border-focus-color: #00c286;
     --x-bg-color-lighter: #1f1f23;
@@ -105,6 +123,7 @@ $bigRadius: 20 !default; // alert、dialog的圆角
 =======
 
 $primaryColor: rgb(0, 207, 151) !default; // 主色调与主色调:active的颜色
+<<<<<<< HEAD
 $primaryColor2: rgb(20, 215, 138) !default; // 主色调2，用于渐变
 $primaryColor3: rgb(0, 191, 140) !default; // 主色调3，用户hollow下press状态
 $dangerColor: rgb(255, 89, 73) !default; // 警告色与警告色:active的颜色
@@ -113,6 +132,8 @@ $borderColor: rgb(235, 235, 238) !default; // input、cell的边的颜色
 $background: #fff !default; // layout.body的背景色
 $maskColor: rgba(0, 0, 0, 0.7) !default;
 >>>>>>> 优化暗黑skin
+=======
+>>>>>>> coding...
 
 @function px($px) {
   @return $px * 1px;

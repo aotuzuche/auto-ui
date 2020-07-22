@@ -57,7 +57,19 @@
     opacity: 0.5;
 
     &:active {
+<<<<<<< HEAD
       opacity: 0.5 !important;
+=======
+      opacity: 1 !important;
+    }
+
+    &.x-radio__checked .x-radio__icon {
+      opacity: 0.7;
+    }
+
+    .x-radio__text {
+      color: #bbb;
+>>>>>>> coding...
     }
   }
 
