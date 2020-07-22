@@ -144,7 +144,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .x-input {
-    background-color: transparent;
+  .x-app--support-dark-mode {
+    .x-input {
+      background-color: transparent;
+    }
   }
 }

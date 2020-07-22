@@ -6,8 +6,8 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
-        <Layout.Body style={{ background: '#fff' }}>
+      <Layout whiteBackground={true}>
+        <Layout.Body>
           <Radio checked={this.state.checked} onChange={this.onChange} />
           <Radio checked={!this.state.checked} onChange={this.onChange} />
           <Radio checked={this.state.checked} onChange={this.onChange} />

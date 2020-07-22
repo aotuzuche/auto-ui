@@ -45,13 +45,14 @@
     top: 0;
     width: 100%;
     height: px(160);
-    background-image: -webkit-gradient(
-      linear,
-      0 0,
-      0 bottom,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.8))
-    );
+    background-image:
+      -webkit-gradient(
+        linear,
+        0 0,
+        0 bottom,
+        from(#fff),
+        to(rgba(255, 255, 255, 0.8))
+      );
     pointer-events: none;
     z-index: 9;
   }
@@ -59,13 +60,14 @@
   &__mask-b {
     top: auto;
     bottom: 0;
-    background-image: -webkit-gradient(
-      linear,
-      0 bottom,
-      0 0,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.7))
-    );
+    background-image:
+      -webkit-gradient(
+        linear,
+        0 bottom,
+        0 0,
+        from(#fff),
+        to(rgba(255, 255, 255, 0.7))
+      );
   }
 
   &__day-list {

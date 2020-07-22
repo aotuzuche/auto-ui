@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import supportDarkMode from '../__utils/supportDarkMode'
 import Button from '../button/index'
 import './style/index.scss'
 
@@ -100,6 +101,11 @@ const Alert: IAlert = (params, callback) => {
   if (typeof params !== 'string' && params.className) {
     div.classList.add(params.className)
   }
+
+  if (supportDarkMode()) {
+    div.classList.add('x-app--support-dark-mode')
+  }
+
   document.body.appendChild(div)
 
   const close: (btn?: IBtn) => void = btn => {
