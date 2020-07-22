@@ -28,6 +28,7 @@ import PageDialog from '../pages/dialog'
 import PageDialogHeight from '../pages/dialog_height'
 import PageDialogMaskClick from '../pages/dialog_mask_click'
 import PageDialogScroll from '../pages/dialog_scroll'
+import PageIcon from '../pages/icon'
 import PageIndex from '../pages/index'
 import PageInput from '../pages/input'
 import PageInputAddon from '../pages/input_addon'
@@ -134,6 +135,7 @@ const routes: any[] = [
   ['popup_smooth_border', PagePopupSmoothBorder],
   ['popup_direction', PagePopupDirection],
   ['space', PageSpace],
+  ['icon', PageIcon],
   ['actionsheet', PageActionsheet],
   ['actionsheet_close_button', PageActionsheetCloseButton],
   ['actionsheet_custom_items', PageActionsheetCustomItems],

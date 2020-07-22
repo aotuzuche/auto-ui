@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import IconArrow from '../icon/arrow'
 import './style/index.scss'
 
 interface IRowProps {
@@ -64,6 +65,7 @@ const CellRow: React.FC<IRowProps> = props => {
       {title && <label>{title}</label>}
       {children}
       {addonAfter && <span className="x-cell__addon-after">{addonAfter}</span>}
+      {arrow && <IconArrow className="x-cell__arrow" />}
     </>
   )
 

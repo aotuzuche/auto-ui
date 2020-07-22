@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import * as React from 'react'
+import supportDarkMode from '../__utils/supportDarkMode'
 import './style/index.scss'
 
 interface IProps {
@@ -12,6 +13,7 @@ interface IProps {
 
 interface IState {
   visible: boolean
+  supportDarkMode?: boolean
   ani: 'init' | 'enter' | 'leave'
 }
 
@@ -42,23 +44,25 @@ class Modal extends React.PureComponent<IProps, IState> {
   render() {
     const { onMaskClick, height, width, visible, className, ...otherProps } = this.props
 
-    const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, className)
+    const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, {
+      'x-app--support-dark-mode': this.state.supportDarkMode,
+    }, className)
 
-    let heightVal = ''
+    let heightval = ''
     if (height) {
       if (typeof height === 'number') {
-        heightVal = `${String(height)}%`
+        heightval = `${String(height)}%`
       } else {
-        heightVal = height
+        heightval = height
       }
     }
 
-    let widthVal = ''
+    let widthval = ''
     if (width) {
       if (typeof width === 'number') {
-        widthVal = `${String(width)}%`
+        widthval = `${String(width)}%`
       } else {
-        widthVal = width
+        widthval = width
       }
     }
 
@@ -73,7 +77,7 @@ class Modal extends React.PureComponent<IProps, IState> {
         <div className="x-modal__mask" onClick={onMaskClick} />
         <div
           className="x-modal__inner"
-          style={{ height: heightVal, width: widthVal }}
+          style={{ height: heightval, width: widthval }}
           onAnimationEnd={this.onAnimationEnd}
         >
           {this.props.children}
@@ -85,6 +89,7 @@ class Modal extends React.PureComponent<IProps, IState> {
   private enter() {
     this.setState({
       visible: true,
+      supportDarkMode: supportDarkMode(),
     })
 
     setTimeout(() => {

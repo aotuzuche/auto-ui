@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-export interface IconBackSProps {
+interface IProps {
   color?: string
 }
 
-const IconBackS: React.FC<any> = (props: IconBackSProps) => {
+const IconBackS: React.FC<IProps> = props => {
   const color = props.color || '#000'
   return (
     <svg

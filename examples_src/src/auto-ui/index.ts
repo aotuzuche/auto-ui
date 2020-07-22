@@ -8,12 +8,12 @@ import Button from './components/button'
 import Card from './components/card'
 import Cell from './components/cell'
 import Dialog from './components/dialog'
+import Icon from './components/icon'
 import Input from './components/input'
 import Layout from './components/layout'
 import LazyImg from './components/lazy-img'
 import Loading from './components/loading'
 import Message from './components/message'
-import NavBar from './components/nav-bar'
 import Popup from './components/popup'
 import Provider from './components/provider'
 import Radio from './components/radio'
@@ -36,6 +36,7 @@ export {
   Card,
   Cell,
   Dialog,
+  Icon,
   Input,
   Layout,
   LazyImg,
@@ -48,7 +49,6 @@ export {
   Tabs,
   Toast,
   TimePicker,
-  NavBar,
   Message,
   Provider,
   SafeArea,

@@ -404,7 +404,7 @@
       }
 
       &.is-holiday span {
-        color: $dangerColor;
+        color: var(--x-danger-color);
       }
     }
   }
