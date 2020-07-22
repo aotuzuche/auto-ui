@@ -8,7 +8,6 @@ import SafeArea from '../safe-area'
 import Spin from '../spin/index'
 import './style/index.scss'
 
-
 const isBroswer = typeof self === 'object' && self.self === self && self
 
 interface ILayoutProps {
@@ -17,6 +16,8 @@ interface ILayoutProps {
   topSafeAreaColor?: string
   useBottomSafeArea?: boolean
   bottomSafeAreaColor?: string
+  supportDarkMode?: boolean
+  whiteBackground?: boolean
   [otherProps: string]: any
 }
 
@@ -34,9 +35,15 @@ const Layout: React.FC<ILayoutProps> & ILayout = props => {
     useBottomSafeArea = true,
     topSafeAreaColor,
     bottomSafeAreaColor,
+    supportDarkMode = false,
+    whiteBackground = false,
     ...otherProps
   } = props
-  const composeClassName = cn('x-app', className)
+
+  const composeClassName = cn('x-app', className, {
+    'x-app--white-background': whiteBackground,
+    'x-app--support-dark-mode': supportDarkMode,
+  })
 
   // 兼容服务端渲染，使其node环境可以获取到window
   // 客户端渲染请忽略,
@@ -59,9 +66,6 @@ interface IBodyProps {
   errorInfo?: string
   className?: string
   onScroll?: (event: React.UIEvent<HTMLDivElement>) => void
-  skeleton?: React.ReactChild
-  skeletonRepeat?: number
-  onSkeletonFinish?: () => void
   onReachBottom?: {
     disabled: boolean
     content?: React.ReactChild
@@ -72,16 +76,15 @@ interface IBodyProps {
 
 interface IBodyState {
   bottomLoading: boolean
-  skeletonAnimationEnd: boolean
 }
 
 class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   private timer: any = 0
+
   constructor(props: IBodyProps) {
     super(props)
     this.state = {
       bottomLoading: false,
-      skeletonAnimationEnd: false,
     }
   }
 
@@ -92,9 +95,6 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       className,
       onScroll,
       onReachBottom,
-      skeleton,
-      skeletonRepeat,
-      onSkeletonFinish,
       ...otherProps
     } = this.props
 
@@ -136,19 +136,10 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
     )
   }
 
-  private onAnimationEnd = () => {
-    this.setState(
-      {
-        skeletonAnimationEnd: true,
-      },
-      this.props.onSkeletonFinish,
-    )
-  }
-
   private renderContent() {
-    const { loading, errorInfo, children, skeleton, skeletonRepeat = 1 } = this.props
+    const { loading, errorInfo, children } = this.props
 
-    if (loading && !skeleton) {
+    if (loading) {
       return <Spin className="x-app__loading" />
     }
 
@@ -158,25 +149,6 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
           <IconError />
           {errorInfo}
         </p>
-      )
-    }
-
-    const skelotonClassName = cn('x-app-skeletonwrapper', {
-      'skeleton-animation-start': !loading,
-    })
-
-    if (skeleton && !this.state.skeletonAnimationEnd) {
-      return (
-        <>
-          <div className={skelotonClassName} onAnimationEnd={this.onAnimationEnd}>
-            {'*'
-              .repeat(skeletonRepeat)
-              .split('')
-              .map((_, key) => {
-                return <div key={key}>{skeleton}</div>
-              })}
-          </div>
-        </>
       )
     }
 

@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import * as React from 'react'
+import supportDarkMode from '../__utils/supportDarkMode'
 import './style/index.scss'
 
 interface IProps {
@@ -14,6 +15,7 @@ interface IProps {
 
 interface IState {
   visible: boolean
+  supportDarkMode?: boolean
   ani: 'init' | 'enter' | 'leave'
 }
 
@@ -44,7 +46,9 @@ class Modal extends React.PureComponent<IProps, IState> {
   render() {
     const { onMaskClick, height, width, visible, className, addonTop, addonBottom, ...otherProps } = this.props
 
-    const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, className)
+    const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, {
+      'x-app--support-dark-mode': this.state.supportDarkMode,
+    }, className)
 
     let heightval = ''
     if (height) {
@@ -89,6 +93,7 @@ class Modal extends React.PureComponent<IProps, IState> {
   private enter() {
     this.setState({
       visible: true,
+      supportDarkMode: supportDarkMode(),
     })
 
     setTimeout(() => {

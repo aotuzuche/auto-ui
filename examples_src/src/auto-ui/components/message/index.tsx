@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import supportDarkMode from '../__utils/supportDarkMode'
 import './style/index.scss'
 
 const close = (id: string) => {
@@ -36,6 +37,11 @@ const Message: IMessage = (params, duration = 2000) => {
   div.classList.add('x-message', 'x-message--show')
   const id = `j-x-message--${new Date().valueOf()}-${Math.floor(Math.random() * 999999)}`
   div.id = id
+
+  if (supportDarkMode()) {
+    div.classList.add('x-app--support-dark-mode')
+  }
+
   const layoutFooter = document.querySelector('.x-app > .x-app-footer')
   if (layoutFooter && layoutFooter.clientHeight > 0) {
     div.classList.add('x-message--behind-footer')
