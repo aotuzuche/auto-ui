@@ -16,6 +16,10 @@ code=[mask click](dialog_mask_click)
 
 code=[height](dialog_height)
 
+## 上面添加额外内容
+
+code=[addon](dialog_addon)
+
 ## 滚动
 
 code=[scroll](dialog_scroll)

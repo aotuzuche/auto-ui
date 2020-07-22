@@ -25,6 +25,7 @@ import PageCellArrow from '../pages/cell_arrow'
 import PageCellClick from '../pages/cell_click'
 import PageCellDividerIndent from '../pages/cell_divider_indent'
 import PageDialog from '../pages/dialog'
+import PageDialogAddon from '../pages/dialog_addon'
 import PageDialogHeight from '../pages/dialog_height'
 import PageDialogMaskClick from '../pages/dialog_mask_click'
 import PageDialogScroll from '../pages/dialog_scroll'
@@ -122,6 +123,7 @@ const routes: any[] = [
   ['radio_disabled', PageRadioDisabled],
   ['radio_text', PageRadioText],
   ['dialog', PageDialog],
+  ['dialog_addon', PageDialogAddon],
   ['dialog_height', PageDialogHeight],
   ['dialog_mask_click', PageDialogMaskClick],
   ['dialog_scroll', PageDialogScroll],

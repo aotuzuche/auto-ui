@@ -9,6 +9,8 @@ interface IProps {
   height?: number | string
   visible?: boolean
   onMaskClick?: () => void
+  addonTop?: React.ReactNode
+  addonBottom?: React.ReactNode
   [otherProps: string]: any
 }
 
