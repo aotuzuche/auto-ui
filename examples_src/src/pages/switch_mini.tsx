@@ -8,13 +8,9 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          <Switch active={this.state.active} onChange={this.onChange} />
+          <Switch active={this.state.active} mini={true} onChange={this.onChange} />
           <Space size={2} />
-          <Switch active={!this.state.active}  onChange={this.onChange} />
-          <Space size={2} />
-          <Switch active={this.state.active} onChange={this.onChange} />
-          <Space size={2} />
-          <Switch active={!this.state.active} onChange={this.onChange} />
+          <Switch active={!this.state.active} mini={true} onChange={this.onChange} />
         </Layout.Body>
       </Layout>
     )

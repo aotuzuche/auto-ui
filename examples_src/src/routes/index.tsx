@@ -73,6 +73,7 @@ import PageSwitch from '../pages/switch'
 import PageSwitchDisabled from '../pages/switch_disabled'
 import PageSwitchIcon from '../pages/switch_icon'
 import PageSwitchIO from '../pages/switch_io'
+import PageSwitchMini from '../pages/switch_mini'
 import PageTabs from '../pages/tabs'
 import PageTimePicker from '../pages/time_picker'
 import PageToast from '../pages/toast'
@@ -109,6 +110,7 @@ const routes: any[] = [
   ['switch_disabled', PageSwitchDisabled],
   ['switch_icon', PageSwitchIcon],
   ['switch_io', PageSwitchIO],
+  ['switch_mini', PageSwitchMini],
   ['toast', PageToast],
   ['toast_close', PageToastClose],
   ['toast_duration', PageToastDuartion],
