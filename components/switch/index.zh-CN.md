@@ -14,6 +14,12 @@ code=[i、o](switch_io)
 
 code=[icon](switch_icon)
 
+## mini
+
+`mini`模式下，尺寸会小一号，并带文字功能和带图标功能均不可用
+
+code=[mini](switch_mini)
+
 ## 禁用
 
 code=[disabled](switch_disabled)
@@ -27,4 +33,5 @@ code=[disabled](switch_disabled)
 | i        | 非激活时的文字（建议不超过 4 字节），i 与 o 同时使用才有效 | String - |
 | o        | 激活时的文字（建议不超过 4 字节），i 与 o 同时使用才有效   | String - |
 | icon     | 带 icon，会在圆的滑块上显示勾/叉图标                       | Boolean  | false  |
+| mini     | 小号的 switch，mini 模式下，io 和 icon 均不可用            | Boolean  | false  |
 | disabled | 是否为不可用                                               | Boolean  | false  |

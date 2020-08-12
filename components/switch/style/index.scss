@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-switch {
@@ -28,10 +29,12 @@
     top: px(4);
     background-color: #fff;
     transition: all 0.3s ease-out;
+
     svg {
       width: px(22);
       height: px(22);
     }
+
     path {
       fill: #ddd;
     }
@@ -46,9 +49,11 @@
   &--active {
     box-shadow: 0 0 0 px(30) rgba($primaryColor, 1) inset;
     background-color: $primaryColor;
+
     em {
       transform: translate(px(46), 0);
     }
+
     &:active {
       box-shadow: 0 0 0 px(30) rgba(mix($primaryColor, #000, 92%), 1) inset;
     }
@@ -61,6 +66,7 @@
 
   &--io {
     width: px(120);
+
     sub,
     sup {
       display: flex;
@@ -88,11 +94,29 @@
       sub {
         opacity: 0;
       }
+
       sup {
         opacity: 1;
       }
+
       em {
         transform: translate(px(66), 0);
+      }
+    }
+  }
+
+  &--mini {
+    width: px(78);
+    height: px(44);
+
+    > em {
+      width: px(36);
+      height: px(36);
+    }
+
+    &.x-switch--active {
+      em {
+        transform: translate(px(34), 0);
       }
     }
   }

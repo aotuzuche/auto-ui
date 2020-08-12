@@ -9,6 +9,7 @@ interface IProps {
   o?: string
   active: boolean
   icon?: boolean
+  mini?: boolean
   disabled?: boolean
   className?: string
   children?: null
@@ -17,19 +18,20 @@ interface IProps {
 }
 
 const Switch: React.FC<IProps> = props => {
-  const { i, o, active, icon, disabled, className, onChange, ...otherProps } = props
+  const { i, o, active, icon, disabled, className, onChange, mini, ...otherProps } = props
 
   const composeClassName = cn(
     'x-switch',
     {
       'x-switch--active': active,
-      'x-switch--io': i && o,
+      'x-switch--io': !mini && i && o,
       'x-switch--disabled': disabled,
+      'x-switch--mini': mini,
     },
     className,
   )
 
-  const hasIO: boolean = !!i && !!o
+  const hasIO: boolean = !mini && !!i && !!o
 
   const onClick = () => {
     if (disabled || !onChange) {
@@ -43,8 +45,8 @@ const Switch: React.FC<IProps> = props => {
       {hasIO && <sub>{props.i}</sub>}
       {hasIO && <sup>{props.o}</sup>}
       <em>
-        {icon && !active && <IconClose />}
-        {icon && active && <IconCheck />}
+        {icon && !mini && !active && <IconClose />}
+        {icon && !mini && active && <IconCheck />}
       </em>
     </button>
   )
