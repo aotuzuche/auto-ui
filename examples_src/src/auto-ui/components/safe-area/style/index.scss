@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-safe-area-inset-top {
@@ -18,5 +19,5 @@
 }
 
 .x-safe-area-ios-app {
-  min-height: 20px; /*no*/
+  min-height: 20px; /* no */ // todo: must use px unit
 }
