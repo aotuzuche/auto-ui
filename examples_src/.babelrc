@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "auto-ui",
+        "libraryDirectory": "es"
+      },
+      "auto-ui"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "react-use",
+        "libraryDirectory": "lib",
+        "camel2DashComponentName": false
+      },
+      "react-use"
+    ]
+  ]
+}

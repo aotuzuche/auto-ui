@@ -1,1 +1,2 @@
-/// <reference types="react-scripts-auto" />
+declare module 'iscroll/build/iscroll-lite'
+declare module 'eslint-plugin-import'

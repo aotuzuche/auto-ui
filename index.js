@@ -12,7 +12,6 @@ import Input from './es/input';
 import Layout from './es/layout';
 import Loading from './es/loading';
 import LazyImg from './es/lazy-img';
-import NavBar from './es/nav-bar';
 import Popup from './es/popup';
 import Radio from './es/radio';
 import SafeArea from './es/safe-area';
@@ -50,6 +49,5 @@ export {
   Toast,
   Message,
   TimePicker,
-  NavBar,
   Provider,
 };

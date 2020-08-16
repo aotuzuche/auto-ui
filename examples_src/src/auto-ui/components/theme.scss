@@ -7,6 +7,7 @@
   --x-danger-color-to: rgb(255, 77, 77);
   --x-default-button-bg-color: rgb(235, 235, 238);
   --x-default-button-border-color: rgb(211, 211, 216);
+  --x-calendar-day-bg-color: #f2f2f2;
   --x-panel-bg-color: #fff;
   --x-switch-bg-color: rgb(211, 211, 216);
   --x-radio-bg-color: rgb(230, 230, 235);
@@ -17,6 +18,7 @@
   --x-bg-color-lighter: #fff;
   --x-bg-color: #f2f2f2;
   --x-mask-color: rgba(0, 0, 0, 0.7);
+  --x-loading-mask-color: rgba(255, 255, 255, 0.5);
   --x-cell-bg-color: #fff;
   --x-text-color: rgb(60, 60, 90);
   --x-text-color-o90: rgba(60, 60, 90, 0.9);
@@ -26,6 +28,9 @@
   --x-text-color-o50: rgba(60, 60, 90, 0.5);
   --x-text-color-o40: rgba(60, 60, 90, 0.4);
   --x-text-color-o30: rgba(60, 60, 90, 0.3);
+  --x-time-picker-mask-color-from: #fff;
+  --x-time-picker-mask-color-to: rgba(255, 255, 255, 0.8);
+  --x-time-picker-border-color: #f2f2f2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +43,7 @@
     --x-danger-color-to: rgb(255, 77, 77);
     --x-default-button-bg-color: rgba(255, 255, 255, 0.05);
     --x-default-button-border-color: rgba(255, 255, 255, 0.1);
+    --x-calendar-day-bg-color: rgba(255, 255, 255, 0.05);
     --x-panel-bg-color: rgb(47, 47, 51);
     --x-switch-bg-color: rgba(255, 255, 255, 0.1);
     --x-border-color: #1e1f23;
@@ -48,6 +54,7 @@
     --x-bg-color-lighter: #1f1f23;
     --x-bg-color: #18181c;
     --x-mask-color: rgba(0, 0, 0, 0.7);
+    --x-loading-mask-color: rgba(0, 0, 0, 0.5);
     --x-cell-bg-color: #28282d;
     --x-text-color: rgb(211, 211, 211);
     --x-text-color-o90: rgba(211, 211, 211, 0.9);
@@ -57,13 +64,14 @@
     --x-text-color-o50: rgba(211, 211, 211, 0.5);
     --x-text-color-o40: rgba(211, 211, 211, 0.4);
     --x-text-color-o30: rgba(211, 211, 211, 0.3);
+    --x-time-picker-mask-color-from: rgba(47, 47, 51, 1);
+    --x-time-picker-mask-color-to: rgba(47, 47, 51, 0.8);
+    --x-time-picker-border-color: #18181c;
   }
 }
 
 $smallRadius: 6 !default; // input、button的圆角
 $bigRadius: 20 !default; // alert、dialog的圆角
-
-$primaryColor: rgb(0, 207, 151) !default; // 主色调与主色调:active的颜色
 
 @function px($px) {
   @return $px * 1px;

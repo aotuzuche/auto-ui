@@ -3,7 +3,7 @@ import { Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Header title="标题与标题" headline={true} addonAfter={<p>更多</p>} />
       <Layout.Body>body</Layout.Body>
     </Layout>

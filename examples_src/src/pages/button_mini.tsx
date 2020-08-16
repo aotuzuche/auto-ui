@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Cell>
           <Cell.Row>

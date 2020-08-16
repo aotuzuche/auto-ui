@@ -10,7 +10,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Cell.Title text="不固定宽高比的card，高度随着内容的多少而变化，图片1:1显示" />
           <Card shadow style={{ width: '50%' }}>

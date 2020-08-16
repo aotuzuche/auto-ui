@@ -57,7 +57,7 @@
         width: px(30);
         height: px(30);
         display: flex;
-        background-color: $primaryColor;
+        background-color: var(--x-primary-color);
         border-radius: 50%;
         justify-content: center;
         align-items: center;

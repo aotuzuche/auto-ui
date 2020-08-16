@@ -6,7 +6,10 @@ const Demo: React.FC<any> = () => {
     Alert({
       title: '您确定要删除此项吗？',
       desc: '您确定要删除此项吗？您确定要删除此项吗？您确定要删除此项吗？',
-      btns: [{ name: '取消', type: 'primary', hollow: true }, { name: '删除', type: 'primary' }],
+      btns: [
+        { name: '取消', type: 'primary', hollow: true },
+        { name: '删除', type: 'primary' },
+      ],
     })
   }
 
@@ -15,12 +18,15 @@ const Demo: React.FC<any> = () => {
       title: '您确定要删除此项吗？',
       desc: '您确定要删除此项吗？您确定要删除此项吗？您确定要删除此项吗？',
       btnDirection: 'column',
-      btns: [{ name: '取消', type: 'primary', hollow: true }, { name: '删除', type: 'primary' }],
+      btns: [
+        { name: '取消', type: 'primary', hollow: true },
+        { name: '删除', type: 'primary' },
+      ],
     })
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Button onClick={onClickA}>横向按钮</Button>
         <br />

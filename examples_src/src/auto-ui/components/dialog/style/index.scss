@@ -4,6 +4,7 @@
 
 .x-dialog {
   z-index: 10001;
+  flex-direction: column;
 
   &__inner {
     padding: px(40);

@@ -13,7 +13,7 @@ class Demo extends React.PureComponent<any, IState> {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Header title="Border" borderType={this.state.borderType} />
         <Layout.Body>
           <Button onClick={this.onClick.bind(this, 'none')}>none</Button>

@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Input value={this.state.value} placeholder="请输入..." onChange={this.onChange} />
         </Layout.Body>
