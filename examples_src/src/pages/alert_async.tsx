@@ -5,13 +5,16 @@ const Demo: React.FC<any> = () => {
   const onClick = async () => {
     const value = await Alert.async({
       title: '我是一个提示框',
-      btns: [{ name: '取消', value: 'cancel' }, { name: '确定', value: 'ok' }],
+      btns: [
+        { name: '取消', value: 'cancel' },
+        { name: '确定', value: 'ok' },
+      ],
     })
     Toast(String(value))
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Button onClick={onClick}>点击打开</Button>
       </Layout.Body>

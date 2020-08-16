@@ -13,7 +13,6 @@ import Layout from './es/layout'
 import LazyImg from './es/lazy-img'
 import Loading from './es/loading'
 import Message from './es/message'
-import NavBar from './es/nav-bar'
 import Popup from './es/popup'
 import Provider from './es/provider'
 import Radio from './es/radio'
@@ -50,6 +49,5 @@ export {
   Toast,
   Message,
   TimePicker,
-  NavBar,
   Provider,
 };

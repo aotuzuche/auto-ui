@@ -3,7 +3,7 @@ import { Button, Layout, Space } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Button onClick={() => {}} mini={true}>
           x

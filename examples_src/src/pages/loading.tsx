@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Loading } from '../auto-ui'
+import { Layout, Loading } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   Loading()
-  return null
+  return <Layout supportDarkMode={true} />
 }
 
 export default Demo

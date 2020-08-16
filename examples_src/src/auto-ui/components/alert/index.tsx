@@ -93,7 +93,7 @@ type IAsyncAlert = (params: IAlertParams | string) => Promise<string | number | 
 type IAlert = ((
   params: IAlertParams | string,
   callback?: (value?: string | number | boolean) => void,
-) => [() => void, void]) & { async: IAsyncAlert }
+) => [() => void, undefined]) & { async: IAsyncAlert }
 
 const Alert: IAlert = (params, callback) => {
   const div = document.createElement('div')

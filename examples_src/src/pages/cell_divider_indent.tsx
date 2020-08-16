@@ -7,12 +7,14 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Cell.Title text="分隔线缩进: 左侧缩进" />
         <Cell onClick={onClick} arrow={true} dividerIndent="left">
           <Cell.Row value="1">cell 1</Cell.Row>
-          <Cell.Row value="2" addonAfter="123">cell 2</Cell.Row>
+          <Cell.Row value="2" addonAfter="123">
+            cell 2
+          </Cell.Row>
         </Cell>
         <Cell.Title text="分隔线缩进: 两头缩进" />
         <Cell onClick={onClick} arrow={true} dividerIndent="both">

@@ -3,7 +3,7 @@ import { Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Header title="错误页面" borderType="shadow" />
       <Layout.Body errorInfo="系统错误">body</Layout.Body>
     </Layout>

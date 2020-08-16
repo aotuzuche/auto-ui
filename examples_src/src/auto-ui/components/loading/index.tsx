@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import supportDarkMode from '../__utils/supportDarkMode'
 import Spin from '../spin/index'
 import './style/index.scss'
 
@@ -13,7 +14,7 @@ const close = (): void => {
   }
 }
 
-type ILoading = (() => [() => void, void]) & { hide: () => void }
+type ILoading = (() => [() => void, undefined]) & { hide: () => void }
 
 const Loading: ILoading = () => {
   // 防止多次调用先 close 检查下
@@ -21,6 +22,11 @@ const Loading: ILoading = () => {
 
   div = document.createElement('div')
   div.classList.add('x-loading', 'x-loading--show')
+
+  if (supportDarkMode()) {
+    div.classList.add('x-app--support-dark-mode')
+  }
+
   document.body.appendChild(div)
 
   render(

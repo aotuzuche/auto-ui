@@ -21,7 +21,6 @@ const PageSpin = React.lazy(() => import('../pages/spin'));
 const PageActionSheet = React.lazy(() => import('../pages/action-sheet'));
 const PageTabs = React.lazy(() => import('../pages/tabs'));
 const PageSpace = React.lazy(() => import('../pages/space'));
-const PageNavBar = React.lazy(() => import('../pages/nav-bar'));
 const PageTimePicker = React.lazy(() => import('../pages/time-picker'));
 const PageAspectRatio = React.lazy(() => import('../pages/aspect-ratio'));
 const PageAtCalendar = React.lazy(() => import('../pages/at-calendar'));
@@ -53,7 +52,6 @@ export default (history: any) => {
             <Route exact={true} path="/actionsheet" component={PageActionSheet} />
             <Route exact={true} path="/tabs" component={PageTabs} />
             <Route exact={true} path="/space" component={PageSpace} />
-            <Route exact={true} path="/navbar" component={PageNavBar} />
             <Route exact={true} path="/timepicker" component={PageTimePicker} />
             <Route exact={true} path="/aspectratio" component={PageAspectRatio} />
             <Route exact={true} path="/atcalendar" component={PageAtCalendar} />

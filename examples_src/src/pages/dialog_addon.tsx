@@ -7,14 +7,16 @@ class Demo extends React.PureComponent {
   renderAddon() {
     return (
       <div style={{ margin: '20px' }}>
-        <Button mini={true} onClick={() => this.setState({ visible: false })}>点我关闭</Button>
+        <Button mini={true} onClick={() => this.setState({ visible: false })}>
+          点我关闭
+        </Button>
       </div>
     )
   }
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Dialog</Button>
           <Dialog

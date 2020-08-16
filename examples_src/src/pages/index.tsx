@@ -84,7 +84,7 @@ const routes = [
 class Demo extends React.PureComponent {
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Cell arrow={true}>
             {routes.map((item, index) => {

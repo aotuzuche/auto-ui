@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Switch active={this.state.active} mini={true} onChange={this.onChange} />
           <Space size={2} />

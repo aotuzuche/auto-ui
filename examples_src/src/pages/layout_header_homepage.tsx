@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Header title="标题" borderType="shadow" homepage={onHomepageButtonClick} />
       <Layout.Body>请点击右上角的图标</Layout.Body>
     </Layout>

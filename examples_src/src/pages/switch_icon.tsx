@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Switch o="开" i="关" icon={true} active={this.state.active} onChange={this.onChange} />
         </Layout.Body>

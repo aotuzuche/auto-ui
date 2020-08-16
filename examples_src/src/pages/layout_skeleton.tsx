@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Layout, Toast } from '../auto-ui'
 import ContentLoader from 'react-content-loader'
+import { Layout, Toast } from '../auto-ui'
 
 const SkeletonOrderItem = () => (
   <ContentLoader height={90} width={375} speed={1} primaryColor="#f3f3f3" secondaryColor="#ecebeb">
@@ -19,7 +19,7 @@ const Demo: React.FC<any> = () => {
   }, 2000)
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Header title="加载中..." borderType="shadow" />
       <Layout.Body
         loading={skeleton}
@@ -28,28 +28,47 @@ const Demo: React.FC<any> = () => {
         skeletonRepeat={20}
       >
         body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
         body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>body
-        <div style={{ background: '#f00', width: '200px', height: '200px' }}></div>
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
+        body
+        <div style={{ background: '#f00', width: '200px', height: '200px' }} />
       </Layout.Body>
     </Layout>
     // <div

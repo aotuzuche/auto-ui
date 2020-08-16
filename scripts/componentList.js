@@ -19,7 +19,6 @@ const componentList = [
   'Space',
   'TimePicker',
   'Card',
-  'NavBar',
   'LazyImg',
   'AtCalendar',
   'AtNav',

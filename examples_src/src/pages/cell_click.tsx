@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={true}>
       <Layout.Body>
         <Cell.Title text="统一点击事件" />
         <Cell onClick={onClick} arrow={true}>

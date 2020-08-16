@@ -5,6 +5,7 @@ class Demo extends React.PureComponent {
   render() {
     return (
       <AtCalendar
+        supportDarkMode={true}
         title="查看可租用时间"
         onClose={this.onClose}
         chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
@@ -32,12 +33,18 @@ class Demo extends React.PureComponent {
           [new Date(2019, 5, 6).valueOf()]: {},
           [new Date(2019, 5, 7).valueOf()]: {},
           [new Date(2019, 6, 8).valueOf()]: {},
-          [new Date(2019, 5, 9).valueOf()]: {},
+          [new Date(2019, 5, 9).valueOf()]: {
+            disabled: 'ALL',
+          },
           [new Date(2019, 5, 10).valueOf()]: {
             price: 333,
             rent: ['0000', '1200'],
-            revert: [['0030', '1100'], ['1300', '2000']],
+            revert: [
+              ['0030', '1100'],
+              ['1300', '2000'],
+            ],
             badge: '限',
+            disabled: 'ALL',
           },
         }}
         onSubmit={this.onSubmit}

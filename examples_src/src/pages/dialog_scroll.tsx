@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={true}>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Dialog</Button>
           <Dialog visible={this.state.visible} height={40}>
@@ -32,9 +32,7 @@ class Demo extends React.PureComponent {
               <p>滚动区</p>
             </Dialog.Scroller>
             <p>底部，不会滚动</p>
-            <Button onClick={this.onBtnClick}>
-              关闭
-            </Button>
+            <Button onClick={this.onBtnClick}>关闭</Button>
           </Dialog>
         </Layout.Body>
       </Layout>
