@@ -44,17 +44,6 @@
     top: 0;
     width: 100%;
     height: px(160);
-<<<<<<< HEAD
-=======
-    background-image:
-      -webkit-gradient(
-        linear,
-        0 0,
-        0 bottom,
-        from(#fff),
-        to(rgba(255, 255, 255, 0.8))
-      );
->>>>>>> coding...
     pointer-events: none;
     z-index: 9;
   }
@@ -66,18 +55,7 @@
   &__mask-b {
     top: auto;
     bottom: 0;
-<<<<<<< HEAD
     background: linear-gradient(var(--x-time-picker-mask-color-to), var(--x-time-picker-mask-color-from));
-=======
-    background-image:
-      -webkit-gradient(
-        linear,
-        0 bottom,
-        0 0,
-        from(#fff),
-        to(rgba(255, 255, 255, 0.7))
-      );
->>>>>>> coding...
   }
 
   &__day-list {

@@ -104,27 +104,4 @@
       fill: var(--x-text-color-o30);
     }
   }
-<<<<<<< HEAD
-}
-
-@media (prefers-color-scheme: dark) {
-  .x-app--support-dark-mode {
-    .x-cell {
-      border-top: px(1) solid var(--x-cell-bg-color);
-      border-bottom: px(1) solid var(--x-cell-bg-color);
-      background: var(--x-cell-bg-color);
-    }
-  }
-=======
->>>>>>> coding...
-}
-
-@media (prefers-color-scheme: dark) {
-  .x-app--support-dark-mode {
-    .x-cell {
-      border-top: px(1) solid var(--x-cell-bg-color);
-      border-bottom: px(1) solid var(--x-cell-bg-color);
-      background: var(--x-cell-bg-color);
-    }
-  }
 }

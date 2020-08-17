@@ -145,31 +145,6 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
       )
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    const skelotonClassName = cn('x-app-skeletonwrapper', {
-      'skeleton-animation-start': !loading,
-    })
-
-    if (skeleton && !this.state.skeletonAnimationEnd) {
-      return (
-        <>
-          <div className={skelotonClassName} onAnimationEnd={this.onAnimationEnd}>
-            {'*'
-              .repeat(skeletonRepeat)
-              .split('')
-              .map((_, key) => {
-                return <div key={key}>{skeleton}</div>
-              })}
-          </div>
-        </>
-      )
-    }
-
->>>>>>> 优化暗黑skin
-=======
->>>>>>> coding...
     return <div className="x-app-body__inner">{children}</div>
   }
 

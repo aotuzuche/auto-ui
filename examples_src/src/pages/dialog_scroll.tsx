@@ -32,13 +32,7 @@ class Demo extends React.PureComponent {
               <p>滚动区</p>
             </Dialog.Scroller>
             <p>底部，不会滚动</p>
-<<<<<<< HEAD
             <Button onClick={this.onBtnClick}>关闭</Button>
-=======
-            <Button onClick={this.onBtnClick}>
-              关闭
-            </Button>
->>>>>>> 优化暗黑skin
           </Dialog>
         </Layout.Body>
       </Layout>
