@@ -42,7 +42,7 @@
     position: relative;
 
     > span {
-      color: var(--text-color-o60);
+      color: var(--x-text-color-o60);
       font-size: px(30);
     }
 
@@ -70,12 +70,12 @@
 
   &--active {
     > span {
-      color: var(--primary-color);
+      color: var(--x-primary-color);
       font-weight: bold;
       animation: __x_tabs_active_scale 0.2s ease-out;
 
       &:active {
-        color: var(--primary-color);
+        color: var(--x-primary-color);
         opacity: 1;
       }
     }
