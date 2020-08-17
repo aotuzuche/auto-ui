@@ -38,8 +38,7 @@
     "*.{scss,sass}": "stylelint",
     "*.{js,jsx,ts,tsx}": [
       "yarn tslint",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "browserslist": [
