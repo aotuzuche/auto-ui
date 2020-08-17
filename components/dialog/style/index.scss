@@ -30,9 +30,9 @@
 
   .x-modal__inner {
     display: block;
-    background: #fff;
+    background: var(--x-panel-bg-color);
     transform-origin: 50%;
-    border-radius: px($alertRadius);
+    border-radius: px($bigRadius);
     width: 85%;
     height: auto;
   }

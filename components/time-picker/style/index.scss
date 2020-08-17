@@ -3,7 +3,6 @@
 @import '../../theme.scss';
 
 .x-time-picker {
-  background: #fff;
   display: flex;
   height: px(390);
   overflow: hidden;
@@ -21,7 +20,7 @@
       line-height: px(70);
       text-align: center;
       font-size: px(36);
-      color: rgb(60, 60, 90);
+      color: var(--x-text-color);
       display: block;
     }
   }
@@ -33,8 +32,8 @@
     right: 0;
     z-index: 10;
     text-align: center;
-    color: #ff3d3b;
-    font-size: 22px;
+    color: var(--x-danger-color);
+    font-size: px(22);
     pointer-events: none;
   }
 
@@ -45,27 +44,18 @@
     top: 0;
     width: 100%;
     height: px(160);
-    background-image: -webkit-gradient(
-      linear,
-      0 0,
-      0 bottom,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.8))
-    );
     pointer-events: none;
     z-index: 9;
+  }
+
+  &__mask-t {
+    background: linear-gradient(var(--x-time-picker-mask-color-from), var(--x-time-picker-mask-color-to));
   }
 
   &__mask-b {
     top: auto;
     bottom: 0;
-    background-image: -webkit-gradient(
-      linear,
-      0 bottom,
-      0 0,
-      from(#fff),
-      to(rgba(255, 255, 255, 0.7))
-    );
+    background: linear-gradient(var(--x-time-picker-mask-color-to), var(--x-time-picker-mask-color-from));
   }
 
   &__day-list {

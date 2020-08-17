@@ -42,7 +42,7 @@
     width: 100%;
     color: var(--x-text-color);
     font-size: px(30);
-    transition: background 0.2s ease-out;
+    transition: all 0.2s ease-out;
 
     &:active {
       background: rgba(0, 0, 0, 0.05);
@@ -59,7 +59,7 @@
     height: px(100);
     border-top: px(1) solid var(--x-border-color);
     font-size: px(30);
-    transition: background 0.2s ease-out;
+    transition: all 0.2s ease-out;
 
     &:active {
       background: rgba(0, 0, 0, 0.05);

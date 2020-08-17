@@ -1,11 +1,13 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-at-nav {
   display: flex;
   height: px(130);
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05); /*no*/
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
   background: #fff;
+
   > .x-at-navitem {
     display: flex;
     flex-direction: column;
@@ -13,6 +15,7 @@
     justify-content: center;
     width: 100%;
     height: px(130);
+
     > i {
       display: block;
       width: px(50);
@@ -22,41 +25,52 @@
       background-size: px(60);
       margin-bottom: px(8);
     }
+
     > small {
       color: #5a5a6e;
       font-size: px(20);
     }
+
     &a:active {
       opacity: 0.7;
     }
   }
+
   p {
     &.x-at-navitem small {
-      color: $primaryColor;
+      color: var(--x-primary-color);
     }
+
     &.x-at-navitem__index i {
       background-image: url('../icon-home-active.png');
     }
+
     &.x-at-navitem__collection i {
       background-image: url('../icon-collection-active.png');
     }
+
     &.x-at-navitem__order i {
       background-image: url('../icon-order-active.png');
     }
+
     &.x-at-navitem__user i {
       background-image: url('../icon-user-active.png');
     }
   }
+
   a {
     &.x-at-navitem__index i {
       background-image: url('../icon-home.png');
     }
+
     &.x-at-navitem__collection i {
       background-image: url('../icon-collection.png');
     }
+
     &.x-at-navitem__order i {
       background-image: url('../icon-order.png');
     }
+
     &.x-at-navitem__user i {
       background-image: url('../icon-user.png');
     }

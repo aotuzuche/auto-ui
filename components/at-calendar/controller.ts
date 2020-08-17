@@ -32,6 +32,7 @@ interface IProps {
   defaultRevertTime?: string
   chooseTips?: (t1: Date) => [Date, String] // 当用户选择完成第一天时，可设置在另一天提示相关内容
   extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
+  supportDarkMode?: boolean
 }
 
 interface IState {
@@ -211,7 +212,10 @@ class Controller extends React.PureComponent<IProps, IState> {
 
   // 日期点击
   protected async onDayClick(day: Date, data: IData) {
-    const range: [Date | undefined, Date | undefined] = [this.state.chooseRange[0], this.state.chooseRange[1]]
+    const range: [Date | undefined, Date | undefined] = [
+      this.state.chooseRange[0],
+      this.state.chooseRange[1],
+    ]
     const times: [Date | undefined, Date | undefined] = [
       this.state.timePickerTimes[0],
       this.state.timePickerTimes[1],

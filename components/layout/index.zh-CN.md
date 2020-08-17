@@ -48,14 +48,6 @@ code=[errorInfo](layout_error_info)
 
 code=[onReachBottom](layout_reach_bottom)
 
-## 骨架屏
-
-骨架屏：https://github.com/danilowoz/react-content-loader
-
-编辑地址：http://danilowoz.com/create-content-loader/
-
-code=[skeleton](layout_skeleton)
-
 ## Layout 支持属性
 
 | 属性                | 说明                           | 类型    | 默认值 |
@@ -87,18 +79,15 @@ code=[skeleton](layout_skeleton)
 
 ## Layout.Body 支持属性
 
-| 属性                   | 说明                                                      | 类型       | 默认值   |
-| ---------------------- | --------------------------------------------------------- | ---------- | -------- |
-| loading                | 若为 true 显示 loading 效果并隐藏内容                     | Boolean    | false    |
-| errorInfo              | 出错文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String     | -        |
-| onReachBottom          | 到达底部时的钩子                                          | Object     | -        |
-| onReachButton.disabled | 是否禁用该功能，没有 onReachBottom 对象时也表示禁用       | Boolean    | false    |
-| onReachButton.content  | 提示内容                                                  | String     | 加载更多 |
-| onReachButton.handle   | 点击提示文字或页面到达底部触发的方法                      | Function   | -        |
-| onScroll               | 滚动回调函数                                              | Function   | -        |
-| skeleton               | 骨架屏占位                                                | ReactChild | -        |
-| skeletonRepeat         | 骨架屏显示次数                                            | number     | 1        |
-| onSkeletonFinish       | 骨架屏动画消失完成                                        | Function   | -        |
+| 属性                   | 说明                                                      | 类型     | 默认值   |
+| ---------------------- | --------------------------------------------------------- | -------- | -------- |
+| loading                | 若为 true 显示 loading 效果并隐藏内容                     | Boolean  | false    |
+| errorInfo              | 出错文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String   | -        |
+| onReachBottom          | 到达底部时的钩子                                          | Object   | -        |
+| onReachButton.disabled | 是否禁用该功能，没有 onReachBottom 对象时也表示禁用       | Boolean  | false    |
+| onReachButton.content  | 提示内容                                                  | String   | 加载更多 |
+| onReachButton.handle   | 点击提示文字或页面到达底部触发的方法                      | Function | -        |
+| onScroll               | 滚动回调函数                                              | Function | -        |
 
 ## Layout.Footer 支持属性
 

@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-modal {
@@ -11,8 +12,9 @@
   align-items: center;
   justify-content: center;
   z-index: 10000;
+
   &__mask {
-    background: $maskColor;
+    background: var(--x-mask-color);
     position: absolute;
     left: 0;
     top: 0;
@@ -21,6 +23,7 @@
     opacity: 0;
     transition: opacity 0.2s ease-out !important;
   }
+
   &__inner {
     width: 100%;
     background: #f9f9fa;
@@ -28,14 +31,17 @@
     position: relative;
     z-index: 2;
   }
+
   &.x-modal--init {
     opacity: 0;
   }
+
   &.x-modal--enter {
     .x-modal__mask {
       opacity: 1 !important;
     }
   }
+
   &.x-modal--leave {
     .x-modal__mask {
       opacity: 0 !important;

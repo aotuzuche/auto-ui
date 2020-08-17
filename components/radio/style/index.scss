@@ -1,18 +1,13 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
 
 .x-radio {
   display: inline-flex;
   align-items: center;
   padding: px(10);
+  transition: all 0.3s ease-out;
   user-select: none;
-
-  &:active {
-    opacity: 1;
-    .x-radio__icon {
-      background: rgb(230, 230, 230);
-    }
-  }
 
   &__icon {
     display: flex;
@@ -21,9 +16,10 @@
     width: px(32);
     height: px(32);
     border-radius: 50%;
-    background: rgb(240, 240, 240);
+    background: var(--x-radio-bg-color);
     overflow: hidden;
     transition: all 0.1s ease-out;
+
     svg {
       display: block;
       width: px(20);
@@ -32,6 +28,7 @@
       transform: scale(0);
       transition: all 0.2s ease-out;
     }
+
     path {
       fill: #fff;
     }
@@ -40,63 +37,55 @@
   &__text {
     display: block;
     font-size: px(26);
-    color: rgb(157, 157, 172); // rgb(60, 60, 90) x 0.5alpha
+    color: var(--x-text-color);
     margin-left: px(10);
     user-select: none;
   }
 
   &--checked {
     .x-radio__icon {
-      background: $primaryColor;
+      background: var(--x-primary-color);
+
       svg {
         opacity: 1;
         transform: scale(1);
       }
     }
-    &:active {
-      .x-radio__icon {
-        background: mix($primaryColor, #000, 92%);
-      }
-    }
-    .x-radio__text {
-      color: rgb(60, 60, 90);
-    }
   }
 
   &--disabled {
+    opacity: 0.5;
+
     &:active {
-      opacity: 1 !important;
-    }
-    &.x-radio__checked .x-radio__icon {
-      opacity: 0.7;
-    }
-    .x-radio__text {
-      color: #bbb;
+      opacity: 0.5 !important;
     }
   }
 
   &--hollow {
     .x-radio__icon {
       background: #fff;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.13) inset; /*no*/
+      box-shadow: 0 0 0 1px var(--x-radio-border-color) inset;
+
       svg {
         width: px(16);
         height: px(16);
       }
-    }
-    &:active {
-      opacity: 1;
-      .x-radio__icon {
-        background: rgba(mix($primaryColor, #000, 92%), 0.1);
+
+      path {
+        fill: var(--x-primary-color);
       }
     }
+
     &.x-radio--checked {
       .x-radio__icon {
-        box-shadow: 0 0 0 1px $primaryColor inset; /*no*/
-      }
-      path {
-        fill: $primaryColor;
+        box-shadow: 0 0 0 1px var(--x-primary-color) inset;
       }
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .x-radio--hollow .x-radio__icon {
+    background-color: transparent;
   }
 }

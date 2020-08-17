@@ -26,7 +26,7 @@ const TabsItem: React.FC<IItemProps> = props => {
 
   return (
     <button {...otherProps} className={composeClassName} onClick={onTabClick}>
-      {children}
+      <span>{children}</span>
     </button>
   )
 }
@@ -39,108 +39,8 @@ interface ITabsProps {
   [otherProps: string]: any
 }
 
-interface ITabsState {
-  currentActiveIndex: number
-  direction: string
-}
-
-class Tabs extends React.PureComponent<ITabsProps, ITabsState> {
+class Tabs extends React.PureComponent<ITabsProps> {
   static Item: any
-
-  static getDerivedStateFromProps(props: ITabsProps, state: ITabsState) {
-    let children: any = props.children || []
-    if (!Array.isArray(children)) {
-      children = [children]
-    }
-    for (let i = 0; i < children.length; i++) {
-      if (children[i].props && children[i].props.value === props.active) {
-        return {
-          currentActiveIndex: i,
-          direction: state.currentActiveIndex > i ? 'L' : state.currentActiveIndex < i ? 'R' : '',
-        }
-      }
-    }
-    return {
-      currentActiveIndex: -2,
-      direction: '',
-    }
-  }
-
-  preIndex: number = -2
-  ref: React.RefObject<HTMLDivElement> = React.createRef()
-  lineRef: React.RefObject<HTMLDivElement> = React.createRef()
-  targetTabItem: any = null
-  initTimer: any = null
-
-  state = {
-    currentActiveIndex: -2,
-    direction: '',
-  }
-
-  componentDidMount() {
-    if (this.ref.current) {
-      const tab = this.ref.current.querySelector('.x-tabs--active')
-      if (!tab) {
-        return
-      }
-      tab.classList.add('x-tabs--active-l')
-      this.initTimer = setTimeout(this.animLine, 1000, false)
-    }
-  }
-
-  animLine = (anim: boolean = true) => {
-    this.targetTabItem = null
-    clearTimeout(this.initTimer)
-    if (this.preIndex === this.state.currentActiveIndex) {
-      return
-    }
-    if (this.lineRef.current && this.ref.current) {
-      const d = this.state.direction
-      const index = this.state.currentActiveIndex
-      this.targetTabItem = this.ref.current.querySelectorAll('.x-tabs__item')[index]
-      if (!this.targetTabItem) {
-        return
-      }
-      const targetRect = this.targetTabItem.getBoundingClientRect()
-      const parentRect = this.ref.current.getBoundingClientRect()
-      const targetCenter = targetRect.left + targetRect.width / 2 - parentRect.left
-      const process = (targetCenter / parentRect.width) * 100
-
-      const supT = `transform: translateX(${process}%)`
-      const subT = `transform: translateX(${process}%)`
-      let supA = `transition: transform 0.25s ${
-        d === 'L' ? 'ease-out' : d === 'R' ? 'ease-in' : 'linear'
-      } 0.2s`
-      let subA = `transition: transform 0.25s ${
-        d === 'L' ? 'ease-in' : d === 'R' ? 'ease-out' : 'linear'
-      } 0.2s`
-      if (!anim) {
-        supA = ''
-        subA = ''
-      }
-
-      this.lineRef.current.setAttribute('style', 'opacity: 1;')
-      this.lineRef.current.children[1].setAttribute('style', `${subT};${subA}`)
-      this.lineRef.current.children[0].setAttribute('style', `${supT};${supA}`)
-      this.preIndex = this.state.currentActiveIndex
-      if (!anim) {
-        this.onAnimEnd()
-      }
-    }
-  }
-
-  onAnimEnd = () => {
-    if (this.lineRef.current) {
-      this.lineRef.current.removeAttribute('style')
-    }
-    if (this.ref.current) {
-      const index = this.state.currentActiveIndex
-      this.targetTabItem = this.ref.current.querySelectorAll('.x-tabs__item')[index]
-      if (this.targetTabItem) {
-        this.targetTabItem.classList.add('x-tabs--active-l')
-      }
-    }
-  }
 
   render() {
     const { className, children, active, onClick, shrink, ...otherProps } = this.props
@@ -170,31 +70,19 @@ class Tabs extends React.PureComponent<ITabsProps, ITabsState> {
       })
     })
 
-    this.animLine() // 初始化并不执行
-
     if (shrink) {
       return (
         <div {...otherProps} className={composeClassName}>
           <div className="x-tabs__scroller">
-            <div className="x-tabs__inner" ref={this.ref}>
-              {composeChildren}
-              <div className="x-tabs__line" ref={this.lineRef}>
-                <sup onTransitionEnd={this.onAnimEnd} />
-                <sub />
-              </div>
-            </div>
+            <div className="x-tabs__inner">{composeChildren}</div>
           </div>
         </div>
       )
     }
 
     return (
-      <div {...otherProps} className={composeClassName} ref={this.ref}>
+      <div {...otherProps} className={composeClassName}>
         {composeChildren}
-        <div className="x-tabs__line" ref={this.lineRef}>
-          <sup onTransitionEnd={this.onAnimEnd} />
-          <sub />
-        </div>
       </div>
     )
   }

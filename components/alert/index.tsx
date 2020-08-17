@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import { createPortal, render, unmountComponentAtNode } from 'react-dom'
+import supportDarkMode from '../__utils/supportDarkMode'
 import Button from '../button/index'
 import './style/index.scss'
 
@@ -92,7 +93,7 @@ type IAsyncAlert = (params: IAlertParams | string) => Promise<string | number | 
 type IAlert = ((
   params: IAlertParams | string,
   callback?: (value?: string | number | boolean) => void,
-) => [() => void, void]) & { async: IAsyncAlert }
+) => [() => void, undefined]) & { async: IAsyncAlert }
 
 const Alert: IAlert = (params, callback) => {
   const div = document.createElement('div')
@@ -100,6 +101,11 @@ const Alert: IAlert = (params, callback) => {
   if (typeof params !== 'string' && params.className) {
     div.classList.add(params.className)
   }
+
+  if (supportDarkMode()) {
+    div.classList.add('x-app--support-dark-mode')
+  }
+
   document.body.appendChild(div)
 
   const close: (btn?: IBtn) => void = btn => {

@@ -11,7 +11,7 @@ import './style/index.scss'
 class AtCalendar extends Controller {
   render() {
     return (
-      <Layout className="at-calendar">
+      <Layout className="at-calendar" supportDarkMode={this.props.supportDarkMode}>
         {this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}
@@ -216,7 +216,7 @@ class AtCalendar extends Controller {
     const times = this.state.timePickerTimes
 
     return (
-      <Layout.Footer className="footer">
+      <Layout.Footer className="footer" borderType="shadow">
         <div className="tips">
           <p>
             <i />

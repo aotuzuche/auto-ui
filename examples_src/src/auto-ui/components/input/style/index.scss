@@ -142,3 +142,11 @@
     height: 0.5em;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .x-app--support-dark-mode {
+    .x-input {
+      background-color: transparent;
+    }
+  }
+}

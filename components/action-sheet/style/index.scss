@@ -1,10 +1,12 @@
 @charset "utf-8";
+
 @import '../../theme.scss';
+
 .x-actionsheet {
   align-items: flex-end !important;
 
   .x-modal__inner {
-    background: $background;
+    background: var(--x-panel-bg-color);
   }
 
   &__title {
@@ -14,13 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid $borderColor; /* no */
-    background: #fff;
+    border-bottom: px(1) solid var(--x-border-color);
     font-size: px(26);
-  }
-
-  &__list {
-    background: #fff;
   }
 
   &__item {
@@ -28,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: px(1) solid $borderColor; /* no */
+    border-bottom: px(1) solid var(--x-border-color);
     font-size: px(30);
   }
 
@@ -43,29 +40,30 @@
     justify-content: center;
     height: px(100);
     width: 100%;
-    color: rgb(60, 60, 90);
+    color: var(--x-text-color);
     font-size: px(30);
+    transition: all 0.2s ease-out;
 
     &:active {
-      background: #f9f9fa;
+      background: rgba(0, 0, 0, 0.05);
+      opacity: 1;
     }
   }
 
   &__closebtn {
-    margin-top: px(20);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    color: rgb(196, 196, 205); // rgb(60, 60, 90) x 0.3alpha
+    color: var(--x-text-color-o50);
     width: 100%;
     height: px(100);
-    border-top: px(1) solid $borderColor; /* no */
+    border-top: px(1) solid var(--x-border-color);
     font-size: px(30);
+    transition: all 0.2s ease-out;
 
     &:active {
-      background: #f9f9fa;
-      color: rgb(157, 157, 172); // rgb(60, 60, 90) x 0.5alpha
+      background: rgba(0, 0, 0, 0.05);
+      opacity: 1;
     }
   }
 
