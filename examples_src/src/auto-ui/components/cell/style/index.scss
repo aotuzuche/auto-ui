@@ -19,6 +19,7 @@
     color: var(--x-text-color);
     position: relative;
     border-bottom: px(1) solid var(--x-border-color);
+    transition: all 0.2s ease-out;
 
     .x-cell__addon-after {
       display: block;
@@ -71,7 +72,7 @@
     &--activable {
       &:active {
         opacity: 1;
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.03);
       }
     }
   }
