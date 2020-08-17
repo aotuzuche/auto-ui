@@ -24,7 +24,7 @@ class Demo extends React.PureComponent {
     ]
 
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Body>
           <Button
             onClick={() => {

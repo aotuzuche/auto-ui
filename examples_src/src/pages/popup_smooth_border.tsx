@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Popup</Button>
           <Popup smoothBorder={true} visible={this.state.visible}>

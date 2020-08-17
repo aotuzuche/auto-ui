@@ -89,14 +89,7 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   render() {
-    const {
-      loading,
-      errorInfo,
-      className,
-      onScroll,
-      onReachBottom,
-      ...otherProps
-    } = this.props
+    const { loading, errorInfo, className, onScroll, onReachBottom, ...otherProps } = this.props
 
     const composeClassName = cn('x-app-body', className, {
       'x-app-body--loading': loading,
@@ -241,7 +234,11 @@ interface IFooterProps {
 
 const LayoutFooter: React.FC<IFooterProps> = props => {
   const { className, visible, children, borderType, ...otherProps } = props
-  const composeClassName = cn('x-app-footer', className, borderType && borderType !== 'none' ? `x-app-footer--top-${borderType}` : void 0,)
+  const composeClassName = cn(
+    'x-app-footer',
+    className,
+    borderType && borderType !== 'none' ? `x-app-footer--top-${borderType}` : void 0,
+  )
 
   if (!visible) {
     return null

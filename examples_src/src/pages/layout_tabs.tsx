@@ -4,7 +4,7 @@ const Demo: React.FC<any> = () => {
   const [val, setVal] = React.useState(1)
 
   return (
-    <Layout supportDarkMode={true}>
+    <Layout>
       <Layout.Header
         title="标题"
         tabs={

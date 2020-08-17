@@ -8,7 +8,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout supportDarkMode={true}>
+    <Layout>
       <Layout.Body>
         <Button onClick={onClick}>点击加载</Button>
       </Layout.Body>

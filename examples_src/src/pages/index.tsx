@@ -30,6 +30,7 @@ const routes = [
   'switch_disabled',
   'switch_icon',
   'switch_io',
+  'switch_mini',
   'toast',
   'toast_close',
   'toast_duration',
@@ -68,7 +69,6 @@ const routes = [
   'layout_header',
   'layout_header_homepage',
   'layout_loading',
-  'layout_skeleton',
   'layout_tabs',
   'layout_reach_bottom',
   'message',
@@ -84,7 +84,7 @@ const routes = [
 class Demo extends React.PureComponent {
   render() {
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Body>
           <Cell arrow={true}>
             {routes.map((item, index) => {

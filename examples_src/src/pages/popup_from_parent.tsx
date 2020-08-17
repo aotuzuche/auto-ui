@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Header
           title="标题"
           addonAfter={

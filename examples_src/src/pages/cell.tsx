@@ -3,7 +3,7 @@ import { Cell, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout supportDarkMode={true}>
+    <Layout>
       <Layout.Body>
         <Cell.Title text="单元格" />
         <Cell>

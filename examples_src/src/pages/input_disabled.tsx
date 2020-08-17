@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Body>
           <Cell>
             <Cell.Row title="通过我设置disabled">

@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Body>
           <Button disabled={this.state.disabled} onClick={this.onButtonClick}>
             按钮
