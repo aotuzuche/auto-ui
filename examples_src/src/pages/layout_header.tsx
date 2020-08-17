@@ -3,7 +3,7 @@ import { Button, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout supportDarkMode={true}>
+    <Layout>
       <Layout.Header
         addonBefore={<button>左侧挂载</button>}
         title="标题"

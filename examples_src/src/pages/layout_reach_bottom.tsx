@@ -11,7 +11,7 @@ class Demo extends React.PureComponent {
       handler: this.onLoadMore,
     }
     return (
-      <Layout supportDarkMode={true}>
+      <Layout>
         <Layout.Header title="很长的列表" borderType="shadow" />
         <Layout.Body onReachBottom={reachObj}>
           <Cell>
