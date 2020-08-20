@@ -55,7 +55,10 @@ code=[onReachBottom](layout_reach_bottom)
 | topSafeAreaColor    | 头部安全区域的颜色             | String  | white  |
 | bottomSafeAreaColor | 底部安全区域的颜色             | String  | white  |
 | useTopSafeArea      | 是否使用顶部安全区域，默认使用 | Boolean | true   |
+| topSafeAreaColor    | 上安全区域的颜色               | String  | -      |
+| bottomSafeAreaColor | 下安全区域的颜色               | String  | -      |
 | useBottomSafeArea   | 是否使用底部安全区域，默认使用 | Boolean | true   |
+| grayBackground      | 使用灰色背景                   | Boolean | false  |
 
 ## Layout.Header 支持属性
 

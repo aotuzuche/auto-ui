@@ -35,10 +35,10 @@ button {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background: var(--x-bg-color);
+  background: var(--x-bg-color-lighter);
 
-  &--white-background {
-    background: var(--x-bg-color-lighter);
+  &--gray-background {
+    background: var(--x-bg-color);
   }
 }
 

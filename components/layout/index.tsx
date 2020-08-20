@@ -17,7 +17,7 @@ interface ILayoutProps {
   useBottomSafeArea?: boolean
   bottomSafeAreaColor?: string
   supportDarkMode?: boolean
-  whiteBackground?: boolean
+  grayBackground?: boolean
   [otherProps: string]: any
 }
 
@@ -36,12 +36,12 @@ const Layout: React.FC<ILayoutProps> & ILayout = props => {
     topSafeAreaColor,
     bottomSafeAreaColor,
     supportDarkMode = false,
-    whiteBackground = false,
+    grayBackground = false,
     ...otherProps
   } = props
 
   const composeClassName = cn('x-app', className, {
-    'x-app--white-background': whiteBackground,
+    'x-app--gray-background': grayBackground,
     'x-app--support-dark-mode': supportDarkMode,
   })
 
