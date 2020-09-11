@@ -164,6 +164,50 @@
     }
   }
 
+  &--lighter {
+    background: var(--x-primary-color-lighter);
+    color: var(--x-primary-color);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 0.2s ease-out;
+    }
+
+    &:active {
+      &::after {
+        opacity: 0.08;
+      }
+    }
+
+    .x-loading__spin span {
+      background: var(--x-primary-color);
+    }
+
+    &.x-button--hollow {
+      border: px(1) solid var(--x-primary-color);
+      background: none;
+      color: var(--x-primary-color);
+
+      &::after {
+        background: var(--x-primary-color);
+      }
+
+      .x-loading__spin span {
+        background: var(--x-primary-color);
+      }
+    }
+  }
+
   &--mini {
     height: px(60);
     font-size: px(26);

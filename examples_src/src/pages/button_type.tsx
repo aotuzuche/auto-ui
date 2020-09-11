@@ -12,6 +12,10 @@ const Demo: React.FC<any> = () => {
         <br />
         <Button onClick={onClick}>主按钮</Button>
         <br />
+        <Button type="lighter" onClick={onClick}>
+          轻按钮
+        </Button>
+        <br />
         <Button type="danger" onClick={onClick}>
           警告按钮
         </Button>
@@ -24,6 +28,10 @@ const Demo: React.FC<any> = () => {
         <br />
         <Button hollow={true} onClick={onClick}>
           主按钮
+        </Button>
+        <br />
+        <Button hollow={true} type="lighter" onClick={onClick}>
+          轻按钮
         </Button>
         <br />
         <Button hollow={true} type="danger" onClick={onClick}>

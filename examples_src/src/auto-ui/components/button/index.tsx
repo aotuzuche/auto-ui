@@ -5,7 +5,7 @@ import Spin from '../spin/index'
 import './style/index.scss'
 
 interface ButtonProps {
-  type?: 'primary' | 'danger' | 'default'
+  type?: 'primary' | 'lighter' | 'danger' | 'default'
   disabled?: boolean
   hollow?: boolean
   capsule?: boolean

@@ -12,6 +12,10 @@ class Demo extends React.PureComponent {
             {this.state.loading ? null : '点击加载'}
           </Button>
           <br />
+          <Button type="lighter" loading={this.state.loading} onClick={this.onClick}>
+            {this.state.loading ? null : '点击加载'}
+          </Button>
+          <br />
           <Button type="danger" loading={this.state.loading} onClick={this.onClick}>
             {this.state.loading ? null : '点击加载'}
           </Button>
