@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/iscroll": "^5.2.2",
     "@types/react-router-dom": "^5.1.2",
     "auto-libs": "^0.3.6",
     "classnames": "^2.2.6",
@@ -15,7 +14,7 @@
     "react-content-loader": "^4.3.2",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts-auto": "^0.2.58"
+    "react-scripts-auto": "^0.2.65"
   },
   "scripts": {
     "start": "PORT=3333 react-scripts-auto start",
@@ -50,6 +49,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.6",
     "@types/dva": "^1.1.0",
+    "@types/iscroll": "^5.2.4",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
     "@types/qs": "^6.5.1",

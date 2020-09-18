@@ -1671,10 +1671,10 @@
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
 
-"@types/iscroll@^5.2.2":
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/@types/iscroll/-/iscroll-5.2.2.tgz#74bd6191b0a0c44c22b65386fcf7a0b1d72696da"
-  integrity sha512-+hl4De73nh86YxTr5peE5Bkiu87Dar1oTDgkhMQ63Lc9+p7pVGw2+SSD1VEz6EQGLC/36Xj7kHx3NhvK2YfopQ==
+"@types/iscroll@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.npm.taobao.org/@types/iscroll/download/@types/iscroll-5.2.4.tgz#64b7983d918b57e0de30f9bf1be517a448fb4145"
+  integrity sha1-ZLeYPZGLV+DeMPm/G+UXpEj7QUU=
 
 "@types/isomorphic-fetch@^0.0.34":
   version "0.0.34"
@@ -11281,10 +11281,10 @@ react-router@^4.2.0, react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
-react-scripts-auto@^0.2.58:
-  version "0.2.58"
-  resolved "https://registry.npm.taobao.org/react-scripts-auto/download/react-scripts-auto-0.2.58.tgz#189f8d64273b73d42bb5f4988d82077b80c9b7c7"
-  integrity sha1-GJ+NZCc7c9QrtfSYjYIHe4DJt8c=
+react-scripts-auto@^0.2.65:
+  version "0.2.65"
+  resolved "https://registry.npm.taobao.org/react-scripts-auto/download/react-scripts-auto-0.2.65.tgz#4b9f50a62cb003200f9c8dfde89284a17ef11b9e"
+  integrity sha1-S59QpiywAyAPnI396JKEoX7xG54=
   dependencies:
     "@babel/core" "^7.9.0"
     "@sentry/cli" "^1.52.3"
