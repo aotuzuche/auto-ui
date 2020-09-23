@@ -9,7 +9,7 @@ class Demo extends React.PureComponent {
       <Layout>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Dialog</Button>
-          <Dialog visible={this.state.visible}>
+          <Dialog visible={this.state.visible} onCloseClick={this.onBtnClick}>
             <h1>标题</h1>
             <p>内容</p>
             <p>注意：dialog内的标签样式需要自己定义</p>

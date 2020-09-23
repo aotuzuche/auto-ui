@@ -26,8 +26,9 @@ code=[scroll](dialog_scroll)
 
 ## 支持属性
 
-| 属性        | 说明                                | 类型          | 默认值 |
-| ----------- | ----------------------------------- | ------------- | ------ |
-| visible     | 是否显示                            | Boolean       | false  |
-| onMaskClick | 蒙层点击事件                        | Function      | -      |
-| height      | 高度, 使用 Dialog.Scroller 必须设置 | Number/String | auto   |
+| 属性         | 说明                                 | 类型          | 默认值 |
+| ------------ | ------------------------------------ | ------------- | ------ |
+| visible      | 是否显示                             | Boolean       | false  |
+| onMaskClick  | 蒙层点击事件                         | Function      | -      |
+| onCloseClick | 关闭按钮点击事件(默认不显示关闭按钮) | Function      | -      |
+| height       | 高度, 使用 Dialog.Scroller 必须设置  | Number/String | auto   |

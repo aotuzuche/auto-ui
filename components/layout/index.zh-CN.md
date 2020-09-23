@@ -75,8 +75,6 @@ code=[onReachBottom](layout_reach_bottom)
 | homepage       | 首页按钮，若值为 true，点击到达/m/index 页面，若为 string 类型，则认为该 string 是个 url 进行跳转，若为 function 类型，则调用该方法 | Function/String/Boolean | -      |
 | tabs           | Tabs 组件，位于 header 下方                                                                                                         | Component               | -      |
 | hideInApp      | 在 app 中隐藏自身                                                                                                                   | Boolean                 | false  |
-| hideInAlipay   | 在 支付宝(网页和小程序) 中隐藏自身                                                                                                  | Boolean                 | false  |
-| hideInAlipayMP | 在 支付宝小程序 中隐藏自身                                                                                                          | Boolean                 | false  |
 | borderType     | 头部下方是使用阴影、线或是没有                                                                                                      | border、shadow、none    | none   |
 | useSafeArea    | 是否使用安全区域，默认是在 Layout 中使用，可以在 Layout 中关闭，在 Header 中使用，特殊情况下可以这么做，比如有吸顶 banner 图的时候  | Boolean                 | false  |
 

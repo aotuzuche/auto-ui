@@ -14,6 +14,25 @@
     flex-direction: column;
   }
 
+  &__close {
+    position: absolute;
+    z-index: 9;
+    right: px(20);
+    top: px(20);
+    width: px(50);
+    height: px(50);
+    padding: px(9);
+
+    svg {
+      width: px(32);
+      height: px(32);
+    }
+
+    path {
+      fill: var(--x-text-color-o40);
+    }
+  }
+
   &__scroller {
     flex: 1;
     display: flex;

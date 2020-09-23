@@ -241,8 +241,6 @@ interface IHeaderProps {
   addonBottom?: React.ReactNode
   borderType?: 'border' | 'shadow' | 'none'
   headline?: boolean
-  hideInAlipay?: boolean
-  hideInAlipayMP?: boolean
   hideInApp?: boolean
   tabs?: React.ReactNode
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean
@@ -265,8 +263,6 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
     addonBottom,
     borderType,
     headline,
-    hideInAlipay,
-    hideInAlipayMP,
     hideInApp,
     homepage,
     useSafeArea,
@@ -296,11 +292,6 @@ const LayoutHeader: React.FC<IHeaderProps> = props => {
 
   // 在app中隐藏
   if (hideInApp && /atzuche/gi.test(ua)) {
-    return null
-  }
-
-  // 在支付宝中隐藏，包括扫一扫进入的网页和小程序
-  if (hideInAlipay && /AlipayClient/gi.test(ua)) {
     return null
   }
 

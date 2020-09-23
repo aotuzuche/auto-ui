@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
+import IconClose from '../icon/close_s'
 import Modal from '../modal/index'
 import './style/index.scss'
 
@@ -9,6 +10,7 @@ interface IProps {
   height?: number | string
   visible?: boolean
   onMaskClick?: () => void
+  onCloseClick?: () => void
   addonTop?: React.ReactNode
   addonBottom?: React.ReactNode
   [otherProps: string]: any
@@ -32,7 +34,15 @@ class Dialog extends React.Component<IProps> {
   }
 
   content() {
-    const { className, height, visible, children, onMaskClick, ...otherProps } = this.props
+    const {
+      className,
+      height,
+      visible,
+      children,
+      onMaskClick,
+      onCloseClick,
+      ...otherProps
+    } = this.props
 
     const composeClassName = cn('x-dialog', className)
 
@@ -44,6 +54,11 @@ class Dialog extends React.Component<IProps> {
         onMaskClick={onMaskClick}
         className={composeClassName}
       >
+        {onCloseClick && (
+          <button className="x-dialog__close" onClick={onCloseClick}>
+            <IconClose />
+          </button>
+        )}
         <div className="x-dialog__inner">{children}</div>
       </Modal>
     )
