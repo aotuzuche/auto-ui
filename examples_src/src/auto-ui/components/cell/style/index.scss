@@ -9,6 +9,11 @@
   overflow: hidden;
   min-height: px(100);
 
+  &--no-border {
+    border-top: none;
+    border-bottom: none;
+  }
+
   &__row {
     display: flex;
     align-items: center;

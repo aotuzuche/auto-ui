@@ -122,6 +122,7 @@ interface ICellProps {
   dividerIndent?: 'left' | 'both'
   onClick?: (value?: any) => void
   className?: string
+  wrapperBorder?: boolean
   children: React.ReactNode
   [otherProps: string]: any
 }
@@ -130,7 +131,17 @@ const Cell: React.FC<ICellProps> & {
   Row: React.FC<IRowProps>
   Title: React.FC<ITitleProps>
 } = props => {
-  const { arrow, indentLine, endIndentLine, dividerIndent, className, children, onClick, ...otherProps } = props
+  const {
+    arrow,
+    indentLine,
+    endIndentLine,
+    dividerIndent,
+    className,
+    children,
+    onClick,
+    wrapperBorder = true,
+    ...otherProps
+  } = props
 
   if (indentLine || endIndentLine) {
     // TODO: 需要废弃这两个属性
@@ -148,7 +159,7 @@ const Cell: React.FC<ICellProps> & {
     }
   }
 
-  const composeClassName = cn('x-cell', className)
+  const composeClassName = cn('x-cell', { 'x-cell--no-border': !wrapperBorder }, className)
 
   const composeChildren: any[] = React.Children.toArray(children)
 
@@ -159,8 +170,7 @@ const Cell: React.FC<ICellProps> & {
           return React.cloneElement(child, {
             key: index,
             arrow: child.props.arrow === false ? false : arrow || child.props.arrow,
-            onClick:
-              child.props.href || child.props.to ? void 0 : onClick || child.props.onClick,
+            onClick: child.props.href || child.props.to ? void 0 : onClick || child.props.onClick,
             dividerIndent: finalDividerIndent,
           })
         }

@@ -59,7 +59,7 @@
       color: rgb(170, 170, 176);
 
       &::after {
-        background: var(--x-text-color-o30);
+        background: var(--x-text-color-o60);
       }
 
       .x-loading__spin span {
@@ -177,7 +177,7 @@
       right: 0;
       bottom: 0;
       pointer-events: none;
-      background: #000;
+      background: var(--x-primary-color);
       opacity: 0;
       border-radius: inherit;
       transition: all 0.2s ease-out;

@@ -7,10 +7,10 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout grayBackground={true}>
       <Layout.Body>
         <Cell.Title text="统一点击事件" />
-        <Cell onClick={onClick} arrow={true}>
+        <Cell onClick={onClick} arrow={true} wrapperBorder={false}>
           <Cell.Row value="1">cell 1</Cell.Row>
           <Cell.Row value="2">cell 2</Cell.Row>
           <Cell.Row value="3">cell 3</Cell.Row>
