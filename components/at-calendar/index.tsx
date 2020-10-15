@@ -183,7 +183,7 @@ class AtCalendar extends Controller {
           <em>{date.getDate()}</em>
           {data.badge ? <i className="badge">{data.badge}</i> : null}
         </p>
-        {data.price && <span>￥{data.price}</span>}
+        <span>{data.price ? `￥${data.price}` : ''}</span>
       </div>
     )
   }
