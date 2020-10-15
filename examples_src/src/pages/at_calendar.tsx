@@ -2,10 +2,34 @@ import * as React from 'react'
 import { AtCalendar } from '../auto-ui'
 
 class Demo extends React.PureComponent {
+  state = {
+    calendar: {
+      [new Date(2019, 5, 2).valueOf()]: { price: 333 },
+      [new Date(2019, 5, 3).valueOf()]: { price: 333 },
+      [new Date(2019, 5, 4).valueOf()]: { price: 333 },
+      [new Date(2019, 5, 5).valueOf()]: { price: 333 },
+      [new Date(2019, 5, 6).valueOf()]: {},
+      [new Date(2019, 5, 7).valueOf()]: {},
+      [new Date(2019, 6, 8).valueOf()]: {},
+      [new Date(2019, 5, 9).valueOf()]: {
+        disabled: 'ALL',
+      },
+      [new Date(2019, 5, 10).valueOf()]: {
+        price: 333,
+        rent: ['0000', '1200'],
+        revert: [
+          ['0030', '1100'],
+          ['1300', '2000'],
+        ],
+        badge: '限',
+        disabled: 'ALL',
+      },
+    },
+  }
+
   render() {
     return (
       <AtCalendar
-        supportDarkMode={true}
         title="查看可租用时间"
         onClose={this.onClose}
         chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
@@ -25,28 +49,7 @@ class Demo extends React.PureComponent {
         checkTimeRange={(t1, t2) => {
           return null
         }}
-        data={{
-          [new Date(2019, 5, 2).valueOf()]: {},
-          [new Date(2019, 5, 3).valueOf()]: {},
-          [new Date(2019, 5, 4).valueOf()]: {},
-          [new Date(2019, 5, 5).valueOf()]: {},
-          [new Date(2019, 5, 6).valueOf()]: {},
-          [new Date(2019, 5, 7).valueOf()]: {},
-          [new Date(2019, 6, 8).valueOf()]: {},
-          [new Date(2019, 5, 9).valueOf()]: {
-            disabled: 'ALL',
-          },
-          [new Date(2019, 5, 10).valueOf()]: {
-            price: 333,
-            rent: ['0000', '1200'],
-            revert: [
-              ['0030', '1100'],
-              ['1300', '2000'],
-            ],
-            badge: '限',
-            disabled: 'ALL',
-          },
-        }}
+        data={this.state.calendar as any}
         onSubmit={this.onSubmit}
         onDayClick={this.onDayClick}
       />

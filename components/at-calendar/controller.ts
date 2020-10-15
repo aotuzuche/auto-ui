@@ -46,6 +46,7 @@ interface IState {
     day: Date
     times?: string[] | string[][]
   }
+  footerTips: any
   chooseType: string
   chooseTipsData: [Date, String]
   chooseTipsVisible: boolean
@@ -106,6 +107,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       preChooseRange: [cr1, cr2],
       timePickerVisible: false,
       timePickerTimes: [tr1, tr2],
+      footerTips: this.props.footerTips ? this.props.footerTips(tr1, tr2) : '',
       preTimePickerTimes: [tr1, tr2],
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
@@ -153,6 +155,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       preChooseRange: [...this.state.chooseRange] as any,
       timePickerTimes: range,
       preTimePickerTimes: [...this.state.timePickerTimes] as any,
+      footerTips: this.props.footerTips ? this.props.footerTips(range[0], range[1]) : '',
       timePickerVisible: false,
     })
   }
@@ -322,6 +325,7 @@ class Controller extends React.PureComponent<IProps, IState> {
           chooseRange: [cr1, cr2],
           preChooseRange: [cr1, cr2],
           timePickerTimes: [pr[0], pr[1]],
+          footerTips: this.props.footerTips ? this.props.footerTips(pr[0], pr[1]) : '',
           preTimePickerTimes: [pr[0], pr[1]],
         })
       } else {
@@ -333,6 +337,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       chooseRange: [void 0, void 0],
       preChooseRange: [void 0, void 0],
       timePickerTimes: [void 0, void 0],
+      footerTips: this.props.footerTips ? this.props.footerTips(void 0, void 0) : '',
       preTimePickerTimes: [void 0, void 0],
       chooseTipsVisible: false,
     })
@@ -436,6 +441,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       preChooseRange: [...this.state.chooseRange] as any,
       preTimePickerTimes: [...times] as any,
       timePickerTimes: times,
+      footerTips: this.props.footerTips ? this.props.footerTips(times[0], times[1]) : '',
       timePickerVisible: false,
     })
     if (this.state.chooseType === 'revert' && this.state.chooseTipsVisible) {

@@ -190,6 +190,10 @@ class AtCalendar extends Controller {
 
   // 页脚的提示
   private renderFooterTips() {
+    if (this.state.footerTips) {
+      return this.state.footerTips
+    }
+
     const min = this.props.minHours || 0
     const times = this.state.timePickerTimes
     const chooseOk = times[0] !== void 0 && times[1] !== void 0
@@ -213,8 +217,6 @@ class AtCalendar extends Controller {
 
   // 页脚
   private renderFooter() {
-    const times = this.state.timePickerTimes
-
     return (
       <Layout.Footer className="footer" borderType="shadow">
         <div className="tips">
@@ -229,11 +231,7 @@ class AtCalendar extends Controller {
         </div>
         {!this.props.readonly && (
           <div className="bottom">
-            <div className="footer-tips">
-              {this.props.footerTips
-                ? this.props.footerTips(times[0], times[1])
-                : this.renderFooterTips()}
-            </div>
+            <div className="footer-tips">{this.renderFooterTips()}</div>
             <Button className="submit" onClick={this.onSubmit}>
               确定
             </Button>
