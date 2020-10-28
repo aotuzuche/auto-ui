@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
-import './style/index.scss'
 import CloseIcon from '../icon/close'
+import './style/index.scss'
 
 interface IProps {
   type?: string
@@ -12,10 +12,10 @@ interface IProps {
   multi?: boolean
   disabled?: boolean
   mini?: boolean
-  value: string
+  value?: string
   allowClear?: boolean
   children?: null
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   inputProps?: React.InputHTMLAttributes<any>
   textareaProps?: React.TextareaHTMLAttributes<any>
