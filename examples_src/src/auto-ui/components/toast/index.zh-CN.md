@@ -11,3 +11,7 @@ code=[duration](toast_duration)
 ## 手动关闭
 
 code=[close](toast_close)
+
+## 关闭后回调
+
+code=[close](toast_callback)
