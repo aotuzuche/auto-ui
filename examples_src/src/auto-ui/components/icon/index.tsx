@@ -4,12 +4,16 @@ import Check from './check'
 import Close from './close'
 import Tips from './tips'
 
+interface IProps {
+  className?: string
+}
+
 interface IIcon {
-  Arrow: React.FC
-  Check: React.FC
-  Back: React.FC
-  Close: React.FC
-  Tips: React.FC
+  Arrow: React.FC<IProps>
+  Check: React.FC<IProps>
+  Back: React.FC<IProps>
+  Close: React.FC<IProps>
+  Tips: React.FC<IProps>
 }
 
 const Icon: IIcon = {

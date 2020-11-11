@@ -14,6 +14,7 @@ const PageAlert = React.lazy(() => import('../pages/alert'));
 const PageDialog = React.lazy(() => import('../pages/dialog'));
 const PagePopup = React.lazy(() => import('../pages/popup'));
 const PageRadio = React.lazy(() => import('../pages/radio'));
+const PageIcon = React.lazy(() => import('../pages/icon'));
 const PageSwitch = React.lazy(() => import('../pages/switch'));
 const PageToast = React.lazy(() => import('../pages/toast'));
 const PageLoading = React.lazy(() => import('../pages/loading'));
@@ -45,6 +46,7 @@ export default (history: any) => {
             <Route exact={true} path="/dialog" component={PageDialog} />
             <Route exact={true} path="/popup" component={PagePopup} />
             <Route exact={true} path="/radio" component={PageRadio} />
+            <Route exact={true} path="/icon" component={PageIcon} />
             <Route exact={true} path="/switch" component={PageSwitch} />
             <Route exact={true} path="/toast" component={PageToast} />
             <Route exact={true} path="/loading" component={PageLoading} />
