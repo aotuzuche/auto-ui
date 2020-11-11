@@ -19,6 +19,7 @@ const Aside: React.FC<any> = props => {
     'Switch,开关',
     'Toast,轻提示',
     'Loading,全局加载',
+    'Icon,图标',
     'Spin,加载',
     'ActionSheet,动作框',
     'Tabs,标签页',
