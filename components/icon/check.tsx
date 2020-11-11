@@ -1,8 +1,15 @@
+import cn from 'classnames'
 import * as React from 'react'
+import './style/index.scss'
 
-const IconCheck: React.FC<any> = () => {
+interface IProps {
+  className?: string
+}
+
+const IconCheck: React.FC<IProps> = props => {
   return (
     <svg
+      className={cn('x-icon', props.className)}
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

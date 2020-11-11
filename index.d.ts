@@ -8,6 +8,7 @@ import Button from './es/button'
 import Card from './es/card'
 import Cell from './es/cell'
 import Dialog from './es/dialog'
+import Icon from './es/icon'
 import Input from './es/input'
 import Layout from './es/layout'
 import LazyImg from './es/lazy-img'
@@ -35,6 +36,7 @@ export {
   Card,
   Cell,
   Dialog,
+  Icon,
   Input,
   Layout,
   Loading,

@@ -1,14 +1,14 @@
+import cn from 'classnames'
 import * as React from 'react'
-
+import './style/index.scss'
 interface IProps {
-  color?: string
+  className?: string
 }
 
 const IconBackS: React.FC<IProps> = props => {
-  const color = props.color || '#000'
   return (
     <svg
-      fill={color}
+      className={cn('x-icon', props.className)}
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
