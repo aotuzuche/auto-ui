@@ -11,6 +11,7 @@ const componentList = [
   'Radio',
   'Switch',
   'Toast',
+  'Icon',
   'Message',
   'Loading',
   'Spin',
