@@ -14,9 +14,11 @@ const close = (): void => {
   }
 }
 
-type ILoading = (() => [() => void, undefined]) & { hide: () => void }
+type ILoading = ((icon?: React.ReactNode | string) => [() => void, undefined]) & {
+  hide: () => void
+}
 
-const Loading: ILoading = () => {
+const Loading: ILoading = (icon = '') => {
   // 防止多次调用先 close 检查下
   close()
 
@@ -29,15 +31,7 @@ const Loading: ILoading = () => {
 
   document.body.appendChild(div)
 
-  render(
-    createPortal(
-      <div className="x-loading__inner">
-        <Spin />
-      </div>,
-      div,
-    ),
-    div,
-  )
+  render(createPortal(<div className="x-loading__inner">{icon || <Spin />}</div>, div), div)
 
   return [close, void 0]
 }

@@ -44,6 +44,10 @@ code=[header border](layout_border_type)
 
 code=[errorInfo](layout_error_info)
 
+## 自定义错误 Icon
+
+code=[errorIcon](layout_error_icon)
+
 ## 到达底部
 
 code=[onReachBottom](layout_reach_bottom)
@@ -80,15 +84,16 @@ code=[onReachBottom](layout_reach_bottom)
 
 ## Layout.Body 支持属性
 
-| 属性                   | 说明                                                      | 类型     | 默认值   |
-| ---------------------- | --------------------------------------------------------- | -------- | -------- |
-| loading                | 若为 true 显示 loading 效果并隐藏内容                     | Boolean  | false    |
-| errorInfo              | 出错文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String   | -        |
-| onReachBottom          | 到达底部时的钩子                                          | Object   | -        |
-| onReachButton.disabled | 是否禁用该功能，没有 onReachBottom 对象时也表示禁用       | Boolean  | false    |
-| onReachButton.content  | 提示内容                                                  | String   | 加载更多 |
-| onReachButton.handle   | 点击提示文字或页面到达底部触发的方法                      | Function | -        |
-| onScroll               | 滚动回调函数                                              | Function | -        |
+| 属性                   | 说明                                                      | 类型      | 默认值   |
+| ---------------------- | --------------------------------------------------------- | --------- | -------- |
+| loading                | 若为 true 显示 loading 效果并隐藏内容                     | Boolean   | false    |
+| errorInfo              | 出错文案，不为空时显示文案并隐藏内容，权重不及 loading 高 | String    | -        |
+| errorIcon              | 出错 icon，配合 errorInfo 显示，也可以单独显示            | ReactNode | -        |
+| onReachBottom          | 到达底部时的钩子                                          | Object    | -        |
+| onReachButton.disabled | 是否禁用该功能，没有 onReachBottom 对象时也表示禁用       | Boolean   | false    |
+| onReachButton.content  | 提示内容                                                  | String    | 加载更多 |
+| onReachButton.handle   | 点击提示文字或页面到达底部触发的方法                      | Function  | -        |
+| onScroll               | 滚动回调函数                                              | Function  | -        |
 
 ## Layout.Footer 支持属性
 
