@@ -27,7 +27,7 @@ interface ILayout {
   Footer: React.FC<IFooterProps>
 }
 
-const Layout: React.FC<ILayoutProps> & ILayout = props => {
+const Layout: React.FC<ILayoutProps> & ILayout = (props) => {
   const {
     className,
     children,
@@ -64,6 +64,7 @@ const Layout: React.FC<ILayoutProps> & ILayout = props => {
 interface IBodyProps {
   loading?: boolean
   errorInfo?: string
+  errorIcon?: React.ReactNode
   className?: string
   onScroll?: (event: React.UIEvent<HTMLDivElement>) => void
   onReachBottom?: {
@@ -89,11 +90,19 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   render() {
-    const { loading, errorInfo, className, onScroll, onReachBottom, ...otherProps } = this.props
+    const {
+      loading,
+      errorInfo,
+      errorIcon,
+      className,
+      onScroll,
+      onReachBottom,
+      ...otherProps
+    } = this.props
 
     const composeClassName = cn('x-app-body', className, {
       'x-app-body--loading': loading,
-      'x-app-body--error': errorInfo,
+      'x-app-body--error': errorInfo || errorIcon,
     })
 
     return (
@@ -130,16 +139,16 @@ class LayoutBody extends React.PureComponent<IBodyProps, IBodyState> {
   }
 
   private renderContent() {
-    const { loading, errorInfo, children } = this.props
+    const { loading, errorInfo, errorIcon, children } = this.props
 
     if (loading) {
       return <Spin className="x-app__loading" />
     }
 
-    if (errorInfo) {
+    if (errorInfo || errorIcon) {
       return (
         <p className="x-app__error-info">
-          <IconError />
+          {errorIcon || <IconError />}
           {errorInfo}
         </p>
       )
@@ -207,7 +216,7 @@ interface IFooterProps {
   [otherProps: string]: any
 }
 
-const LayoutFooter: React.FC<IFooterProps> = props => {
+const LayoutFooter: React.FC<IFooterProps> = (props) => {
   const { className, visible, children, borderType, ...otherProps } = props
   const composeClassName = cn(
     'x-app-footer',
@@ -250,7 +259,7 @@ interface IHeaderProps {
   [otherProps: string]: any
 }
 
-const LayoutHeader: React.FC<IHeaderProps> = props => {
+const LayoutHeader: React.FC<IHeaderProps> = (props) => {
   const context = React.useContext(CustomProvider) || {}
 
   const {
