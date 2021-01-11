@@ -11,3 +11,7 @@ code=[text](loading_text)
 ## 关闭
 
 code=[close](loading_close)
+
+## 自定义 Icon
+
+code=[loading_icon](loading_icon)

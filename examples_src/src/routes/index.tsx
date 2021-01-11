@@ -40,6 +40,7 @@ import PageInputMultiLine from '../pages/input_multi_line'
 import PageLayout from '../pages/layout'
 import PageLayoutBorderType from '../pages/layout_border_type'
 import PageLayoutErrorInfo from '../pages/layout_error_info'
+import PageLayoutErrorIcon from '../pages/layout_error_icon'
 import PageLayoutGhost from '../pages/layout_ghost'
 import PageLayoutHeader from '../pages/layout_header'
 import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
@@ -50,6 +51,7 @@ import PageLayoutTabs from '../pages/layout_tabs'
 import PageLazyImg from '../pages/lazy_img'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
+import PageLoadingIcon from '../pages/loading_icon'
 import PageMessage from '../pages/message'
 import PageMessageClose from '../pages/message_close'
 import PageMessageParams from '../pages/message_params'
@@ -116,6 +118,7 @@ const routes: any[] = [
   ['toast_duration', PageToastDuartion],
   ['loading', PageLoading],
   ['loading_close', PageLoadingClose],
+  ['loading_icon', PageLoadingIcon],
   ['spin', PageSpin],
   ['spin_text', PageSpinText],
   ['tabs', PageTabs],
@@ -144,6 +147,7 @@ const routes: any[] = [
   ['actionsheet_custom_items', PageActionsheetCustomItems],
   ['layout', PageLayout],
   ['layout_error_info', PageLayoutErrorInfo],
+  ['layout_error_icon', PageLayoutErrorIcon],
   ['layout_border_type', PageLayoutBorderType],
   ['layout_ghost', PageLayoutGhost],
   ['layout_headline', PageLayoutHeadline],
