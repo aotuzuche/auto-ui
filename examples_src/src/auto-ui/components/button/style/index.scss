@@ -116,6 +116,54 @@
     }
   }
 
+  &--secondary {
+    background: linear-gradient(to right, var(--x-secondary-color-from), var(--x-secondary-color-to));
+    color: #fff;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 0.2s ease-out;
+    }
+
+    &:active {
+      &::after {
+        opacity: 0.2;
+      }
+    }
+
+    .x-loading__spin span {
+      background: #fff;
+    }
+
+    &.x-button--shadow {
+      box-shadow: 0 20px 30px -20px rgba(0, 109, 255, 0.8);
+    }
+
+    &.x-button--hollow {
+      border: px(1) solid var(--x-secondary-color);
+      background: none;
+      color: var(--x-secondary-color);
+
+      &::after {
+        background: var(--x-secondary-color);
+      }
+
+      .x-loading__spin span {
+        background: var(--x-secondary-color);
+      }
+    }
+  }
+
   &--danger {
     background: linear-gradient(to right, var(--x-danger-color-from), var(--x-danger-color-to));
     color: #fff;

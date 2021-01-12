@@ -8,7 +8,11 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          <Button loading={this.state.loading} onClick={this.onClick}>
+          <Button type="primary" loading={this.state.loading} onClick={this.onClick}>
+            {this.state.loading ? null : '点击加载'}
+          </Button>
+          <br />
+          <Button type="secondary" loading={this.state.loading} onClick={this.onClick}>
             {this.state.loading ? null : '点击加载'}
           </Button>
           <br />
@@ -20,7 +24,16 @@ class Demo extends React.PureComponent {
             {this.state.loading ? null : '点击加载'}
           </Button>
           <br />
-          <Button hollow={true} loading={this.state.loading} onClick={this.onClick}>
+          <Button type="primary" hollow={true} loading={this.state.loading} onClick={this.onClick}>
+            {this.state.loading ? null : '点击加载'}
+          </Button>
+          <br />
+          <Button
+            type="secondary"
+            hollow={true}
+            loading={this.state.loading}
+            onClick={this.onClick}
+          >
             {this.state.loading ? null : '点击加载'}
           </Button>
           <br />

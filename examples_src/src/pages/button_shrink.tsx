@@ -19,7 +19,10 @@ class Demo extends React.PureComponent {
           </Cell>
           <br />
           <br />
-          <Button shrink={this.state.shrink} onClick={this.onClick}>
+          <Button shrink={this.state.shrink} type="primary" onClick={this.onClick}>
+            按钮
+          </Button>
+          <Button shrink={this.state.shrink} type="secondary" onClick={this.onClick}>
             按钮
           </Button>
           <Button shrink={this.state.shrink} type="danger" onClick={this.onClick}>

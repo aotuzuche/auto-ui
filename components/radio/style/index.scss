@@ -51,6 +51,14 @@
         transform: scale(1);
       }
     }
+
+    &.x-radio--secondary .x-radio__icon {
+      background: var(--x-secondary-color);
+    }
+
+    &.x-radio--danger .x-radio__icon {
+      background: var(--x-danger-color);
+    }
   }
 
   &--disabled {
@@ -63,7 +71,7 @@
 
   &--hollow {
     .x-radio__icon {
-      background: #fff;
+      background: #fff !important;
       box-shadow: 0 0 0 1px var(--x-radio-border-color) inset;
 
       svg {
@@ -79,6 +87,26 @@
     &.x-radio--checked {
       .x-radio__icon {
         box-shadow: 0 0 0 1px var(--x-primary-color) inset;
+      }
+    }
+
+    &.x-radio--secondary {
+      .x-radio__icon path {
+        fill: var(--x-secondary-color);
+      }
+
+      &.x-radio--checked .x-radio__icon {
+        box-shadow: 0 0 0 1px var(--x-secondary-color) inset;
+      }
+    }
+
+    &.x-radio--danger {
+      .x-radio__icon path {
+        fill: var(--x-danger-color);
+      }
+
+      &.x-radio--checked .x-radio__icon {
+        box-shadow: 0 0 0 1px var(--x-danger-color) inset;
       }
     }
   }

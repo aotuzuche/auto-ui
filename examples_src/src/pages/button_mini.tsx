@@ -15,6 +15,10 @@ const Demo: React.FC<any> = () => {
               按钮
             </Button>
             <Space size={2} />
+            <Button type="secondary" mini={true} onClick={onClick}>
+              按钮
+            </Button>
+            <Space size={2} />
             <Button type="danger" mini={true} onClick={onClick}>
               按钮
             </Button>
@@ -25,6 +29,10 @@ const Demo: React.FC<any> = () => {
           </Cell.Row>
           <Cell.Row>
             <Button hollow={true} mini={true} onClick={onClick}>
+              按钮
+            </Button>
+            <Space size={2} />
+            <Button hollow={true} type="secondary" mini={true} onClick={onClick}>
               按钮
             </Button>
             <Space size={2} />

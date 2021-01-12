@@ -8,6 +8,7 @@ interface IProps {
   i?: string
   o?: string
   active: boolean
+  type?: 'primary' | 'secondary' | 'danger'
   icon?: boolean
   mini?: boolean
   disabled?: boolean
@@ -18,10 +19,22 @@ interface IProps {
 }
 
 const Switch: React.FC<IProps> = props => {
-  const { i, o, active, icon, disabled, className, onChange, mini, ...otherProps } = props
+  const {
+    i,
+    o,
+    active,
+    icon,
+    disabled,
+    type = 'primary',
+    className,
+    onChange,
+    mini,
+    ...otherProps
+  } = props
 
   const composeClassName = cn(
     'x-switch',
+    `x-switch--${type}`,
     {
       'x-switch--active': active,
       'x-switch--io': !mini && i && o,

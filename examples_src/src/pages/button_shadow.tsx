@@ -10,8 +10,12 @@ const Demo: React.FC<any> = () => {
     <Layout>
       <Layout.Body>
         <br />
-        <Button shadow={true} onClick={onClick}>
+        <Button type="primary" shadow={true} onClick={onClick}>
           主按钮
+        </Button>
+        <br />
+        <Button type="secondary" shadow={true} onClick={onClick}>
+          次要按钮
         </Button>
         <br />
         <Button type="danger" shadow={true} onClick={onClick}>

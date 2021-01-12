@@ -5,7 +5,7 @@ import Spin from '../spin/index'
 import './style/index.scss'
 
 interface ButtonProps {
-  type?: 'primary' | 'lighter' | 'danger' | 'default'
+  type?: 'primary' | 'secondary' | 'lighter' | 'danger' | 'default'
   disabled?: boolean
   hollow?: boolean
   capsule?: boolean
@@ -48,7 +48,8 @@ const Button: React.FC<ButtonProps> = props => {
       'x-button--capsule': capsule,
       'x-button--hollow': hollow,
       'x-button--shrink': shrink !== void 0 ? shrink : !!mini,
-      'x-button--shadow': (type === 'primary' || type === 'danger') && !hollow && shadow,
+      'x-button--shadow':
+        (type === 'primary' || type === 'danger' || type === 'secondary') && !hollow && shadow,
     },
     `x-button--${type}`,
     className,

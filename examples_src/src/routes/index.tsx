@@ -39,8 +39,8 @@ import PageInputError from '../pages/input_error'
 import PageInputMultiLine from '../pages/input_multi_line'
 import PageLayout from '../pages/layout'
 import PageLayoutBorderType from '../pages/layout_border_type'
-import PageLayoutErrorInfo from '../pages/layout_error_info'
 import PageLayoutErrorIcon from '../pages/layout_error_icon'
+import PageLayoutErrorInfo from '../pages/layout_error_info'
 import PageLayoutGhost from '../pages/layout_ghost'
 import PageLayoutHeader from '../pages/layout_header'
 import PageLayoutHeaderHomepage from '../pages/layout_header_homepage'
@@ -68,6 +68,7 @@ import PageRadio from '../pages/radio'
 import PageRadioDisabled from '../pages/radio_disabled'
 import PageRadioHollow from '../pages/radio_hollow'
 import PageRadioText from '../pages/radio_text'
+import PageRadioType from '../pages/radio_type'
 import PageSpace from '../pages/space'
 import PageSpin from '../pages/spin'
 import PageSpinText from '../pages/spin_text'
@@ -76,6 +77,7 @@ import PageSwitchDisabled from '../pages/switch_disabled'
 import PageSwitchIcon from '../pages/switch_icon'
 import PageSwitchIO from '../pages/switch_io'
 import PageSwitchMini from '../pages/switch_mini'
+import PageSwitchType from '../pages/switch_type'
 import PageTabs from '../pages/tabs'
 import PageTimePicker from '../pages/time_picker'
 import PageToast from '../pages/toast'
@@ -110,6 +112,7 @@ const routes: any[] = [
   ['cell_click', PageCellClick],
   ['cell_divider_indent', PageCellDividerIndent],
   ['switch', PageSwitch],
+  ['switch_type', PageSwitchType],
   ['switch_disabled', PageSwitchDisabled],
   ['switch_icon', PageSwitchIcon],
   ['switch_io', PageSwitchIO],
@@ -126,6 +129,7 @@ const routes: any[] = [
   ['tabs', PageTabs],
   ['time_picker', PageTimePicker],
   ['radio', PageRadio],
+  ['radio_type', PageRadioType],
   ['radio_hollow', PageRadioHollow],
   ['radio_disabled', PageRadioDisabled],
   ['radio_text', PageRadioText],

@@ -155,6 +155,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
           onBlur={this.onBlur}
           onFocus={this.onFocus}
         />
+
         {allowClear && value && this.state.isFocus && (
           <div className="x-input__iconclear" onClick={this.onInputClear}>
             <span>
@@ -162,6 +163,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
             </span>
           </div>
         )}
+
         {!!addonAfter && <div className="x-input__addon-after">{addonAfter}</div>}
       </div>
     )

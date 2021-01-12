@@ -38,6 +38,14 @@
     path {
       fill: var(--x-primary-color);
     }
+
+    &.x-switch--secondary path {
+      fill: var(--x-secondary-color);
+    }
+
+    &.x-switch--danger path {
+      fill: var(--x-danger-color);
+    }
   }
 
   &--active {
@@ -45,6 +53,14 @@
 
     em {
       transform: translate(px(46), 0);
+    }
+
+    &.x-switch--secondary {
+      background-color: var(--x-secondary-color);
+    }
+
+    &.x-switch--danger {
+      background-color: var(--x-danger-color);
     }
   }
 

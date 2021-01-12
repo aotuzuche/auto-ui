@@ -10,7 +10,13 @@ const Demo: React.FC<any> = () => {
     <Layout>
       <Layout.Body>
         <br />
-        <Button onClick={onClick}>主按钮</Button>
+        <Button type="primary" onClick={onClick}>
+          主按钮
+        </Button>
+        <br />
+        <Button type="secondary" onClick={onClick}>
+          次要按钮
+        </Button>
         <br />
         <Button type="lighter" onClick={onClick}>
           轻按钮
@@ -26,12 +32,12 @@ const Demo: React.FC<any> = () => {
         <br />
         <p>空心按钮</p>
         <br />
-        <Button hollow={true} onClick={onClick}>
+        <Button hollow={true} type="primary" onClick={onClick}>
           主按钮
         </Button>
         <br />
-        <Button hollow={true} type="lighter" onClick={onClick}>
-          轻按钮
+        <Button hollow={true} type="secondary" onClick={onClick}>
+          次要按钮
         </Button>
         <br />
         <Button hollow={true} type="danger" onClick={onClick}>

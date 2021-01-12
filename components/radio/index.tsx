@@ -8,6 +8,7 @@ interface IProps {
   disabled?: boolean
   hollow?: boolean
   className?: string
+  type?: 'primary' | 'secondary' | 'danger'
   text?: string
   children?: null
   onChange?: (checked: boolean) => void
@@ -15,10 +16,20 @@ interface IProps {
 }
 
 const Radio: React.FC<IProps> = props => {
-  const { checked, disabled, className, text, onChange, hollow, ...otherProps } = props
+  const {
+    checked,
+    disabled,
+    className,
+    text,
+    type = 'primary',
+    onChange,
+    hollow,
+    ...otherProps
+  } = props
 
   const composeClassName = cn(
     'x-radio',
+    `x-radio--${type}`,
     {
       'x-radio--checked': checked,
       'x-radio--disabled': disabled,

@@ -8,8 +8,25 @@ class Demo extends React.PureComponent {
     return (
       <Layout>
         <Layout.Body>
-          <Radio hollow={true} checked={this.state.checked} onChange={this.onChange} />
-          <Radio hollow={true} checked={!this.state.checked} onChange={this.onChange} />
+          <Radio
+            type="primary"
+            hollow={true}
+            checked={this.state.checked}
+            onChange={this.onChange}
+          />
+          <Radio
+            type="secondary"
+            hollow={true}
+            checked={this.state.checked}
+            onChange={this.onChange}
+          />
+
+          <Radio
+            type="danger"
+            hollow={true}
+            checked={this.state.checked}
+            onChange={this.onChange}
+          />
         </Layout.Body>
       </Layout>
     )

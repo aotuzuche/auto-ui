@@ -42,7 +42,7 @@
 
     .x-input__iconclear {
       width: px(90);
-      height: px(90);
+      height: px(88);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,10 +54,10 @@
       }
 
       span {
-        width: px(30);
-        height: px(30);
+        width: px(34);
+        height: px(34);
         display: flex;
-        background-color: var(--x-primary-color);
+        background-color: var(--x-text-color-o30);
         border-radius: 50%;
         justify-content: center;
         align-items: center;
@@ -65,8 +65,8 @@
         svg {
           display: block;
           overflow: hidden;
-          width: px(14);
-          height: px(14);
+          width: px(18);
+          height: px(18);
 
           path {
             fill: #fff;
