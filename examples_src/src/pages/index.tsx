@@ -37,6 +37,7 @@ const routes = [
   'toast_duration',
   'toast_callback',
   'loading',
+  'loading_params',
   'loading_close',
   'loading_icon',
   'spin',

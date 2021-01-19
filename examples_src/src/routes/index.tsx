@@ -52,6 +52,7 @@ import PageLazyImg from '../pages/lazy_img'
 import PageLoading from '../pages/loading'
 import PageLoadingClose from '../pages/loading_close'
 import PageLoadingIcon from '../pages/loading_icon'
+import PageLoadingParams from '../pages/loading_params'
 import PageMessage from '../pages/message'
 import PageMessageClose from '../pages/message_close'
 import PageMessageParams from '../pages/message_params'
@@ -122,6 +123,7 @@ const routes: any[] = [
   ['toast_close', PageToastClose],
   ['toast_duration', PageToastDuartion],
   ['loading', PageLoading],
+  ['loading_params', PageLoadingParams],
   ['loading_close', PageLoadingClose],
   ['loading_icon', PageLoadingIcon],
   ['spin', PageSpin],

@@ -16,7 +16,7 @@ export default class View extends React.PureComponent {
 
 <span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
   <span class="token function">Loading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span> <span class="token attr-name">supportDarkMode</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span> <span class="token punctuation">/></span></span>
 <span class="token punctuation">}</span><span class="token plain-text">
 
 export default Demo
@@ -47,6 +47,16 @@ export default Demo
   <span class="token function">Loading</span><span class="token punctuation">(</span>LoadingIcon<span class="token punctuation">)</span>
   <span class="token function">setTimeout</span><span class="token punctuation">(</span>Loading<span class="token punctuation">.</span>hide<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span> <span class="token attr-name">supportDarkMode</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+<span class="token punctuation">}</span><span class="token plain-text">
+
+export default Demo
+</span>`}} /></pre></div></div><h2>自定义参数</h2><p>目前自定义参数只有2个，<code>hideMask</code>和<code>type</code>，<code>hideMask</code>能使蒙层变为透明，<code>type</code>的值有2个，<code>primary</code>和<code>secondary</code>，让loading的3个点呈现绿色或蓝色</p>
+<div className={C('code-box', { active: this.state.previewUrl.endsWith('/loading_params') })} onClick={this.onCodeClick.bind(null, '/loading_params')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Layout<span class="token punctuation">,</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
+
+<span class="token keyword">const</span> Demo<span class="token punctuation">:</span> React<span class="token punctuation">.</span><span class="token constant">FC</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>any</span><span class="token punctuation">></span></span><span class="token plain-text"> = () => </span><span class="token punctuation">{</span>
+  <span class="token function">Loading</span><span class="token punctuation">(</span><span class="token punctuation">{</span> hideMask<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'secondary'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span> <span class="token punctuation">/></span></span>
 <span class="token punctuation">}</span><span class="token plain-text">
 
 export default Demo
