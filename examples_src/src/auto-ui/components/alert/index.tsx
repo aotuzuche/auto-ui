@@ -8,7 +8,7 @@ import './style/index.scss'
 interface IBtn {
   name: string
   className?: string
-  type?: 'primary' | 'danger' | 'default'
+  type?: 'primary' | 'secondary' | 'lighter' | 'danger' | 'default'
   value?: string | number | boolean
   onClick?: () => void
   [otherProps: string]: any
