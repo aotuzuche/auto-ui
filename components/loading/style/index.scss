@@ -13,4 +13,8 @@
   height: 100%;
   z-index: 99995;
   background: var(--x-loading-mask-color);
+
+  &.x-loading--no-mask {
+    background: rgba(0, 0, 0, 0);
+  }
 }
