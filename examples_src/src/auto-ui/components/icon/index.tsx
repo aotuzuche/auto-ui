@@ -1,3 +1,4 @@
+import * as React from 'react'
 import Arrow from './arrow'
 import Back from './back_s'
 import Check from './check'

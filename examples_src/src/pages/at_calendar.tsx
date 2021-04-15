@@ -10,20 +10,13 @@ class Demo extends React.PureComponent {
       [new Date(2019, 5, 5).valueOf()]: { price: 333 },
       [new Date(2019, 5, 6).valueOf()]: {},
       [new Date(2019, 5, 7).valueOf()]: {},
-      [new Date(2019, 6, 8).valueOf()]: {},
-      [new Date(2019, 5, 9).valueOf()]: {
-        disabled: 'ALL',
-      },
-      [new Date(2019, 5, 10).valueOf()]: {
-        price: 333,
-        rent: ['0000', '1200'],
-        revert: [
-          ['0030', '1100'],
-          ['1300', '2000'],
-        ],
-        badge: '限',
-        disabled: 'ALL',
-      },
+      [new Date(2019, 5, 8).valueOf()]: {},
+      [new Date(2019, 5, 9).valueOf()]: {},
+      [new Date(2019, 5, 10).valueOf()]: { isHoliday: true, price: 888 },
+      [new Date(2019, 5, 11).valueOf()]: {},
+      [new Date(2019, 5, 12).valueOf()]: {},
+      [new Date(2019, 5, 13).valueOf()]: {},
+      [new Date(2019, 5, 14).valueOf()]: {},
     },
   }
 
@@ -34,9 +27,32 @@ class Demo extends React.PureComponent {
         onClose={this.onClose}
         chooseRange={[new Date(2019, 5, 5), new Date(2019, 5, 7, 13)]}
         defaultRentTime="10:30"
-        defaultRevertTime="05:10"
+        defaultRevertTime="05:15"
         minHours={8}
-        chooseTips={() => [new Date(2019, 5, 9), '起止30天']}
+        chooseTips={d => {
+          return [
+            {
+              day: new Date(2019, 5, 7),
+              tips: '起止30天起',
+              hideAt: 'never',
+            },
+            {
+              day: new Date(2019, 5, 14),
+              tips: '起止30天起',
+              type: 'circle',
+            },
+            { day: new Date(2019, 5, 12), tips: '起止30天起', type: 'circle' },
+          ]
+        }}
+        headerTips={(t1, t2) => {
+          if (!t1 || !t2) {
+            return ''
+          }
+          return '?????'
+        }}
+        onHeaderTipsClick={(t1, t2) => {
+          console.log('click', t1, t2)
+        }}
         footerTips={(t1, t2) => {
           if (!t1) {
             return '取车'

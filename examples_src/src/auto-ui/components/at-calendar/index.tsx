@@ -2,6 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import { dateFormat, offsetDays } from '../__utils/transfer'
 import Button from '../button'
+import Icon from '../icon'
 import Layout from '../layout'
 import Popup from '../popup'
 import TimePicker from '../time-picker'
@@ -83,6 +84,7 @@ class AtCalendar extends Controller {
                 </li>
               ))}
             </ul>
+            {this.renderHeaderTips()}
           </div>
         }
       />
@@ -92,7 +94,10 @@ class AtCalendar extends Controller {
   // 主体
   private renderBody() {
     return (
-      <Layout.Body className="body" id="x-calendar-body">
+      <Layout.Body
+        className={cn('body', { 'has-header-tips': this.state.headerTips !== '' })}
+        id="x-calendar-body"
+      >
         {this.getMonthList().map(month => {
           return this.renderMonth(month)
         })}
@@ -144,13 +149,17 @@ class AtCalendar extends Controller {
     }
     const readonly = this.props.readonly
     const wkname = ['sun', 'mon', 'tues', 'wed', 'thur', 'fri', 'sat']
+    const currentWk = wkname[date.getDay()]
     const isBtween = this.isBtweenChooseRange(date)
-    const css = cn('month-day', wkname[date.getDay()], {
-      active: !readonly && isBtween,
-      'active-first':
-        !readonly && this.state.chooseRange[0] && this.state.chooseRange[0].valueOf() === key,
-      'active-end':
-        !readonly && this.state.chooseRange[1] && this.state.chooseRange[1].valueOf() === key,
+    const active = !readonly && isBtween
+    const activeFirst =
+      !readonly && this.state.chooseRange[0] && this.state.chooseRange[0].valueOf() === key
+    const activeEnd =
+      !readonly && this.state.chooseRange[1] && this.state.chooseRange[1].valueOf() === key
+    const css = cn('month-day', currentWk, {
+      active,
+      'active-first': activeFirst,
+      'active-end': activeEnd,
       disabled: isDisabledBefore,
       'is-holiday': data.isHoliday,
       'disabled-all': !isDisabledBefore && data.disabled === 'ALL',
@@ -165,26 +174,70 @@ class AtCalendar extends Controller {
 
     // 如果提示的年月日是这天，在这天添加提示内容
     let tipsData: any = null
-    if (this.state.chooseTipsVisible) {
-      const d = this.state.chooseTipsData[0]
-      if (
-        d.getFullYear() === date.getFullYear() &&
-        d.getMonth() === date.getMonth() &&
-        d.getDate() === date.getDate()
-      ) {
-        tipsData = this.state.chooseTipsData[1]
-      }
+    const startDay = this.state.chooseRange[0]
+
+    if (this.state.chooseType !== '' && startDay) {
+      this.state.chooseTipsData.forEach(c => {
+        const d = c.day
+        if (
+          d.getFullYear() === date.getFullYear() &&
+          d.getMonth() === date.getMonth() &&
+          d.getDate() === date.getDate()
+        ) {
+          if (c.hideAt && c.hideAt === 'never') {
+            tipsData = c
+          }
+          if (this.state.chooseTipsVisible && (!c.hideAt || c.hideAt === 'chooseEnd')) {
+            tipsData = c
+          }
+        }
+      })
     }
 
     return (
       <div className={css} key={key} onClick={onClick}>
-        {tipsData && <div className="choose-tips">{tipsData}</div>}
-        <p>
+        {tipsData && (
+          <div
+            className={cn('choose-tips', {
+              circle: tipsData.type === 'circle',
+              right: currentWk === 'sun',
+              left: currentWk === 'mon',
+            })}
+          >
+            {tipsData.tips}
+          </div>
+        )}
+        <p
+          className={cn({
+            circle: tipsData && tipsData.type === 'circle' && !active && !activeFirst && !activeEnd,
+          })}
+        >
           <em>{date.getDate()}</em>
           {data.badge ? <i className="badge">{data.badge}</i> : null}
         </p>
         <span>{data.price ? `￥${data.price}` : ''}</span>
       </div>
+    )
+  }
+
+  // 头上的提示
+  private renderHeaderTips() {
+    if (!this.state.headerTips) {
+      return null
+    }
+
+    return (
+      <p
+        className={cn('header-tips', { 'has-link': !!this.props.onHeaderTipsClick })}
+        onClick={() => {
+          if (this.props.onHeaderTipsClick) {
+            this.props.onHeaderTipsClick(this.state.chooseRange[0], this.state.chooseRange[1])
+          }
+        }}
+      >
+        {this.state.headerTips}
+        {this.props.onHeaderTipsClick && <Icon.Arrow className="arrow" />}
+      </p>
     )
   }
 

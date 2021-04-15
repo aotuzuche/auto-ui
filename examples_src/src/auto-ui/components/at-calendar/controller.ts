@@ -13,6 +13,13 @@ interface IData {
   badge?: string // 标记，位于时间圆的右上角
 }
 
+interface IChooseTipsData {
+  day: Date
+  tips: string
+  type?: 'pop' | 'circle'
+  hideAt?: 'chooseEnd' | 'never'
+}
+
 interface IProps {
   readonly?: boolean
   title?: string
@@ -24,13 +31,15 @@ interface IProps {
   onDayClick?: (day: Date, type: 'rent' | 'revert') => any
   lockRentTime?: boolean
   checkTimeRange?: boolean | ((t1: Date, t2: Date) => React.ReactNode) // 若为true时，系统验证租期，否则自定义验证租期范围的提示
+  headerTips?: (t1: Date | undefined, t2: Date | undefined) => string // 提示信息
+  onHeaderTipsClick?: (t1: Date | undefined, t2: Date | undefined) => void
   footerTips?: (t1: Date | undefined, t2: Date | undefined) => string // 自定义页脚的提示信息
   data?: { [time: number]: IData }
   minHours?: number
   maxHours?: number
   defaultRentTime?: string
   defaultRevertTime?: string
-  chooseTips?: (t1: Date) => [Date, String] // 当用户选择完成第一天时，可设置在另一天提示相关内容
+  chooseTips?: (t1: Date) => IChooseTipsData[] // 当用户选择完成第一天时，可设置在另一天提示相关内容
   extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
   supportDarkMode?: boolean
 }
@@ -46,9 +55,10 @@ interface IState {
     day: Date
     times?: string[] | string[][]
   }
-  footerTips: any
+  headerTips: string
+  footerTips: string
   chooseType: string
-  chooseTipsData: [Date, String]
+  chooseTipsData: IChooseTipsData[]
   chooseTipsVisible: boolean
 }
 
@@ -102,17 +112,19 @@ class Controller extends React.PureComponent<IProps, IState> {
     }
     const tr1 = props.chooseRange ? props.chooseRange[0] : void 0
     const tr2 = props.chooseRange ? props.chooseRange[1] : void 0
+    const chooseType = cr1 && cr2 ? 'revert' : cr1 && !cr2 ? 'rent' : ''
     this.state = {
       chooseRange: [cr1, cr2],
       preChooseRange: [cr1, cr2],
       timePickerVisible: false,
       timePickerTimes: [tr1, tr2],
+      headerTips: this.props.headerTips ? this.props.headerTips(tr1, tr2) : '',
       footerTips: this.props.footerTips ? this.props.footerTips(tr1, tr2) : '',
       preTimePickerTimes: [tr1, tr2],
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
-      chooseType: '',
-      chooseTipsData: [new Date(2000, 1, 1), ''],
+      chooseType,
+      chooseTipsData: cr1 && props.chooseTips ? props.chooseTips(cr1) : [],
       chooseTipsVisible: false,
     }
 
@@ -139,7 +151,7 @@ class Controller extends React.PureComponent<IProps, IState> {
     if (this.props.lockRentTime && this.props.chooseTips && this.state.chooseRange[0]) {
       const data = this.props.chooseTips(this.state.chooseRange[0])
       this.setState({
-        chooseTipsVisible: !!data[1],
+        chooseTipsVisible: data.length > 0,
         chooseTipsData: data,
       })
     }
@@ -158,6 +170,66 @@ class Controller extends React.PureComponent<IProps, IState> {
       footerTips: this.props.footerTips ? this.props.footerTips(range[0], range[1]) : '',
       timePickerVisible: false,
     })
+  }
+
+  // 判断时间范围内是否都为可用
+  protected checkTimeRangeCanUsed(
+    range: [Date | undefined, Date | undefined],
+    ignoreRange?: [Date | undefined, Date | undefined],
+  ) {
+    const ignore = [...(ignoreRange || [])]
+    if (ignore[0] && !ignore[1]) {
+      ignore[1] = ignore[0]
+    }
+    if (!range[0] || !range[1] || range[0] > range[1]) {
+      return false
+    }
+    if (!this.isZeroTime(range[0]) || !this.isZeroTime(range[1])) {
+      return false
+    }
+    const data = this.props.data
+    if (!data) {
+      return false
+    }
+    let current = range[0]
+    const target = range[1].valueOf()
+    while (current.valueOf() <= target) {
+      // 如果该天已经选中了，则不做数据检查，直接认为该天是可用的
+      if (!this.isBtweenRange(current, ignore as any)) {
+        if (!data[current.valueOf()] || data[current.valueOf()].disabled) {
+          return false
+        }
+      }
+      const d = new Date(current.valueOf())
+      current = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1)
+    }
+    return true
+  }
+
+  // 判断时间范围内是否有假期
+  protected checkTimeRangeHasHoliday(range: [Date | undefined, Date | undefined]) {
+    if (!range[0] || !range[1] || range[0] > range[1]) {
+      return false
+    }
+    if (!this.isZeroTime(range[0]) || !this.isZeroTime(range[1])) {
+      return false
+    }
+    const data = this.props.data
+    if (!data) {
+      return false
+    }
+    let current = range[0]
+    const target = range[1].valueOf()
+    while (current.valueOf() <= target) {
+      const cur = data[current.valueOf()]
+      if (cur && cur.isHoliday) {
+        return true
+      }
+
+      const d = new Date(current.valueOf())
+      current = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1)
+    }
+    return false
   }
 
   // 根据months获取一个月份列表
@@ -325,6 +397,7 @@ class Controller extends React.PureComponent<IProps, IState> {
           chooseRange: [cr1, cr2],
           preChooseRange: [cr1, cr2],
           timePickerTimes: [pr[0], pr[1]],
+          headerTips: this.props.headerTips ? this.props.headerTips(pr[0], pr[1]) : '',
           footerTips: this.props.footerTips ? this.props.footerTips(pr[0], pr[1]) : '',
           preTimePickerTimes: [pr[0], pr[1]],
         })
@@ -337,9 +410,12 @@ class Controller extends React.PureComponent<IProps, IState> {
       chooseRange: [void 0, void 0],
       preChooseRange: [void 0, void 0],
       timePickerTimes: [void 0, void 0],
+      headerTips: this.props.headerTips ? this.props.headerTips(void 0, void 0) : '',
       footerTips: this.props.footerTips ? this.props.footerTips(void 0, void 0) : '',
       preTimePickerTimes: [void 0, void 0],
+      chooseTipsData: [],
       chooseTipsVisible: false,
+      chooseType: '',
     })
   }
 
@@ -372,7 +448,7 @@ class Controller extends React.PureComponent<IProps, IState> {
         const data = this.props.chooseTips(times[0])
         this.setState({
           chooseTipsData: data,
-          chooseTipsVisible: !!data[1],
+          chooseTipsVisible: data.length > 0,
         })
       }
     } else {
@@ -441,6 +517,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       preChooseRange: [...this.state.chooseRange] as any,
       preTimePickerTimes: [...times] as any,
       timePickerTimes: times,
+      headerTips: this.props.headerTips ? this.props.headerTips(times[0], times[1]) : '',
       footerTips: this.props.footerTips ? this.props.footerTips(times[0], times[1]) : '',
       timePickerVisible: false,
     })
@@ -472,40 +549,6 @@ class Controller extends React.PureComponent<IProps, IState> {
       return true
     }
     return date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds() === 0
-  }
-
-  // 判断时间范围内是否都为可用
-  private checkTimeRangeCanUsed(
-    range: [Date | undefined, Date | undefined],
-    ignoreRange: [Date | undefined, Date | undefined],
-  ) {
-    const ignore = [...ignoreRange]
-    if (ignore[0] && !ignore[1]) {
-      ignore[1] = ignore[0]
-    }
-    if (!range[0] || !range[1] || range[0] > range[1]) {
-      return false
-    }
-    if (!this.isZeroTime(range[0]) || !this.isZeroTime(range[1])) {
-      return false
-    }
-    const data = this.props.data
-    if (!data) {
-      return false
-    }
-    let current = range[0]
-    const target = range[1].valueOf()
-    while (current.valueOf() <= target) {
-      // 如果该天已经选中了，则不做数据检查，直接认为该天是可用的
-      if (!this.isBtweenRange(current, ignore as any)) {
-        if (!data[current.valueOf()] || data[current.valueOf()].disabled) {
-          return false
-        }
-      }
-      const d = new Date(current.valueOf())
-      current = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1)
-    }
-    return true
   }
 }
 

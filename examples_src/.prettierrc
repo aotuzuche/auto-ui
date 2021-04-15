@@ -10,6 +10,7 @@
   "htmlWhitespaceSensitivity": "css",
   "endOfLine": "lf",
   "trailingComma": "all",
+  "arrowParens": "avoid",
   "overrides": [
     {
       "files": ".prettierrc",

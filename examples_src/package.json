@@ -14,7 +14,7 @@
     "react-content-loader": "^4.3.2",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts-auto": "^0.2.65"
+    "react-scripts-auto": "^0.2.80"
   },
   "scripts": {
     "start": "react-scripts-auto start PORT=3333",
@@ -57,14 +57,14 @@
     "@types/react-dom": "^16.0.11",
     "babel-plugin-import": "^1.12.2",
     "eslint": "^7.7.0",
-    "eslint-config-atzuche": "^2.0.0",
+    "eslint-config-atzuche": "^3.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "stylelint": "^13.2.1",
-    "stylelint-config-atzuche": "^1.0.5",
+    "stylelint-config-atzuche": "^1.0.8",
     "typescript": "^3.9.7",
     "vconsole-atzuche-env": "^1.4.7",
     "vconsole-atzuche-webpack-plugin": "^3.0.0"
