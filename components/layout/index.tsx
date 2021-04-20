@@ -27,7 +27,7 @@ interface ILayout {
   Footer: React.FC<IFooterProps>
 }
 
-const Layout: React.FC<ILayoutProps> & ILayout = (props) => {
+const Layout: React.FC<ILayoutProps> & ILayout = props => {
   const {
     className,
     children,
@@ -216,7 +216,7 @@ interface IFooterProps {
   [otherProps: string]: any
 }
 
-const LayoutFooter: React.FC<IFooterProps> = (props) => {
+const LayoutFooter: React.FC<IFooterProps> = props => {
   const { className, visible, children, borderType, ...otherProps } = props
   const composeClassName = cn(
     'x-app-footer',
@@ -251,13 +251,14 @@ interface IHeaderProps {
   borderType?: 'border' | 'shadow' | 'none'
   headline?: boolean
   hideInApp?: boolean
+  hideInMini?: boolean
   tabs?: React.ReactNode
   homepage?: ((event: React.MouseEvent<HTMLAnchorElement>) => void) | string | boolean
   useSafeArea?: boolean
   [otherProps: string]: any
 }
 
-const LayoutHeader: React.FC<IHeaderProps> = (props) => {
+const LayoutHeader: React.FC<IHeaderProps> = props => {
   const context = React.useContext(CustomProvider) || {}
 
   const {
@@ -276,6 +277,7 @@ const LayoutHeader: React.FC<IHeaderProps> = (props) => {
     homepage,
     useSafeArea,
     tabs,
+    hideInMini,
     ...otherProps
   } = props
 
@@ -301,6 +303,11 @@ const LayoutHeader: React.FC<IHeaderProps> = (props) => {
 
   // 在app中隐藏
   if (hideInApp && /atzuche/gi.test(ua)) {
+    return null
+  }
+
+  // 在小程序中
+  if (hideInMini && (window as any).isMiniProgram) {
     return null
   }
 

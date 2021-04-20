@@ -398,6 +398,12 @@ export default Demo
 <td>false</td>
 </tr>
 <tr>
+<td>hideInMini</td>
+<td>在 小程序 中隐藏自身</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>borderType</td>
 <td>头部下方是使用阴影、线或是没有</td>
 <td>border、shadow、none</td>
