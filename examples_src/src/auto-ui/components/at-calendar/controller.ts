@@ -16,7 +16,6 @@ interface IData {
 interface IChooseTipsData {
   day: Date
   tips: string
-  type?: 'pop' | 'circle'
   hideAt?: 'chooseEnd' | 'never'
 }
 

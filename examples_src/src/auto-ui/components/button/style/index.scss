@@ -3,16 +3,16 @@
 @import '../../theme.scss';
 
 .x-button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  cursor: pointer;
   width: 100%;
   height: px(90);
   font-size: px(30);
-  border-radius: px($smallRadius);
   white-space: nowrap;
+  border-radius: px($smallRadius);
+  cursor: pointer;
   transition: all 0.15s ease-out;
   user-select: none;
 
@@ -25,22 +25,22 @@
   }
 
   &--default {
-    background: var(--x-default-button-bg-color);
     color: rgb(170, 170, 176);
+    background: var(--x-default-button-bg-color);
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      pointer-events: none;
+      left: 0;
+      display: block;
       background: #000;
-      opacity: 0;
       border-radius: inherit;
+      opacity: 0;
       transition: all 0.2s ease-out;
+      content: '';
+      pointer-events: none;
     }
 
     &:active {
@@ -54,9 +54,9 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--x-default-button-border-color);
-      background: none;
       color: rgb(170, 170, 176);
+      background: none;
+      border: px(1) solid var(--x-default-button-border-color);
 
       &::after {
         background: var(--x-text-color-o60);
@@ -69,22 +69,22 @@
   }
 
   &--primary {
-    background: linear-gradient(to right, var(--x-primary-color-from), var(--x-primary-color-to));
     color: #fff;
+    background: linear-gradient(to right, var(--x-primary-color-from), var(--x-primary-color-to));
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      pointer-events: none;
+      left: 0;
+      display: block;
       background: #000;
-      opacity: 0;
       border-radius: inherit;
+      opacity: 0;
       transition: all 0.2s ease-out;
+      content: '';
+      pointer-events: none;
     }
 
     &:active {
@@ -102,9 +102,9 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--x-primary-color);
-      background: none;
       color: var(--x-primary-color);
+      background: none;
+      border: px(1) solid var(--x-primary-color);
 
       &::after {
         background: var(--x-primary-color);
@@ -117,22 +117,24 @@
   }
 
   &--secondary {
-    background: linear-gradient(to right, var(--x-secondary-color-from), var(--x-secondary-color-to));
     color: #fff;
+    background: linear-gradient(
+      to right, var(--x-secondary-color-from), var(--x-secondary-color-to)
+    );
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      pointer-events: none;
+      left: 0;
+      display: block;
       background: #000;
-      opacity: 0;
       border-radius: inherit;
+      opacity: 0;
       transition: all 0.2s ease-out;
+      content: '';
+      pointer-events: none;
     }
 
     &:active {
@@ -150,9 +152,9 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--x-secondary-color);
-      background: none;
       color: var(--x-secondary-color);
+      background: none;
+      border: px(1) solid var(--x-secondary-color);
 
       &::after {
         background: var(--x-secondary-color);
@@ -165,22 +167,22 @@
   }
 
   &--danger {
-    background: linear-gradient(to right, var(--x-danger-color-from), var(--x-danger-color-to));
     color: #fff;
+    background: linear-gradient(to right, var(--x-danger-color-from), var(--x-danger-color-to));
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      pointer-events: none;
+      left: 0;
+      display: block;
       background: #000;
-      opacity: 0;
       border-radius: inherit;
+      opacity: 0;
       transition: all 0.2s ease-out;
+      content: '';
+      pointer-events: none;
     }
 
     &:active {
@@ -198,9 +200,9 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--x-danger-color);
-      background: none;
       color: var(--x-danger-color);
+      background: none;
+      border: px(1) solid var(--x-danger-color);
 
       &::after {
         background: var(--x-danger-color);
@@ -213,22 +215,22 @@
   }
 
   &--lighter {
-    background: var(--x-primary-color-lighter);
     color: var(--x-primary-color);
+    background: var(--x-primary-color-lighter);
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
-      pointer-events: none;
+      left: 0;
+      display: block;
       background: var(--x-primary-color);
-      opacity: 0;
       border-radius: inherit;
+      opacity: 0;
       transition: all 0.2s ease-out;
+      content: '';
+      pointer-events: none;
     }
 
     &:active {
@@ -242,9 +244,9 @@
     }
 
     &.x-button--hollow {
-      border: px(1) solid var(--x-primary-color);
-      background: none;
       color: var(--x-primary-color);
+      background: none;
+      border: px(1) solid var(--x-primary-color);
 
       &::after {
         background: var(--x-primary-color);
@@ -262,22 +264,22 @@
 
     .x-button__loading {
       .x-loading__spin {
-        transform: scale(0.75);
         min-width: px(62);
+        transform: scale(0.75);
       }
     }
   }
 
   &--disabled {
+    cursor: not-allowed;
     opacity: 0.3;
     pointer-events: none;
-    cursor: not-allowed;
   }
 
   &--loading {
+    cursor: not-allowed;
     opacity: 0.8;
     pointer-events: none;
-    cursor: not-allowed;
 
     .x-spin {
       transform: scale(0.828268);
@@ -285,13 +287,13 @@
   }
 
   &--shrink {
+
+    display: inline-flex;
     width: auto;
     padding: 0 px(60);
 
     &.x-button--mini {
       padding: 0 px(30);
     }
-
-    display: inline-flex;
   }
 }

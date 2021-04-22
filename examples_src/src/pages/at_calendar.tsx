@@ -13,7 +13,7 @@ class Demo extends React.PureComponent {
       [new Date(2019, 5, 8).valueOf()]: {},
       [new Date(2019, 5, 9).valueOf()]: {},
       [new Date(2019, 5, 10).valueOf()]: { isHoliday: true, price: 888 },
-      [new Date(2019, 5, 11).valueOf()]: {},
+      [new Date(2019, 5, 11).valueOf()]: { isHoliday: true },
       [new Date(2019, 5, 12).valueOf()]: {},
       [new Date(2019, 5, 13).valueOf()]: {},
       [new Date(2019, 5, 14).valueOf()]: {},
@@ -31,17 +31,9 @@ class Demo extends React.PureComponent {
         minHours={8}
         chooseTips={d => {
           return [
-            {
-              day: new Date(2019, 5, 7),
-              tips: '起止30天起',
-              hideAt: 'never',
-            },
-            {
-              day: new Date(2019, 5, 14),
-              tips: '起止30天起',
-              type: 'circle',
-            },
-            { day: new Date(2019, 5, 12), tips: '起止30天起', type: 'circle' },
+            { day: new Date(2019, 5, 7), tips: '起止30天起', hideAt: 'never' },
+            { day: new Date(2019, 5, 14), tips: '起止30天起', hideAt: 'never' },
+            { day: new Date(2019, 5, 12), tips: '起止30天起', hideAt: 'never' },
           ]
         }}
         headerTips={(t1, t2) => {

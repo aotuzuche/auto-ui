@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/react-router-dom": "^5.1.2",
-    "auto-libs": "^0.3.6",
+    "auto-libs": "^0.3.37",
     "classnames": "^2.2.6",
     "dva": "^2.4.1",
     "iscroll": "^5.2.0",
