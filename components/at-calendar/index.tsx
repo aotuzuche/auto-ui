@@ -194,28 +194,21 @@ class AtCalendar extends Controller {
       })
     }
 
+    let priceTxt = ''
+    if (data.price) {
+      priceTxt = `${data.isHoliday ? '节' : ''}￥${data.price}`
+    } else if (data.isHoliday) {
+      priceTxt = '节假日'
+    }
+
     return (
       <div className={css} key={key} onClick={onClick}>
-        {tipsData && (
-          <div
-            className={cn('choose-tips', {
-              circle: tipsData.type === 'circle',
-              right: currentWk === 'sun',
-              left: currentWk === 'mon',
-            })}
-          >
-            {tipsData.tips}
-          </div>
-        )}
-        <p
-          className={cn({
-            circle: tipsData && tipsData.type === 'circle' && !active && !activeFirst && !activeEnd,
-          })}
-        >
+        {tipsData && <div className="choose-tips">{tipsData.tips}</div>}
+        <p>
           <em>{date.getDate()}</em>
           {data.badge ? <i className="badge">{data.badge}</i> : null}
         </p>
-        <span>{data.price ? `￥${data.price}` : ''}</span>
+        <span>{priceTxt}</span>
       </div>
     )
   }
