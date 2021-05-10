@@ -123,7 +123,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
       chooseType,
-      chooseTipsData: cr1 && props.chooseTips ? props.chooseTips(cr1) : [],
+      chooseTipsData: tr1 && props.chooseTips ? props.chooseTips(tr1) : [],
       chooseTipsVisible: false,
     }
 
