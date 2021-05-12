@@ -38,8 +38,7 @@ interface IProps {
   maxHours?: number
   defaultRentTime?: string
   defaultRevertTime?: string
-  chooseTips?: (t1: Date) => IChooseTipsData[] // 当用户选择完成第一天时，可设置在另一天提示相关内容
-  extend?: 'before' | 'after' | 'both' // 在已经有范围时，点击范围之外的时间是否为延长
+  chooseTips?: (t1: Date, t2: Date | undefined) => IChooseTipsData[] // 当用户选择完成第一天时，可设置在另一天提示相关内容
   supportDarkMode?: boolean
 }
 
@@ -123,7 +122,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
       chooseType,
-      chooseTipsData: tr1 && props.chooseTips ? props.chooseTips(tr1) : [],
+      chooseTipsData: tr1 && props.chooseTips ? props.chooseTips(tr1, tr2) : [],
       chooseTipsVisible: false,
     }
 
@@ -146,13 +145,6 @@ class Controller extends React.PureComponent<IProps, IState> {
         const height = (cur as any).offsetHeight || 0
         document.querySelector('#x-calendar-body')!.scrollTop = top - height / 3
       }, 1)
-    }
-    if (this.props.lockRentTime && this.props.chooseTips && this.state.chooseRange[0]) {
-      const data = this.props.chooseTips(this.state.chooseRange[0])
-      this.setState({
-        chooseTipsVisible: data.length > 0,
-        chooseTipsData: data,
-      })
     }
   }
 
@@ -307,28 +299,11 @@ class Controller extends React.PureComponent<IProps, IState> {
       type = 'revert'
     } else {
       if (range[0] && range[1]) {
-        // 处理extend
-        if (
-          (this.props.extend === 'before' || this.props.extend === 'both') &&
-          range[0].valueOf() > day.valueOf()
-        ) {
-          range[0] = day
-          times[0] = void 0
-          type = 'rent'
-        } else if (
-          (this.props.extend === 'after' || this.props.extend === 'both') &&
-          range[1].valueOf() < day.valueOf()
-        ) {
-          range[1] = day
-          times[1] = void 0
-          type = 'revert'
-        } else {
-          range[0] = day
-          range[1] = void 0
-          times[0] = void 0
-          times[1] = void 0
-          type = 'rent'
-        }
+        range[0] = day
+        range[1] = void 0
+        times[0] = void 0
+        times[1] = void 0
+        type = 'rent'
       } else if (range[0] && range[1] === void 0) {
         if (range[0] > day) {
           range[0] = day
@@ -440,16 +415,6 @@ class Controller extends React.PureComponent<IProps, IState> {
     ]
     if (this.state.chooseType === 'rent') {
       times[0] = this.timePickerRef.current.getTime()
-      if (this.props.extend !== 'before' && this.props.extend !== 'both') {
-        times[1] = void 0
-      }
-      if (this.props.chooseTips && times[0]) {
-        const data = this.props.chooseTips(times[0])
-        this.setState({
-          chooseTipsData: data,
-          chooseTipsVisible: data.length > 0,
-        })
-      }
     } else {
       times[1] = this.timePickerRef.current.getTime()
     }
@@ -512,6 +477,15 @@ class Controller extends React.PureComponent<IProps, IState> {
         return
       }
     }
+
+    if (this.props.chooseTips && times[0]) {
+      const data = this.props.chooseTips(times[0], times[1])
+      this.setState({
+        chooseTipsData: data,
+        chooseTipsVisible: data.length > 0,
+      })
+    }
+
     this.setState({
       preChooseRange: [...this.state.chooseRange] as any,
       preTimePickerTimes: [...times] as any,
