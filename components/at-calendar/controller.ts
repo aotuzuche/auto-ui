@@ -38,7 +38,7 @@ interface IProps {
   maxHours?: number
   defaultRentTime?: string
   defaultRevertTime?: string
-  chooseTips?: (t1: Date, t2: Date | undefined) => IChooseTipsData[] // 当用户选择完成第一天时，可设置在另一天提示相关内容
+  chooseTips?: (t1: Date, t2: Date | undefined) => IChooseTipsData[] | false // 当用户选择完成第一天时，可设置在另一天提示相关内容
   supportDarkMode?: boolean
 }
 
@@ -122,7 +122,7 @@ class Controller extends React.PureComponent<IProps, IState> {
       timePickerTips: {},
       timePickerData: { day: new Date(2000, 1, 1) },
       chooseType,
-      chooseTipsData: tr1 && props.chooseTips ? props.chooseTips(tr1, tr2) : [],
+      chooseTipsData: tr1 && props.chooseTips ? props.chooseTips(tr1, tr2) || [] : [],
       chooseTipsVisible: false,
     }
 
@@ -480,10 +480,12 @@ class Controller extends React.PureComponent<IProps, IState> {
 
     if (this.props.chooseTips && times[0]) {
       const data = this.props.chooseTips(times[0], times[1])
-      this.setState({
-        chooseTipsData: data,
-        chooseTipsVisible: data.length > 0,
-      })
+      if (Array.isArray(data)) {
+        this.setState({
+          chooseTipsData: data,
+          chooseTipsVisible: data.length > 0,
+        })
+      }
     }
 
     this.setState({

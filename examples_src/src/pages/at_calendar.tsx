@@ -29,7 +29,7 @@ class Demo extends React.PureComponent {
         defaultRentTime="10:30"
         defaultRevertTime="05:15"
         minHours={8}
-        lockRentTime={true}
+        // lockRentTime={true}
         chooseTips={(t1, t2) => {
           console.log(t1, t2)
           return [
