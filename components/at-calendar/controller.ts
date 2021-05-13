@@ -22,6 +22,7 @@ interface IChooseTipsData {
 interface IProps {
   readonly?: boolean
   title?: string
+  type?: 'primary' | 'secondary'
   onClose: () => void
   disabledBefore?: Date
   monthRange?: [Date, Date]
@@ -131,20 +132,6 @@ class Controller extends React.PureComponent<IProps, IState> {
       if (!this.isZeroTime(props.disabledBefore)) {
         throw new Error('disabledBefore的时间必须为整点时间')
       }
-    }
-  }
-
-  componentDidMount() {
-    let cur = document.querySelector('#x-calendar-body .active-first')
-    if (!cur) {
-      cur = document.querySelector('#x-calendar-body .month-day:not(.empty):not(.disabled)')
-    }
-    if (cur) {
-      setTimeout(() => {
-        const top = (cur as any).offsetTop || 0
-        const height = (cur as any).offsetHeight || 0
-        document.querySelector('#x-calendar-body')!.scrollTop = top - height / 3
-      }, 1)
     }
   }
 
@@ -343,7 +330,7 @@ class Controller extends React.PureComponent<IProps, IState> {
 
     let timePickerTips = {}
     if (this.props.onDayClick) {
-      Loading()
+      Loading({ type: this.props.type })
       try {
         const res = await this.props.onDayClick(day, type)
         timePickerTips = res || {}
