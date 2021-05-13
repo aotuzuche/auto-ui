@@ -21,12 +21,13 @@ componentList.forEach(component => {
   //   const file = fs.readFileSync(`components/${name}/iscroll.js`, 'utf-8');
   //   fs.writeFileSync(`libs/${name}/iscroll.js`, file.toString());
   // }
-  // 日历组件有3张图片需要拷贝
+  // 日历组件有5张图片需要拷贝
   if (name === 'at-calendar') {
     fs.copyFileSync('components/at-calendar/date-part.png', `${styleDir}/at-calendar/date-part.png`);
     fs.copyFileSync('components/at-calendar/icon-date-part.png', `${styleDir}/at-calendar/icon-date-part.png`);
     fs.copyFileSync('components/at-calendar/icon-range.png', `${styleDir}/at-calendar/icon-range.png`);
     fs.copyFileSync('components/at-calendar/active-border.png', `${styleDir}/at-calendar/active-border.png`);
+    fs.copyFileSync('components/at-calendar/active-border-s.png', `${styleDir}/at-calendar/active-border-s.png`);
   }
   if (name === 'at-nav') {
     fs.copyFileSync('components/at-nav/icon-collection.png', `${styleDir}/at-nav/icon-collection.png`);

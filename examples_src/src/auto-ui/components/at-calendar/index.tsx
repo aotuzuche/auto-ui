@@ -12,7 +12,10 @@ import './style/index.scss'
 class AtCalendar extends Controller {
   render() {
     return (
-      <Layout className="at-calendar" supportDarkMode={this.props.supportDarkMode}>
+      <Layout
+        className={cn('at-calendar', { 'at-calendar--secondary': this.props.type === 'secondary' })}
+        supportDarkMode={this.props.supportDarkMode}
+      >
         {this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}
@@ -278,7 +281,12 @@ class AtCalendar extends Controller {
         {!this.props.readonly && (
           <div className="bottom">
             <div className="footer-tips">{this.renderFooterTips()}</div>
-            <Button className="submit" onClick={this.onSubmit}>
+            <Button
+              className="submit"
+              capsule={this.props.type !== 'secondary'}
+              type={this.props.type}
+              onClick={this.onSubmit}
+            >
               确定
             </Button>
           </div>
@@ -315,7 +323,9 @@ class AtCalendar extends Controller {
       <Popup
         visible={this.state.timePickerVisible}
         noPadding={true}
-        className="at-calendar__time-picker"
+        className={cn('at-calendar__time-picker', {
+          'at-calendar__time-picker--secondary': this.props.type === 'secondary',
+        })}
         onMaskClick={this.timePickerCancel}
         height="4.9rem"
       >

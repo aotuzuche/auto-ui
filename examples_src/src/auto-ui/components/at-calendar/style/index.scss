@@ -3,6 +3,13 @@
 @import '../../theme.scss';
 
 .at-calendar {
+  --border-image: url('../active-border.png');
+
+  &--secondary {
+    --x-primary-color: var(--x-secondary-color);
+    --border-image: url('../active-border-s.png');
+  }
+
   background: var(--x-bg-color-lighter);
 
   .x-app-header__inner {
@@ -444,7 +451,7 @@
         bottom: 0;
         left: 0;
         display: block;
-        background: url('../active-border.png') 0 center no-repeat;
+        background: var(--border-image) 0 center no-repeat;
         background-size: 200% 100%;
         content: '';
       }
@@ -452,7 +459,7 @@
       &.active-end em::before {
         right: 0;
         left: 50%;
-        background: url('../active-border.png') right center no-repeat;
+        background: var(--border-image) right center no-repeat;
         background-size: 200% 100%;
       }
 
@@ -460,7 +467,7 @@
         em::before {
           right: 0;
           left: 0;
-          background: url('../active-border.png');
+          background: var(--border-image);
           background-size: 100% 100%;
         }
       }
@@ -537,6 +544,10 @@
 }
 
 .at-calendar__time-picker {
+  &--secondary {
+    --x-primary-color: var(--x-secondary-color);
+  }
+
   .x-popup__inner {
     overflow: hidden;
   }

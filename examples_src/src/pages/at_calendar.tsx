@@ -25,6 +25,7 @@ class Demo extends React.PureComponent {
       <AtCalendar
         title="查看可租用时间"
         onClose={this.onClose}
+        type="secondary"
         chooseRange={[new Date(2019, 5, 5, 10), new Date(2019, 5, 7, 13)]}
         defaultRentTime="10:30"
         defaultRevertTime="05:15"
