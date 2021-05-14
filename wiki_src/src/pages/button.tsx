@@ -377,13 +377,25 @@ export default Demo
 </thead>
 <tbody><tr>
 <td>type</td>
-<td>按钮的种类，primary / secondary / lighter/ danger / default</td>
+<td>按钮的种类，primary / secondary / danger / default</td>
 <td>String</td>
 <td>primary</td>
 </tr>
 <tr>
 <td>shadow</td>
 <td>按钮投影，只有类型为 primary / secondary / danger 时才有</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>lighter</td>
+<td>轻按钮，只有类型为 primary / secondary / danger 时才有</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>hollow</td>
+<td>空心按钮，只有类型为 primary / secondary / danger 时才有</td>
 <td>Boolean</td>
 <td>false</td>
 </tr>
