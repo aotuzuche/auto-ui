@@ -9,23 +9,23 @@ class Demo extends React.PureComponent {
       <Layout>
         <Layout.Body>
           <Button type="primary" loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="secondary" loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="lighter" loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="danger" loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="primary" hollow={true} loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button
@@ -34,21 +34,21 @@ class Demo extends React.PureComponent {
             loading={this.state.loading}
             onClick={this.onClick}
           >
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="danger" hollow={true} loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Button type="default" hollow={true} loading={this.state.loading} onClick={this.onClick}>
-            {this.state.loading ? null : '点击加载'}
+            点击加载
           </Button>
           <br />
           <Cell>
             <Cell.Row>
               <Button mini={true} loading={this.state.loading} onClick={this.onClick}>
-                {this.state.loading ? null : '点击加载'}
+                点击加载
               </Button>
               <Space size={2} />
               <Button
@@ -57,7 +57,7 @@ class Demo extends React.PureComponent {
                 loading={this.state.loading}
                 onClick={this.onClick}
               >
-                {this.state.loading ? null : '点击加载'}
+                点击加载
               </Button>
             </Cell.Row>
           </Cell>

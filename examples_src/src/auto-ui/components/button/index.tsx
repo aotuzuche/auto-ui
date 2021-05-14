@@ -8,6 +8,7 @@ interface ButtonProps {
   type?: 'primary' | 'secondary' | 'lighter' | 'danger' | 'default'
   disabled?: boolean
   hollow?: boolean
+  lighter?: boolean
   capsule?: boolean
   mini?: boolean
   shrink?: boolean
@@ -28,6 +29,7 @@ const Button: React.FC<ButtonProps> = props => {
     shrink,
     capsule,
     mini,
+    lighter,
     hollow,
     shadow,
     loading,
@@ -47,18 +49,23 @@ const Button: React.FC<ButtonProps> = props => {
       'x-button--mini': mini,
       'x-button--capsule': capsule,
       'x-button--hollow': hollow,
+      'x-button--lighter': lighter || type === 'lighter',
       'x-button--shrink': shrink !== void 0 ? shrink : !!mini,
       'x-button--shadow':
         (type === 'primary' || type === 'danger' || type === 'secondary') && !hollow && shadow,
     },
-    `x-button--${type}`,
+    `x-button--${type === 'lighter' ? 'primary' : type}`,
     className,
   )
 
   const content = () => (
     <>
-      {!!loading && <Spin className="x-button__loading" />}
-      {children}
+      {!!loading && (
+        <div className="x-button__loading">
+          <Spin />
+        </div>
+      )}
+      {loading ? <div className="x-button__loading--opacity">{children}</div> : children}
     </>
   )
 
