@@ -26,9 +26,10 @@ code=[scroll](dialog_scroll)
 
 ## 支持属性
 
-| 属性         | 说明                                 | 类型          | 默认值 |
-| ------------ | ------------------------------------ | ------------- | ------ |
-| visible      | 是否显示                             | Boolean       | false  |
-| onMaskClick  | 蒙层点击事件                         | Function      | -      |
-| onCloseClick | 关闭按钮点击事件(默认不显示关闭按钮) | Function      | -      |
-| height       | 高度, 使用 Dialog.Scroller 必须设置  | Number/String | auto   |
+| 属性         | 说明                                                                                      | 类型          | 默认值 |
+| ------------ | ----------------------------------------------------------------------------------------- | ------------- | ------ |
+| visible      | 是否显示                                                                                  | Boolean       | false  |
+| keepalive    | 默认情况下，内容会在首次打开后渲染，之后始终保留，设置为 false 后，每次关闭后都会删除内容 | Boolean       | true   |
+| onMaskClick  | 蒙层点击事件                                                                              | Function      | -      |
+| onCloseClick | 关闭按钮点击事件(默认不显示关闭按钮)                                                      | Function      | -      |
+| height       | 高度, 使用 Dialog.Scroller 必须设置                                                       | Number/String | auto   |

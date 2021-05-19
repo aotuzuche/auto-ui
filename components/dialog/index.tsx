@@ -9,6 +9,7 @@ interface IProps {
   className?: string
   height?: number | string
   visible?: boolean
+  keepalive?: boolean
   onMaskClick?: () => void
   onCloseClick?: () => void
   addonTop?: React.ReactNode
@@ -38,6 +39,7 @@ class Dialog extends React.Component<IProps> {
       className,
       height,
       visible,
+      keepalive = true,
       children,
       onMaskClick,
       onCloseClick,
@@ -50,6 +52,7 @@ class Dialog extends React.Component<IProps> {
       <Modal
         {...otherProps}
         visible={visible}
+        keepalive={keepalive}
         height={height}
         onMaskClick={onMaskClick}
         className={composeClassName}

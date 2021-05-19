@@ -14,7 +14,7 @@ code=[height](popup_height)
 
 ## 自定义宽度
 
-同高度，略有不同的是，宽度不定义时为100%宽，而高度不定义时，为内容的高度(但最小不小于50%)
+同高度，略有不同的是，宽度不定义时为 100%宽，而高度不定义时，为内容的高度(但最小不小于 50%)
 
 ## 弹出方向
 
@@ -46,13 +46,14 @@ code=[scroll](popup_scroll)
 
 ## 支持属性
 
-| 属性         | 说明                        | 类型          | 默认值 |
-| ------------ | --------------------------- | ------------- | ------ |
-| visible      | 是否显示                    | Boolean       | false  |
-| onBgClick    | 蒙层点击事件                | Function      | -      |
-| height       | 高度                        | Number/String | 50     |
-| width       | 宽度                        | Number/String | 100     |
-| smoothBorder | 平滑边角，即圆角            | Boolean       | false  |
-| direction          | 弹出方向              | top / left / right / bottom       | top  |
-| noPadding    | 是否需要内 padding          | Boolean       | false  |
-| local        | 从当前 Popup 的父容器中弹出 | Boolean       | false  |
+| 属性         | 说明                                                                                      | 类型                        | 默认值 |
+| ------------ | ----------------------------------------------------------------------------------------- | --------------------------- | ------ |
+| visible      | 是否显示                                                                                  | Boolean                     | false  |
+| keepalive    | 默认情况下，内容会在首次打开后渲染，之后始终保留，设置为 false 后，每次关闭后都会删除内容 | Boolean                     | true   |
+| onBgClick    | 蒙层点击事件                                                                              | Function                    | -      |
+| height       | 高度                                                                                      | Number/String               | 50     |
+| width        | 宽度                                                                                      | Number/String               | 100    |
+| smoothBorder | 平滑边角，即圆角                                                                          | Boolean                     | false  |
+| direction    | 弹出方向                                                                                  | top / left / right / bottom | top    |
+| noPadding    | 是否需要内 padding                                                                        | Boolean                     | false  |
+| local        | 从当前 Popup 的父容器中弹出                                                               | Boolean                     | false  |

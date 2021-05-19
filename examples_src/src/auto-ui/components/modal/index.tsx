@@ -11,6 +11,7 @@ interface IProps {
   width?: number | string
   addonTop?: React.ReactNode
   addonBottom?: React.ReactNode
+  keepalive?: boolean
 }
 
 interface IState {
@@ -139,6 +140,7 @@ class Modal extends React.PureComponent<IProps, IState> {
     this.setState({
       ani: 'init',
       visible: false,
+      noContent: this.props.keepalive ? false : true,
     })
   }
 }

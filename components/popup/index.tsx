@@ -12,6 +12,7 @@ interface IProps {
   height?: number | string
   width?: number | string
   visible?: boolean
+  keepalive?: boolean
   smoothBorder?: boolean
   children: React.ReactNode
   onMaskClick?: () => void
@@ -51,6 +52,7 @@ class Popup extends React.PureComponent<IProps> {
       height,
       width,
       visible,
+      keepalive = true,
       noPadding,
       smoothBorder,
       children,
@@ -97,6 +99,7 @@ class Popup extends React.PureComponent<IProps> {
       <Modal
         {...otherProps}
         visible={visible}
+        keepalive={keepalive}
         height={height}
         width={width}
         onMaskClick={onMaskClick}

@@ -214,6 +214,12 @@ export default class View extends React.PureComponent {
 <td>false</td>
 </tr>
 <tr>
+<td>keepalive</td>
+<td>默认情况下，内容会在首次打开后渲染，之后始终保留，设置为 false 后，每次关闭后都会删除内容</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
 <td>onMaskClick</td>
 <td>蒙层点击事件</td>
 <td>Function</td>

@@ -71,7 +71,7 @@ export default class View extends React.PureComponent {
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> Demo
-`}} /></pre></div></div><h2>自定义宽度</h2><p>同高度，略有不同的是，宽度不定义时为100%宽，而高度不定义时，为内容的高度(但最小不小于50%)</p>
+`}} /></pre></div></div><h2>自定义宽度</h2><p>同高度，略有不同的是，宽度不定义时为 100%宽，而高度不定义时，为内容的高度(但最小不小于 50%)</p>
 <h2>弹出方向</h2><div className={C('code-box', { active: this.state.previewUrl.endsWith('/popup_direction') })} onClick={this.onCodeClick.bind(null, '/popup_direction')}><div className="bd"><pre className="language-tsx"><code className="language-tsx" dangerouslySetInnerHTML={{__html: `<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Layout<span class="token punctuation">,</span> Popup <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'auto-ui'</span>
 
@@ -309,6 +309,12 @@ export default class View extends React.PureComponent {
 <td>是否显示</td>
 <td>Boolean</td>
 <td>false</td>
+</tr>
+<tr>
+<td>keepalive</td>
+<td>默认情况下，内容会在首次打开后渲染，之后始终保留，设置为 false 后，每次关闭后都会删除内容</td>
+<td>Boolean</td>
+<td>true</td>
 </tr>
 <tr>
 <td>onBgClick</td>
