@@ -17,6 +17,7 @@ interface IState {
   visible: boolean
   supportDarkMode?: boolean
   ani: 'init' | 'enter' | 'leave'
+  noContent: boolean // 无内容，首次加载时不渲染内容，第一次打开后保持内容数据
 }
 
 class Modal extends React.PureComponent<IProps, IState> {
@@ -26,6 +27,7 @@ class Modal extends React.PureComponent<IProps, IState> {
     this.state = {
       visible: false,
       ani: 'init',
+      noContent: true,
     }
   }
 
@@ -44,11 +46,25 @@ class Modal extends React.PureComponent<IProps, IState> {
   }
 
   render() {
-    const { onMaskClick, height, width, visible, className, addonTop, addonBottom, ...otherProps } = this.props
+    const {
+      onMaskClick,
+      height,
+      width,
+      visible,
+      className,
+      addonTop,
+      addonBottom,
+      ...otherProps
+    } = this.props
 
-    const composeClassName = cn('x-modal', `x-modal--${this.state.ani}`, {
-      'x-app--support-dark-mode': this.state.supportDarkMode,
-    }, className)
+    const composeClassName = cn(
+      'x-modal',
+      `x-modal--${this.state.ani}`,
+      {
+        'x-app--support-dark-mode': this.state.supportDarkMode,
+      },
+      className,
+    )
 
     let heightval = ''
     if (height) {
@@ -83,7 +99,7 @@ class Modal extends React.PureComponent<IProps, IState> {
           style={{ height: heightval, width: widthval }}
           onAnimationEnd={this.onAnimationEnd}
         >
-          {this.props.children}
+          {!this.state.noContent && this.props.children}
         </div>
         {addonBottom}
       </div>
@@ -93,6 +109,7 @@ class Modal extends React.PureComponent<IProps, IState> {
   private enter() {
     this.setState({
       visible: true,
+      noContent: false,
       supportDarkMode: supportDarkMode(),
     })
 
