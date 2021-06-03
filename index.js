@@ -21,6 +21,7 @@ import Switch from './es/switch';
 import Tabs from './es/tabs';
 import TimePicker from './es/time-picker';
 import Toast from './es/toast';
+import Tips from './es/tips';
 import Message from './es/message';
 import Provider from './es/provider';
 
@@ -49,5 +50,6 @@ export {
   Toast,
   Message,
   TimePicker,
+  Tips,
   Provider,
 };

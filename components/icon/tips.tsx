@@ -7,6 +7,7 @@ interface IProps {
 }
 
 const IconTips: React.FC<IProps> = props => {
+  console.error('<Icon.Tips /> 已废弃，请使用<Tips />组件!')
   return (
     <svg
       className={cn('x-icon', props.className)}

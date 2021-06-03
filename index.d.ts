@@ -23,6 +23,7 @@ import Spin from './es/spin'
 import Switch from './es/switch'
 import Tabs from './es/tabs'
 import TimePicker from './es/time-picker'
+import Tips from './es/tips'
 import Toast from './es/toast'
 
 export {
@@ -52,4 +53,5 @@ export {
   Message,
   TimePicker,
   Provider,
+  Tips,
 };

@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@import '../../theme.scss';
+
+.x-tips {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: px(40);
+  height: px(40);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: px(28);
+    height: px(28);
+    margin: px(-14) 0 0 px(-14);
+    background-color: var(--x-tips-bg-color);
+    border-radius: 50%;
+    content: '';
+  }
+
+  &:active {
+    svg {
+      opacity: 0.7;
+    }
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: px(30);
+    height: px(30);
+    fill: var(--x-text-color-o60);
+  }
+}

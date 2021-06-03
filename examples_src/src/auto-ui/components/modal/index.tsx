@@ -55,6 +55,7 @@ class Modal extends React.PureComponent<IProps, IState> {
       className,
       addonTop,
       addonBottom,
+      keepalive,
       ...otherProps
     } = this.props
 

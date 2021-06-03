@@ -23,6 +23,7 @@ import Spin from './components/spin'
 import Switch from './components/switch'
 import Tabs from './components/tabs'
 import TimePicker from './components/time-picker'
+import Tips from './components/tips'
 import Toast from './components/toast'
 
 export {
@@ -52,4 +53,5 @@ export {
   Message,
   Provider,
   SafeArea,
+  Tips,
 }

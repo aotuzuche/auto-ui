@@ -45,6 +45,7 @@ const routes = [
   'tabs',
   'time_picker',
   'icon',
+  'tips',
   'radio',
   'radio_type',
   'radio_hollow',

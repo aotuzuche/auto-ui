@@ -81,6 +81,7 @@ import PageSwitchMini from '../pages/switch_mini'
 import PageSwitchType from '../pages/switch_type'
 import PageTabs from '../pages/tabs'
 import PageTimePicker from '../pages/time_picker'
+import PageTips from '../pages/tips'
 import PageToast from '../pages/toast'
 import PageToastCallback from '../pages/toast_callback'
 import PageToastClose from '../pages/toast_close'
@@ -150,6 +151,7 @@ const routes: any[] = [
   ['popup_direction', PagePopupDirection],
   ['space', PageSpace],
   ['icon', PageIcon],
+  ['tips', PageTips],
   ['actionsheet', PageActionsheet],
   ['actionsheet_close_button', PageActionsheetCloseButton],
   ['actionsheet_custom_items', PageActionsheetCustomItems],
