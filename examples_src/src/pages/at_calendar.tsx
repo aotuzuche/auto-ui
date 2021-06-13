@@ -27,6 +27,7 @@ class Demo extends React.PureComponent {
         onClose={this.onClose}
         type="secondary"
         chooseRange={[new Date(2019, 5, 5, 10), new Date(2019, 5, 7, 13)]}
+        monthRange={[new Date(2019, 5), new Date(2019, 10)]}
         defaultRentTime="10:30"
         defaultRevertTime="05:15"
         minHours={8}

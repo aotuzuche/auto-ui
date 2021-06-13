@@ -323,6 +323,7 @@ class AtCalendar extends Controller {
       <Popup
         visible={this.state.timePickerVisible}
         noPadding={true}
+        keepalive={false}
         className={cn('at-calendar__time-picker', {
           'at-calendar__time-picker--secondary': this.props.type === 'secondary',
         })}

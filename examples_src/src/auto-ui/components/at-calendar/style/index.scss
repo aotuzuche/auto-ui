@@ -9,15 +9,19 @@
     --x-primary-color: var(--x-secondary-color);
     --border-image: url('../active-border-s.png');
   }
-
+  overflow: hidden;
   background: var(--x-bg-color-lighter);
 
-  .x-app-header__inner {
+  > .header {
+    display: block;
+  }
+
+  > .header .x-app-header__inner {
     z-index: 6;
     background-color: var(--x-bg-color-lighter);
   }
 
-  .x-app-header__addon-bottom {
+  > .header .x-app-header__addon-bottom {
     position: relative;
     z-index: 7;
     padding: 0;
@@ -229,7 +233,11 @@
   }
 
   .has-header-tips {
-    padding-top: 120px;
+    padding-top: px(120);
+  }
+
+  .body {
+    transform: translateZ(0);
   }
 
   .month {
@@ -248,7 +256,7 @@
     .month-day {
       position: relative;
       width: 14.285%; // 7分之1
-      margin-bottom: px(60);
+      padding-bottom: px(60);
 
       &.disabled {
         p {
@@ -479,13 +487,16 @@
   }
 
   .footer {
+    display: block;
     min-height: 0;
+    overflow: hidden;
 
     .tips {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding: px(20) px(40);
+      overflow: hidden;
 
       > p {
         display: flex;
