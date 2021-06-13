@@ -45,8 +45,6 @@ button {
 .x-app-header {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
 
   &.x-app-header--bottom-shadow {
     box-shadow: 0 0 px(20) rgba(45, 156, 219, 0.14);
