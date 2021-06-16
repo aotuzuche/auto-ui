@@ -15,17 +15,15 @@
     justify-content: center;
     width: px(32);
     height: px(32);
-    border-radius: 50%;
-    background: var(--x-radio-bg-color);
     overflow: hidden;
+    background: var(--x-radio-bg-color);
+    border-radius: 50%;
     transition: all 0.1s ease-out;
 
     svg {
       display: block;
-      width: px(20);
-      height: px(20);
-      opacity: 0;
-      transform: scale(0);
+      width: px(16);
+      height: px(16);
       transition: all 0.2s ease-out;
     }
 
@@ -36,20 +34,15 @@
 
   &__text {
     display: block;
-    font-size: px(26);
-    color: var(--x-text-color);
     margin-left: px(10);
+    color: var(--x-text-color);
+    font-size: px(26);
     user-select: none;
   }
 
   &--checked {
     .x-radio__icon {
       background: var(--x-primary-color);
-
-      svg {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
 
     &.x-radio--secondary .x-radio__icon {
@@ -80,33 +73,38 @@
       }
 
       path {
-        fill: var(--x-primary-color);
+        transition: all 0.1s ease-out;
+        fill: var(--x-radio-border-color);
       }
     }
 
-    &.x-radio--checked {
-      .x-radio__icon {
+    &.x-radio--primary {
+      &.x-radio--checked .x-radio__icon {
         box-shadow: 0 0 0 1px var(--x-primary-color) inset;
+
+        path {
+          fill: var(--x-primary-color);
+        }
       }
     }
 
     &.x-radio--secondary {
-      .x-radio__icon path {
-        fill: var(--x-secondary-color);
-      }
-
       &.x-radio--checked .x-radio__icon {
         box-shadow: 0 0 0 1px var(--x-secondary-color) inset;
+
+        path {
+          fill: var(--x-secondary-color);
+        }
       }
     }
 
     &.x-radio--danger {
-      .x-radio__icon path {
-        fill: var(--x-danger-color);
-      }
-
       &.x-radio--checked .x-radio__icon {
         box-shadow: 0 0 0 1px var(--x-danger-color) inset;
+
+        path {
+          fill: var(--x-danger-color);
+        }
       }
     }
   }
