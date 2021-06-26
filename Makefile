@@ -33,8 +33,8 @@ ghpages:
 	@cp -ri examples_src/build demo/examples
 	@git add .
 	@git commit -am 'update: gh-pages'
-	@git pull && git push
-	@git subtree push --prefix=demo origin gh-pages
+	# @git pull && git push
+	# @git subtree push --prefix=demo origin gh-pages
 
 #同时打包es和commonjs
 build:
