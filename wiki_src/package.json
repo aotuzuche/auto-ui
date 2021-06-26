@@ -5,14 +5,12 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "dva": "^2.4.1",
-    "fastclick": "^1.0.6",
-    "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
     "qs": "^6.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-loadable": "^5.5.0",
-    "react-scripts-auto": "^0.0.57"
+    "react-scripts-auto": "^0.2.86"
   },
   "scripts": {
     "start": "react-scripts-auto start",
@@ -42,6 +40,7 @@
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2"
+    "typescript": "^4.3.4",
+    "vconsole-atzuche-webpack-plugin": "^3.0.0"
   }
 }

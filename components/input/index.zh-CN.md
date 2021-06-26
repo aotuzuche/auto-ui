@@ -32,6 +32,7 @@ code=[multi](input_clear)
 | error       | 是否显示错误样式（红色边框）   | Boolean   | false  |
 | addonBefore | 左侧挂载，比如一些 icon 或标题 | Component | -      |
 | addonAfter  | 右侧挂载，比如发送验证码按钮   | Component | -      |
+| capsule       | 胶囊按钮样式的输入框                       | Boolean   | false  |
 | multi       | 多行文本                       | Boolean   | false  |
 | type        | 文本类型                       | String    | text   |
 | allowClear  | 是否显示删除按钮               | Boolean   | false  |
