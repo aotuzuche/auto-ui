@@ -1,18 +1,20 @@
 import * as React from 'react'
-import { Button, Dialog, Layout } from '../auto-ui'
+import { Button, Dialog, Input, Layout } from '../auto-ui'
 
 class Demo extends React.PureComponent {
   state = { visible: false }
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Dialog</Button>
-          <Dialog visible={this.state.visible} onCloseClick={this.onBtnClick}>
-            <h1>标题</h1>
-            <p>内容</p>
-            <p>注意：dialog内的标签样式需要自己定义</p>
+          <Dialog
+            visible={this.state.visible}
+            title="请设置您的登录密码"
+            onCloseClick={this.onBtnClick}
+          >
+            <Input capsule={true} placeholder="请输入" />
             <br />
             <Button onClick={this.onBtnClick}>关闭</Button>
           </Dialog>

@@ -16,7 +16,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <Button onClick={this.onBtnClick}>显示Dialog</Button>
           <Dialog

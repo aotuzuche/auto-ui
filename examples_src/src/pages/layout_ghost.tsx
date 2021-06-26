@@ -3,7 +3,7 @@ import { Cell, Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Header title="标题" ghost={true} onBackClick={() => {}} addonAfter={<a>链接</a>} />
       <Layout.Body style={{ marginTop: '-1rem' }}>
         <div

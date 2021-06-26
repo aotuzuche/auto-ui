@@ -5,7 +5,7 @@ const Demo: React.FC<any> = () => {
   const onChange = () => {}
 
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Input value="" onChange={onChange} addonBefore={<p>姓名</p>} />
         <br />

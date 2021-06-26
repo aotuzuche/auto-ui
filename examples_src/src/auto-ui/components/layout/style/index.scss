@@ -51,7 +51,7 @@ button {
   }
 
   &.x-app-header--bottom-border {
-    box-shadow: 0 px(1) 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 px(1) 0 var(--x-border-color);
   }
 
   &.x-app-header--has-tabs {
@@ -355,6 +355,6 @@ button {
   }
 
   &.x-app-footer--top-border {
-    box-shadow: 0 px(-1) 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 px(-1) 0 var(--x-border-color);
   }
 }

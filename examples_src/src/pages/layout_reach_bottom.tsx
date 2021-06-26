@@ -10,8 +10,9 @@ class Demo extends React.PureComponent {
       content: '点击加载更多',
       handler: this.onLoadMore,
     }
+
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Header title="很长的列表" borderType="shadow" />
         <Layout.Body onReachBottom={reachObj}>
           <Cell>

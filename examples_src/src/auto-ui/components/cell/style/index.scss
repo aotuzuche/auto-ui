@@ -3,11 +3,11 @@
 @import '../../theme.scss';
 
 .x-cell {
+  min-height: px(100);
+  overflow: hidden;
+  background: var(--x-cell-bg-color);
   border-top: px(1) solid var(--x-border-color);
   border-bottom: px(1) solid var(--x-border-color);
-  background: var(--x-cell-bg-color);
-  overflow: hidden;
-  min-height: px(100);
 
   &--no-border {
     border-top: none;
@@ -15,14 +15,14 @@
   }
 
   &__row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: px(20) px(40);
-    min-height: px(100);
-    font-size: px(30);
-    color: var(--x-text-color);
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: px(100);
+    padding: px(20) px(40);
+    color: var(--x-text-color);
+    font-size: px(30);
     border-bottom: px(1) solid var(--x-border-color);
     transition: all 0.2s ease-out;
 
@@ -38,14 +38,14 @@
       border-bottom: none;
 
       &::after {
-        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
         display: block;
         height: px(1);
         background: var(--x-border-color);
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        content: '';
       }
 
       &:last-child::after {
@@ -58,8 +58,8 @@
     }
 
     &--divider-indent-both::after {
-      left: px(40);
       right: px(40);
+      left: px(40);
     }
 
     > label {
@@ -76,8 +76,8 @@
 
     &--activable {
       &:active {
-        opacity: 1;
         background: rgba(0, 0, 0, 0.03);
+        opacity: 1;
       }
     }
   }
@@ -88,25 +88,25 @@
     margin-top: px(30);
 
     > h2 {
-      font-size: px(30);
-      font-weight: normal;
       color: var(--x-text-color-o90);
+      font-weight: normal;
+      font-size: px(30);
       line-height: px(60);
     }
   }
 
   &__arrow {
-    width: px(28);
-    height: px(28);
     position: absolute;
-    pointer-events: none;
-    right: px(18);
     top: 50%;
+    right: px(18);
+    width: px(20);
+    height: px(20);
     transform: translate(0, -50%);
+    pointer-events: none;
 
     path {
-      opacity: 0.7;
-      fill: var(--x-text-color-o30);
+      opacity: 0.2;
+      fill: var(--x-text-color);
     }
   }
 }

@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <Switch active={this.state.active} onChange={this.onChange} />
           <Space size={2} />

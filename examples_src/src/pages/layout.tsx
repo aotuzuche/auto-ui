@@ -3,10 +3,10 @@ import { Layout } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Header borderType="shadow">header</Layout.Header>
       <Layout.Body>body 1234</Layout.Body>
-      <Layout.Footer>footer</Layout.Footer>
+      <Layout.Footer borderType="shadow">footer</Layout.Footer>
     </Layout>
   )
 }

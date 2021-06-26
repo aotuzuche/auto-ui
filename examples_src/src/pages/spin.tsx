@@ -3,7 +3,7 @@ import { Layout, Spin } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Spin />
         <br />

@@ -26,7 +26,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Button onClick={onClickA}>横向按钮</Button>
         <br />

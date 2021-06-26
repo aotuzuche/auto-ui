@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Button onClick={onClick}>点击打开并在2秒后自动关闭</Button>
       </Layout.Body>

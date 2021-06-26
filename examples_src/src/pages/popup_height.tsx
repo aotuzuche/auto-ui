@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <Button onClick={this.onBtnClick.bind(null, 30)}>显示30%高的Popup</Button>
           <br />

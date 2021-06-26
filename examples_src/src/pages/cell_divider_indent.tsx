@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Cell.Title text="分隔线缩进: 左侧缩进" />
         <Cell onClick={onClick} arrow={true} dividerIndent="left">

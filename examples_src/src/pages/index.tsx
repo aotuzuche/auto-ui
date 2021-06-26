@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Cell, Layout } from '../auto-ui'
+import { Cell, Layout, Switch } from '../auto-ui'
 
 const routes = [
   'button',
@@ -89,9 +89,39 @@ const routes = [
 ]
 
 class Demo extends React.PureComponent {
+  state = { darkMode: !!localStorage.getItem('darkMode') }
+
+  onChangeDarkMode = (v: boolean) => {
+    this.setState({ darkMode: v })
+    if (v) {
+      localStorage.setItem('darkMode', '1')
+    } else {
+      localStorage.removeItem('darkMode')
+    }
+  }
+
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={this.state.darkMode}>
+        <Layout.Header
+          title="AUTO-UI"
+          addonAfter={
+            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <span
+                style={{
+                  display: 'block',
+                  fontSize: '0.26rem',
+                  opacity: 0.6,
+                  marginRight: '0.1rem',
+                }}
+              >
+                暗黑模式
+              </span>
+              <Switch mini={true} active={this.state.darkMode} onChange={this.onChangeDarkMode} />
+            </span>
+          }
+        />
+
         <Layout.Body>
           <Cell arrow={true}>
             {routes.map((item, index) => {

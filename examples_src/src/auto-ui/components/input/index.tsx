@@ -10,6 +10,7 @@ interface IProps {
   addonAfter?: React.ReactChild
   error?: boolean
   multi?: boolean
+  capsule?: boolean
   disabled?: boolean
   mini?: boolean
   value?: string
@@ -93,6 +94,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
       multi,
       disabled,
       value,
+      capsule,
       onChange,
       onReset,
       placeholder,
@@ -110,6 +112,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
         'x-input--multi': multi,
         'x-input--disabled': disabled,
         'x-input--mini': mini,
+        'x-input--capsule': capsule,
         'x-input--clear': allowClear,
       },
       className,

@@ -6,7 +6,7 @@ class Demo extends React.PureComponent {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Tabs active={this.state.active} onClick={this.onClick} shrink={true}>
           <Tabs.Item value={1}>标签一</Tabs.Item>
           <Tabs.Item value={2}>标签二</Tabs.Item>

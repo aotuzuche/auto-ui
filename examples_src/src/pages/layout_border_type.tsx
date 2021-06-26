@@ -13,8 +13,9 @@ class Demo extends React.PureComponent<any, IState> {
 
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Header title="Border" borderType={this.state.borderType} />
+
         <Layout.Body>
           <Button onClick={this.onClick.bind(this, 'none')}>none</Button>
           <br />
@@ -22,6 +23,8 @@ class Demo extends React.PureComponent<any, IState> {
           <br />
           <Button onClick={this.onClick.bind(this, 'shadow')}>shadow</Button>
         </Layout.Body>
+
+        <Layout.Footer borderType={this.state.borderType}>Footer</Layout.Footer>
       </Layout>
     )
   }

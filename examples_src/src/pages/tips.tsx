@@ -4,7 +4,7 @@ import { Layout, Tips, Toast } from '../auto-ui'
 class Demo extends React.PureComponent {
   render() {
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <p style={{ display: 'flex', alignItems: 'center' }}>
             <span>这是一段文字，后面有个提示</span>

@@ -7,7 +7,7 @@ const Demo: React.FC<any> = () => {
   }
 
   return (
-    <Layout grayBackground={true}>
+    <Layout grayBackground={true} supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Body>
         <Cell.Title text="统一点击事件" />
         <Cell onClick={onClick} arrow={true} wrapperBorder={false}>

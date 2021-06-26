@@ -3,7 +3,7 @@ import { Layout, LazyImg } from '../auto-ui'
 
 const Demo: React.FC<any> = () => {
   return (
-    <Layout>
+    <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
       <Layout.Header borderType="shadow" title="Lazy Img" />
       <Layout.Body>
         <LazyImg

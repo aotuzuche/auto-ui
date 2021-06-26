@@ -24,7 +24,7 @@ class Demo extends React.PureComponent {
     ]
 
     return (
-      <Layout>
+      <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
         <Layout.Body>
           <Button
             onClick={() => {
