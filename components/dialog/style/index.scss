@@ -7,53 +7,74 @@
   flex-direction: column;
 
   &__inner {
-    padding: px(40);
-    overflow: hidden;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 px(40) px(40) px(40);
+    overflow: hidden;
+  }
+
+  &.x-dialog--fix-top {
+    .x-dialog__inner {
+      padding-top: px(40);
+    }
   }
 
   &__close {
     position: absolute;
+    top: px(30);
+    left: px(30);
     z-index: 9;
-    right: px(20);
-    top: px(20);
     width: px(50);
     height: px(50);
     padding: px(9);
 
     svg {
-      width: px(32);
-      height: px(32);
+      width: px(28);
+      height: px(28);
     }
 
     path {
-      fill: var(--x-text-color-o40);
+      fill: var(--x-text-color);
     }
   }
 
+  &__title {
+    display: block;
+    width: 100%;
+    height: px(110);
+    margin-top: px(-40);
+    padding: 0 px(100);
+    overflow: hidden;
+    font-weight: normal;
+    font-size: px(30);
+    line-height: px(110);
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+
   &__scroller {
-    flex: 1;
     display: flex;
+    flex: 1;
     overflow: hidden;
   }
 
   &__inscroller {
     flex: 1;
-    overflow: auto;
     margin: 0 px(-30) 0 0;
     padding: 0 px(30) 0 0;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
 
   .x-modal__inner {
     display: block;
-    background: var(--x-panel-bg-color);
-    transform-origin: 50%;
-    border-radius: px($bigRadius);
     width: 85%;
     height: auto;
+    padding-top: px(40);
+    background: var(--x-panel-bg-color);
+    border-radius: px($bigRadius);
+    transform-origin: 50%;
   }
 
   &.x-modal--enter {

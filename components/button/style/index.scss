@@ -91,7 +91,7 @@
 
   &--primary {
     color: #fff;
-    background: linear-gradient(to right, var(--x-primary-color-from), var(--x-primary-color-to));
+    background: var(--x-primary-color);
 
     &::after {
       position: absolute;
@@ -160,9 +160,7 @@
 
   &--secondary {
     color: #fff;
-    background: linear-gradient(
-      to right, var(--x-secondary-color-from), var(--x-secondary-color-to)
-    );
+    background: var(--x-secondary-color);
 
     &::after {
       position: absolute;
@@ -231,7 +229,7 @@
 
   &--danger {
     color: #fff;
-    background: linear-gradient(to right, var(--x-danger-color-from), var(--x-danger-color-to));
+    background: var(--x-danger-color);
 
     &::after {
       position: absolute;

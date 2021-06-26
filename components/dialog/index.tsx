@@ -10,6 +10,7 @@ interface IProps {
   height?: number | string
   visible?: boolean
   keepalive?: boolean
+  title?: string
   onMaskClick?: () => void
   onCloseClick?: () => void
   addonTop?: React.ReactNode
@@ -39,6 +40,7 @@ class Dialog extends React.Component<IProps> {
       className,
       height,
       visible,
+      title,
       keepalive = true,
       children,
       onMaskClick,
@@ -46,7 +48,13 @@ class Dialog extends React.Component<IProps> {
       ...otherProps
     } = this.props
 
-    const composeClassName = cn('x-dialog', className)
+    const composeClassName = cn(
+      'x-dialog',
+      {
+        'x-dialog--fix-top': !!onCloseClick && !title,
+      },
+      className,
+    )
 
     return (
       <Modal
@@ -62,6 +70,7 @@ class Dialog extends React.Component<IProps> {
             <IconClose />
           </button>
         )}
+        {title && <h1 className="x-dialog__title">{title}</h1>}
         <div className="x-dialog__inner">{children}</div>
       </Modal>
     )
