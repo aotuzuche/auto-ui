@@ -8,7 +8,9 @@
 
   &__inner {
     display: flex;
+    flex: 1;
     flex-direction: column;
+    height: 100%;
     padding: 0 px(40) px(40) px(40);
     overflow: hidden;
   }
@@ -68,7 +70,8 @@
   }
 
   .x-modal__inner {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 85%;
     height: auto;
     padding-top: px(40);
