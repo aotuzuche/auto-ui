@@ -1,6 +1,7 @@
 import React from 'react'
+import { isH5 } from '../__utils/env'
 
-const isSupportLoading = 'loading' in new Image()
+const isSupportLoading = isH5 && 'loading' in new Image()
 
 let io: IntersectionObserver
 
