@@ -44,7 +44,8 @@ const LazyImg: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = props => {
   if (!(window as any).IntersectionObserver) {
     return <img src={src} {...rest} />
   }
-  return <img ref={imgRef} data-_src={src} {...rest} />
+  // @ts-ignore
+  return <img ref={imgRef} data-_src={src} {...rest} lazyLoad={true}/>
 }
 
 export default LazyImg
