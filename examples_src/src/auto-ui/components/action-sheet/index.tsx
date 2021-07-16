@@ -3,6 +3,7 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 import Modal from '../modal/index'
 import './style/index.scss'
+import {isH5} from '../__utils/env';
 
 interface IItem {
   name: React.ReactChild
@@ -39,12 +40,14 @@ class ActionSheet extends React.PureComponent<IProps, any> {
   }
 
   render() {
+    if(!isH5) {
+      return this.content();
+    }
     if (this.div) {
       return createPortal(this.content(), this.div)
     }
-    return null
+   return null
   }
-
   private onItemClick = (value: any) => {
     return () => {
       if (this.props.onClick) {

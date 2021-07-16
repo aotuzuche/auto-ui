@@ -4,16 +4,21 @@ import Check from './check'
 import Close from './close'
 import Tips from './tips'
 
-interface IProps {
+export interface IconProps {
   className?: string
+
+  /**
+   * @description 仅限于小程序修改Icon颜色
+   */
+  color?: string
 }
 
 interface IIcon {
-  Arrow: React.FC<IProps>
-  Check: React.FC<IProps>
-  Back: React.FC<IProps>
-  Close: React.FC<IProps>
-  Tips: React.FC<IProps>
+  Arrow: React.FC<IconProps>
+  Check: React.FC<IconProps>
+  Back: React.FC<IconProps>
+  Close: React.FC<IconProps>
+  Tips: React.FC<IconProps>
 }
 
 const Icon: IIcon = {
