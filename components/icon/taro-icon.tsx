@@ -40,6 +40,7 @@ export const TaroIcon = React.memo((props: Props) => {
         style={{
             backgroundImage: `url(data:image/svg+xml;base64,${encode(src)})`,
             backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
         }}
       />
     );
