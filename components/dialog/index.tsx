@@ -3,6 +3,7 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 import IconClose from '../icon/close_s'
 import Modal from '../modal/index'
+import { isH5 } from '../__utils/env'
 import './style/index.scss'
 
 interface IProps {
@@ -65,7 +66,11 @@ class Dialog extends React.Component<IProps> {
   }
 
   render() {
-    return this.div && createPortal(this.content(), this.div)
+    if(isH5 && this.div) {
+      return this.div && createPortal(this.content(), this.div)
+
+    }
+    return this.content();
   }
 }
 

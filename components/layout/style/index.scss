@@ -112,6 +112,7 @@ button {
   &__addon-before,
   &__addon-after {
     position: absolute;
+    box-sizing: border-box;
     left: 0;
     top: 0;
     width: 100%;
@@ -298,6 +299,7 @@ button {
   &--error {
     .x-app__error-info {
       width: 100%;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       align-items: center;

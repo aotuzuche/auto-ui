@@ -2,6 +2,7 @@ import cn from 'classnames'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import Modal from '../modal/index'
+import { isH5 } from '../__utils/env'
 import './style/index.scss'
 
 interface IProps {
@@ -108,6 +109,9 @@ class Popup extends React.PureComponent<IProps> {
   }
 
   render() {
+    if(!isH5) {
+      return this.content()
+    }
     if (this.div) {
       return createPortal(this.content(), this.div)
     }

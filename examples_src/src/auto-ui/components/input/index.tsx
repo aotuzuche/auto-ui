@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import * as React from 'react'
 import CloseIcon from '../icon/close'
+import { isH5 } from '../__utils/env'
 import './style/index.scss'
 
 interface IProps {
@@ -38,7 +39,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
   // 劫持onBlur事件，解决input失去焦点时页面卡在半当中的情况
   onBlur: React.FocusEventHandler<any> = evt => {
     const { multi, inputProps, textareaProps } = this.props
-    evt.persist()
+    isH5 && evt.persist()
     if (multi && textareaProps && textareaProps.onBlur) {
       textareaProps.onBlur(evt)
     } else if (inputProps && inputProps.onBlur) {
@@ -53,7 +54,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
 
     setTimeout(() => {
       const ele = evt.target
-      if (ele) {
+      if (ele && isH5) {
         ;(ele as any).scrollIntoViewIfNeeded(false)
       }
     }, 300)
@@ -63,15 +64,23 @@ export default class Input extends React.PureComponent<IProps, IState> {
   onInputClear: React.EventHandler<any> = e => {
     const { onChange, inputProps, textareaProps, multi } = this.props
     const props = multi ? textareaProps : inputProps
-    e.target = { value: '', ...props }
-    onChange && onChange(e)
+ 
+    onChange && onChange({
+      ...e,
+      target: {
+        ...e.target,
+        value: '',
+        ...props
+      }
+    })
   }
 
   // 劫持onFocus事件，当focus时，标记focus用于显示clear按钮
   onFocus: React.FocusEventHandler<any> = e => {
     const { multi, inputProps, textareaProps } = this.props
 
-    e.persist()
+    // 这里没有需要异步使用 event 的地方，可以直接注释掉
+    // e.persist()
     if (multi && textareaProps && textareaProps.onFocus) {
       textareaProps.onFocus(e)
     } else if (inputProps && inputProps.onFocus) {

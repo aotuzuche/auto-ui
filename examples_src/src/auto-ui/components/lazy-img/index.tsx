@@ -1,6 +1,7 @@
 import React from 'react'
+import { isH5 } from '../__utils/env'
 
-const isSupportLoading = 'loading' in new Image()
+const isSupportLoading = isH5 && 'loading' in new Image()
 
 let io: IntersectionObserver
 
@@ -43,7 +44,8 @@ const LazyImg: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = props => {
   if (!(window as any).IntersectionObserver) {
     return <img src={src} {...rest} />
   }
-  return <img ref={imgRef} data-_src={src} {...rest} />
+  // @ts-ignore
+  return <img ref={imgRef} data-_src={src} {...rest} lazyLoad={true}/>
 }
 
 export default LazyImg
