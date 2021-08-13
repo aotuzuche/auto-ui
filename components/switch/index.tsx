@@ -11,6 +11,7 @@ interface IProps {
   type?: 'primary' | 'secondary' | 'danger'
   icon?: boolean
   mini?: boolean
+  minimum?: boolean
   disabled?: boolean
   className?: string
   children?: null
@@ -29,6 +30,7 @@ const Switch: React.FC<IProps> = props => {
     className,
     onChange,
     mini,
+    minimum,
     ...otherProps
   } = props
 
@@ -40,6 +42,7 @@ const Switch: React.FC<IProps> = props => {
       'x-switch--io': !mini && i && o,
       'x-switch--disabled': disabled,
       'x-switch--mini': mini,
+      'x-switch--minimum': minimum,
     },
     className,
   )
