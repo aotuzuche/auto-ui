@@ -32,6 +32,7 @@ const routes = [
   'switch_icon',
   'switch_io',
   'switch_mini',
+  'switch_minimum',
   'toast',
   'toast_close',
   'toast_duration',

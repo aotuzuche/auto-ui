@@ -3,25 +3,25 @@
 @import '../../theme.scss';
 
 .x-switch {
+  position: relative;
   display: inline-flex;
   width: px(100);
   height: px(54);
   background-color: var(--x-switch-bg-color);
   border-radius: px(27);
   transition: all 0.3s ease-out;
-  position: relative;
 
   > em {
+    position: absolute;
+    top: px(4);
+    left: px(4);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     width: px(46);
     height: px(46);
-    position: absolute;
-    left: px(4);
-    top: px(4);
     background-color: #fff;
+    border-radius: 50%;
     transition: all 0.3s ease-out;
 
     svg {
@@ -77,20 +77,20 @@
 
     sub,
     sup {
+      position: absolute;
+      top: 0;
+      left: 0;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      position: absolute;
-      left: 0;
-      top: 0;
       width: 100%;
       height: 100%;
-      font-style: normal;
-      color: #fff;
       padding: 0 px(20);
+      color: #fff;
       font-size: px(24);
-      transition: opacity 0.2s ease-out;
+      font-style: normal;
       opacity: 0;
+      transition: opacity 0.2s ease-out;
     }
 
     sub {
@@ -125,6 +125,22 @@
     &.x-switch--active {
       em {
         transform: translate(px(34), 0);
+      }
+    }
+  }
+
+  &--minimum {
+    width: px(64);
+    height: px(34);
+
+    > em {
+      width: px(26);
+      height: px(26);
+    }
+
+    &.x-switch--active {
+      em {
+        transform: translate(px(30), 0);
       }
     }
   }
