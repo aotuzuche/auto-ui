@@ -8,22 +8,22 @@
   justify-content: center;
 
   .x-loading__spin {
-    overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: px(34);
     width: px(82);
+    height: px(34);
+    overflow: hidden;
 
     span {
-      width: px(14);
-      height: px(14);
-      display: block;
-      border-radius: 50%;
-      background: var(--x-primary-color);
       position: absolute;
       top: px(10);
+      display: block;
+      width: px(14);
+      height: px(14);
+      background: var(--x-primary-color);
+      border-radius: 50%;
 
       &:nth-child(1) {
         left: px(0);

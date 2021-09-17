@@ -1,10 +1,6 @@
 import * as React from 'react'
 import { Layout, Toast, Upload, Cell, Card } from '../auto-ui'
 import { http } from 'auto-libs'
-const OSS = require('ali-oss')
-
-console.log(OSS)
-
 class Demo extends React.PureComponent {
   state = { active: true, data: {}, fileList: [], fileList1: [], fileList2: [], fileList3: [] }
 
@@ -12,8 +8,6 @@ class Demo extends React.PureComponent {
     const ax = await http.get(
       'https://testh5.atzuche.com/appserver/h5/v52/survey/uploadPic?token=cb390489f6654aca825ccfc43b85fd94&requestId=1631689320910&h5Platform=WEB',
     )
-
-    console.log(ax)
 
     this.setState({
       data: ax,
