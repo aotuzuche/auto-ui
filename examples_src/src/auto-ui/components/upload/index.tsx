@@ -101,7 +101,7 @@ const Upload: React.FC<IProps> = props => {
   }
 
   const uploadFiles = (files: File[]) => {
-    const originFiles = [...files] as AtFile[]
+    const originFiles = Array.prototype.slice.call(files) as AtFile[]
     const postFiles = originFiles.map((file: AtFile & { uid?: string }) => {
       file.uid = getUid()
       return processFile(file, originFiles)
