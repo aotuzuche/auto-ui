@@ -47,7 +47,7 @@ const Upload: React.FC<IProps> = props => {
     className,
     fileList = [],
     onPreview,
-    data = {},
+    data,
     accept,
     method,
     multiple,
@@ -67,7 +67,7 @@ const Upload: React.FC<IProps> = props => {
 
   const reqs: any = {}
 
-  const { host: action, dir } = data || {}
+  const { host = '', dir = '' } = data || {}
 
   const classes = cn('x-upload', className)
 
@@ -127,7 +127,7 @@ const Upload: React.FC<IProps> = props => {
 
     setTotalFileList(f => {
       f.push({
-        url: `${action}/${data.key}`,
+        url: `${host}/${data.key}`,
         uid: file.uid,
         progress: 0,
         done: false,
@@ -151,7 +151,7 @@ const Upload: React.FC<IProps> = props => {
     }
 
     const requestOption = {
-      action,
+      action: host,
       filename: 'file',
       data,
       file,
