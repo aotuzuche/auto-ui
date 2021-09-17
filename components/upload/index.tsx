@@ -252,6 +252,10 @@ const Upload: React.FC<IProps> = props => {
     }
   }, [])
 
+  if (!data || !data.host) {
+    return null
+  }
+
   return (
     <div className={classes}>
       <div className="x-upload__inner">

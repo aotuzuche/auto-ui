@@ -47,7 +47,7 @@ const Upload: React.FC<IProps> = props => {
     className,
     fileList = [],
     onPreview,
-    data,
+    data = {},
     accept,
     method,
     multiple,
@@ -67,7 +67,7 @@ const Upload: React.FC<IProps> = props => {
 
   const reqs: any = {}
 
-  const { host: action, dir } = data
+  const { host: action, dir } = data || {}
 
   const classes = cn('x-upload', className)
 
