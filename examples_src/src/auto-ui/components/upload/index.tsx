@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
 import defaultRequest from './request'
 import getUid from './uid'
@@ -59,8 +59,6 @@ const Upload: React.FC<IProps> = props => {
     ...otherProps
   } = props
 
-  const totalFileListRef = useRef<UploadFile[]>([])
-
   const [uid, setUid] = useState(getUid())
 
   const [isHideSelectEle, setHideSelectEle] = useState(false)
@@ -75,14 +73,15 @@ const Upload: React.FC<IProps> = props => {
 
   const onFileChange = (e: any) => {
     const { files = [] } = e.target
-
     const isGltMaxCount = checkFileCount(files)
 
     if (isGltMaxCount) {
       onError && onError(new Error('超出最大数量'))
       return
     }
+
     uploadFiles(files)
+
     reset()
   }
 
@@ -97,12 +96,8 @@ const Upload: React.FC<IProps> = props => {
   }
 
   const checkFileCount = (files: any): boolean => {
-    const currentLength = files.length + fileList.length
-
     // 用于提示错误，当可以多选择时一次性选择的数量+已经上传的数量超出了最大数量则提示错误
-    const gltMaxCount = currentLength > maxCount ? true : false
-
-    return gltMaxCount
+    return files.length + fileList.length > maxCount ? true : false
   }
 
   const uploadFiles = (files: File[]) => {
@@ -137,7 +132,6 @@ const Upload: React.FC<IProps> = props => {
         progress: 0,
         done: false,
       })
-
       return f
     })
 
@@ -163,7 +157,6 @@ const Upload: React.FC<IProps> = props => {
       file,
       method: method || 'post',
       onSuccess: () => {
-        checkCurrentMaxCount()
         onSuccess && onSuccess(updateSuccessFile(uid))
         delete reqs[uid]
       },
@@ -172,10 +165,11 @@ const Upload: React.FC<IProps> = props => {
         delete reqs[uid]
       },
       onProgress: (e: any) => {
-        console.log(e)
         updateFileProgress(e, uid)
       },
     }
+
+    checkCurrentMaxCount()
 
     reqs[uid] = request(requestOption)
   }
@@ -194,7 +188,7 @@ const Upload: React.FC<IProps> = props => {
   }
 
   const checkCurrentMaxCount = () => {
-    if (totalFileListRef.current.length + 1 >= maxCount) {
+    if (totalFileList.length >= maxCount) {
       setHideSelectEle(true)
     }
   }
@@ -237,17 +231,19 @@ const Upload: React.FC<IProps> = props => {
   const onFileItemDelete = (uid: string, e: React.MouseEvent) => {
     e.stopPropagation()
 
-    const currentFileIndex = totalFileListRef.current.findIndex(
-      (item: UploadFile) => item.uid === uid,
-    )
+    const currentFileIndex = totalFileList.findIndex((item: UploadFile) => item.uid === uid)
 
     if (currentFileIndex === -1) {
       return
     }
 
-    totalFileListRef.current.splice(currentFileIndex, 1)
+    totalFileList.splice(currentFileIndex, 1)
 
-    onSuccess && onSuccess(totalFileListRef.current)
+    if (totalFileList.length < maxCount) {
+      setHideSelectEle(false)
+    }
+
+    onSuccess && onSuccess(totalFileList)
   }
 
   useEffect(() => {

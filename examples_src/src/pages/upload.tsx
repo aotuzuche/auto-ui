@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Layout, Toast, Upload } from '../auto-ui'
+import { Layout, Toast, Upload, Cell, Card } from '../auto-ui'
 import { http } from 'auto-libs'
 const OSS = require('ali-oss')
 
 console.log(OSS)
 
 class Demo extends React.PureComponent {
-  state = { active: true, data: {}, fileList: [] }
+  state = { active: true, data: {}, fileList: [], fileList1: [], fileList2: [], fileList3: [] }
 
   async componentDidMount() {
     const ax = await http.get(
@@ -21,28 +21,75 @@ class Demo extends React.PureComponent {
   }
 
   render() {
-    const { data, fileList } = this.state
+    const { data, fileList, fileList1, fileList2, fileList3 } = this.state
     return (
       <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
-        <Layout.Body
-          onClick={() => {
-            console.log(fileList)
-          }}
-        >
-          <Upload
-            data={data}
-            id="test"
-            multiple
-            filename="测试车架号"
-            maxCount={10}
-            onError={e => Toast(e.message)}
-            onSuccess={fl => {
-              this.setState({
-                fileList: [...fl],
-              })
-            }}
-            fileList={fileList}
-          />
+        <Layout.Body>
+          <Cell.Title text="正常情况" />
+          <Card>
+            <Upload
+              data={data}
+              id="test"
+              onError={e => Toast(e.message)}
+              onSuccess={fl => {
+                this.setState({
+                  fileList: [...fl],
+                })
+              }}
+              fileList={fileList}
+            />
+          </Card>
+
+          <Cell.Title text="多张 5张" />
+          <Card>
+            <Upload
+              data={data}
+              id="test"
+              maxCount={5}
+              onError={e => Toast(e.message)}
+              onSuccess={fl => {
+                this.setState({
+                  fileList1: [...fl],
+                })
+              }}
+              fileList={fileList1}
+            />
+          </Card>
+
+          <Cell.Title text="多选 多张 5张" />
+          <Card>
+            <Upload
+              data={data}
+              id="test"
+              maxCount={5}
+              multiple
+              onError={e => Toast(e.message)}
+              onSuccess={fl => {
+                this.setState({
+                  fileList2: [...fl],
+                })
+              }}
+              fileList={fileList2}
+            />
+          </Card>
+
+          <Cell.Title text="自定义fileName" />
+          <Card>
+            <Upload
+              data={data}
+              id="test"
+              maxCount={5}
+              multiple
+              filename="tttteeeesssstttt"
+              onError={e => Toast(e.message)}
+              onSuccess={fl => {
+                this.setState({
+                  fileList3: [...fl],
+                })
+              }}
+              fileList={fileList3}
+            />
+          </Card>
         </Layout.Body>
       </Layout>
     )
