@@ -67,7 +67,14 @@ const Upload: React.FC<IProps> = props => {
 
   const reqs: any = {}
 
-  const { host: action, dir } = data || {}
+  const { host: action, dir } = data || {
+    accessId: '',
+    policy: '',
+    signature: '',
+    dir: '',
+    host: '',
+    expire: 0,
+  }
 
   const classes = cn('x-upload', className)
 
