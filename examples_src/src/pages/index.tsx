@@ -87,6 +87,7 @@ const routes = [
   'at_calendar',
   'at_nav',
   'at_city_selector',
+  'upload',
 ]
 
 class Demo extends React.PureComponent {
