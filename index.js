@@ -24,6 +24,7 @@ import Toast from './es/toast';
 import Tips from './es/tips';
 import Message from './es/message';
 import Provider from './es/provider';
+import Upload from './es/upload';
 
 export {
   ActionSheet,
@@ -52,4 +53,5 @@ export {
   TimePicker,
   Tips,
   Provider,
+  Upload,
 };
