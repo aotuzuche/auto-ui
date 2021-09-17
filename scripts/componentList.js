@@ -26,6 +26,7 @@ const componentList = [
   'AtNav',
   'AtCitySelector',
   'Provider',
+  'Upload',
 ];
 
 module.exports = componentList;

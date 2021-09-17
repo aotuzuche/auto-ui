@@ -24,6 +24,12 @@ const CardFigure: React.FC<IFigureProps> = props => {
     className,
   )
 
+  const arstyle: any = {}
+
+  if (aspectRatio && aspectRatio > 0) {
+    arstyle.marginTop = `${(1 / aspectRatio) * 100}%`
+  }
+
   return (
     <figure {...otherProps} className={cls} onClick={onClick}>
       {children && <div className="x-card__figure-content">{children}</div>}
@@ -33,9 +39,7 @@ const CardFigure: React.FC<IFigureProps> = props => {
         alt={title}
         title={title}
       />
-      {aspectRatio && aspectRatio > 0 ? (
-        <div className="x-card__ar" style={{ marginTop: `${(1 / aspectRatio) * 100}%` }} />
-      ) : null}
+      {aspectRatio && aspectRatio > 0 ? <div className="x-card__ar" style={arstyle} /> : null}
     </figure>
   )
 }
@@ -65,12 +69,16 @@ const Card: React.FC<ICardProps> & {
     className,
   )
 
+  const arstyle: any = {}
+
+  if (aspectRatio && aspectRatio > 0) {
+    arstyle.marginTop = `${(1 / aspectRatio) * 100}%`
+  }
+
   return (
     <div {...otherProps} className={cls} onClick={onClick}>
       <div className={`x-card__inner x-card--${direction || 'column'}`}>{children}</div>
-      {aspectRatio && aspectRatio > 0 ? (
-        <div className="x-card__ar" style={{ marginTop: `${(1 / aspectRatio) * 100}%` }} />
-      ) : null}
+      {aspectRatio && aspectRatio > 0 ? <div className="x-card__ar" style={arstyle} /> : null}
     </div>
   )
 }
