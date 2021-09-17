@@ -176,13 +176,12 @@ const Upload: React.FC<IProps> = props => {
 
   const updateSuccessFile = (uid: string) => {
     const currentFileIndex = totalFileList.findIndex((item: UploadFile) => item.uid === uid)
-    if (currentFileIndex === -1) {
-      return totalFileList
-    }
 
-    const total = [...totalFileList]
-    total[currentFileIndex].done = true
-    setTotalFileList(total)
+    if (currentFileIndex > -1) {
+      const total = [...totalFileList]
+      total[currentFileIndex].done = true
+      setTotalFileList(total)
+    }
 
     return totalFileList
   }
