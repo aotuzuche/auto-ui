@@ -17,7 +17,7 @@ export interface IProps {
   style?: React.CSSProperties
   accept?: string
   action?: string
-  data?: any
+  data: any
   filename?: string
   onBeforeUpload?: (file: AtFile, fileList: AtFile[]) => void
   fileList?: UploadFile[]
@@ -26,10 +26,11 @@ export interface IProps {
   method?: 'post' | 'get' | 'put' | 'patch'
   onPreview?: (url: string) => void
   onProgress?: () => void
-  onSuccess?: (fileList: UploadFile[]) => void
+  onSuccess: (fileList: UploadFile[]) => void
   onError?: (error: Error) => void
   listType?: 'picture-card'
   className?: string
+  disabled?: boolean
 }
 
 export interface IOssData {
@@ -52,6 +53,7 @@ const Upload: React.FC<IProps> = props => {
     method,
     multiple,
     filename,
+    disabled,
     maxCount = 1,
     onBeforeUpload,
     onError,
@@ -69,7 +71,9 @@ const Upload: React.FC<IProps> = props => {
 
   const { host = '', dir = '' } = data || {}
 
-  const classes = cn('x-upload', className)
+  const classes = cn('x-upload', className, {
+    'x-upload--disabled': disabled,
+  })
 
   const onFileChange = (e: any) => {
     const { files = [] } = e.target

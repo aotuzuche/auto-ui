@@ -38,7 +38,7 @@ class Demo extends React.PureComponent {
           <Card>
             <Upload
               data={data}
-              id="test"
+              id="test1"
               maxCount={5}
               onError={e => Toast(e.message)}
               onSuccess={fl => {
@@ -54,7 +54,7 @@ class Demo extends React.PureComponent {
           <Card>
             <Upload
               data={data}
-              id="test"
+              id="test2"
               maxCount={5}
               multiple
               onError={e => Toast(e.message)}
@@ -71,9 +71,28 @@ class Demo extends React.PureComponent {
           <Card>
             <Upload
               data={data}
-              id="test"
+              id="test3"
               maxCount={5}
               multiple
+              filename="tttteeeesssstttt"
+              onError={e => Toast(e.message)}
+              onSuccess={fl => {
+                this.setState({
+                  fileList3: [...fl],
+                })
+              }}
+              fileList={fileList3}
+            />
+          </Card>
+
+          <Cell.Title text="disabled" />
+          <Card>
+            <Upload
+              data={data}
+              id="test4"
+              maxCount={5}
+              multiple
+              disabled
               filename="tttteeeesssstttt"
               onError={e => Toast(e.message)}
               onSuccess={fl => {
