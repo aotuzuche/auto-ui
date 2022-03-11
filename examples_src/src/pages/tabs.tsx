@@ -4,10 +4,22 @@ import { Layout, Tabs } from '../auto-ui'
 class Demo extends React.PureComponent {
   state = { active: 3 }
 
+  oo: any
+
+  constructor(props: any) {
+    super(props)
+
+    this.oo = React.createRef()
+  }
+
+  componentDidMount() {
+    console.log(this.oo)
+  }
+
   render() {
     return (
       <Layout supportDarkMode={!!localStorage.getItem('darkMode')}>
-        <Tabs active={this.state.active} onClick={this.onClick} shrink={true}>
+        <Tabs active={this.state.active} onClick={this.onClick} ref={this.oo} shrink={false}>
           <Tabs.Item value={1}>标签一</Tabs.Item>
           <Tabs.Item value={2}>标签二</Tabs.Item>
           <Tabs.Item value={3}>标签三</Tabs.Item>
