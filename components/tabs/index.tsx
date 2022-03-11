@@ -35,6 +35,7 @@ interface ITabsProps {
   className?: string
   active: string | number
   shrink?: boolean
+  forwardRef?: any
   onClick: (value: string | number) => void
   [otherProps: string]: any
 }
@@ -43,7 +44,7 @@ class Tabs extends React.PureComponent<ITabsProps> {
   static Item: any
 
   render() {
-    const { className, children, active, onClick, shrink, ...otherProps } = this.props
+    const { className, children, active, onClick, forwardRef, shrink, ...otherProps } = this.props
     const composeClassName = cn(
       'x-tabs',
       {
@@ -72,7 +73,7 @@ class Tabs extends React.PureComponent<ITabsProps> {
 
     if (shrink) {
       return (
-        <div {...otherProps} className={composeClassName}>
+        <div {...otherProps} ref={forwardRef} className={composeClassName}>
           <div className="x-tabs__scroller">
             <div className="x-tabs__inner">{composeChildren}</div>
           </div>
@@ -81,13 +82,19 @@ class Tabs extends React.PureComponent<ITabsProps> {
     }
 
     return (
-      <div {...otherProps} className={composeClassName}>
+      <div {...otherProps} ref={forwardRef} className={composeClassName}>
         {composeChildren}
       </div>
     )
   }
 }
 
-Tabs.Item = TabsItem
+// 转发Ref
+const ForwardTabs: any = ((Component: any) =>
+  React.forwardRef((props: ITabsProps, ref) => (
+    <Component {...props} onClick={props.onClick} active={props.active} forwardRef={ref} />
+  )))(Tabs)
 
-export default Tabs
+ForwardTabs.Item = TabsItem
+
+export default ForwardTabs
