@@ -26,6 +26,8 @@ const Aside: React.FC<any> = props => {
     'Space,空格占位',
     'AspectRatio,宽高比',
     'TimePicker,时间选择',
+    'TimePicker,时间选择',
+    'Upload,上传',
   ];
 
   const atComponentList = [

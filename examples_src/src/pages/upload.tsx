@@ -1,13 +1,11 @@
-import * as React from 'react'
-import { Layout, Toast, Upload, Cell, Card } from '../auto-ui'
 import { http } from 'auto-libs'
+import * as React from 'react'
+import { Card, Cell, Layout, Toast, Upload } from '../auto-ui'
 class Demo extends React.PureComponent {
   state = { active: true, data: {}, fileList: [], fileList1: [], fileList2: [], fileList3: [] }
 
   async componentDidMount() {
-    const ax = await http.get(
-      'https://testh5.atzuche.com/appserver/h5/v52/survey/uploadPic?token=cb390489f6654aca825ccfc43b85fd94&requestId=1631689320910&h5Platform=WEB',
-    )
+    const ax = await http.get('xxxxxx') // 获取 oss ticket
 
     this.setState({
       data: ax,

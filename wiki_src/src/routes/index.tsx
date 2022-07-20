@@ -24,6 +24,7 @@ const PageTabs = React.lazy(() => import('../pages/tabs'));
 const PageSpace = React.lazy(() => import('../pages/space'));
 const PageTimePicker = React.lazy(() => import('../pages/time-picker'));
 const PageAspectRatio = React.lazy(() => import('../pages/aspect-ratio'));
+const PageUpload = React.lazy(() => import('../pages/upload'));
 const PageAtCalendar = React.lazy(() => import('../pages/at-calendar'));
 const PageAtNav = React.lazy(() => import('../pages/at-nav'));
 const PageAtCitySelector = React.lazy(() => import('../pages/at-city-selector'));
@@ -56,6 +57,7 @@ export default (history: any) => {
             <Route exact={true} path="/space" component={PageSpace} />
             <Route exact={true} path="/timepicker" component={PageTimePicker} />
             <Route exact={true} path="/aspectratio" component={PageAspectRatio} />
+            <Route exact={true} path="/upload" component={PageUpload} />
             <Route exact={true} path="/atcalendar" component={PageAtCalendar} />
             <Route exact={true} path="/atnav" component={PageAtNav} />
             <Route exact={true} path="/atcityselector" component={PageAtCitySelector} />
