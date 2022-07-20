@@ -6,7 +6,7 @@
   "typings": "es/index",
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "docs": "gh-pages -d demo",
+    "docs": "make ghpages && gh-pages -d demo",
     "commit": "git-cz",
     "build": "make build",
     "np": "npm run build && np --yolo --no-yarn"
@@ -37,7 +37,7 @@
     "@types/react-dom": "^16.0.11",
     "conventional-changelog": "^3.0.5",
     "cz-conventional-changelog": "^2.1.0",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^4.0.0",
     "git-cz": "^1.8.0",
     "gulp": "^4.0.2",
     "gulp-px2rem": "^1.1.2",
