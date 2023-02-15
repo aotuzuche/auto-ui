@@ -11,7 +11,7 @@ interface IProps {
   type?: 'primary' | 'secondary' | 'danger'
   text?: string
   children?: null
-  onChange?: (checked: boolean, value: string | number) => void
+  onChange?: (checked: boolean, value?: string | number) => void
   value: string | number
   [otherProps: string]: any
 }
