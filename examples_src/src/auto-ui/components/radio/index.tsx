@@ -12,7 +12,7 @@ interface IProps {
   text?: string
   children?: null
   onChange?: (checked: boolean, value?: string | number) => void
-  value: string | number
+  value?: string | number
   [otherProps: string]: any
 }
 
