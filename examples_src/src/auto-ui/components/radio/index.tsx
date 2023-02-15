@@ -12,6 +12,7 @@ interface IProps {
   text?: string
   children?: null
   onChange?: (checked: boolean) => void
+  value: string | number
   [otherProps: string]: any
 }
 
@@ -24,6 +25,7 @@ const Radio: React.FC<IProps> = props => {
     type = 'primary',
     onChange,
     hollow,
+    value = '',
     ...otherProps
   } = props
 
@@ -43,7 +45,7 @@ const Radio: React.FC<IProps> = props => {
       return
     }
     if (onChange) {
-      onChange(!checked)
+      onChange(!checked, value)
     }
   }
   if (onChange) {
