@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
-import defaultRequest from './request'
-import getUid from './uid'
+import React, { useEffect, useState } from 'react'
 import { AtFile, ParsedFileInfo } from './interface'
+import defaultRequest from './request'
 import './style/index.scss'
+import getUid from './uid'
 
 export interface UploadFile {
   url: string
@@ -250,6 +250,8 @@ const Upload: React.FC<IProps> = props => {
   }
 
   useEffect(() => {
+    checkCurrentMaxCount()
+
     return () => {
       abort()
     }
