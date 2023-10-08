@@ -69,5 +69,6 @@
     "typescript": "^3.9.7",
     "vconsole-atzuche-env": "^1.4.7",
     "vconsole-atzuche-webpack-plugin": "^3.0.0"
-  }
+  },
+  "proxy": "https://fat1.atzuche.com"
 }

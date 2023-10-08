@@ -5,7 +5,10 @@ class Demo extends React.PureComponent {
   state = { active: true, data: {}, fileList: [], fileList1: [], fileList2: [], fileList3: [] }
 
   async componentDidMount() {
-    const ax = await http.get('xxxxxx') // 获取 oss ticket
+    const ax = await http.request({
+      url: '/apigateway/carDealer/scooter/image/authYongda',
+      method: 'GET',
+    }) // 获取 oss ticket
 
     this.setState({
       data: ax,
@@ -23,7 +26,8 @@ class Demo extends React.PureComponent {
               data={data}
               id="test"
               onError={e => Toast(e.message)}
-              onSuccess={fl => {
+              onSuccess={(fl, e) => {
+                console.log({ e })
                 this.setState({
                   fileList: [...fl],
                 })

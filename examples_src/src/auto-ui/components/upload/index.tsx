@@ -26,7 +26,7 @@ export interface IProps {
   method?: 'post' | 'get' | 'put' | 'patch'
   onPreview?: (url: string) => void
   onProgress?: () => void
-  onSuccess: (fileList: UploadFile[]) => void
+  onSuccess: (fileList: UploadFile[], e?: React.MouseEvent) => void
   onError?: (error: Error) => void
   listType?: 'picture-card'
   className?: string
@@ -233,6 +233,7 @@ const Upload: React.FC<IProps> = props => {
 
   const onFileItemDelete = (uid: string, e: React.MouseEvent) => {
     e.stopPropagation()
+    e.preventDefault()
 
     const currentFileIndex = totalFileList.findIndex((item: UploadFile) => item.uid === uid)
 
@@ -246,7 +247,7 @@ const Upload: React.FC<IProps> = props => {
       setHideSelectEle(false)
     }
 
-    onSuccess && onSuccess(totalFileList)
+    onSuccess && onSuccess(totalFileList, e)
   }
 
   useEffect(() => {
