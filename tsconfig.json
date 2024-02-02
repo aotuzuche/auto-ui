@@ -13,8 +13,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react",
-    "declaration": true,
-    "typeRoots" : ["./types"],
+    "declaration": true
   },
   "include": ["components"],
   "exclude": ["node_modules"]
