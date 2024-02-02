@@ -17,6 +17,7 @@
     "jsx": "preserve",
     "pretty": true,
     "typeRoots" : ["./types"],
+    "types": []
   },
   "exclude": ["**/node_modules","**/typings"]
 }
