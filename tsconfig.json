@@ -16,6 +16,6 @@
     "declaration": true,
     "typeRoots" : ["./types"]
   },
-  "include": ["components", "types"],
-  "exclude": ["**/node_modules","**/typings"]
+  "include": ["components"],
+  "exclude": ["node_modules"]
 }
