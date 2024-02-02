@@ -4,7 +4,7 @@
     "outDir": "es",
     "target": "es5",
     "lib": ["es6", "dom"],
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
