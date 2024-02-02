@@ -8,13 +8,13 @@ cp-auto-ui:
 
 #从components中生成es6版本的js代码到es目录下
 es6:
-	@tsc -p tsconfig.json
+	@tsc -p tsconfig.json --noEmit
 	@node scripts/mvscss2es.js
 	@gulp es
 
 #从components中生成commonjs版本的js代码到lib目录下
 commonjs:
-	@tsc -p tsconfig.json --outDir lib --module commonjs
+	@tsc -p tsconfig.json --outDir lib --module commonjs --noEmit
 	@node scripts/mvscss2es.js --styleDir=lib
 	@gulp
 
