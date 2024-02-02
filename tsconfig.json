@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "components",
+    "rootDir": "./components",
     "outDir": "es",
     "target": "es5",
     "lib": ["es6", "dom"],

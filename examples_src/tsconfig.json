@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "pretty": true
+    "pretty": true,
   },
   "exclude": ["**/node_modules","**/typings"]
 }
