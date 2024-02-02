@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "declaration": true,
-    "typeRoots" : ["./types"]
+    "typeRoots" : ["./types"],
+    "types": []
   },
   "include": ["components"],
   "exclude": ["node_modules"]
