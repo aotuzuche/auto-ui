@@ -201,7 +201,7 @@ class AtCalendar extends Controller {
     if (data.price) {
       priceTxt = `${data.isHoliday ? '节' : ''}￥${data.price}`
     } else if (data.isHoliday) {
-      priceTxt = '节假日'
+      priceTxt = '节日价'
     }
 
     return (
