@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "rootDir": "./components",
+    "rootDir": "components",
     "outDir": "es",
-    "target": "es5",
+    "target": "ES5",
     "lib": ["es6", "dom"],
-    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -14,8 +13,10 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "declaration": true,
-    "typeRoots" : ["./types"]
+    "typeRoots" : ["./types"],
+    "types": [],
+    "skipLibCheck": true,
   },
   "include": ["components"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","**/node_modules/*","**/node_modules/@types"]
 }
