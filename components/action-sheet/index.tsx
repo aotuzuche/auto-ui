@@ -3,8 +3,6 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 import Modal from '../modal/index'
 import './style/index.scss'
-const a = 1
-aaaa
 
 interface IItem {
   name: React.ReactChild

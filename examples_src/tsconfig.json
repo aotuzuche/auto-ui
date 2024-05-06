@@ -16,7 +16,8 @@
     "noEmit": true,
     "jsx": "preserve",
     "pretty": true,
-    "typeRoots" : ["./types"]
+    "typeRoots": ["./types"],
+    "types": ["node"]
   },
-  "exclude": ["**/node_modules","**/typings"]
+  "exclude": ["**/node_modules", "**/typings"]
 }
