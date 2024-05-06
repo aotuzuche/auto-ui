@@ -50,7 +50,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
       this.setState({
         isFocus: false,
       })
-    }, 0)
+    }, 100)
 
     setTimeout(() => {
       const ele = evt.target
