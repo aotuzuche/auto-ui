@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AtFile, ParsedFileInfo } from './interface'
 import defaultRequest from './request'
 import './style/index.scss'
@@ -31,6 +31,7 @@ export interface IProps {
   listType?: 'picture-card'
   className?: string
   disabled?: boolean
+  initialFileList?: UploadFile[]
 }
 
 export interface IOssData {
@@ -58,6 +59,7 @@ const Upload: React.FC<IProps> = props => {
     onBeforeUpload,
     onError,
     onSuccess,
+    initialFileList,
     ...otherProps
   } = props
 
@@ -70,6 +72,8 @@ const Upload: React.FC<IProps> = props => {
   const reqs: any = {}
 
   const { host = '', dir = '' } = data || {}
+
+  const initialFileListRef = useRef(initialFileList)
 
   const classes = cn('x-upload', className, {
     'x-upload--disabled': disabled,
@@ -257,6 +261,15 @@ const Upload: React.FC<IProps> = props => {
       abort()
     }
   }, [])
+
+  useEffect(() => {
+    if (!initialFileListRef.current) {
+      return
+    }
+
+    setTotalFileList(initialFileListRef.current)
+    checkCurrentMaxCount()
+  }, [initialFileListRef.current])
 
   if (!data || !data.host) {
     return null
