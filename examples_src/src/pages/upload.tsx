@@ -2,7 +2,14 @@ import { http } from 'auto-libs'
 import * as React from 'react'
 import { Card, Cell, Layout, Toast, Upload } from '../auto-ui'
 class Demo extends React.PureComponent {
-  state = { active: true, data: {}, fileList: [], fileList1: [], fileList2: [], fileList3: [] }
+  state = {
+    active: true,
+    data: {},
+    fileList: [],
+    fileList1: [],
+    fileList2: [],
+    fileList3: [],
+  }
 
   async componentDidMount() {
     const ax = await http.request({
@@ -33,6 +40,15 @@ class Demo extends React.PureComponent {
                 })
               }}
               fileList={fileList}
+              initialFileList={[
+                {
+                  done: true,
+                  progress: 100,
+                  uid: 'WechatIMG103-1724148387642-13',
+                  url:
+                    '//at-cpic-test.oss-cn-hangzhou.aliyuncs.com/image-yongda/20240820/WechatIMG103-1724148387642-13.jpeg',
+                },
+              ]}
             />
           </Card>
 
