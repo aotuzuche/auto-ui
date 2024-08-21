@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { AtFile, ParsedFileInfo } from './interface'
 import defaultRequest from './request'
 import './style/index.scss'
@@ -73,11 +73,11 @@ const Upload: React.FC<IProps> = props => {
 
   const { host = '', dir = '' } = data || {}
 
-  const initialFileListRef = useRef(initialFileList)
-
   const classes = cn('x-upload', className, {
     'x-upload--disabled': disabled,
   })
+
+  const initialFileListMemo = useMemo(() => initialFileList, [initialFileList])
 
   const onFileChange = (e: any) => {
     const { files = [] } = e.target
@@ -194,8 +194,8 @@ const Upload: React.FC<IProps> = props => {
     return totalFileList
   }
 
-  const checkCurrentMaxCount = () => {
-    if (totalFileList.length >= maxCount) {
+  const checkCurrentMaxCount = (files?: UploadFile[]) => {
+    if ((files || totalFileList).length >= maxCount) {
       setHideSelectEle(true)
     }
   }
@@ -263,13 +263,16 @@ const Upload: React.FC<IProps> = props => {
   }, [])
 
   useEffect(() => {
-    if (!initialFileListRef.current) {
+    if (
+      !initialFileListMemo ||
+      !Array.isArray(initialFileListMemo) ||
+      initialFileListMemo.length === 0
+    ) {
       return
     }
-
-    setTotalFileList(initialFileListRef.current)
-    checkCurrentMaxCount()
-  }, [initialFileListRef.current])
+    setTotalFileList(initialFileListMemo)
+    checkCurrentMaxCount(initialFileListMemo)
+  }, [initialFileListMemo])
 
   if (!data || !data.host) {
     return null

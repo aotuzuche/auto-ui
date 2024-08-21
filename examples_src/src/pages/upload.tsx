@@ -9,6 +9,7 @@ class Demo extends React.PureComponent {
     fileList1: [],
     fileList2: [],
     fileList3: [],
+    fileInitialList: [],
   }
 
   async componentDidMount() {
@@ -20,6 +21,20 @@ class Demo extends React.PureComponent {
     this.setState({
       data: ax,
     })
+
+    setTimeout(() => {
+      this.setState({
+        fileInitialList: [
+          {
+            done: true,
+            progress: 100,
+            uid: 'WechatIMG103-1724148387642-13',
+            url:
+              '//at-cpic-test.oss-cn-hangzhou.aliyuncs.com/image-yongda/20240820/WechatIMG103-1724148387642-13.jpeg',
+          },
+        ],
+      })
+    }, 2000)
   }
 
   render() {
@@ -40,15 +55,7 @@ class Demo extends React.PureComponent {
                 })
               }}
               fileList={fileList}
-              initialFileList={[
-                {
-                  done: true,
-                  progress: 100,
-                  uid: 'WechatIMG103-1724148387642-13',
-                  url:
-                    '//at-cpic-test.oss-cn-hangzhou.aliyuncs.com/image-yongda/20240820/WechatIMG103-1724148387642-13.jpeg',
-                },
-              ]}
+              initialFileList={this.state.fileInitialList}
             />
           </Card>
 
