@@ -32,7 +32,9 @@ class Demo extends React.PureComponent {
         for (let i = 0; i < 10; i++) {
           newList.push(newList.length + 1)
         }
-        this.setState({ list: newList }, resolve)
+        this.setState({ list: newList }, () => {
+          resolve('success')
+        })
       }, 2000)
     })
   }

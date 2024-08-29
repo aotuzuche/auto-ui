@@ -4,7 +4,6 @@
     "target": "es5",
     "lib": ["es6", "dom"],
     "allowJs": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -17,7 +16,9 @@
     "jsx": "preserve",
     "pretty": true,
     "typeRoots": ["./types"],
-    "types": ["node"]
+    "types": ["node"],
+    "skipLibCheck": true
   },
-  "exclude": ["**/node_modules", "**/typings"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**"]
 }

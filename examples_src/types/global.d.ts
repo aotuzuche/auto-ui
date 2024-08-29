@@ -20,3 +20,7 @@ interface Window {
   isiOS: boolean
   isAndroid: boolean
 }
+
+declare module '@floating-ui/utils' {
+  export type AlignedPlacement = string
+}

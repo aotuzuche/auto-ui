@@ -88,6 +88,7 @@ const routes = [
   'at_nav',
   'at_city_selector',
   'upload',
+  'select',
 ]
 
 class Demo extends React.PureComponent {

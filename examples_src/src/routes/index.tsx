@@ -88,6 +88,7 @@ import PageToastCallback from '../pages/toast_callback'
 import PageToastClose from '../pages/toast_close'
 import PageToastDuartion from '../pages/toast_duration'
 import PageUpload from '../pages/upload'
+import PageSelect from '../pages/select'
 
 const routes: any[] = [
   ['', PageIndex],
@@ -178,6 +179,7 @@ const routes: any[] = [
   ['at_city_selector', PageAtCitySelector],
   ['at_nav', PageAtNav],
   ['upload', PageUpload],
+  ['select', PageSelect],
 ]
 
 export default (history: any) => {

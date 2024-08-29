@@ -1,1 +1,1 @@
-declare module 'iscroll/build/iscroll-lite'
+declare module 'iscroll/build/iscroll-lite';

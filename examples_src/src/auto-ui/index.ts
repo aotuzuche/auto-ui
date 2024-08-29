@@ -26,6 +26,7 @@ import TimePicker from './components/time-picker'
 import Tips from './components/tips'
 import Toast from './components/toast'
 import Upload from './components/upload'
+import Select from './components/select'
 
 export {
   ActionSheet,
@@ -56,4 +57,5 @@ export {
   SafeArea,
   Tips,
   Upload,
+  Select,
 }

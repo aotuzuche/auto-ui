@@ -13,10 +13,10 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "declaration": true,
-    "typeRoots" : ["./types"],
+    "typeRoots": ["./types"],
     "types": [],
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["components"],
-  "exclude": ["node_modules","**/node_modules/*","**/node_modules/@types"]
+  "exclude": ["node_modules", "**/node_modules/*", "**/node_modules/@types"]
 }

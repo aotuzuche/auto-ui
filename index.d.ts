@@ -26,6 +26,7 @@ import TimePicker from './es/time-picker';
 import Tips from './es/tips';
 import Toast from './es/toast';
 import Upload from './es/upload';
+import Select from './es/select';
 
 export {
   ActionSheet,
@@ -56,4 +57,5 @@ export {
   Provider,
   Tips,
   Upload,
+  Select,
 };

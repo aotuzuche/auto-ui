@@ -25,6 +25,7 @@ import Tips from './es/tips';
 import Message from './es/message';
 import Provider from './es/provider';
 import Upload from './es/upload';
+import Select from './es/select';
 
 export {
   ActionSheet,
@@ -54,4 +55,5 @@ export {
   Tips,
   Provider,
   Upload,
+  Select,
 };
