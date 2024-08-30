@@ -1,7 +1,7 @@
-import cn from 'classnames'
-import * as React from 'react'
-import v from '../version.json'
-import './aside.scss'
+import cn from 'classnames';
+import * as React from 'react';
+import v from '../version.json';
+import './aside.scss';
 
 const Aside: React.FC<any> = props => {
   const componentList = [
@@ -28,13 +28,10 @@ const Aside: React.FC<any> = props => {
     'TimePicker,时间选择',
     'TimePicker,时间选择',
     'Upload,上传',
+    'Select,下拉框',
   ];
 
-  const atComponentList = [
-    'AtCalendar,日期选择',
-    'AtNav,底部菜单',
-    'AtCitySelector,城市选择器',
-  ];
+  const atComponentList = ['AtCalendar,日期选择', 'AtNav,底部菜单', 'AtCitySelector,城市选择器'];
 
   const renderComponentMenu = () => {
     const current = props.location.pathname;

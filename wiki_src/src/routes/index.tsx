@@ -1,7 +1,7 @@
-import { Redirect, Route, Router, Switch } from 'dva/router'
-import * as React from 'react'
-import Aside from '../containers/aside'
-import Main from '../containers/main'
+import { Redirect, Route, Router, Switch } from 'dva/router';
+import * as React from 'react';
+import Aside from '../containers/aside';
+import Main from '../containers/main';
 
 const PageLayout = React.lazy(() => import('../pages/layout'));
 const PageButton = React.lazy(() => import('../pages/button'));
@@ -28,6 +28,7 @@ const PageUpload = React.lazy(() => import('../pages/upload'));
 const PageAtCalendar = React.lazy(() => import('../pages/at-calendar'));
 const PageAtNav = React.lazy(() => import('../pages/at-nav'));
 const PageAtCitySelector = React.lazy(() => import('../pages/at-city-selector'));
+const PageSelect = React.lazy(() => import('../pages/select'));
 
 export default (history: any) => {
   return (
@@ -61,6 +62,8 @@ export default (history: any) => {
             <Route exact={true} path="/atcalendar" component={PageAtCalendar} />
             <Route exact={true} path="/atnav" component={PageAtNav} />
             <Route exact={true} path="/atcityselector" component={PageAtCitySelector} />
+            <Route exact={true} path="/select" component={PageAtCitySelector} />
+
             <Redirect from="*" to="/layout" />
           </Switch>
         </Main>

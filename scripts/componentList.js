@@ -27,6 +27,7 @@ const componentList = [
   'AtCitySelector',
   'Provider',
   'Upload',
+  'Select',
 ];
 
 module.exports = componentList;
