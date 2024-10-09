@@ -59,10 +59,12 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-router-dom": "^5.1.2",
     "babel-plugin-import": "^1.12.2",
+    "chokidar": "2.0.4",
     "eslint": "^7.7.0",
     "eslint-config-atzuche": "^3.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.6",
+    "fsevents": "1.2.13",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
@@ -74,6 +76,7 @@
   },
   "proxy": "https://fat1.atzuche.com",
   "resolutions": {
-    "js-cookie": "^2.2.0"
+    "js-cookie": "^2.2.0",
+    "**/fsevents": "1.2.13"
   }
 }

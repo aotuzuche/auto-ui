@@ -20,6 +20,7 @@ interface IProps {
   data: IOption[]
   value: string | number | undefined
   onChange: (value: IOption) => void
+  placeholder?: string | React.ReactNode
   [otherProps: string]: any
 }
 
@@ -39,6 +40,7 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
     data,
     value,
     onChange,
+    placeholder,
     ...otherProps
   } = props
 
@@ -100,18 +102,22 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
   return createPortal(
     <div ref={floatRef} className={composeClassName} style={composeStyle} {...otherProps}>
       <div className="x-select__wrapper">
-        {data.map((item: IOption) => (
-          <div
-            className={cn('x-select__option', {
-              checked: value === item.value,
-            })}
-            key={item.value}
-            onClick={e => onOptionClick(item, e)}
-          >
-            <div className="x-select__name">{item.label}</div>
-            <div className="x-select__icon" />
-          </div>
-        ))}
+        {!data || data.length === 0 ? (
+          <div className="nodata">{placeholder}</div>
+        ) : (
+          data.map((item: IOption) => (
+            <div
+              className={cn('x-select__option', {
+                checked: value === item.value,
+              })}
+              key={item.value}
+              onClick={e => onOptionClick(item, e)}
+            >
+              <div className="x-select__name">{item.label}</div>
+              <div className="x-select__icon" />
+            </div>
+          ))
+        )}
       </div>
     </div>,
     document.body,
@@ -121,6 +127,7 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 Select.defaultProps = {
   left: 15,
   right: 15,
+  placeholder: '暂无数据',
 }
 
 export default Select
