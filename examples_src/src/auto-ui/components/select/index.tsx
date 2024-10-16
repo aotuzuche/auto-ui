@@ -12,6 +12,7 @@ interface IOption {
 }
 
 interface IProps {
+  top?: number
   className?: string
   height?: number
   left?: number
@@ -32,6 +33,7 @@ export interface PopoverRef {
 
 const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => {
   const {
+    top = 0,
     className,
     height,
     left,
@@ -68,7 +70,7 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 
     computePosition(referenceRef, floatRef.current as any).then(({ y }: { y: number }) => {
       Object.assign((floatRef.current as any).style, {
-        top: `${y}px`,
+        top: `${y + top}px`,
       })
     })
   }, [floatRef.current, referenceRef])
@@ -127,6 +129,7 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 Select.defaultProps = {
   left: 15,
   right: 15,
+  top: 0,
   placeholder: '暂无数据',
 }
 

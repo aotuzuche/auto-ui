@@ -13,6 +13,7 @@ code=[基本使用](select)
 | className    |                       | String                                 | -      |
 | height       | 下拉框的高度          | number                                 | -      |
 | left         | 下拉框距离左侧的距离  | number                                 | -      |
+| top          | 下拉框距离上侧的距离  | number                                 | -      |
 | right        | 下拉框距离右侧的距离  | number                                 | -      |
 | referenceRef | 触发下拉框显示的元素  | HTMLElement                            | -      |
 | data         | 下拉框数据            | label: string, value: string or number |        | - |

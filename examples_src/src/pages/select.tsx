@@ -84,6 +84,7 @@ const Demo: React.FC<any> = () => {
             height={200}
             left={40}
             right={40}
+            top={20}
             data={[
               { label: '奔驰', value: 1 },
               {
