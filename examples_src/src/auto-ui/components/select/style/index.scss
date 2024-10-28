@@ -3,10 +3,6 @@
 @import '../../theme.scss';
 
 .x-select {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -54,5 +50,12 @@
 
   &__icon {
     position: relative;
+  }
+
+  .nodata {
+    font-size: 24px;
+    line-height: 500px;
+    text-align: center;
+    opacity: 0.6;
   }
 }

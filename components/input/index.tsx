@@ -159,7 +159,7 @@ export default class Input extends React.PureComponent<IProps, IState> {
           onFocus={this.onFocus}
         />
 
-        {allowClear && value && this.state.isFocus && (
+        {allowClear && value && (
           <div className="x-input__iconclear" onClick={this.onInputClear}>
             <span>
               <CloseIcon />
