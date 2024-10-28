@@ -10,7 +10,6 @@ interface IOption {
 }
 
 interface IProps {
-  top?: number
   className?: string
   height?: number
   data: IOption[]
@@ -147,6 +146,7 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 })
 
 Select.defaultProps = {
+  top: 0,
   placeholder: '暂无数据',
 }
 
