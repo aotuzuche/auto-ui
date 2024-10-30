@@ -14,7 +14,7 @@ interface IProps {
   height?: number
   data: IOption[]
   current: IOption | null
-  onChange: (value: IOption) => void
+  onChange: (value: IOption | null) => void
   noDataElement?: string | React.ReactNode
   placeholder?: string
   [otherProps: string]: any
@@ -98,11 +98,10 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.value
     const item: IOption | undefined = data.find((item: IOption) => item.label === value)
-
     setInputValue(value)
 
-    if (item) {
-      onChange && onChange(item)
+    if (item || !value) {
+      onChange && onChange(item || null)
     }
 
     const cityList = filterDataList(data, value)

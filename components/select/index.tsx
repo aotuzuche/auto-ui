@@ -58,6 +58,10 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
     setInputValue(current ? current.label : '')
   }, [current])
 
+  useEffect(() => {
+    setSelectData(data)
+  }, [data])
+
   // @ts-ignore
   React.useImperativeHandle(
     ref,
@@ -146,7 +150,6 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 })
 
 Select.defaultProps = {
-  top: 0,
   placeholder: '暂无数据',
 }
 
