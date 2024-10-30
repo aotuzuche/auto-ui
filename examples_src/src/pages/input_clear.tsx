@@ -31,7 +31,6 @@ class Demo extends React.PureComponent {
 
   private onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = evt.target
-    console.log(evt.target)
     this.setState({
       [id]: value,
     })

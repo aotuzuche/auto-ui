@@ -49,7 +49,6 @@ class Demo extends React.PureComponent {
               id="test"
               onError={e => Toast(e.message)}
               onSuccess={(fl, e) => {
-                console.log({ e })
                 this.setState({
                   fileList: [...fl],
                 })

@@ -64,11 +64,12 @@ const Demo: React.FC<any> = () => {
               { label: '18130202504299 (沪A23456，2024.5.21-2024.5.22)', value: 10 },
               { label: '18130202504299 (沪A23456，2024.5.21-2024.5.22)', value: 11 },
             ]}
-            // value={selectVo.value}
             placeholder="请输入"
+            disabledInput
             noDataElement="暂无数据"
             current={selectVo}
             onChange={onChange}
+            allowClear={true}
           />
         </div>
       </Layout.Body>

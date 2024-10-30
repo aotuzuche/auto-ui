@@ -12,9 +12,7 @@ class Demo extends React.PureComponent {
     this.oo = React.createRef()
   }
 
-  componentDidMount() {
-    console.log(this.oo)
-  }
+  componentDidMount() {}
 
   render() {
     return (

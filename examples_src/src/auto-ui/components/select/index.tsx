@@ -3,6 +3,7 @@ import React, { forwardRef, useEffect, useState, useRef } from 'react'
 import './style/index.scss'
 import { useClickAway } from 'ahooks'
 import Input from '../input/index'
+import CloseIcon from '../icon/close'
 
 interface IOption {
   label: string
@@ -17,6 +18,8 @@ interface IProps {
   onChange: (value: IOption | null) => void
   noDataElement?: string | React.ReactNode
   placeholder?: string
+  disabledInput?: boolean
+  allowClear?: boolean
   [otherProps: string]: any
 }
 
@@ -35,6 +38,8 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
     onChange,
     placeholder,
     noDataElement,
+    disabledInput,
+    allowClear,
     ...otherProps
   } = props
 
@@ -95,8 +100,8 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
     return list.filter((item: IOption) => item.label.indexOf(key) > -1)
   }
 
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const value = e.target.value
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string) => {
+    const value = typeof e === 'string' ? e : e.target.value
     const item: IOption | undefined = data.find((item: IOption) => item.label === value)
     setInputValue(value)
 
@@ -112,16 +117,37 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
     setVisible(true)
   }
 
+  const onInputClear = () => {
+    onInputChange('')
+  }
+
   return (
     <div ref={floatRef} className={composeClassName} style={composeStyle} {...otherProps}>
-      <div className="x-select__input">
-        <Input
-          placeholder={placeholder}
-          onFocus={onInputFocus}
-          onChange={onInputChange}
-          allowClear
-          value={inputValue}
-        />
+      <div className="x-select__input" onClick={onInputFocus}>
+        {disabledInput ? (
+          <div
+            className={cn('x-select__input__inner', {
+              placeholder: !inputValue,
+            })}
+          >
+            <div className="text">{inputValue || placeholder}</div>
+            {allowClear && inputValue && (
+              <div className="x-input__iconclear" onClick={onInputClear}>
+                <span>
+                  <CloseIcon />
+                </span>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Input
+            placeholder={placeholder}
+            disabled={disabledInput}
+            onChange={onInputChange}
+            allowClear
+            value={inputValue}
+          />
+        )}
       </div>
 
       {isVisible && (
@@ -150,6 +176,8 @@ const Select: React.FC<IProps> = forwardRef<PopoverRef, IProps>((props, ref) => 
 
 Select.defaultProps = {
   placeholder: '暂无数据',
+  disabledInput: false,
+  allowClear: true,
 }
 
 export default Select
