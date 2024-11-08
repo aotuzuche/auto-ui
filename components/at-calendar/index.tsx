@@ -328,7 +328,7 @@ class AtCalendar extends Controller {
           'at-calendar__time-picker--secondary': this.props.type === 'secondary',
         })}
         onMaskClick={this.timePickerCancel}
-        height="4.9rem"
+        height="5.9rem"
       >
         <header className="header">
           <a className="cancel" onClick={this.timePickerCancel}>
@@ -337,6 +337,17 @@ class AtCalendar extends Controller {
           <h2>请选择{this.state.chooseType === 'rent' ? '取' : '还'}车时间</h2>
           <a onClick={this.timePickerNext}>下一步</a>
         </header>
+
+        {this.props.handoverTimeTips && (
+          <div className="handover-time-tip">
+            {this.props.handoverTimeTips.split('<br />').map((item: string, index: number) => (
+              <div className="text" key={index}>
+                {item}
+              </div>
+            ))}
+          </div>
+        )}
+
         <TimePicker
           data={[this.state.timePickerData]}
           tips={this.state.timePickerTips}

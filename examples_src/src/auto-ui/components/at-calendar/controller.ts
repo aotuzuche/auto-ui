@@ -41,6 +41,7 @@ interface IProps {
   defaultRevertTime?: string
   chooseTips?: (t1: Date, t2: Date | undefined) => IChooseTipsData[] | false // 当用户选择完成第一天时，可设置在另一天提示相关内容
   supportDarkMode?: boolean
+  handoverTimeTips?: string
 }
 
 interface IState {

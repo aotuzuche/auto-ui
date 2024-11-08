@@ -82,7 +82,7 @@ class Popup extends React.PureComponent<IProps> {
 
     let hasScrollChildren = false
     composeChildren.forEach(res => {
-      if (res.type === Scroller && !hasScrollChildren) {
+      if (res && res.type === Scroller && !hasScrollChildren) {
         hasScrollChildren = true
       }
     })

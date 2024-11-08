@@ -32,6 +32,7 @@ class Demo extends React.PureComponent {
         defaultRevertTime="05:15"
         minHours={8}
         supportDarkMode={!!localStorage.getItem('darkMode')}
+        handoverTimeTips="门店营业时间9:00-22:00，<br />请注意时间选择在门店营业时间内哦！"
         // lockRentTime={true}
         chooseTips={(t1, t2) => {
           return [
